@@ -24,13 +24,13 @@ Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and Int
 
 A red target appears on the left of an image. The system asks: “Which side is the target on?”
 
-The answer needs to enter the next step of a program: a stable option ID, a distribution over alternatives, and an inspectable record of the observation and inference. For action decisions, the observation also includes measured velocity, altitude, and target error, so that the output can become a structured action proposal.
+The answer needs to enter the next step of a program: a stable option ID, a distribution over alternatives, and an inspectable record of the observation and inference.
 
 **System One connects multimodal understanding to this decision interface.**
 
-Building on our Qwen3-VL decision-console work, we implemented a shared observation and decision protocol for Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B. Text, images, timestamped video frames, and measured state pass through each backbone’s native multimodal pipeline and become choices, binary judgments, ordinal scores, or four-axis action proposals.
+Building on our Qwen3-VL decision-console work, we implemented a shared observation and decision protocol for Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B. Text, images, and timestamped video frames pass through each backbone’s native multimodal pipeline and become choices, binary judgments, or ordinal scores.
 
-> **v0.1 supports:** text, RGB images, timestamped video frames, measured state, and five native model adapters.
+> **v0.1 supports:** text, RGB images, timestamped video frames, and five native model adapters.
 
 ## Direct decision readout
 
@@ -38,26 +38,13 @@ Here, **System One** describes the path from the current observation to a struct
 
 **The production decision path generates 0 new text tokens and returns a structured candidate distribution.**
 
-```mermaid
-flowchart LR
-    A[Task text] --> D[Native multimodal encoding and fusion]
-    B[RGB images / video frames] --> D
-    C[Measured state] --> D
-    D --> E[Candidate-label logits]
-    E --> F[Candidate distribution]
-    F --> G[Choice / judgment / score]
-    F --> H[Four-axis action proposal]
-    H --> I[External telemetry and joint-path checks]
-```
-
 | Decision type | Question | Output |
 |---|---|---|
 | `choice` | Which of 2–26 defined options? | Stable option ID and candidate probabilities |
 | `noul` | Does this statement hold? | true/false and probabilities |
 | `score` | Where on an ordered scale? | Level distribution and expected score |
-| `velocity4` | Which vx, vy, vz, and yaw-rate? | Four component distributions and an action proposal |
 
-Each action component has seven bins, covering 2,401 combinations. One four-axis proposal uses four language-model forward passes and includes an interface for joint-path checks. Candidate probabilities express relative preference within the supplied options.
+Candidate probabilities express relative preference within the supplied options.
 
 ## What we implemented
 
@@ -66,9 +53,8 @@ Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We built
 | Component | Implementation |
 |---|---|
 | **Native model adapters** | Gemma processor / forward; MiniCPM image slicing, visual resampling, and embedding fusion; InternVL dynamic tiling and visual-token fusion |
-| **Shared observation protocol** | RGB frames organized by camera and timestamp; measured state with numeric and privileged-field validation |
+| **Shared observation protocol** | RGB frames organized by camera and timestamp, with field and numeric validation |
 | **Shared decision readout** | Single-token candidate labels read through the backbone’s existing language head |
-| **Four-axis action protocol** | Action proposals with freshness, braking-distance, and joint-path checks; execution supplied by the integrating system |
 | **Unified console and API** | Switch among five models on one page; connect a compatible Qwen service; load models on demand with one resident model per backend |
 | **Reproducible validation** | Fixed inputs, native-path comparisons, protocol tests, GPU records, and incorrect predictions published together |
 
@@ -108,7 +94,7 @@ Each backbone ran the same **20 fixed probes** covering text arithmetic and logi
 
 Upload an image or video clip, enter a question and candidate options, switch models, and inspect or export the decision distribution. Video input is sampled into up to eight timestamped RGB frames.
 
-All four decision types are available through the shared API. Visual selection, event judgments, and action proposals based on measured state use the same protocol. Four-axis proposals include integration points for fresh telemetry, time limits, and joint-path checks.
+Choice, binary judgment, and ordinal scoring are available through the shared API. Visual selection, event judgments, and ordered-level assessment use the same protocol.
 
 ## Quick start
 
@@ -154,7 +140,7 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py minicp
 .venv/bin/python scripts/summarize_retention.py
 ```
 
-**11 CPU protocol and safety-boundary tests passed.** The final command checks and aggregates the five completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
+**11 CPU protocol tests passed.** The final command checks and aggregates the five completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
 
 ## Open source and licenses
 
@@ -166,7 +152,7 @@ web/                     Unified decision console
 scripts/                 Downloads, interface validation, paired evaluation, and summaries
 benchmarks/              Fixed-input probes
 evidence/                Recorded validation, including incorrect predictions
-tests/                   Protocol and safety-boundary tests
+tests/                   Protocol and input-validation tests
 docs/                    Architecture, evaluation methods, and results
 setup.sh / start_all.sh / stop_all.sh
 ```
