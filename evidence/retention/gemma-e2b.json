@@ -1,0 +1,643 @@
+{
+  "model_id": "gemma-e2b",
+  "base_model": "google/gemma-3n-E2B-it",
+  "status": "completed",
+  "paired_path_retention_passed": true,
+  "suite_id": "base_retention_v1",
+  "suite_sha256": "866e6817f810056ffa11aad25c1c4fc1a955d912a84fce4f516cd01cb88c3da5",
+  "baseline": "official_generate_first_step_raw_logits",
+  "controlled_variables": [
+    "checkpoint",
+    "prepared_input",
+    "prompt",
+    "precision",
+    "attention_backend",
+    "candidate_set"
+  ],
+  "scope": "fixed_text_and_synthetic_visual_probes_with_bounded_preprocessing",
+  "full_base_capability_retention_proven": false,
+  "training_applied": false,
+  "real_world_generalization_proven": false,
+  "summary": {
+    "count": 20,
+    "native_correct": 16,
+    "decision_correct": 16,
+    "agreements": 20,
+    "max_full_vocab_abs_diff": 0.0,
+    "max_candidate_abs_diff": 0.0,
+    "max_probability_abs_diff": 0.0,
+    "changed_parameter_version_count": 0,
+    "by_family": {
+      "multi_image": {
+        "count": 2,
+        "native_correct": 1,
+        "decision_correct": 1,
+        "agreements": 2
+      },
+      "temporal": {
+        "count": 2,
+        "native_correct": 1,
+        "decision_correct": 1,
+        "agreements": 2
+      },
+      "text_language": {
+        "count": 2,
+        "native_correct": 1,
+        "decision_correct": 1,
+        "agreements": 2
+      },
+      "text_logic": {
+        "count": 2,
+        "native_correct": 2,
+        "decision_correct": 2,
+        "agreements": 2
+      },
+      "text_math": {
+        "count": 2,
+        "native_correct": 1,
+        "decision_correct": 1,
+        "agreements": 2
+      },
+      "visual_color": {
+        "count": 2,
+        "native_correct": 2,
+        "decision_correct": 2,
+        "agreements": 2
+      },
+      "visual_count": {
+        "count": 2,
+        "native_correct": 2,
+        "decision_correct": 2,
+        "agreements": 2
+      },
+      "visual_ocr": {
+        "count": 2,
+        "native_correct": 2,
+        "decision_correct": 2,
+        "agreements": 2
+      },
+      "visual_position": {
+        "count": 2,
+        "native_correct": 2,
+        "decision_correct": 2,
+        "agreements": 2
+      },
+      "visual_relation": {
+        "count": 2,
+        "native_correct": 2,
+        "decision_correct": 2,
+        "agreements": 2
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "math_1",
+      "family": "text_math",
+      "expected": "five",
+      "native_answer": "five",
+      "decision_answer": "five",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "four": 0.0002707150997593999,
+        "five": 0.9887452721595764,
+        "six": 0.010983969084918499
+      },
+      "decision_distribution": {
+        "four": 0.0002707150997593999,
+        "five": 0.9887452721595764,
+        "six": 0.010983969084918499
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 72,
+      "visual_tokens": 0,
+      "image_count": 0,
+      "decision_forward_ms": 430.6201175786555
+    },
+    {
+      "id": "math_2",
+      "family": "text_math",
+      "expected": "five",
+      "native_answer": "four",
+      "decision_answer": "four",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "four": 0.8805945515632629,
+        "five": 0.014233484864234924,
+        "six": 0.10517202317714691
+      },
+      "decision_distribution": {
+        "four": 0.8805945515632629,
+        "five": 0.014233484864234924,
+        "six": 0.10517202317714691
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 72,
+      "visual_tokens": 0,
+      "image_count": 0,
+      "decision_forward_ms": 67.6231486722827
+    },
+    {
+      "id": "language_1",
+      "family": "text_language",
+      "expected": "cat",
+      "native_answer": "cat",
+      "decision_answer": "cat",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "cat": 0.9999992847442627,
+        "dog": 5.71500379464851e-07,
+        "bird": 1.1805099831008192e-07
+      },
+      "decision_distribution": {
+        "cat": 0.9999992847442627,
+        "dog": 5.71500379464851e-07,
+        "bird": 1.1805099831008192e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 73,
+      "visual_tokens": 0,
+      "image_count": 0,
+      "decision_forward_ms": 67.34414678066969
+    },
+    {
+      "id": "language_2",
+      "family": "text_language",
+      "expected": "south",
+      "native_answer": "west",
+      "decision_answer": "west",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "east": 0.0005880937096662819,
+        "south": 0.0005354654276743531,
+        "west": 0.9988763928413391
+      },
+      "decision_distribution": {
+        "east": 0.0005880937096662819,
+        "south": 0.0005354654276743531,
+        "west": 0.9988763928413391
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 71,
+      "visual_tokens": 0,
+      "image_count": 0,
+      "decision_forward_ms": 70.71428233757615
+    },
+    {
+      "id": "logic_1",
+      "family": "text_logic",
+      "expected": "yes",
+      "native_answer": "yes",
+      "decision_answer": "yes",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "yes": 0.9999996423721313,
+        "no": 3.747992138869449e-07
+      },
+      "decision_distribution": {
+        "yes": 0.9999996423721313,
+        "no": 3.747992138869449e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 74,
+      "visual_tokens": 0,
+      "image_count": 0,
+      "decision_forward_ms": 68.89718538150191
+    },
+    {
+      "id": "logic_2",
+      "family": "text_logic",
+      "expected": "ming",
+      "native_answer": "ming",
+      "decision_answer": "ming",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "ming": 0.9999693632125854,
+        "hong": 2.144475183740724e-05,
+        "li": 9.223272172675934e-06
+      },
+      "decision_distribution": {
+        "ming": 0.9999693632125854,
+        "hong": 2.144475183740724e-05,
+        "li": 9.223272172675934e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 83,
+      "visual_tokens": 0,
+      "image_count": 0,
+      "decision_forward_ms": 67.86823784932494
+    },
+    {
+      "id": "color_red",
+      "family": "visual_color",
+      "expected": "red",
+      "native_answer": "red",
+      "decision_answer": "red",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "red": 0.9999842643737793,
+        "green": 1.2219033123983536e-05,
+        "blue": 3.5008117720281007e-06
+      },
+      "decision_distribution": {
+        "red": 0.9999842643737793,
+        "green": 1.2219033123983536e-05,
+        "blue": 3.5008117720281007e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 350,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 2147.3489007912576
+    },
+    {
+      "id": "color_green",
+      "family": "visual_color",
+      "expected": "green",
+      "native_answer": "green",
+      "decision_answer": "green",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "red": 8.397913006774615e-06,
+        "green": 0.9999727010726929,
+        "blue": 1.8924989490187727e-05
+      },
+      "decision_distribution": {
+        "red": 8.397913006774615e-06,
+        "green": 0.9999727010726929,
+        "blue": 1.8924989490187727e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 350,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 247.31039674952626
+    },
+    {
+      "id": "count_2",
+      "family": "visual_count",
+      "expected": "two",
+      "native_answer": "two",
+      "decision_answer": "two",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "one": 6.540181857417338e-06,
+        "two": 0.9999544620513916,
+        "three": 2.753519765974488e-05,
+        "four": 1.1478377018647734e-05
+      },
+      "decision_distribution": {
+        "one": 6.540181857417338e-06,
+        "two": 0.9999544620513916,
+        "three": 2.753519765974488e-05,
+        "four": 1.1478377018647734e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 357,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 202.51542469486594
+    },
+    {
+      "id": "count_3",
+      "family": "visual_count",
+      "expected": "three",
+      "native_answer": "three",
+      "decision_answer": "three",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "one": 8.397882083954755e-06,
+        "two": 7.889079824963119e-06,
+        "three": 0.9999690055847168,
+        "four": 1.4738741811015643e-05
+      },
+      "decision_distribution": {
+        "one": 8.397882083954755e-06,
+        "two": 7.889079824963119e-06,
+        "three": 0.9999690055847168,
+        "four": 1.4738741811015643e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 357,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 209.67860706150532
+    },
+    {
+      "id": "ocr_cat",
+      "family": "visual_ocr",
+      "expected": "cat",
+      "native_answer": "cat",
+      "decision_answer": "cat",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "cat": 0.9999847412109375,
+        "dog": 4.495132998272311e-06,
+        "car": 1.0783263860503212e-05
+      },
+      "decision_distribution": {
+        "cat": 0.9999847412109375,
+        "dog": 4.495132998272311e-06,
+        "car": 1.0783263860503212e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 345,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 210.30870405957103
+    },
+    {
+      "id": "ocr_dog",
+      "family": "visual_ocr",
+      "expected": "dog",
+      "native_answer": "dog",
+      "decision_answer": "dog",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "cat": 5.714982762583531e-07,
+        "dog": 0.9999955892562866,
+        "car": 3.844933416985441e-06
+      },
+      "decision_distribution": {
+        "cat": 5.714982762583531e-07,
+        "dog": 0.9999955892562866,
+        "car": 3.844933416985441e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 345,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 188.70460521429777
+    },
+    {
+      "id": "position_left",
+      "family": "visual_position",
+      "expected": "left",
+      "native_answer": "left",
+      "decision_answer": "left",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "left": 0.970687747001648,
+        "right": 0.02931223064661026
+      },
+      "decision_distribution": {
+        "left": 0.970687747001648,
+        "right": 0.02931223064661026
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 346,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 209.66452173888683
+    },
+    {
+      "id": "position_right",
+      "family": "visual_position",
+      "expected": "right",
+      "native_answer": "right",
+      "decision_answer": "right",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "left": 0.004905405919998884,
+        "right": 0.9950946569442749
+      },
+      "decision_distribution": {
+        "left": 0.004905405919998884,
+        "right": 0.9950946569442749
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 346,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 207.70785817876458
+    },
+    {
+      "id": "spatial_above",
+      "family": "visual_relation",
+      "expected": "above",
+      "native_answer": "above",
+      "decision_answer": "above",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "above": 0.9998089671134949,
+        "below": 0.00019110430730506778
+      },
+      "decision_distribution": {
+        "above": 0.9998089671134949,
+        "below": 0.00019110430730506778
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 347,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 254.12590708583593
+    },
+    {
+      "id": "spatial_below",
+      "family": "visual_relation",
+      "expected": "below",
+      "native_answer": "below",
+      "decision_answer": "below",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "above": 0.006692850962281227,
+        "below": 0.9933071732521057
+      },
+      "decision_distribution": {
+        "above": 0.006692850962281227,
+        "below": 0.9933071732521057
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 347,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 229.4084751047194
+    },
+    {
+      "id": "multi_red_green",
+      "family": "multi_image",
+      "expected": "yes",
+      "native_answer": "yes",
+      "decision_answer": "yes",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "yes": 0.977022647857666,
+        "no": 0.022977370768785477
+      },
+      "decision_distribution": {
+        "yes": 0.977022647857666,
+        "no": 0.022977370768785477
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 627,
+      "visual_tokens": 512,
+      "image_count": 2,
+      "decision_forward_ms": 755.652375984937
+    },
+    {
+      "id": "multi_green_red",
+      "family": "multi_image",
+      "expected": "no",
+      "native_answer": "yes",
+      "decision_answer": "yes",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "yes": 0.7310585379600525,
+        "no": 0.2689414322376251
+      },
+      "decision_distribution": {
+        "yes": 0.7310585379600525,
+        "no": 0.2689414322376251
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 627,
+      "visual_tokens": 512,
+      "image_count": 2,
+      "decision_forward_ms": 189.5587258040905
+    },
+    {
+      "id": "temporal_left_right",
+      "family": "temporal",
+      "expected": "right",
+      "native_answer": "right",
+      "decision_answer": "right",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "left": 0.10669060051441193,
+        "right": 0.8933094143867493
+      },
+      "decision_distribution": {
+        "left": 0.10669060051441193,
+        "right": 0.8933094143867493
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 626,
+      "visual_tokens": 512,
+      "image_count": 2,
+      "decision_forward_ms": 189.79514809325337
+    },
+    {
+      "id": "temporal_right_left",
+      "family": "temporal",
+      "expected": "left",
+      "native_answer": "right",
+      "decision_answer": "right",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "left": 0.13296423852443695,
+        "right": 0.8670357465744019
+      },
+      "decision_distribution": {
+        "left": 0.13296423852443695,
+        "right": 0.8670357465744019
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 626,
+      "visual_tokens": 512,
+      "image_count": 2,
+      "decision_forward_ms": 254.76602790877223
+    }
+  ],
+  "torch_version": "2.8.0+cu128",
+  "transformers_version": "4.57.1"
+}

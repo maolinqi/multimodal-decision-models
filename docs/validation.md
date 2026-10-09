@@ -13,3 +13,7 @@
 See JSON records in [`evidence/`](../evidence/). Gemma records retain their earlier test inputs and `evidence_origin`; their probe images differ from the new script, so do not treat these rows as a matched-model benchmark. E4B chose `six` for the earlier `2+3` probe; E2B chose `five`.
 
 Interface verification covers positive visual-token counts, normalized candidate probabilities, `choice`, `noul`, `score`, four-axis proposals, and native first-step parity. It does not establish calibrated probabilities, trained policies, navigation improvement, low-latency closed-loop control, real-image generalization or physical flight success.
+
+## 扩展基座行为对照
+
+五个模型各 20 项固定文字与合成图像探针的原生第一步配对结果已公开，见 [基座行为保持对比](base-retention-results.md)。它验证相同已预处理输入下的候选决策与完整词表 logits 一致性。

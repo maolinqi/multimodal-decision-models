@@ -1,0 +1,64 @@
+{
+  "suite_id": "base_retention_v1",
+  "suite_sha256": "866e6817f810056ffa11aad25c1c4fc1a955d912a84fce4f516cd01cb88c3da5",
+  "total_paired_samples": 100,
+  "total_agreements": 100,
+  "models": [
+    {
+      "model_id": "gemma-e2b",
+      "name": "Gemma-3n-E2B-it",
+      "count": 20,
+      "native_correct": 16,
+      "decision_correct": 16,
+      "agreements": 20,
+      "max_full_vocab_abs_diff": 0.0,
+      "max_probability_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "model_id": "gemma-e4b",
+      "name": "Gemma-3n-E4B-it",
+      "count": 20,
+      "native_correct": 16,
+      "decision_correct": 16,
+      "agreements": 20,
+      "max_full_vocab_abs_diff": 0.0,
+      "max_probability_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "model_id": "minicpm-v45",
+      "name": "MiniCPM-V-4.5",
+      "count": 20,
+      "native_correct": 20,
+      "decision_correct": 20,
+      "agreements": 20,
+      "max_full_vocab_abs_diff": 0.0,
+      "max_probability_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "model_id": "internvl35-8b",
+      "name": "InternVL3.5-8B",
+      "count": 20,
+      "native_correct": 19,
+      "decision_correct": 19,
+      "agreements": 20,
+      "max_full_vocab_abs_diff": 0.0,
+      "max_probability_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "model_id": "internvl35-14b",
+      "name": "InternVL3.5-14B",
+      "count": 20,
+      "native_correct": 20,
+      "decision_correct": 20,
+      "agreements": 20,
+      "max_full_vocab_abs_diff": 0.0,
+      "max_probability_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    }
+  ],
+  "full_base_capability_retention_proven": false
+}
