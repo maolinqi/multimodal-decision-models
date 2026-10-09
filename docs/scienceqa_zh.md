@@ -26,3 +26,7 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py gemma-
 - 按作者说明，数据集采用 **CC-BY-NC-SA-4.0**；与项目自有代码的 Apache-2.0 许可分别适用。
 
 Lu 等（2022），*Learn to Explain: Multimodal Reasoning via Thought Chains for Science Question Answering*，NeurIPS。
+
+## 延迟计时
+
+每条记录保存 GPU 同步后的 `decision_forward_ms`，范围为已预处理张量输入到 logits 返回，包含视觉编码、融合和语言模型前向。模型加载后计时，按每模型全部 100 题统计中位数与最近秩 P95。硬件为 NVIDIA A800-SXM4-80GB、BF16，共享 GPU 实测。

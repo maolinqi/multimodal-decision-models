@@ -26,3 +26,7 @@ Run the comparison once for each of the five registered model IDs. `scripts/summ
 - Dataset license: **CC-BY-NC-SA-4.0**, according to the authors. The dataset's terms apply separately from this project's Apache-2.0 code license.
 
 Lu et al. (2022), *Learn to Explain: Multimodal Reasoning via Thought Chains for Science Question Answering*, NeurIPS.
+
+## Timing
+
+Each record includes synchronized `decision_forward_ms`, covering visual encoding, fusion, and the language-model forward from prepared tensors to returned logits. Models are loaded before measurement. Median and nearest-rank P95 are calculated from all 100 questions per model. Hardware: NVIDIA A800-SXM4-80GB, BF16, shared GPU.

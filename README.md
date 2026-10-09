@@ -3,18 +3,21 @@
 # System One
 ### Omni-modal System One Decision Models
 
-**See the environment. Understand the task. Make an explicit choice.**
+**Turn multimodal backbones into decision interfaces, with no additional training.**
 
 Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and InternVL
+
+**With no additional training: MiniCPM-V-4.5 achieves 98% candidate accuracy and 148.9 ms median decision-forward latency on 100 fixed ScienceQA image-test questions.**
 
 **English** · [简体中文](README_zh.md)
 
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
+[![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#training-free-decision-adaptation)
 [![Adapters](https://img.shields.io/badge/Native_Adapters-5-2563eb)](#supported-backbones)
-[![Paired Probes](https://img.shields.io/badge/Paired_Probes-100%2F100_agree-2563eb)](docs/base-retention-results.md)
+[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-400%2F400_agree-2563eb)](docs/scienceqa-results.md)
 
-[Overview](#overview) · [Method](#direct-decision-readout) · [Models](#supported-backbones) · [Evaluation](#base-model-comparison) · [Quick start](#quick-start) · [Open source](#open-source-and-licenses)
+[Overview](#overview) · [Training-free method](#training-free-decision-adaptation) · [Inputs and outputs](#multimodal-inputs-structured-outputs) · [Models](#supported-backbones) · [Training-free accuracy](#measured-accuracy-with-no-additional-training) · [Latency](#measured-decision-latency) · [Quick start](#quick-start) · [Open source](#open-source-and-licenses)
 
 </div>
 
@@ -22,17 +25,38 @@ Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and Int
 
 ## Overview
 
-**System One is an open-source multimodal decision-model project that turns vision-language understanding into structured decisions callable from software.** Given task text, images or video frames, and a question, it returns a candidate choice, binary judgment, or ordinal score with a corresponding probability distribution.
+**System One is an open-source model project for multimodal understanding and low-latency decisions, turning vision-language understanding into structured decisions callable from software.** Given task text, images or video frames, and a question, it returns a candidate choice, binary judgment, or ordinal score with a corresponding probability distribution. Text defines the task and candidates, images provide objects and spatial relationships, and timestamped video frames provide changes over time. These inputs are combined through the backbone’s native multimodal pipeline.
 
-We implemented five decision adapters on **Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**.
+We implemented five decision adapters on **Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**, **using their existing pretrained weights directly, with no additional training or fine-tuning**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**, returning the decision distribution directly and reducing the wait associated with token-by-token decoding.
 
 The project provides a shared observation protocol, decision API, and web console, giving all five models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
 
-## Direct decision readout
+## Training-free decision adaptation
 
-Here, **System One** describes the path from the current observation to a structured decision. A candidate decision uses one language-model forward pass: read the candidate-label logits at the final position, then normalize over the candidate set.
+The adaptation connects existing multimodal understanding to a shared decision interface: preserve native visual encoding and fusion, map options to single-token labels, read candidate logits through the existing language head, and normalize them into a candidate distribution.
 
-**The production decision path generates 0 new text tokens and returns a structured candidate distribution.**
+| Property | Implemented in this release |
+|---|---|
+| Additional training steps | **0** |
+| Added model parameters | **0**; reuse the native language head |
+| Backbone weight updates | **0**; load official weights directly |
+| One choice, judgment, or score | **1 language-model forward pass** |
+| Generated text in the decision path | **0 new tokens** |
+| Output | Stable option IDs, candidate probabilities, and input provenance |
+
+The candidate distribution is computed from the backbone’s label logits for the current input:
+
+$$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
+
+Here, $z_{t_i}$ is the logit for candidate $i$’s label token and $K$ is the number of candidates.
+
+This turns image and video understanding into choices, judgments, and scores callable from software. All five models connect to one console through the same protocol.
+
+## Multimodal inputs, structured outputs
+
+- **Joint visual and textual judgment:** images provide visual content; text provides the task, context, and candidate options. Both enter the decision pipeline.
+- **Multi-frame temporal context:** support multiple RGB images and up to eight timestamped video frames, retaining camera IDs and temporal order.
+- **Software-ready results:** read judgments into stable IDs and candidate distributions for selection, binary judgment, and ordinal scoring.
 
 | Decision type | Question | Output |
 |---|---|---|
@@ -66,25 +90,38 @@ Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We built
 
 These decision adapters use the official backbone weights and native language heads. An existing compatible Qwen service can be connected through `QWEN_DECISION_URL`.
 
-## Base-model comparison
+## Measured accuracy with no additional training
 
-We used paired tests to check whether visual fusion and decision readout preserve the backbone’s native computation.
+**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively.
 
-Each backbone ran the same **20 fixed probes** covering text arithmetic and logic, colors, counting, OCR, spatial relations, two-image judgments, and temporal changes. Every input was evaluated through the official generation first step and our decision forward path, with checkpoint, prepared input, prompt, candidate set, precision, and attention implementation held constant.
+The evaluation uses **100 image-bearing questions from the official ScienceQA test split, seed 42**, with identical IDs for every model in the table. Inputs contain the question, available hint, image, and options. Native and decision paths share checkpoint, prepared input, prompt, candidate set, precision, and attention implementation. The baseline reads candidate logits from the official generation first step and uses the same candidate softmax and argmax for scoring.
 
-| Model | Native correct | Decision correct | Decision agreement | Max full-vocabulary logit difference |
+| Model | Additional training | Native candidate accuracy | Decision accuracy | Agreement |
 |---|---:|---:|---:|---:|
-| Gemma-3n-E2B-it | 16/20 | 16/20 | 100% | 0 |
-| Gemma-3n-E4B-it | 16/20 | 16/20 | 100% | 0 |
-| MiniCPM-V-4.5 | 20/20 | 20/20 | 100% | 0 |
-| InternVL3.5-8B | 19/20 | 19/20 | 100% | 0 |
-| InternVL3.5-14B | 20/20 | 20/20 | 100% | 0 |
+| Gemma-3n-E2B-it | 0 steps | 80% | 80% | 100% |
+| Gemma-3n-E4B-it | 0 steps | 84% | 84% | 100% |
+| MiniCPM-V-4.5 | 0 steps | 98% | 98% | 100% |
+| InternVL3.5-8B | 0 steps | 93% | 93% | 100% |
 
-**All 100 paired decisions agreed. Maximum differences in full-vocabulary logits and candidate probabilities were both 0.** Parameter objects and version counters remained unchanged during evaluation. Incorrect native predictions are included in the reports.
+**All 400 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
 
-**On these tested inputs and settings, the adapters preserved native first-step computation and candidate decisions.** The evaluation compares each model against its own native path under identical conditions; the linked protocol specifies inputs and scoring.
+[Dataset and protocol](docs/scienceqa.md) · [Fixed manifest](benchmarks/scienceqa-test-100-manifest.json) · [Completed aggregates](evidence/scienceqa/completed-summaries.json)
 
-[Protocol](docs/base-retention.md) · [Results](docs/base-retention-results.md) · [Fixed inputs](benchmarks/base_retention_v1.json) · [Raw records](evidence/retention/)
+## Measured decision latency
+
+A choice, judgment, or score reads candidate logits from one forward pass and generates 0 new text tokens. Multimodal encoding and fusion feed directly into a structured distribution, reducing token-by-token decoding and free-text parsing stages.
+
+Measurements use the same fixed ScienceQA subset, 100 image questions per model, with one image and one choice question per input. **Models are loaded before timing; the timer covers visual encoding, fusion, and the language-model forward from prepared tensors to returned logits.** Hardware: NVIDIA A800-SXM4-80GB, BF16, synchronized timing, shared GPU. Median and nearest-rank P95 use all 100 questions.
+
+| Model | Median forward | P95 forward |
+|---|---:|---:|
+| Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
+| Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
+| MiniCPM-V-4.5 | 148.9 ms | 256.1 ms |
+
+[Timing details](docs/scienceqa-latency.md) · [Completed aggregates](evidence/scienceqa/completed-summaries.json)
+
+All five backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
 
 ## Unified decision console
 
