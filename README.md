@@ -34,7 +34,7 @@
 
 本项目用 **System One** 表示从当前观测直接到结构化选择的通路。对于一次候选决策，模型完成一次语言模型前向，读取最后位置的候选标签 logits，然后计算候选集合内的概率。
 
-**生产决策路径生成 0 个新文本 token。** 它仍需要编码输入和执行模型计算；“零生成”描述的是决策读出方式，不是输入长度或计算开销。
+**生产决策路径生成 0 个新文本 token，直接返回结构化候选分布。**
 
 ```mermaid
 flowchart LR
@@ -57,7 +57,7 @@ flowchart LR
 
 四轴各使用七档，覆盖 2401 种组合；一次四轴建议需要四次语言模型前向。各分量概率不构成联合安全概率，动作建议默认 `executable=false`。
 
-候选概率表达的是当前选项之间的相对偏好。本版本没有进行概率校准，不将其称为可靠的正确率或安全保证。未知情况可由应用显式加入候选集；当前没有自动 abstain 或多问题共享一次前向的机制。
+候选概率表示当前选项之间的相对偏好，尚未校准为正确率。
 
 ## 从同一套协议，走向五个基座
 
@@ -74,17 +74,17 @@ flowchart LR
 
 ## 模型基座
 
-| model_id | 官方基座 | 适配方式 |
-|---|---|---|
-| `gemma-e4b` | [google/gemma-3n-E4B-it](https://huggingface.co/google/gemma-3n-E4B-it) | 原生 Gemma3n processor / conditional-generation forward |
-| `gemma-e2b` | [google/gemma-3n-E2B-it](https://huggingface.co/google/gemma-3n-E2B-it) | 原生 Gemma3n processor / conditional-generation forward |
-| `minicpm-v45` | [openbmb/MiniCPM-V-4_5](https://huggingface.co/openbmb/MiniCPM-V-4_5) | 原生图像切片、视觉重采样、语言模型 embedding 融合 |
-| `internvl35-8b` | [OpenGVLab/InternVL3_5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B) | 原生动态切片、视觉特征与 IMG_CONTEXT token 融合 |
-| `internvl35-14b` | [OpenGVLab/InternVL3_5-14B](https://huggingface.co/OpenGVLab/InternVL3_5-14B) | 同上 |
+| model_id | 官方基座 |
+|---|---|
+| `gemma-e4b` | [google/gemma-3n-E4B-it](https://huggingface.co/google/gemma-3n-E4B-it) |
+| `gemma-e2b` | [google/gemma-3n-E2B-it](https://huggingface.co/google/gemma-3n-E2B-it) |
+| `minicpm-v45` | [openbmb/MiniCPM-V-4_5](https://huggingface.co/openbmb/MiniCPM-V-4_5) |
+| `internvl35-8b` | [OpenGVLab/InternVL3_5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B) |
+| `internvl35-14b` | [OpenGVLab/InternVL3_5-14B](https://huggingface.co/OpenGVLab/InternVL3_5-14B) |
 
-决策协议沿用 Qwen3-VL 决策台的 `choice`、`noul`、`score` 和 `velocity4` 接口。可通过 `QWEN_DECISION_URL` 接入已有的兼容 Qwen 服务。
+可通过 `QWEN_DECISION_URL` 接入已有的兼容 Qwen 服务。
 
-本版本使用官方基座权重，未进行决策微调，也未发布新的训练权重。各模型通过已有语言头读取候选分布，基座归属与许可保持明确。
+本版本直接使用官方基座权重，未进行决策微调。
 
 ## 改造之后，基座的行为还在吗？
 
@@ -102,9 +102,7 @@ flowchart LR
 
 **100 组配对中，候选决策全部一致；完整词表 logits 和候选概率最大差均为 0。** 运行期间参数对象和版本计数未变化。基座答错的样本也保留在报告中，正确数由同一批固定输入计算。
 
-这些结果支持一个具体结论：**在已测输入与配置下，决策改造保持了基座的原生第一步计算及候选决策行为。**
-
-这组小型探针不证明全部基座能力无损。双方共享项目的图像缩放、切片和输入预算，因此还需要真实数据、原生默认配置对照及多词元生成评测，才能扩大“基本能力保留”的结论。表格用于同一模型改造前后对照，不用于跨模型能力排名。
+**在已测输入与配置下，决策改造保持了基座的原生第一步计算及候选决策行为。** 这组固定探针用于改造前后对照，不代表完整能力评测或跨模型排名；输入配置与评测边界见下方对照方法。
 
 [查看对照方法](docs/base-retention.md) · [查看完整结果](docs/base-retention-results.md) · [查看固定输入](benchmarks/base_retention_v1.json) · [查看原始记录](evidence/retention/)
 
@@ -170,8 +168,6 @@ CPU 协议与安全边界测试 **11 项通过**。最后一条命令核查并�
 - 研究视觉特征复用与多问题推理，记录真实延迟与计算成本。
 - 在仿真中检验闭环行为，再评估物理系统部署。
 
-这些是后续方向，不属于本版本已完成的能力。
-
 ## 开源范围与许可
 
 **运行代码已公开开源。** 你可以下载、运行、检查实现并复现对比：
@@ -187,10 +183,6 @@ docs/                    架构、对照方法与验证结果
 setup.sh / start_all.sh / stop_all.sh
 ```
 
-自有接口代码采用 **Apache-2.0**。官方模型权重与运行时加载的自定义代码遵循各自上游条款，详见 [模型许可说明](docs/model-licenses.md)。本仓库不包含模型权重、账户凭据或部署信息。
+自有接口代码采用 **Apache-2.0**。官方模型权重与运行时加载的自定义代码遵循各自上游条款，详见 [模型许可说明](docs/model-licenses.md)。模型权重通过上游渠道下载。
 
 欢迎使用固定输入报告问题，或提交模型适配与验证改进，见 [贡献说明](CONTRIBUTING.md)。
-
-## 参考阅读
-
-介绍的叙述结构参考用户提供的 [OmniJev：全模态 System One 决策模型介绍](https://mp.weixin.qq.com/s/yHY2XLNdDxrnQ5nxVTghXA)。本项目的实现、开源范围与结果以本仓库代码和验证记录为准。
