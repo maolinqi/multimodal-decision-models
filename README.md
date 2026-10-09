@@ -41,7 +41,7 @@
 Linux、Python 3.12、NVIDIA GPU；实测环境为 PyTorch 2.8.0、Transformers 4.57.1、BF16。模型只按需加载，一个后端同时驻留一个模型。预留显存门槛分别为 E2B 16 GiB、E4B 20 GiB、MiniCPM/InternVL 8B 22 GiB、InternVL 14B 34 GiB；长输入可能需要更多。
 
 ```bash
-git clone https://github.com/13974737898-lgtm/multimodal-decision-models.git
+git clone https://github.com/maolinqi/multimodal-decision-models.git
 cd multimodal-decision-models
 ./setup.sh
 # Gemma 需要先在 Hugging Face 接受模型条款并登录。
