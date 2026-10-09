@@ -1,0 +1,16 @@
+**/.venv/
+**/.uv-cache/
+**/__pycache__/
+**/.pytest_cache/
+**/logs/
+**/run/
+models/
+.env
+.env.*
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.pem
+*.key
+.DS_Store
