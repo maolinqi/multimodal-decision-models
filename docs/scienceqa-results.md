@@ -1,16 +1,13 @@
 # ScienceQA paired evaluation
 
-100 fixed image-bearing questions from the official test split, seed 42. Four completed model evaluations use the same subset, yielding 400 native/decision pairs. Each pair shares weights, prepared inputs, prompts, candidates, precision, and attention implementation.
+100 fixed image-bearing questions from the official test split, seed 42. Each backbone uses the same subset and paired prepared inputs. Accuracy is scored from candidate-label logits on the official generation first step and the decision forward path using the same softmax and argmax.
 
-| Model | Additional training | Native candidate accuracy | Decision accuracy | Agreement |
-|---|---:|---:|---:|---:|
-| Gemma-3n-E2B-it | 0 steps | 80% | 80% | 100% |
-| Gemma-3n-E4B-it | 0 steps | 84% | 84% | 100% |
-| MiniCPM-V-4.5 | 0 steps | 98% | 98% | 100% |
-| InternVL3.5-8B | 0 steps | 93% | 93% | 100% |
+| Model | Native candidate accuracy | Decision accuracy | Difference (pp) | Agreement | Max logit difference |
+|---|---:|---:|---:|---:|---:|
+| Gemma-3n-E2B-it | 80.0% | 80.0% | +0.0 | 100.0% | 0 |
+| Gemma-3n-E4B-it | 84.0% | 84.0% | +0.0 | 100.0% | 0 |
+| MiniCPM-V-4.5 | 98.0% | 98.0% | +0.0 | 100.0% | 0 |
+| InternVL3.5-8B | 93.0% | 93.0% | +0.0 | 100.0% | 0 |
+| InternVL3.5-14B | 92.0% | 92.0% | +0.0 | 100.0% | 0 |
 
-400/400 candidate decisions agree. Maximum full-vocabulary logit and candidate-probability differences are 0; parameter objects and version counters remain unchanged. Accuracy applies identical candidate softmax and argmax to native generation first-step logits and decision-forward logits.
-
-The statistics are captured from completed evaluator SUMMARY outputs. Published evidence is explicitly marked as aggregate metrics.
-
-[Protocol](scienceqa.md) · [Fixed manifest](../benchmarks/scienceqa-test-100-manifest.json) · [Completed aggregates](../evidence/scienceqa/completed-summaries.json)
+[Method](scienceqa.md) · [Manifest](../benchmarks/scienceqa-test-100-manifest.json) · [Raw records](../evidence/scienceqa/)

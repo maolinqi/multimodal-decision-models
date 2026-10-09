@@ -1,11 +1,7 @@
-# Completed ScienceQA evaluation aggregates
+# Completed ScienceQA paired evaluation
 
-`completed-summaries.json` stores metrics captured from completed evaluation outputs:
+Five models each evaluated the same 100 fixed image-bearing ScienceQA test questions. The model JSON files contain all 500 per-question native and decision predictions, candidate distributions, correctness, agreement, logit differences, token counts, and synchronized forward timings.
 
-- Four models, each evaluated on the same 100 image-bearing test questions.
-- Native and decision accuracy, agreement, logit differences, and parameter-version checks read from the evaluator's completed `SUMMARY` output.
-- Three models' median, P95, and mean forward timings read from completed per-question reports, rounded to 0.1 ms.
+`summary.json` is recalculated from these records by `scripts/summarize_scienceqa.py`. The script checks completed status, source revisions, the fixed suite hash, exact question IDs and gold labels, visual tokens, and unchanged parameter versions before calculating accuracy and latency.
 
-The `evidence_kind`, `accuracy_source`, and `latency_source` fields identify this record as captured aggregate metrics. Dataset revisions, the fixed manifest hash, hardware, precision, and timing scope are included.
-
-[English protocol](../../docs/scienceqa.md) · [中文方法](../../docs/scienceqa_zh.md) · [Fixed manifest](../../benchmarks/scienceqa-test-100-manifest.json)
+[English results](../../docs/scienceqa-results.md) · [中文结果](../../docs/scienceqa-results_zh.md) · [Protocol](../../docs/scienceqa.md) · [Fixed manifest](../../benchmarks/scienceqa-test-100-manifest.json)

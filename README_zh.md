@@ -15,7 +15,7 @@
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#免额外训练的决策改造)
 [![Adapters](https://img.shields.io/badge/Native_Adapters-5-2563eb)](#模型基座)
-[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-400%2F400_agree-2563eb)](docs/scienceqa-results_zh.md)
+[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-500%2F500_agree-2563eb)](docs/scienceqa-results_zh.md)
 
 [项目介绍](#项目介绍) · [免训练改造](#免额外训练的决策改造) · [输入输出](#多模态输入结构化输出) · [模型基座](#模型基座) · [免训练准确率](#免额外训练的实测准确率) · [实测延迟](#低延迟决策具体用了多久) · [快速开始](#快速开始) · [开源范围](#开源范围与许可)
 
@@ -94,7 +94,7 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 ## 免额外训练的实测准确率
 
-**MiniCPM-V-4.5 在 ScienceQA 固定图像测试子集上的候选选择正确率为 98%，额外训练 0 步。** Gemma E2B / E4B 与 InternVL 8B 分别达到 80%、84% 和 93%。
+**MiniCPM-V-4.5 在 ScienceQA 固定图像测试子集上的候选选择正确率为 98%，额外训练 0 步。** Gemma E2B / E4B 与 InternVL 8B 分别达到 80%、84% 和 93%；InternVL 14B 为 92%。
 
 测试采用 **ScienceQA 官方 test 划分中的 100 道带图像题目，seed 42**，所有表中模型使用同一份固定清单。模型输入包含题目、已有提示、图像与选项；原生对照和决策适配使用相同权重、已预处理输入、提示、候选集、精度及注意力实现。原生对照读取官方生成第一步的候选 logits，采用相同候选 softmax 与 argmax 评分。
 
@@ -104,10 +104,11 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 | Gemma-3n-E4B-it | 0 步 | 84% | 84% | 100% |
 | MiniCPM-V-4.5 | 0 步 | 98% | 98% | 100% |
 | InternVL3.5-8B | 0 步 | 93% | 93% | 100% |
+| InternVL3.5-14B | 0 步 | 92% | 92% | 100% |
 
-**400 组配对全部一致，完整词表 logits 和候选概率最大差均为 0。** 这验证了已测输入与配置下，免额外训练的决策适配保持了基座的原生候选决策行为。
+**500 组配对全部一致，完整词表 logits 和候选概率最大差均为 0。** 这验证了已测输入与配置下，免额外训练的决策适配保持了基座的原生候选决策行为。
 
-[测试集与方法](docs/scienceqa_zh.md) · [固定样本清单](benchmarks/scienceqa-test-100-manifest.json) · [完成结果汇总](evidence/scienceqa/completed-summaries.json)
+[测试集与方法](docs/scienceqa_zh.md) · [固定样本清单](benchmarks/scienceqa-test-100-manifest.json) · [完整结果](docs/scienceqa-results_zh.md) · [逐题记录](evidence/scienceqa/)
 
 ## 低延迟决策：具体用了多久？
 
@@ -120,8 +121,10 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 | Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
 | Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
 | MiniCPM-V-4.5 | 148.9 ms | 256.1 ms |
+| InternVL3.5-8B | 291.1 ms | 384.7 ms |
+| InternVL3.5-14B | 263.8 ms | 440.3 ms |
 
-[延迟统计与口径](docs/scienceqa-latency_zh.md) · [完整结果汇总](evidence/scienceqa/completed-summaries.json)
+[延迟统计与口径](docs/scienceqa-latency_zh.md) · [完整结果汇总](evidence/scienceqa/summary.json)
 
 此外，五个基座完成了颜色、计数、OCR、空间关系、双图和时序等固定探针的配对验证，见 [原生通路验证](docs/base-retention-results.md)。
 
@@ -176,6 +179,8 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py minicp
 ```
 
 CPU 协议测试 **11 项通过**。最后一条命令核查并汇总仓库中的五份完整配对记录。单模型接口验证另见 `scripts/validate_model.py`；已有 Gemma 及新增三个模型的结果见 [验证记录](docs/validation.md)。
+
+ScienceQA 固定图像测试子集的复现命令与数据来源见 [公开测试集评测方法](docs/scienceqa_zh.md)；五份逐题报告可用 `.venv/bin/python scripts/summarize_scienceqa.py` 重新核查并生成准确率与延迟表。
 
 ## 开源范围与许可
 

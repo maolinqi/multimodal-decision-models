@@ -15,7 +15,7 @@ Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and Int
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#training-free-decision-adaptation)
 [![Adapters](https://img.shields.io/badge/Native_Adapters-5-2563eb)](#supported-backbones)
-[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-400%2F400_agree-2563eb)](docs/scienceqa-results.md)
+[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-500%2F500_agree-2563eb)](docs/scienceqa-results.md)
 
 [Overview](#overview) · [Training-free method](#training-free-decision-adaptation) · [Inputs and outputs](#multimodal-inputs-structured-outputs) · [Models](#supported-backbones) · [Training-free accuracy](#measured-accuracy-with-no-additional-training) · [Latency](#measured-decision-latency) · [Quick start](#quick-start) · [Open source](#open-source-and-licenses)
 
@@ -92,7 +92,7 @@ These decision adapters use the official backbone weights and native language he
 
 ## Measured accuracy with no additional training
 
-**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively.
+**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%.
 
 The evaluation uses **100 image-bearing questions from the official ScienceQA test split, seed 42**, with identical IDs for every model in the table. Inputs contain the question, available hint, image, and options. Native and decision paths share checkpoint, prepared input, prompt, candidate set, precision, and attention implementation. The baseline reads candidate logits from the official generation first step and uses the same candidate softmax and argmax for scoring.
 
@@ -102,10 +102,11 @@ The evaluation uses **100 image-bearing questions from the official ScienceQA te
 | Gemma-3n-E4B-it | 0 steps | 84% | 84% | 100% |
 | MiniCPM-V-4.5 | 0 steps | 98% | 98% | 100% |
 | InternVL3.5-8B | 0 steps | 93% | 93% | 100% |
+| InternVL3.5-14B | 0 steps | 92% | 92% | 100% |
 
-**All 400 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
+**All 500 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
 
-[Dataset and protocol](docs/scienceqa.md) · [Fixed manifest](benchmarks/scienceqa-test-100-manifest.json) · [Completed aggregates](evidence/scienceqa/completed-summaries.json)
+[Dataset and protocol](docs/scienceqa.md) · [Fixed manifest](benchmarks/scienceqa-test-100-manifest.json) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
 
 ## Measured decision latency
 
@@ -118,8 +119,10 @@ Measurements use the same fixed ScienceQA subset, 100 image questions per model,
 | Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
 | Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
 | MiniCPM-V-4.5 | 148.9 ms | 256.1 ms |
+| InternVL3.5-8B | 291.1 ms | 384.7 ms |
+| InternVL3.5-14B | 263.8 ms | 440.3 ms |
 
-[Timing details](docs/scienceqa-latency.md) · [Completed aggregates](evidence/scienceqa/completed-summaries.json)
+[Timing details](docs/scienceqa-latency.md) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
 
 All five backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
 
@@ -174,6 +177,8 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py minicp
 ```
 
 **11 CPU protocol tests passed.** The final command checks and aggregates the five completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
+
+Reproduction commands and dataset provenance for the fixed ScienceQA image-test subset are in [Evaluation protocol](docs/scienceqa.md). Recheck the five per-question reports and regenerate accuracy and latency tables with `.venv/bin/python scripts/summarize_scienceqa.py`.
 
 ## Open source and licenses
 

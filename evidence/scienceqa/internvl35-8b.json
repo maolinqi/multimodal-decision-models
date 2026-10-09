@@ -1,0 +1,2876 @@
+{
+  "model_id": "internvl35-8b",
+  "base_model": "OpenGVLab/InternVL3_5-8B",
+  "status": "completed",
+  "paired_path_retention_passed": true,
+  "suite_id": "scienceqa_image_test_100_seed42",
+  "suite_sha256": "769fb5bc1a563199fd100b622e1343d25d22f4b53cfcdc005fd42e65cec88ccd",
+  "baseline": "official_generate_first_step_raw_logits",
+  "controlled_variables": [
+    "checkpoint",
+    "prepared_input",
+    "prompt",
+    "precision",
+    "attention_backend",
+    "candidate_set"
+  ],
+  "scope": "ScienceQA_official_test_fixed_100_image_question_subset",
+  "dataset": {
+    "name": "ScienceQA",
+    "split": "test",
+    "selection": "100 image-bearing questions sampled with random.Random(42) from numeric-sorted IDs",
+    "seed": 42,
+    "count": 100,
+    "image_test_pool_count": 2017,
+    "official_revision": "2cbf8318e07b9ece895bb2ae605e71e38d623264",
+    "hf_revision": "f18b0a70359ebfb41f658fd564208d0355b013f4",
+    "parquet_sha256": "235e92d1f30155266df76bc9f28fc6e4fcb6bec2c6a8c7d67f9086ea6b392a84",
+    "license": "CC-BY-NC-SA-4.0",
+    "source": "https://github.com/lupantech/ScienceQA"
+  },
+  "full_base_capability_retention_proven": false,
+  "training_applied": false,
+  "real_world_generalization_proven": false,
+  "summary": {
+    "count": 100,
+    "native_correct": 93,
+    "decision_correct": 93,
+    "agreements": 100,
+    "max_full_vocab_abs_diff": 0.0,
+    "max_candidate_abs_diff": 0.0,
+    "max_probability_abs_diff": 0.0,
+    "changed_parameter_version_count": 0,
+    "by_family": {
+      "language science": {
+        "count": 4,
+        "native_correct": 4,
+        "decision_correct": 4,
+        "agreements": 4
+      },
+      "natural science": {
+        "count": 58,
+        "native_correct": 54,
+        "decision_correct": 54,
+        "agreements": 58
+      },
+      "social science": {
+        "count": 38,
+        "native_correct": 35,
+        "decision_correct": 35,
+        "agreements": 38
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "111",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.2751650046993745e-07,
+        "option_1": 9.422266202818719e-07,
+        "option_2": 1.8925127733382396e-05,
+        "option_3": 0.9999799728393555
+      },
+      "decision_distribution": {
+        "option_0": 1.2751650046993745e-07,
+        "option_1": 9.422266202818719e-07,
+        "option_2": 1.8925127733382396e-05,
+        "option_3": 0.9999799728393555
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1284,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 2235.273526981473
+    },
+    {
+      "id": "517",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 2.061153470123145e-09,
+        "option_1": 3.581747953784742e-10,
+        "option_2": 1.0
+      },
+      "decision_distribution": {
+        "option_0": 2.061153470123145e-09,
+        "option_1": 3.581747953784742e-10,
+        "option_2": 1.0
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 884,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 314.06248128041625
+    },
+    {
+      "id": "536",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.760343138812459e-06,
+        "option_1": 0.9999982118606567
+      },
+      "decision_distribution": {
+        "option_0": 1.760343138812459e-06,
+        "option_1": 0.9999982118606567
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 450,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 295.5206870101392
+    },
+    {
+      "id": "605",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9959298968315125,
+        "option_1": 0.004070138093084097
+      },
+      "decision_distribution": {
+        "option_0": 0.9959298968315125,
+        "option_1": 0.004070138093084097
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 584,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 194.96395997703075
+    },
+    {
+      "id": "645",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 7.1941324009117125e-09,
+        "option_1": 0.9999998807907104,
+        "option_2": 9.931193289958173e-08,
+        "option_3": 1.3440407897746809e-08
+      },
+      "decision_distribution": {
+        "option_0": 7.1941324009117125e-09,
+        "option_1": 0.9999998807907104,
+        "option_2": 9.931193289958173e-08,
+        "option_3": 1.3440407897746809e-08
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 889,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 291.14127811044455
+    },
+    {
+      "id": "879",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0009110146784223616,
+        "option_1": 0.9990488886833191,
+        "option_2": 4.00271856051404e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.0009110146784223616,
+        "option_1": 0.9990488886833191,
+        "option_2": 4.00271856051404e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 429,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 222.3310642875731
+    },
+    {
+      "id": "918",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 8.315261652569461e-07,
+        "option_1": 0.9999969005584717,
+        "option_2": 2.3823622541385703e-07,
+        "option_3": 1.9947276541643078e-06
+      },
+      "decision_distribution": {
+        "option_0": 8.315261652569461e-07,
+        "option_1": 0.9999969005584717,
+        "option_2": 2.3823622541385703e-07,
+        "option_3": 1.9947276541643078e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1278,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 387.3299187980592
+    },
+    {
+      "id": "1454",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 9.609747212380171e-05,
+        "option_1": 0.9998524188995361,
+        "option_2": 5.143726957612671e-05
+      },
+      "decision_distribution": {
+        "option_0": 9.609747212380171e-05,
+        "option_1": 0.9998524188995361,
+        "option_2": 5.143726957612671e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 538,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 283.42382283881307
+    },
+    {
+      "id": "1714",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0001228421606356278,
+        "option_1": 0.8784376382827759,
+        "option_2": 0.00037838047137483954,
+        "option_3": 0.11888360977172852,
+        "option_4": 0.002177429385483265
+      },
+      "decision_distribution": {
+        "option_0": 0.0001228421606356278,
+        "option_1": 0.8784376382827759,
+        "option_2": 0.00037838047137483954,
+        "option_3": 0.11888360977172852,
+        "option_4": 0.002177429385483265
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 485,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 225.20318301394582
+    },
+    {
+      "id": "1752",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.01394769735634327,
+        "option_1": 0.00513107143342495,
+        "option_2": 0.0031121522188186646,
+        "option_3": 0.9778091311454773
+      },
+      "decision_distribution": {
+        "option_0": 0.01394769735634327,
+        "option_1": 0.00513107143342495,
+        "option_2": 0.0031121522188186646,
+        "option_3": 0.9778091311454773
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1532,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 341.1947409622371
+    },
+    {
+      "id": "1936",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.2689414322376251,
+        "option_1": 0.7310585379600525
+      },
+      "decision_distribution": {
+        "option_0": 0.2689414322376251,
+        "option_1": 0.7310585379600525
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 403,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 227.42655593901873
+    },
+    {
+      "id": "2015",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999779462814331,
+        "option_1": 5.714881581297959e-07,
+        "option_2": 2.1444935555336997e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9999779462814331,
+        "option_1": 5.714881581297959e-07,
+        "option_2": 2.1444935555336997e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 409,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 228.62171474844217
+    },
+    {
+      "id": "2037",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 9.931161315535064e-08,
+        "option_1": 0.9999966621398926,
+        "option_2": 3.288748985141865e-06
+      },
+      "decision_distribution": {
+        "option_0": 9.931161315535064e-08,
+        "option_1": 0.9999966621398926,
+        "option_2": 3.288748985141865e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1151,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 304.02096919715405
+    },
+    {
+      "id": "2148",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 8.315280410897685e-07,
+        "option_1": 0.9999991655349731
+      },
+      "decision_distribution": {
+        "option_0": 8.315280410897685e-07,
+        "option_1": 0.9999991655349731
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 417,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 311.87486089766026
+    },
+    {
+      "id": "2210",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.531209409236908,
+        "option_1": 0.4687906503677368
+      },
+      "decision_distribution": {
+        "option_0": 0.531209409236908,
+        "option_1": 0.4687906503677368
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1423,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 381.144420709461
+    },
+    {
+      "id": "2286",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9840936064720154,
+        "option_1": 0.01590639166533947
+      },
+      "decision_distribution": {
+        "option_0": 0.9840936064720154,
+        "option_1": 0.01590639166533947
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1461,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 320.96642535179853
+    },
+    {
+      "id": "2473",
+      "family": "social science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9995673298835754,
+        "option_1": 1.993870682781562e-06,
+        "option_2": 1.6366686850233236e-07,
+        "option_3": 0.00043055618880316615
+      },
+      "decision_distribution": {
+        "option_0": 0.9995673298835754,
+        "option_1": 1.993870682781562e-06,
+        "option_2": 1.6366686850233236e-07,
+        "option_3": 0.00043055618880316615
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 889,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 197.60027714073658
+    },
+    {
+      "id": "2759",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9740425944328308,
+        "option_1": 0.02595735713839531
+      },
+      "decision_distribution": {
+        "option_0": 0.9740425944328308,
+        "option_1": 0.02595735713839531
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 377,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 200.82649495452642
+    },
+    {
+      "id": "3016",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.007577240467071533,
+        "option_1": 0.9924227595329285
+      },
+      "decision_distribution": {
+        "option_0": 0.007577240467071533,
+        "option_1": 0.9924227595329285
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 403,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 233.44048764556646
+    },
+    {
+      "id": "3233",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 8.152019503882002e-09,
+        "option_1": 0.9999998807907104,
+        "option_2": 6.825602838489431e-08
+      },
+      "decision_distribution": {
+        "option_0": 8.152019503882002e-09,
+        "option_1": 0.9999998807907104,
+        "option_2": 6.825602838489431e-08
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1153,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 237.20718314871192
+    },
+    {
+      "id": "3354",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 2.9023105980741093e-06,
+        "option_1": 0.999996542930603,
+        "option_2": 5.043459054832056e-07
+      },
+      "decision_distribution": {
+        "option_0": 2.9023105980741093e-06,
+        "option_1": 0.999996542930603,
+        "option_2": 5.043459054832056e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 414,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.56887187436223
+    },
+    {
+      "id": "3434",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9998205304145813,
+        "option_1": 0.00017952796770259738
+      },
+      "decision_distribution": {
+        "option_0": 0.9998205304145813,
+        "option_1": 0.00017952796770259738
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 419,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 230.5232770740986
+    },
+    {
+      "id": "3972",
+      "family": "social science",
+      "expected": "option_0",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.3401510417461395,
+        "option_1": 0.23378215730190277,
+        "option_2": 0.04062524810433388,
+        "option_3": 0.3854416310787201
+      },
+      "decision_distribution": {
+        "option_0": 0.3401510417461395,
+        "option_1": 0.23378215730190277,
+        "option_2": 0.04062524810433388,
+        "option_3": 0.3854416310787201
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1408,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 332.7726819552481
+    },
+    {
+      "id": "4153",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.2887462566577597e-06,
+        "option_1": 6.475925147242378e-07,
+        "option_2": 2.3823596961847215e-07,
+        "option_3": 0.9999958276748657
+      },
+      "decision_distribution": {
+        "option_0": 3.2887462566577597e-06,
+        "option_1": 6.475925147242378e-07,
+        "option_2": 2.3823596961847215e-07,
+        "option_3": 0.9999958276748657
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1530,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 339.9273520335555
+    },
+    {
+      "id": "4310",
+      "family": "language science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.005067887715995312,
+        "option_1": 0.029163680970668793,
+        "option_2": 0.9657684564590454
+      },
+      "decision_distribution": {
+        "option_0": 0.005067887715995312,
+        "option_1": 0.029163680970668793,
+        "option_2": 0.9657684564590454
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 896,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 315.11520501226187
+    },
+    {
+      "id": "4443",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 2.38235827509925e-07,
+        "option_1": 0.999995231628418,
+        "option_2": 4.222831194056198e-06,
+        "option_3": 3.059008690797782e-07
+      },
+      "decision_distribution": {
+        "option_0": 2.38235827509925e-07,
+        "option_1": 0.999995231628418,
+        "option_2": 4.222831194056198e-06,
+        "option_3": 3.059008690797782e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 290.98782362416387
+    },
+    {
+      "id": "4512",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0004305570910219103,
+        "option_1": 0.9995694756507874
+      },
+      "decision_distribution": {
+        "option_0": 0.0004305570910219103,
+        "option_1": 0.9995694756507874
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 440,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 233.52427827194333
+    },
+    {
+      "id": "4553",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.120191104244441e-05,
+        "option_1": 0.9999687671661377
+      },
+      "decision_distribution": {
+        "option_0": 3.120191104244441e-05,
+        "option_1": 0.9999687671661377
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 405,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 197.39602925255895
+    },
+    {
+      "id": "4594",
+      "family": "natural science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.5229806749061936e-08,
+        "option_1": 1.1478769010864198e-05,
+        "option_2": 0.9999885559082031
+      },
+      "decision_distribution": {
+        "option_0": 1.5229806749061936e-08,
+        "option_1": 1.1478769010864198e-05,
+        "option_2": 0.9999885559082031
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 417,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 227.19513811171055
+    },
+    {
+      "id": "4708",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.7266393064783188e-06,
+        "option_1": 0.9999963045120239
+      },
+      "decision_distribution": {
+        "option_0": 3.7266393064783188e-06,
+        "option_1": 0.9999963045120239
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 407,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 198.45106126740575
+    },
+    {
+      "id": "4817",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.012430999428033829,
+        "option_1": 1.2844922821386717e-05,
+        "option_2": 0.9875166416168213,
+        "option_3": 3.956514410674572e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.012430999428033829,
+        "option_1": 1.2844922821386717e-05,
+        "option_2": 0.9875166416168213,
+        "option_3": 3.956514410674572e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1403,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 337.55484968423843
+    },
+    {
+      "id": "5090",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 2.7535590561456047e-05,
+        "option_1": 0.9999687671661377,
+        "option_2": 3.726536760950694e-06
+      },
+      "decision_distribution": {
+        "option_0": 2.7535590561456047e-05,
+        "option_1": 0.9999687671661377,
+        "option_2": 3.726536760950694e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 889,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 304.033393971622
+    },
+    {
+      "id": "5573",
+      "family": "social science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.999993085861206,
+        "option_1": 8.315229820254899e-07,
+        "option_2": 4.785084456671029e-06,
+        "option_3": 1.3709496897718054e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.999993085861206,
+        "option_1": 8.315229820254899e-07,
+        "option_2": 4.785084456671029e-06,
+        "option_3": 1.3709496897718054e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 896,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 307.4695039540529
+    },
+    {
+      "id": "5625",
+      "family": "language science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9953904151916504,
+        "option_1": 0.004609572701156139
+      },
+      "decision_distribution": {
+        "option_0": 0.9953904151916504,
+        "option_1": 0.004609572701156139
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 467,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 212.09855191409588
+    },
+    {
+      "id": "5795",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.8553906500073936e-07,
+        "option_1": 2.6995769530913094e-07,
+        "option_2": 1.522997372660484e-08,
+        "option_3": 0.9999995231628418
+      },
+      "decision_distribution": {
+        "option_0": 1.8553906500073936e-07,
+        "option_1": 2.6995769530913094e-07,
+        "option_2": 1.522997372660484e-08,
+        "option_3": 0.9999995231628418
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 299.993421882391
+    },
+    {
+      "id": "5828",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0024725112598389387,
+        "option_1": 0.9974822402000427,
+        "option_2": 4.528562203631736e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.0024725112598389387,
+        "option_1": 0.9974822402000427,
+        "option_2": 4.528562203631736e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 606,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 296.0445610806346
+    },
+    {
+      "id": "6028",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9997965693473816,
+        "option_1": 0.00020342697098385543
+      },
+      "decision_distribution": {
+        "option_0": 0.9997965693473816,
+        "option_1": 0.00020342697098385543
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 882,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 298.60874498263
+    },
+    {
+      "id": "6123",
+      "family": "natural science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 6.144173767097527e-06,
+        "option_1": 7.734372786671884e-08,
+        "option_2": 0.9999936819076538
+      },
+      "decision_distribution": {
+        "option_0": 6.144173767097527e-06,
+        "option_1": 7.734372786671884e-08,
+        "option_2": 0.9999936819076538
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 407,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.64143773540854
+    },
+    {
+      "id": "7014",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.999995231628418,
+        "option_1": 4.7850949158601e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.999995231628418,
+        "option_1": 4.7850949158601e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 425,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 297.01221408322453
+    },
+    {
+      "id": "7057",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.1201903766486794e-05,
+        "option_1": 0.9999685287475586,
+        "option_2": 2.1023676310960582e-07
+      },
+      "decision_distribution": {
+        "option_0": 3.1201903766486794e-05,
+        "option_1": 0.9999685287475586,
+        "option_2": 2.1023676310960582e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 410,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 203.56846135109663
+    },
+    {
+      "id": "7134",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999523162841797,
+        "option_1": 4.539776637102477e-05,
+        "option_2": 2.260221663163975e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.9999523162841797,
+        "option_1": 4.539776637102477e-05,
+        "option_2": 2.260221663163975e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 412,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 206.95898309350014
+    },
+    {
+      "id": "7457",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0024726232513785362,
+        "option_1": 0.9975274205207825
+      },
+      "decision_distribution": {
+        "option_0": 0.0024726232513785362,
+        "option_1": 0.9975274205207825
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 319.19665820896626
+    },
+    {
+      "id": "7497",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 4.4507731900012004e-07,
+        "option_1": 0.9999822378158569,
+        "option_2": 1.670140409260057e-05,
+        "option_3": 5.714906023968069e-07
+      },
+      "decision_distribution": {
+        "option_0": 4.4507731900012004e-07,
+        "option_1": 0.9999822378158569,
+        "option_2": 1.670140409260057e-05,
+        "option_3": 5.714906023968069e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 889,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 312.19557160511613
+    },
+    {
+      "id": "7546",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.6699812476872467e-05,
+        "option_1": 8.480864926241338e-05,
+        "option_2": 0.9998869895935059,
+        "option_3": 1.1477603038656525e-05
+      },
+      "decision_distribution": {
+        "option_0": 1.6699812476872467e-05,
+        "option_1": 8.480864926241338e-05,
+        "option_2": 0.9998869895935059,
+        "option_3": 1.1477603038656525e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 379,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 188.4761657565832
+    },
+    {
+      "id": "7653",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999773502349854,
+        "option_1": 3.7265688206389314e-06,
+        "option_2": 1.8925076801679097e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9999773502349854,
+        "option_1": 3.7265688206389314e-06,
+        "option_2": 1.8925076801679097e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 414,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 206.91830897703767
+    },
+    {
+      "id": "7768",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.0467398503521963e-08,
+        "option_1": 2.6465729607849653e-09,
+        "option_2": 0.9999996423721313,
+        "option_3": 3.9278620533877984e-07
+      },
+      "decision_distribution": {
+        "option_0": 1.0467398503521963e-08,
+        "option_1": 2.6465729607849653e-09,
+        "option_2": 0.9999996423721313,
+        "option_3": 3.9278620533877984e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 892,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 296.63593880832195
+    },
+    {
+      "id": "7936",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9241418242454529,
+        "option_1": 0.07585817575454712
+      },
+      "decision_distribution": {
+        "option_0": 0.9241418242454529,
+        "option_1": 0.07585817575454712
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 952,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 317.95279402285814
+    },
+    {
+      "id": "8014",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.04742587357759476,
+        "option_1": 0.9525741338729858
+      },
+      "decision_distribution": {
+        "option_0": 0.04742587357759476,
+        "option_1": 0.9525741338729858
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 948,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 297.36760444939137
+    },
+    {
+      "id": "8972",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.003530865767970681,
+        "option_1": 0.863974392414093,
+        "option_2": 0.1324947625398636
+      },
+      "decision_distribution": {
+        "option_0": 0.003530865767970681,
+        "option_1": 0.863974392414093,
+        "option_2": 0.1324947625398636
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 448,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.57539020106196
+    },
+    {
+      "id": "9058",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9980732202529907,
+        "option_1": 0.0019267346942797303
+      },
+      "decision_distribution": {
+        "option_0": 0.9980732202529907,
+        "option_1": 0.0019267346942797303
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 408,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.70249710604548
+    },
+    {
+      "id": "9067",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 5.602795560832874e-09,
+        "option_1": 0.9999998807907104,
+        "option_2": 1.1861118309752783e-08,
+        "option_3": 6.825602838489431e-08
+      },
+      "decision_distribution": {
+        "option_0": 5.602795560832874e-09,
+        "option_1": 0.9999998807907104,
+        "option_2": 1.1861118309752783e-08,
+        "option_3": 6.825602838489431e-08
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 210.88476898148656
+    },
+    {
+      "id": "9670",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999974966049194,
+        "option_1": 2.561282371971174e-06,
+        "option_2": 4.691152710734059e-08
+      },
+      "decision_distribution": {
+        "option_0": 0.9999974966049194,
+        "option_1": 2.561282371971174e-06,
+        "option_2": 4.691152710734059e-08
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 417,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 190.43009402230382
+    },
+    {
+      "id": "9814",
+      "family": "natural science",
+      "expected": "option_2",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.5892429351806641,
+        "option_1": 0.00577673502266407,
+        "option_2": 0.4049803614616394
+      },
+      "decision_distribution": {
+        "option_0": 0.5892429351806641,
+        "option_1": 0.00577673502266407,
+        "option_2": 0.4049803614616394
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 429,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 284.232331905514
+    },
+    {
+      "id": "9946",
+      "family": "natural science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.008572159335017204,
+        "option_1": 0.0006209650891833007,
+        "option_2": 0.9908068776130676
+      },
+      "decision_distribution": {
+        "option_0": 0.008572159335017204,
+        "option_1": 0.0006209650891833007,
+        "option_2": 0.9908068776130676
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1151,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 228.3489559777081
+    },
+    {
+      "id": "10793",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.1478769010864198e-05,
+        "option_1": 0.9999885559082031
+      },
+      "decision_distribution": {
+        "option_0": 1.1478769010864198e-05,
+        "option_1": 0.9999885559082031
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 432,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 295.50600377842784
+    },
+    {
+      "id": "11468",
+      "family": "social science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999984502792358,
+        "option_1": 1.3709569657294196e-06,
+        "option_2": 7.734409734894143e-08,
+        "option_3": 7.734409734894143e-08
+      },
+      "decision_distribution": {
+        "option_0": 0.9999984502792358,
+        "option_1": 1.3709569657294196e-06,
+        "option_2": 7.734409734894143e-08,
+        "option_3": 7.734409734894143e-08
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 285.30661668628454
+    },
+    {
+      "id": "11608",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999990463256836,
+        "option_1": 9.422445828022319e-07
+      },
+      "decision_distribution": {
+        "option_0": 0.9999990463256836,
+        "option_1": 9.422445828022319e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 376,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.63234895840287
+    },
+    {
+      "id": "11758",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9998685121536255,
+        "option_1": 9.609901462681592e-05,
+        "option_2": 3.5352852137293667e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9998685121536255,
+        "option_1": 9.609901462681592e-05,
+        "option_2": 3.5352852137293667e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 918,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 306.93763494491577
+    },
+    {
+      "id": "11936",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.1861118309752783e-08,
+        "option_1": 0.9999998807907104,
+        "option_2": 9.931193289958173e-08,
+        "option_3": 1.5229979055675358e-08
+      },
+      "decision_distribution": {
+        "option_0": 1.1861118309752783e-08,
+        "option_1": 0.9999998807907104,
+        "option_2": 9.931193289958173e-08,
+        "option_3": 1.5229979055675358e-08
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 890,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 217.26184198632836
+    },
+    {
+      "id": "12287",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 4.4508294649858726e-07,
+        "option_1": 0.9999948740005493,
+        "option_2": 1.3709520771953976e-06,
+        "option_3": 3.2887430734263035e-06
+      },
+      "decision_distribution": {
+        "option_0": 4.4508294649858726e-07,
+        "option_1": 0.9999948740005493,
+        "option_2": 1.3709520771953976e-06,
+        "option_3": 3.2887430734263035e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 892,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 215.3290486894548
+    },
+    {
+      "id": "12577",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.037326883524656296,
+        "option_1": 0.9626730680465698
+      },
+      "decision_distribution": {
+        "option_0": 0.037326883524656296,
+        "option_1": 0.9626730680465698
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 404,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 209.74863227456808
+    },
+    {
+      "id": "12611",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.18242275714874268,
+        "option_1": 5.6921162467915565e-06,
+        "option_2": 0.8175621032714844,
+        "option_3": 9.384712939208839e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.18242275714874268,
+        "option_1": 5.6921162467915565e-06,
+        "option_2": 0.8175621032714844,
+        "option_3": 9.384712939208839e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 894,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 315.89550198987126
+    },
+    {
+      "id": "12905",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.466323335032939e-07,
+        "option_1": 0.9999988079071045,
+        "option_2": 2.1024312957251823e-07,
+        "option_3": 5.715000952477567e-07
+      },
+      "decision_distribution": {
+        "option_0": 3.466323335032939e-07,
+        "option_1": 0.9999988079071045,
+        "option_2": 2.1024312957251823e-07,
+        "option_3": 5.715000952477567e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 380,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 245.7151459529996
+    },
+    {
+      "id": "12938",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0009110511164180934,
+        "option_1": 1.7242104632941846e-08,
+        "option_2": 1.953786465946905e-08,
+        "option_3": 0.9990888833999634
+      },
+      "decision_distribution": {
+        "option_0": 0.0009110511164180934,
+        "option_1": 1.7242104632941846e-08,
+        "option_2": 1.953786465946905e-08,
+        "option_3": 0.9990888833999634
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 301.8617359921336
+    },
+    {
+      "id": "13247",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 5.315785500670245e-08,
+        "option_1": 1.8189616479702408e-09,
+        "option_2": 1.0,
+        "option_3": 9.23744991609965e-09
+      },
+      "decision_distribution": {
+        "option_0": 5.315785500670245e-08,
+        "option_1": 1.8189616479702408e-09,
+        "option_2": 1.0,
+        "option_3": 9.23744991609965e-09
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 221.5645769611001
+    },
+    {
+      "id": "13480",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999785423278809,
+        "option_1": 2.1444948288262822e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9999785423278809,
+        "option_1": 2.1444948288262822e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1467,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 337.1713343076408
+    },
+    {
+      "id": "13603",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999039173126221,
+        "option_1": 9.610241977497935e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9999039173126221,
+        "option_1": 9.610241977497935e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 540,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 211.19914576411247
+    },
+    {
+      "id": "13695",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.3612515330314636,
+        "option_1": 0.5956031084060669,
+        "option_2": 0.04314534366130829
+      },
+      "decision_distribution": {
+        "option_0": 0.3612515330314636,
+        "option_1": 0.5956031084060669,
+        "option_2": 0.04314534366130829
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1229,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 378.2775099389255
+    },
+    {
+      "id": "13907",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999982118606567,
+        "option_1": 1.760343138812459e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.9999982118606567,
+        "option_1": 1.760343138812459e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 916,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 292.76535799726844
+    },
+    {
+      "id": "14136",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.22270014882087708,
+        "option_1": 0.7772998809814453
+      },
+      "decision_distribution": {
+        "option_0": 0.22270014882087708,
+        "option_1": 0.7772998809814453
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 405,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 297.4268989637494
+    },
+    {
+      "id": "14318",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.9555681518568235e-08,
+        "option_1": 3.3982678893096363e-09,
+        "option_2": 1.0,
+        "option_3": 2.998960857425459e-09
+      },
+      "decision_distribution": {
+        "option_0": 1.9555681518568235e-08,
+        "option_1": 3.3982678893096363e-09,
+        "option_2": 1.0,
+        "option_3": 2.998960857425459e-09
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 892,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 296.89954221248627
+    },
+    {
+      "id": "14442",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999724626541138,
+        "option_1": 2.7535692424862646e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9999724626541138,
+        "option_1": 2.7535692424862646e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 409,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 297.1168430522084
+    },
+    {
+      "id": "14861",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 8.481103577651083e-05,
+        "option_1": 0.9999151229858398
+      },
+      "decision_distribution": {
+        "option_0": 8.481103577651083e-05,
+        "option_1": 0.9999151229858398
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 573,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 188.66488663479686
+    },
+    {
+      "id": "14927",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.466257680884155e-07,
+        "option_1": 0.9999798536300659,
+        "option_2": 8.315119544022309e-07,
+        "option_3": 1.892512409540359e-05
+      },
+      "decision_distribution": {
+        "option_0": 3.466257680884155e-07,
+        "option_1": 0.9999798536300659,
+        "option_2": 8.315119544022309e-07,
+        "option_3": 1.892512409540359e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 396.12465305253863
+    },
+    {
+      "id": "14937",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999996423721313,
+        "option_1": 3.0590220490012143e-07
+      },
+      "decision_distribution": {
+        "option_0": 0.9999996423721313,
+        "option_1": 3.0590220490012143e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 414,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.63615480810404
+    },
+    {
+      "id": "15027",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.4449788920956053e-07,
+        "option_1": 0.9999990463256836,
+        "option_2": 2.699575816222932e-07,
+        "option_3": 5.715002089345944e-07
+      },
+      "decision_distribution": {
+        "option_0": 1.4449788920956053e-07,
+        "option_1": 0.9999990463256836,
+        "option_2": 2.699575816222932e-07,
+        "option_3": 5.715002089345944e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1278,
+      "visual_tokens": 1024,
+      "image_count": 1,
+      "decision_forward_ms": 228.60069619491696
+    },
+    {
+      "id": "15273",
+      "family": "social science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999961853027344,
+        "option_1": 3.288747393526137e-06,
+        "option_2": 2.3823605488360045e-07,
+        "option_3": 3.4663142400859215e-07
+      },
+      "decision_distribution": {
+        "option_0": 0.9999961853027344,
+        "option_1": 3.288747393526137e-06,
+        "option_2": 2.3823605488360045e-07,
+        "option_3": 3.4663142400859215e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 892,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 221.25548077747226
+    },
+    {
+      "id": "15576",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 8.480288670398295e-05,
+        "option_1": 0.9998190999031067,
+        "option_2": 9.609426342649385e-05
+      },
+      "decision_distribution": {
+        "option_0": 8.480288670398295e-05,
+        "option_1": 0.9998190999031067,
+        "option_2": 9.609426342649385e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 649,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 234.76261273026466
+    },
+    {
+      "id": "15696",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 7.889204425737262e-06,
+        "option_1": 1.20984873319685e-06,
+        "option_2": 6.14411874266807e-06,
+        "option_3": 0.9999847412109375
+      },
+      "decision_distribution": {
+        "option_0": 7.889204425737262e-06,
+        "option_1": 1.20984873319685e-06,
+        "option_2": 6.14411874266807e-06,
+        "option_3": 0.9999847412109375
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1411,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 397.05750718712807
+    },
+    {
+      "id": "15772",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0027810209430754185,
+        "option_1": 0.9901120066642761,
+        "option_2": 0.001911365776322782,
+        "option_3": 0.005195630714297295
+      },
+      "decision_distribution": {
+        "option_0": 0.0027810209430754185,
+        "option_1": 0.9901120066642761,
+        "option_2": 0.001911365776322782,
+        "option_3": 0.005195630714297295
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1540,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 384.68290818855166
+    },
+    {
+      "id": "15791",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0019267346942797303,
+        "option_1": 0.9980732202529907
+      },
+      "decision_distribution": {
+        "option_0": 0.0019267346942797303,
+        "option_1": 0.9980732202529907
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 409,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 213.71213207021356
+    },
+    {
+      "id": "16145",
+      "family": "social science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9999985694885254,
+        "option_1": 8.76423555951078e-08,
+        "option_2": 5.315778039971519e-08,
+        "option_3": 1.370957193103095e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.9999985694885254,
+        "option_1": 8.76423555951078e-08,
+        "option_2": 5.315778039971519e-08,
+        "option_3": 1.370957193103095e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 892,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 209.31387273594737
+    },
+    {
+      "id": "16223",
+      "family": "natural science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.010974540375173092,
+        "option_1": 0.00015654339222237468,
+        "option_2": 0.9878965616226196,
+        "option_3": 0.0007949929567985237,
+        "option_4": 0.00017738690075930208
+      },
+      "decision_distribution": {
+        "option_0": 0.010974540375173092,
+        "option_1": 0.00015654339222237468,
+        "option_2": 0.9878965616226196,
+        "option_3": 0.0007949929567985237,
+        "option_4": 0.00017738690075930208
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 475,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 295.9869089536369
+    },
+    {
+      "id": "16456",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9932993650436401,
+        "option_1": 0.006692798808217049,
+        "option_2": 7.836461008992046e-06
+      },
+      "decision_distribution": {
+        "option_0": 0.9932993650436401,
+        "option_1": 0.006692798808217049,
+        "option_2": 7.836461008992046e-06
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 429,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 296.53520602732897
+    },
+    {
+      "id": "17366",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 3.9278620533877984e-07,
+        "option_1": 0.9999996423721313
+      },
+      "decision_distribution": {
+        "option_0": 3.9278620533877984e-07,
+        "option_1": 0.9999996423721313
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 577,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 212.11022324860096
+    },
+    {
+      "id": "17387",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.46582290530204773,
+        "option_1": 2.7154990675626323e-05,
+        "option_2": 0.17136669158935547,
+        "option_3": 0.3627832531929016
+      },
+      "decision_distribution": {
+        "option_0": 0.46582290530204773,
+        "option_1": 2.7154990675626323e-05,
+        "option_2": 0.17136669158935547,
+        "option_3": 0.3627832531929016
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 888,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 302.9405130073428
+    },
+    {
+      "id": "17431",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.003172681201249361,
+        "option_1": 0.996826708316803,
+        "option_2": 2.0957622837158851e-07,
+        "option_3": 3.0493160352307314e-07
+      },
+      "decision_distribution": {
+        "option_0": 0.003172681201249361,
+        "option_1": 0.996826708316803,
+        "option_2": 2.0957622837158851e-07,
+        "option_3": 3.0493160352307314e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 891,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 301.4982119202614
+    },
+    {
+      "id": "17846",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9995694756507874,
+        "option_1": 0.0004305570910219103
+      },
+      "decision_distribution": {
+        "option_0": 0.9995694756507874,
+        "option_1": 0.0004305570910219103
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 502,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 209.96307721361518
+    },
+    {
+      "id": "17970",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.00026119028916582465,
+        "option_1": 0.9997387528419495
+      },
+      "decision_distribution": {
+        "option_0": 0.00026119028916582465,
+        "option_1": 0.9997387528419495
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 376,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 199.57018224522471
+    },
+    {
+      "id": "18184",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 2.561280780355446e-06,
+        "option_1": 0.9999969005584717,
+        "option_2": 5.714990152227983e-07
+      },
+      "decision_distribution": {
+        "option_0": 2.561280780355446e-06,
+        "option_1": 0.9999969005584717,
+        "option_2": 5.714990152227983e-07
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 918,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 320.332171395421
+    },
+    {
+      "id": "18387",
+      "family": "language science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.1476433428470045e-05,
+        "option_1": 0.9997851252555847,
+        "option_2": 0.0002034246426774189
+      },
+      "decision_distribution": {
+        "option_0": 1.1476433428470045e-05,
+        "option_1": 0.9997851252555847,
+        "option_2": 0.0002034246426774189
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 450,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 296.56911874189973
+    },
+    {
+      "id": "18560",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.1032560420787263e-09,
+        "option_1": 1.4166087192180044e-09,
+        "option_2": 1.0,
+        "option_3": 1.2501528701136522e-09
+      },
+      "decision_distribution": {
+        "option_0": 1.1032560420787263e-09,
+        "option_1": 1.4166087192180044e-09,
+        "option_2": 1.0,
+        "option_3": 1.2501528701136522e-09
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 888,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 301.5492791309953
+    },
+    {
+      "id": "18662",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.0736883357167244,
+        "option_1": 0.8977077007293701,
+        "option_2": 0.009972631931304932,
+        "option_3": 0.018631327897310257
+      },
+      "decision_distribution": {
+        "option_0": 0.0736883357167244,
+        "option_1": 0.8977077007293701,
+        "option_2": 0.009972631931304932,
+        "option_3": 0.018631327897310257
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1409,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 296.4163119904697
+    },
+    {
+      "id": "18752",
+      "family": "social science",
+      "expected": "option_3",
+      "native_answer": "option_3",
+      "decision_answer": "option_3",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 5.1440776587696746e-05,
+        "option_1": 1.8924003597931005e-05,
+        "option_2": 8.939066901803017e-06,
+        "option_3": 0.9999206066131592
+      },
+      "decision_distribution": {
+        "option_0": 5.1440776587696746e-05,
+        "option_1": 1.8924003597931005e-05,
+        "option_2": 8.939066901803017e-06,
+        "option_3": 0.9999206066131592
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 1548,
+      "visual_tokens": 1280,
+      "image_count": 1,
+      "decision_forward_ms": 389.9671668186784
+    },
+    {
+      "id": "19133",
+      "family": "social science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 1.300552048633108e-05,
+        "option_1": 0.9998633861541748,
+        "option_2": 9.609852713765576e-05,
+        "option_3": 2.753268927335739e-05
+      },
+      "decision_distribution": {
+        "option_0": 1.300552048633108e-05,
+        "option_1": 0.9998633861541748,
+        "option_2": 9.609852713765576e-05,
+        "option_3": 2.753268927335739e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 895,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 309.9256260320544
+    },
+    {
+      "id": "19232",
+      "family": "natural science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9994373917579651,
+        "option_1": 0.0004878206818830222,
+        "option_2": 7.480972271878272e-05
+      },
+      "decision_distribution": {
+        "option_0": 0.9994373917579651,
+        "option_1": 0.0004878206818830222,
+        "option_2": 7.480972271878272e-05
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 383,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 205.38678113371134
+    },
+    {
+      "id": "19882",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": false,
+      "decision_correct": false,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.5926666259765625,
+        "option_1": 0.4073334336280823
+      },
+      "decision_distribution": {
+        "option_0": 0.5926666259765625,
+        "option_1": 0.4073334336280823
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 894,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 298.85482508689165
+    },
+    {
+      "id": "20219",
+      "family": "social science",
+      "expected": "option_2",
+      "native_answer": "option_2",
+      "decision_answer": "option_2",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 6.823794507226921e-08,
+        "option_1": 3.7256654650263954e-06,
+        "option_2": 0.9997349381446838,
+        "option_3": 0.0002611892996355891
+      },
+      "decision_distribution": {
+        "option_0": 6.823794507226921e-08,
+        "option_1": 3.7256654650263954e-06,
+        "option_2": 0.9997349381446838,
+        "option_3": 0.0002611892996355891
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 893,
+      "visual_tokens": 768,
+      "image_count": 1,
+      "decision_forward_ms": 304.13139797747135
+    },
+    {
+      "id": "20677",
+      "family": "natural science",
+      "expected": "option_1",
+      "native_answer": "option_1",
+      "decision_answer": "option_1",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 9.610241977497935e-05,
+        "option_1": 0.9999039173126221
+      },
+      "decision_distribution": {
+        "option_0": 9.610241977497935e-05,
+        "option_1": 0.9999039173126221
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 430,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 224.94686301797628
+    },
+    {
+      "id": "21006",
+      "family": "language science",
+      "expected": "option_0",
+      "native_answer": "option_0",
+      "decision_answer": "option_0",
+      "native_correct": true,
+      "decision_correct": true,
+      "decision_agrees": true,
+      "native_distribution": {
+        "option_0": 0.9997040629386902,
+        "option_1": 0.0002959571429528296
+      },
+      "decision_distribution": {
+        "option_0": 0.9997040629386902,
+        "option_1": 0.0002959571429528296
+      },
+      "full_vocab_max_abs_diff": 0.0,
+      "candidate_max_abs_diff": 0.0,
+      "probability_max_abs_diff": 0.0,
+      "finite_pattern_matches": true,
+      "input_tokens": 491,
+      "visual_tokens": 256,
+      "image_count": 1,
+      "decision_forward_ms": 227.1722457371652
+    }
+  ],
+  "torch_version": "2.8.0+cu128",
+  "transformers_version": "4.57.1"
+}

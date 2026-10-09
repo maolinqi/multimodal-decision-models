@@ -1,0 +1,84 @@
+{
+  "dataset": {
+    "name": "ScienceQA",
+    "split": "test",
+    "selection": "100 image-bearing questions sampled with random.Random(42) from numeric-sorted IDs",
+    "seed": 42,
+    "count": 100,
+    "image_test_pool_count": 2017,
+    "official_revision": "2cbf8318e07b9ece895bb2ae605e71e38d623264",
+    "hf_revision": "f18b0a70359ebfb41f658fd564208d0355b013f4",
+    "parquet_sha256": "235e92d1f30155266df76bc9f28fc6e4fcb6bec2c6a8c7d67f9086ea6b392a84",
+    "license": "CC-BY-NC-SA-4.0",
+    "source": "https://github.com/lupantech/ScienceQA"
+  },
+  "suite_id": "scienceqa_image_test_100_seed42",
+  "suite_sha256": "769fb5bc1a563199fd100b622e1343d25d22f4b53cfcdc005fd42e65cec88ccd",
+  "models": [
+    {
+      "forward_p50_ms": 213.50973937660456,
+      "forward_p95_ms": 253.05884471163154,
+      "forward_mean_ms": 230.85388712584972,
+      "model_id": "gemma-e2b",
+      "name": "Gemma-3n-E2B-it",
+      "count": 100,
+      "native_correct": 80,
+      "decision_correct": 80,
+      "agreements": 100,
+      "max_full_vocab_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "forward_p50_ms": 222.8184195701033,
+      "forward_p95_ms": 275.3788763657212,
+      "forward_mean_ms": 236.51074045337737,
+      "model_id": "gemma-e4b",
+      "name": "Gemma-3n-E4B-it",
+      "count": 100,
+      "native_correct": 84,
+      "decision_correct": 84,
+      "agreements": 100,
+      "max_full_vocab_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "forward_p50_ms": 148.88026122935116,
+      "forward_p95_ms": 256.09024008736014,
+      "forward_mean_ms": 158.7367431493476,
+      "model_id": "minicpm-v45",
+      "name": "MiniCPM-V-4.5",
+      "count": 100,
+      "native_correct": 98,
+      "decision_correct": 98,
+      "agreements": 100,
+      "max_full_vocab_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "forward_p50_ms": 291.0645508673042,
+      "forward_p95_ms": 384.68290818855166,
+      "forward_mean_ms": 288.07219709735364,
+      "model_id": "internvl35-8b",
+      "name": "InternVL3.5-8B",
+      "count": 100,
+      "native_correct": 93,
+      "decision_correct": 93,
+      "agreements": 100,
+      "max_full_vocab_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
+      "forward_p50_ms": 263.8131103012711,
+      "forward_p95_ms": 440.34583820030093,
+      "forward_mean_ms": 284.23320000991225,
+      "model_id": "internvl35-14b",
+      "name": "InternVL3.5-14B",
+      "count": 100,
+      "native_correct": 92,
+      "decision_correct": 92,
+      "agreements": 100,
+      "max_full_vocab_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    }
+  ]
+}
