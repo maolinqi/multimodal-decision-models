@@ -126,7 +126,7 @@ cd multimodal-decision-models
 CUDA_VISIBLE_DEVICES=0 ./start_all.sh
 ```
 
-浏览器打开 **http://127.0.0.1:8456**，选择已下载的模型。视频需要系统已有 `ffmpeg` 和 `ffprobe`。停止服务使用 `./stop_all.sh`；启动脚本只使用已有项目环境，不重复安装依赖。
+浏览器打开 [本地决策台](http://127.0.0.1:8456)，选择已下载的模型。视频需要系统已有 `ffmpeg` 和 `ffprobe`。停止服务使用 `./stop_all.sh`；启动脚本只使用已有项目环境，不重复安装依赖。
 
 ```bash
 curl -H 'Content-Type: application/json' \
