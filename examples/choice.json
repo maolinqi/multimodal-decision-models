@@ -1,0 +1,4 @@
+{
+ "model_id": "minicpm-v45", "type": "choice", "state": {}, "images": [],
+ "question": "2+3等于多少？", "options": {"four": "4", "five": "5", "six": "6"}
+}

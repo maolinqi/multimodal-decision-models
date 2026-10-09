@@ -1,0 +1,377 @@
+{
+  "model_id": "minicpm-v45",
+  "status": "real_gpu_interface_validation_passed",
+  "results": [
+    {
+      "expected": "left",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "left",
+        "distribution": {
+          "left": 0.9996199607849121,
+          "right": 0.0003799845289904624
+        },
+        "label_mass": 0.9999122619628906,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 693.3596637099981,
+        "latency_ms": 754.3567325919867,
+        "images": [
+          {
+            "sha256": "515d1a188c1361dec7bedcab37f78cdf3c75d12708da7efad888aa9a1d39ca1e",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 153,
+        "visual_tokens": 64,
+        "base_model": "openbmb/MiniCPM-V-4_5",
+        "adapter": null
+      },
+      "native_candidate_max_abs_diff": 0.0
+    },
+    {
+      "expected": "right",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.0009110512328334153,
+          "right": 0.9990890026092529
+        },
+        "label_mass": 0.9998627305030823,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 193.69451701641083,
+        "latency_ms": 209.1368231922388,
+        "images": [
+          {
+            "sha256": "e7cfee6e0ec7278f276e25b7cf336e9673768f856fe9ea576548119cc7d3d5de",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 153,
+        "visual_tokens": 64,
+        "base_model": "openbmb/MiniCPM-V-4_5",
+        "adapter": null
+      },
+      "native_candidate_max_abs_diff": 0.0
+    },
+    {
+      "probe": "choice",
+      "result": {
+        "type": "choice",
+        "answer": "five",
+        "distribution": {
+          "four": 0.12180869281291962,
+          "five": 0.7009606957435608,
+          "six": 0.1772306114435196
+        },
+        "label_mass": 0.06234069913625717,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 53.09000005945563,
+        "latency_ms": 56.73508532345295,
+        "images": [],
+        "input_tokens": 69,
+        "visual_tokens": 0,
+        "base_model": "openbmb/MiniCPM-V-4_5",
+        "adapter": null
+      }
+    },
+    {
+      "probe": "noul",
+      "result": {
+        "type": "noul",
+        "answer": "true",
+        "distribution": {
+          "true": 0.9399133324623108,
+          "false": 0.06008664518594742
+        },
+        "label_mass": 0.613257884979248,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 29.977513011544943,
+        "latency_ms": 33.29793084412813,
+        "images": [],
+        "input_tokens": 67,
+        "visual_tokens": 0,
+        "base_model": "openbmb/MiniCPM-V-4_5",
+        "adapter": null,
+        "p_true": 0.9399133324623108,
+        "p_false": 0.06008664518594742
+      }
+    },
+    {
+      "probe": "score",
+      "result": {
+        "type": "score",
+        "answer": "3",
+        "distribution": {
+          "1": 0.12180870026350021,
+          "2": 0.1772306263446808,
+          "3": 0.7009607553482056
+        },
+        "label_mass": 0.07113911956548691,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 30.41593823581934,
+        "latency_ms": 33.10506325215101,
+        "images": [],
+        "input_tokens": 68,
+        "visual_tokens": 0,
+        "base_model": "openbmb/MiniCPM-V-4_5",
+        "adapter": null,
+        "score": 2.5791522189974785
+      }
+    },
+    {
+      "probe": "velocity4",
+      "result": {
+        "type": "velocity4",
+        "action_contract": {
+          "schema": "qwen3vl_independent_velocity4_v1",
+          "axes": [
+            "vx",
+            "vy",
+            "vz",
+            "yaw_rate"
+          ],
+          "physical_values": [
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -0.9,
+              -0.45,
+              -0.15,
+              0.0,
+              0.15,
+              0.45,
+              0.9
+            ]
+          ],
+          "normalization": [
+            2.0,
+            2.0,
+            2.0,
+            1.0471975511965976
+          ],
+          "independent_components": true,
+          "simultaneous_xyz_yaw": true,
+          "cartesian_action_count": 2401,
+          "discretized": true,
+          "continuous": false,
+          "frame": "body_FLU_yaw_aligned",
+          "duration_frames": 3,
+          "dt_seconds": 0.1,
+          "legacy_26_options": false,
+          "direct_motor_control": false,
+          "input_schema": "qwen3vl_observation_v1"
+        },
+        "proposed_physical": [
+          0.45,
+          -0.45,
+          0.45,
+          0.15
+        ],
+        "proposed_normalized": [
+          0.225,
+          -0.225,
+          0.225,
+          0.1432394487827058
+        ],
+        "indices": [
+          4,
+          2,
+          4,
+          4
+        ],
+        "distributions": {
+          "vx": {
+            "0": 0.08909597247838974,
+            "1": 0.003914603963494301,
+            "2": 0.02552642673254013,
+            "3": 0.3523814380168915,
+            "4": 0.4524667263031006,
+            "5": 0.047689639031887054,
+            "6": 0.028925228863954544
+          },
+          "vy": {
+            "0": 0.16493983566761017,
+            "1": 0.02232217974960804,
+            "2": 0.5080504417419434,
+            "3": 0.10004106163978577,
+            "4": 0.16493983566761017,
+            "5": 0.02232217974960804,
+            "6": 0.01738453097641468
+          },
+          "vz": {
+            "0": 0.05466660112142563,
+            "1": 0.0008836033521220088,
+            "2": 0.003084078896790743,
+            "3": 0.017747648060321808,
+            "4": 0.8551295399665833,
+            "5": 0.05466660112142563,
+            "6": 0.01382188219577074
+          },
+          "yaw_rate": {
+            "0": 0.19120709598064423,
+            "1": 0.012223460711538792,
+            "2": 0.03765090927481651,
+            "3": 0.029322557151317596,
+            "4": 0.45868197083473206,
+            "5": 0.19120709598064423,
+            "6": 0.07970696687698364
+          }
+        },
+        "components": [
+          {
+            "type": "choice",
+            "answer": "4",
+            "distribution": {
+              "0": 0.08909597247838974,
+              "1": 0.003914603963494301,
+              "2": 0.02552642673254013,
+              "3": 0.3523814380168915,
+              "4": 0.4524667263031006,
+              "5": 0.047689639031887054,
+              "6": 0.028925228863954544
+            },
+            "label_mass": 0.2278493344783783,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 40.92838708311319,
+            "latency_ms": 44.411296024918556,
+            "images": [],
+            "input_tokens": 205,
+            "visual_tokens": 0,
+            "base_model": "openbmb/MiniCPM-V-4_5",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "2",
+            "distribution": {
+              "0": 0.16493983566761017,
+              "1": 0.02232217974960804,
+              "2": 0.5080504417419434,
+              "3": 0.10004106163978577,
+              "4": 0.16493983566761017,
+              "5": 0.02232217974960804,
+              "6": 0.01738453097641468
+            },
+            "label_mass": 0.22479914128780365,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 40.6831749714911,
+            "latency_ms": 43.892230838537216,
+            "images": [],
+            "input_tokens": 206,
+            "visual_tokens": 0,
+            "base_model": "openbmb/MiniCPM-V-4_5",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "4",
+            "distribution": {
+              "0": 0.05466660112142563,
+              "1": 0.0008836033521220088,
+              "2": 0.003084078896790743,
+              "3": 0.017747648060321808,
+              "4": 0.8551295399665833,
+              "5": 0.05466660112142563,
+              "6": 0.01382188219577074
+            },
+            "label_mass": 0.20049116015434265,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 39.66083284467459,
+            "latency_ms": 42.749336920678616,
+            "images": [],
+            "input_tokens": 205,
+            "visual_tokens": 0,
+            "base_model": "openbmb/MiniCPM-V-4_5",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "4",
+            "distribution": {
+              "0": 0.19120709598064423,
+              "1": 0.012223460711538792,
+              "2": 0.03765090927481651,
+              "3": 0.029322557151317596,
+              "4": 0.45868197083473206,
+              "5": 0.19120709598064423,
+              "6": 0.07970696687698364
+            },
+            "label_mass": 0.17279398441314697,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 39.03947304934263,
+            "latency_ms": 42.10822796449065,
+            "images": [],
+            "input_tokens": 209,
+            "visual_tokens": 0,
+            "base_model": "openbmb/MiniCPM-V-4_5",
+            "adapter": null
+          }
+        ],
+        "latency_ms": 173.38766297325492,
+        "forward_passes": 4,
+        "calibrated": false,
+        "executable": false,
+        "reason": "Proposal requires current telemetry, joint swept-path check and freshness gate",
+        "base_model": "openbmb/MiniCPM-V-4_5"
+      }
+    }
+  ],
+  "synthetic_position_correct": 2,
+  "synthetic_position_count": 2,
+  "training_applied": false,
+  "navigation_improvement_demonstrated": false,
+  "real_flight_verified": false,
+  "torch_version": "2.8.0+cu128",
+  "transformers_version": "4.57.1"
+}

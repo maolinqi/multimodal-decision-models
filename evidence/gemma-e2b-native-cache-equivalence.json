@@ -1,0 +1,17 @@
+{
+  "model_id": "gemma-e2b",
+  "native_first_step_max_absolute_logit_difference": 0.0,
+  "candidate_logits": [
+    3.921875,
+    12.125,
+    7.625
+  ],
+  "native_logits": [
+    3.921875,
+    12.125,
+    7.625
+  ],
+  "fresh_per_forward_cache": true,
+  "passed": true,
+  "evidence_origin": "earlier_deployed_gemma_adapter_validation"
+}

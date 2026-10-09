@@ -1,0 +1,377 @@
+{
+  "model_id": "internvl35-8b",
+  "status": "real_gpu_interface_validation_passed",
+  "results": [
+    {
+      "expected": "left",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "left",
+        "distribution": {
+          "left": 0.9999251365661621,
+          "right": 7.48462334740907e-05
+        },
+        "label_mass": 1.0,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 661.327603738755,
+        "latency_ms": 954.4270136393607,
+        "images": [
+          {
+            "sha256": "515d1a188c1361dec7bedcab37f78cdf3c75d12708da7efad888aa9a1d39ca1e",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 375,
+        "visual_tokens": 256,
+        "base_model": "OpenGVLab/InternVL3_5-8B",
+        "adapter": null
+      },
+      "native_candidate_max_abs_diff": 0.0
+    },
+    {
+      "expected": "right",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 2.2603242086915998e-06,
+          "right": 0.9999977350234985
+        },
+        "label_mass": 1.0,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 163.7140680104494,
+        "latency_ms": 194.95366094633937,
+        "images": [
+          {
+            "sha256": "e7cfee6e0ec7278f276e25b7cf336e9673768f856fe9ea576548119cc7d3d5de",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 375,
+        "visual_tokens": 256,
+        "base_model": "OpenGVLab/InternVL3_5-8B",
+        "adapter": null
+      },
+      "native_candidate_max_abs_diff": 0.0
+    },
+    {
+      "probe": "choice",
+      "result": {
+        "type": "choice",
+        "answer": "five",
+        "distribution": {
+          "four": 0.05251685157418251,
+          "five": 0.8215017914772034,
+          "six": 0.1259813904762268
+        },
+        "label_mass": 0.9919359683990479,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 30.741446185857058,
+        "latency_ms": 33.83827209472656,
+        "images": [],
+        "input_tokens": 102,
+        "visual_tokens": 0,
+        "base_model": "OpenGVLab/InternVL3_5-8B",
+        "adapter": null
+      }
+    },
+    {
+      "probe": "noul",
+      "result": {
+        "type": "noul",
+        "answer": "true",
+        "distribution": {
+          "true": 0.9964063763618469,
+          "false": 0.0035936026833951473
+        },
+        "label_mass": 0.9999275803565979,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 31.23743226751685,
+        "latency_ms": 34.63601786643267,
+        "images": [],
+        "input_tokens": 100,
+        "visual_tokens": 0,
+        "base_model": "OpenGVLab/InternVL3_5-8B",
+        "adapter": null,
+        "p_true": 0.9964063763618469,
+        "p_false": 0.0035936026833951473
+      }
+    },
+    {
+      "probe": "score",
+      "result": {
+        "type": "score",
+        "answer": "1",
+        "distribution": {
+          "1": 0.5841360688209534,
+          "2": 0.3542964458465576,
+          "3": 0.061567485332489014
+        },
+        "label_mass": 0.9943549633026123,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 31.552419997751713,
+        "latency_ms": 35.0332111120224,
+        "images": [],
+        "input_tokens": 101,
+        "visual_tokens": 0,
+        "base_model": "OpenGVLab/InternVL3_5-8B",
+        "adapter": null,
+        "score": 1.4774314165115356
+      }
+    },
+    {
+      "probe": "velocity4",
+      "result": {
+        "type": "velocity4",
+        "action_contract": {
+          "schema": "qwen3vl_independent_velocity4_v1",
+          "axes": [
+            "vx",
+            "vy",
+            "vz",
+            "yaw_rate"
+          ],
+          "physical_values": [
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -0.9,
+              -0.45,
+              -0.15,
+              0.0,
+              0.15,
+              0.45,
+              0.9
+            ]
+          ],
+          "normalization": [
+            2.0,
+            2.0,
+            2.0,
+            1.0471975511965976
+          ],
+          "independent_components": true,
+          "simultaneous_xyz_yaw": true,
+          "cartesian_action_count": 2401,
+          "discretized": true,
+          "continuous": false,
+          "frame": "body_FLU_yaw_aligned",
+          "duration_frames": 3,
+          "dt_seconds": 0.1,
+          "legacy_26_options": false,
+          "direct_motor_control": false,
+          "input_schema": "qwen3vl_observation_v1"
+        },
+        "proposed_physical": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "proposed_normalized": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "indices": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "distributions": {
+          "vx": {
+            "0": 0.06202609837055206,
+            "1": 0.06202609837055206,
+            "2": 0.07964308559894562,
+            "3": 0.7556325793266296,
+            "4": 0.0292990542948246,
+            "5": 0.00396519573405385,
+            "6": 0.007407961413264275
+          },
+          "vy": {
+            "0": 0.03245563805103302,
+            "1": 0.036777056753635406,
+            "2": 0.05351029708981514,
+            "3": 0.8370419144630432,
+            "4": 0.02527647651731968,
+            "5": 0.005639944225549698,
+            "6": 0.009298696182668209
+          },
+          "vz": {
+            "0": 0.02588157169520855,
+            "1": 0.022840406745672226,
+            "2": 0.037657465785741806,
+            "3": 0.8570799231529236,
+            "4": 0.04835314303636551,
+            "5": 0.0050963833928108215,
+            "6": 0.00309111294336617
+          },
+          "yaw_rate": {
+            "0": 0.07137040048837662,
+            "1": 0.07137040048837662,
+            "2": 0.05558332800865173,
+            "3": 0.7673041820526123,
+            "4": 0.023170579224824905,
+            "5": 0.0045625572092831135,
+            "6": 0.006638481747359037
+          }
+        },
+        "components": [
+          {
+            "type": "choice",
+            "answer": "3",
+            "distribution": {
+              "0": 0.06202609837055206,
+              "1": 0.06202609837055206,
+              "2": 0.07964308559894562,
+              "3": 0.7556325793266296,
+              "4": 0.0292990542948246,
+              "5": 0.00396519573405385,
+              "6": 0.007407961413264275
+            },
+            "label_mass": 0.9897173047065735,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 39.8384821601212,
+            "latency_ms": 45.81137280911207,
+            "images": [],
+            "input_tokens": 238,
+            "visual_tokens": 0,
+            "base_model": "OpenGVLab/InternVL3_5-8B",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "3",
+            "distribution": {
+              "0": 0.03245563805103302,
+              "1": 0.036777056753635406,
+              "2": 0.05351029708981514,
+              "3": 0.8370419144630432,
+              "4": 0.02527647651731968,
+              "5": 0.005639944225549698,
+              "6": 0.009298696182668209
+            },
+            "label_mass": 0.9873999953269958,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 40.18401028588414,
+            "latency_ms": 44.65126292780042,
+            "images": [],
+            "input_tokens": 239,
+            "visual_tokens": 0,
+            "base_model": "OpenGVLab/InternVL3_5-8B",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "3",
+            "distribution": {
+              "0": 0.02588157169520855,
+              "1": 0.022840406745672226,
+              "2": 0.037657465785741806,
+              "3": 0.8570799231529236,
+              "4": 0.04835314303636551,
+              "5": 0.0050963833928108215,
+              "6": 0.00309111294336617
+            },
+            "label_mass": 0.9875431060791016,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 40.53639201447368,
+            "latency_ms": 45.04665406420827,
+            "images": [],
+            "input_tokens": 238,
+            "visual_tokens": 0,
+            "base_model": "OpenGVLab/InternVL3_5-8B",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "3",
+            "distribution": {
+              "0": 0.07137040048837662,
+              "1": 0.07137040048837662,
+              "2": 0.05558332800865173,
+              "3": 0.7673041820526123,
+              "4": 0.023170579224824905,
+              "5": 0.0045625572092831135,
+              "6": 0.006638481747359037
+            },
+            "label_mass": 0.9400332570075989,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 39.90719094872475,
+            "latency_ms": 44.661786407232285,
+            "images": [],
+            "input_tokens": 242,
+            "visual_tokens": 0,
+            "base_model": "OpenGVLab/InternVL3_5-8B",
+            "adapter": null
+          }
+        ],
+        "latency_ms": 182.4534679763019,
+        "forward_passes": 4,
+        "calibrated": false,
+        "executable": false,
+        "reason": "Proposal requires current telemetry, joint swept-path check and freshness gate",
+        "base_model": "OpenGVLab/InternVL3_5-8B"
+      }
+    }
+  ],
+  "synthetic_position_correct": 2,
+  "synthetic_position_count": 2,
+  "training_applied": false,
+  "navigation_improvement_demonstrated": false,
+  "real_flight_verified": false,
+  "torch_version": "2.8.0+cu128",
+  "transformers_version": "4.57.1"
+}

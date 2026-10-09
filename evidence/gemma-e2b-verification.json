@@ -1,0 +1,553 @@
+{
+  "model_id": "gemma-e2b",
+  "status": "real_model_interface_verified",
+  "elapsed_s": 21.65266752243042,
+  "results": [
+    {
+      "probe": "position",
+      "expected": "left",
+      "visual": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.01590639166533947,
+          "right": 0.9840936064720154
+        },
+        "label_mass": 0.9997273087501526,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 762.2483223676682,
+        "latency_ms": 956.0645762830973,
+        "images": [
+          {
+            "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+            "original_size": [
+              320,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 350,
+        "visual_tokens": 256,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532786806.7422,
+        "training_applied": false
+      },
+      "no_image": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.004070138093084097,
+          "right": 0.9959298968315125
+        },
+        "label_mass": 0.9995862245559692,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 73.21337563917041,
+        "latency_ms": 77.0380413159728,
+        "images": [],
+        "input_tokens": 74,
+        "visual_tokens": 0,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532786888.9995,
+        "training_applied": false
+      },
+      "distribution_change_l1": 0.023672543931752443
+    },
+    {
+      "probe": "position",
+      "expected": "right",
+      "visual": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.000626334163825959,
+          "right": 0.999373733997345
+        },
+        "label_mass": 0.9998188614845276,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 204.7802982851863,
+        "latency_ms": 394.81292199343443,
+        "images": [
+          {
+            "sha256": "4a2f4ba673ff304301ac72d4f70dbc20fd3e94bad796d6e5f131934185cf04f7",
+            "original_size": [
+              320,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 350,
+        "visual_tokens": 256,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532787288.9358,
+        "training_applied": false
+      },
+      "no_image": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.004070138093084097,
+          "right": 0.9959298968315125
+        },
+        "label_mass": 0.9995862245559692,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 66.4045438170433,
+        "latency_ms": 70.12040819972754,
+        "images": [],
+        "input_tokens": 74,
+        "visual_tokens": 0,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532787362.0586,
+        "training_applied": false
+      },
+      "distribution_change_l1": 0.0068876410950906575
+    },
+    {
+      "probe": "ordered_two_frames",
+      "result": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.24508501589298248,
+          "right": 0.7549149990081787
+        },
+        "label_mass": 0.998513400554657,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 281.88304184004664,
+        "latency_ms": 503.90848610550165,
+        "images": [
+          {
+            "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+            "original_size": [
+              320,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          },
+          {
+            "sha256": "4a2f4ba673ff304301ac72d4f70dbc20fd3e94bad796d6e5f131934185cf04f7",
+            "original_size": [
+              320,
+              256
+            ],
+            "timestamp_ms": 200.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 629,
+        "visual_tokens": 512,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532787872.209,
+        "training_applied": false
+      }
+    },
+    {
+      "probe": "choice",
+      "result": {
+        "type": "choice",
+        "answer": "five",
+        "distribution": {
+          "four": 0.0002707150997593999,
+          "five": 0.9887452721595764,
+          "six": 0.010983969084918499
+        },
+        "label_mass": 0.9984133839607239,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 66.66238000616431,
+        "latency_ms": 70.3801242634654,
+        "images": [],
+        "input_tokens": 72,
+        "visual_tokens": 0,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532787950.7642,
+        "training_applied": false
+      }
+    },
+    {
+      "probe": "noul",
+      "result": {
+        "type": "noul",
+        "answer": "true",
+        "distribution": {
+          "true": 0.9999921321868896,
+          "false": 7.889262633398175e-06
+        },
+        "label_mass": 0.9999809265136719,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 234.45223597809672,
+        "latency_ms": 365.4889171011746,
+        "images": [
+          {
+            "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+            "original_size": [
+              320,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 342,
+        "visual_tokens": 256,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "p_true": 0.9999921321868896,
+        "p_false": 7.889262633398175e-06,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532788318.4717,
+        "training_applied": false
+      }
+    },
+    {
+      "probe": "score",
+      "result": {
+        "type": "score",
+        "answer": "3",
+        "distribution": {
+          "1": 2.7535528715816326e-05,
+          "2": 5.954975222266512e-06,
+          "3": 0.9999665021896362
+        },
+        "label_mass": 0.9999923706054688,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 222.07409283146262,
+        "latency_ms": 285.60086293146014,
+        "images": [
+          {
+            "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+            "original_size": [
+              320,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 349,
+        "visual_tokens": 256,
+        "base_model": "google/gemma-3n-E2B-it",
+        "adapter": null,
+        "score": 2.999938952048069,
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532788606.8323,
+        "training_applied": false
+      }
+    },
+    {
+      "probe": "velocity4",
+      "result": {
+        "type": "velocity4",
+        "action_contract": {
+          "schema": "qwen3vl_independent_velocity4_v1",
+          "axes": [
+            "vx",
+            "vy",
+            "vz",
+            "yaw_rate"
+          ],
+          "physical_values": [
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -0.9,
+              -0.45,
+              -0.15,
+              0.0,
+              0.15,
+              0.45,
+              0.9
+            ]
+          ],
+          "normalization": [
+            2.0,
+            2.0,
+            2.0,
+            1.0471975511965976
+          ],
+          "independent_components": true,
+          "simultaneous_xyz_yaw": true,
+          "cartesian_action_count": 2401,
+          "discretized": true,
+          "continuous": false,
+          "frame": "body_FLU_yaw_aligned",
+          "duration_frames": 3,
+          "dt_seconds": 0.1,
+          "legacy_26_options": false,
+          "direct_motor_control": false,
+          "input_schema": "qwen3vl_observation_v1"
+        },
+        "proposed_physical": [
+          -0.9,
+          -0.9,
+          -0.45,
+          -0.9
+        ],
+        "proposed_normalized": [
+          -0.45,
+          -0.45,
+          -0.225,
+          -0.8594366926962349
+        ],
+        "indices": [
+          1,
+          1,
+          2,
+          0
+        ],
+        "distributions": {
+          "vx": {
+            "0": 0.06102686747908592,
+            "1": 0.7914084196090698,
+            "2": 0.10710547864437103,
+            "3": 0.032665327191352844,
+            "4": 0.0056763822212815285,
+            "5": 0.0017311989795416594,
+            "6": 0.0003862827143166214
+          },
+          "vy": {
+            "0": 0.24704870581626892,
+            "1": 0.6308609843254089,
+            "2": 0.10298522561788559,
+            "3": 0.016811875626444817,
+            "4": 0.0012963926419615746,
+            "5": 0.0008370140567421913,
+            "6": 0.0001597469236003235
+          },
+          "vz": {
+            "0": 0.050263822078704834,
+            "1": 0.2717236876487732,
+            "2": 0.5752390027046204,
+            "3": 0.06870250403881073,
+            "4": 0.03048655018210411,
+            "5": 0.0026638852432370186,
+            "6": 0.0009206141112372279
+          },
+          "yaw_rate": {
+            "0": 0.9950110912322998,
+            "1": 0.003371149767190218,
+            "2": 0.0005858179647475481,
+            "3": 0.0009073326364159584,
+            "4": 4.517343404586427e-05,
+            "5": 5.4489559261128306e-05,
+            "6": 2.4947139536379836e-05
+          }
+        },
+        "components": [
+          {
+            "type": "choice",
+            "answer": "1",
+            "distribution": {
+              "0": 0.06102686747908592,
+              "1": 0.7914084196090698,
+              "2": 0.10710547864437103,
+              "3": 0.032665327191352844,
+              "4": 0.0056763822212815285,
+              "5": 0.0017311989795416594,
+              "6": 0.0003862827143166214
+            },
+            "label_mass": 0.9699285626411438,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 212.62255078181624,
+            "latency_ms": 287.1832950040698,
+            "images": [
+              {
+                "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+                "original_size": [
+                  320,
+                  256
+                ],
+                "timestamp_ms": 0.0,
+                "camera_id": "front",
+                "modality": "rgb",
+                "calibration": {}
+              }
+            ],
+            "input_tokens": 479,
+            "visual_tokens": 256,
+            "base_model": "google/gemma-3n-E2B-it",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "1",
+            "distribution": {
+              "0": 0.24704870581626892,
+              "1": 0.6308609843254089,
+              "2": 0.10298522561788559,
+              "3": 0.016811875626444817,
+              "4": 0.0012963926419615746,
+              "5": 0.0008370140567421913,
+              "6": 0.0001597469236003235
+            },
+            "label_mass": 0.9757782816886902,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 208.15023919567466,
+            "latency_ms": 297.5677060894668,
+            "images": [
+              {
+                "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+                "original_size": [
+                  320,
+                  256
+                ],
+                "timestamp_ms": 0.0,
+                "camera_id": "front",
+                "modality": "rgb",
+                "calibration": {}
+              }
+            ],
+            "input_tokens": 479,
+            "visual_tokens": 256,
+            "base_model": "google/gemma-3n-E2B-it",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "2",
+            "distribution": {
+              "0": 0.050263822078704834,
+              "1": 0.2717236876487732,
+              "2": 0.5752390027046204,
+              "3": 0.06870250403881073,
+              "4": 0.03048655018210411,
+              "5": 0.0026638852432370186,
+              "6": 0.0009206141112372279
+            },
+            "label_mass": 0.9387243986129761,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 245.4374567605555,
+            "latency_ms": 335.32826602458954,
+            "images": [
+              {
+                "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+                "original_size": [
+                  320,
+                  256
+                ],
+                "timestamp_ms": 0.0,
+                "camera_id": "front",
+                "modality": "rgb",
+                "calibration": {}
+              }
+            ],
+            "input_tokens": 479,
+            "visual_tokens": 256,
+            "base_model": "google/gemma-3n-E2B-it",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "0",
+            "distribution": {
+              "0": 0.9950110912322998,
+              "1": 0.003371149767190218,
+              "2": 0.0005858179647475481,
+              "3": 0.0009073326364159584,
+              "4": 4.517343404586427e-05,
+              "5": 5.4489559261128306e-05,
+              "6": 2.4947139536379836e-05
+            },
+            "label_mass": 0.9986429214477539,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 267.4720911309123,
+            "latency_ms": 426.1985463090241,
+            "images": [
+              {
+                "sha256": "4f3fdee85d7e51d08862c59d1e547ea4c4e10233a7048b5c97fd6a5916f226a1",
+                "original_size": [
+                  320,
+                  256
+                ],
+                "timestamp_ms": 0.0,
+                "camera_id": "front",
+                "modality": "rgb",
+                "calibration": {}
+              }
+            ],
+            "input_tokens": 482,
+            "visual_tokens": 256,
+            "base_model": "google/gemma-3n-E2B-it",
+            "adapter": null
+          }
+        ],
+        "latency_ms": 1351.1114921420813,
+        "forward_passes": 4,
+        "calibrated": false,
+        "executable": false,
+        "reason": "Proposal requires current telemetry, joint swept-path check and freshness gate",
+        "model_id": "gemma-e2b",
+        "returned_at_ms": 1791532789959.9915,
+        "training_applied": false
+      }
+    }
+  ],
+  "navigation_improvement_demonstrated": false,
+  "training_applied": false,
+  "real_world_success_verified": false,
+  "evidence_origin": "earlier_deployed_gemma_adapter_validation"
+}
