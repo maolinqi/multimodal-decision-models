@@ -1,0 +1,719 @@
+{
+  "suite_id": "scienceqa_image_test_100_seed42",
+  "suite_sha256": "769fb5bc1a563199fd100b622e1343d25d22f4b53cfcdc005fd42e65cec88ccd",
+  "dataset": {
+    "name": "ScienceQA",
+    "split": "test",
+    "selection": "100 image-bearing questions sampled with random.Random(42) from numeric-sorted IDs",
+    "seed": 42,
+    "count": 100,
+    "image_test_pool_count": 2017,
+    "official_revision": "2cbf8318e07b9ece895bb2ae605e71e38d623264",
+    "hf_revision": "f18b0a70359ebfb41f658fd564208d0355b013f4",
+    "parquet_sha256": "235e92d1f30155266df76bc9f28fc6e4fcb6bec2c6a8c7d67f9086ea6b392a84",
+    "license": "CC-BY-NC-SA-4.0",
+    "source": "https://github.com/lupantech/ScienceQA"
+  },
+  "rows": [
+    {
+      "id": "111",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "41ed2d7c24dc8341e72b89886ab1699fe90e1bf733d93a5850ffe673e017cf36",
+      "metadata_sha256": "89b5c4639024c2880731a6237f0e31c233a4190729534c4ab9c31281a1594657"
+    },
+    {
+      "id": "517",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "20ccbfd61a4496697fc63011e83ab58a53e72acda80c7f0f4d2b2d290a3009ce",
+      "metadata_sha256": "626af66371d10181d314910965ab68ec67fd5ec924bea6b05e2b2c37219f4155"
+    },
+    {
+      "id": "536",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "61a6d32d3c8ab60ad2b232509a228c65aeda1d4d35d9d7ed6dd516f0742db979",
+      "metadata_sha256": "43beaac302ea55d36cfc4e6f4b4dcaea631b82cc4793be3abada7316fdb79804"
+    },
+    {
+      "id": "605",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "560313503d8ddc9fef1054b0842c7877eeee7acf95b36d2504e68960596ef00d",
+      "metadata_sha256": "2db04ba773e30752a6e0347e72a283cf389885f2a020857535243b45a6143fbb"
+    },
+    {
+      "id": "645",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "c2d1fb07f46eeefc52e68ffc8fd1b937ee91c073df36e08bed85b5391708a28c",
+      "metadata_sha256": "18c598a9f460e6d6fdb31949717ebe5ed1c9e7fd282a3ebb41cf86167d9d2dc6"
+    },
+    {
+      "id": "879",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "848f6198ed8f5cace8c49e3da54e929248047152b9ed5453c9ab33e10a2a7c2e",
+      "metadata_sha256": "da087854aa003eab96281f39b1451d5b187144c794e4414e84ed89c65ddb7869"
+    },
+    {
+      "id": "918",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "1f9bb44214695b22a2ddf5330b75dc74718e273e8818dcf3f7f9e8b0d5d11bec",
+      "metadata_sha256": "26474fe0548b531a1b734970e6bbeaf1d3fae3093d3dd5598baac05dd8d4e8eb"
+    },
+    {
+      "id": "1454",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "642ed0b2772b704ff63ffee3fd4dd914c2723da0ddb9b3827a32150bdf6b64bc",
+      "metadata_sha256": "ce643adbbed4288b376c55a3048e42ea169b4d515d667f2d508f4de9e28d7893"
+    },
+    {
+      "id": "1714",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "ea481c5048bf6ed429ad416ada6789d787b95c692a02910a5a59d69c59f06f18",
+      "metadata_sha256": "6451502e191d171cb42bc842fe73ce052771dc226c44a9dd253197f9af474b40"
+    },
+    {
+      "id": "1752",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "6e34fbd06a76a35755c5988ecae9864305ee8ab6e93140419acab73349be33dd",
+      "metadata_sha256": "ba65fdb77b49f6bf165ce98a247836792d2fc0126dbd44c059cc462ce85ff8bf"
+    },
+    {
+      "id": "1936",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "eb8b6ad3baaada585846d81d1c4d7a6f4686af2436ca4ade7ac232ec3933e76d",
+      "metadata_sha256": "fef42edd44533c02c79101ddfb7a878c8c46bc65bf60f7c237873794bf4db1e8"
+    },
+    {
+      "id": "2015",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "d7342d4b0794d78fbdc5a92c0d278891b9103f39ccb786eea10abb6d37b82c72",
+      "metadata_sha256": "4dd162f7a4b5e13349f865574ff5a9d82aff0c17d27df40095c9986c6f043686"
+    },
+    {
+      "id": "2037",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "0bbefb19165ca5a909a56effbb9edb553c03a4f6986bef3e8627b6af6a0d775a",
+      "metadata_sha256": "a6b74de1d5819b1f9ffb829a67cdfc13fb92452eb8123e9a5643ada316795df4"
+    },
+    {
+      "id": "2148",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "93b2e304118112988085c8bbb38213275b956cfb79fbde015ff4947a2b7a77fe",
+      "metadata_sha256": "0a6036b1e7319f68efc52b8075e610b9f5de845185ac03224597a360d2236155"
+    },
+    {
+      "id": "2210",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "ed56ad43b1e4abdfac33348f5c44178dcabd8ca55fc699f8eb4f60d741993e62",
+      "metadata_sha256": "55a61d8c682d38db61881766145fbfc68958c70910dbf6895eff548bc7a4e390"
+    },
+    {
+      "id": "2286",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "9ad35d816e4d4182e58ce3593120696db0747af158f765c53d2bf4b6a821eddc",
+      "metadata_sha256": "2f567e78c00da3d2d108dad3933f5c50d2a7ef81ddca1b0848d1b3256b90fae8"
+    },
+    {
+      "id": "2473",
+      "expected": "option_0",
+      "subject": "social science",
+      "image_sha256": "78b5d8e9e73414ba2705aed5a1fa8dd7c0cdf09fa04a7fb80a196ddf57d8b4ad",
+      "metadata_sha256": "3f4b6aced6212abb432706bcaf719d8b22586aaa7f21e3e02354102967fce973"
+    },
+    {
+      "id": "2759",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "3bb1a65671b66f3ef676e5c87998f4637f6dd371ee38404d821c66f130710bc8",
+      "metadata_sha256": "cea9252c0743c58450ca52285241590b84501b8df81a24af2ffedb542e6855a7"
+    },
+    {
+      "id": "3016",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "2132035ceb66194fc84bc53dafe5a1c05d8d53263c88c75df199196fc47cc36d",
+      "metadata_sha256": "3070e00c03401b4d8c2e48c1148aeec7f6351bc1633f25228b1efd76bd1f4805"
+    },
+    {
+      "id": "3233",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "ef722cd02284ebf4c1fbf6ac2ce841354db5def15bfef77758314d9a5a9d25a9",
+      "metadata_sha256": "572fb296d504477de80922b801fb764d31f5cad2b53833171de1fc9ba207b703"
+    },
+    {
+      "id": "3354",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "1b74abfb8fa69e8057fa5c209a1b9a02b0c4add6c6197f557c7a06f5c5c8c538",
+      "metadata_sha256": "9e68a3b9f6c729761faccc6de9a4401441fde78aace6ae5f2041d14c49d53676"
+    },
+    {
+      "id": "3434",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "95ef8c5e12a79d84ae48109fc8952011346625cd6c87b74831ebd6ec0245ed00",
+      "metadata_sha256": "2a1eff82f6037a3672a4ea23e01f48d83a62e2a25b1c52597debeb09436c780a"
+    },
+    {
+      "id": "3972",
+      "expected": "option_0",
+      "subject": "social science",
+      "image_sha256": "187a90c2cf15c115e5cca5aea371c7527c2b59377d8a4bf11458ae2be70e01da",
+      "metadata_sha256": "9c7954d1c8f7097f841e78f3cb3e71154c7e7907cc40fc8dfe7f56e45262eff9"
+    },
+    {
+      "id": "4153",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "ecf21285faafbb3fa0defb52b62fb91d600877e697930b9857ae440fa7ee7f81",
+      "metadata_sha256": "e166795390b2395c023319e829d7d7d3770fb44bcb90b78ec99a900f5ceabf08"
+    },
+    {
+      "id": "4310",
+      "expected": "option_2",
+      "subject": "language science",
+      "image_sha256": "9b9d070b8427415e517921956476f615c2a9d73b303be68dad376b34e2aa45d4",
+      "metadata_sha256": "ac838f83d41674e265e933f6904ab6bcf46648319bff6a2c850d4dfbb6049e21"
+    },
+    {
+      "id": "4443",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "a8c1b746f8ab59625c3f0c177fa8e3511a7ebdb1234e08f5ee2a8d0fd551eb07",
+      "metadata_sha256": "37afc7a24dec6b4f082f1f8728c89c1caef9dbd87d741416d4c94ef14151cbe9"
+    },
+    {
+      "id": "4512",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "44fa2ffc6bd39dca095b4f549b5566c13bd8a281e21d8a253a06a8bad693e24f",
+      "metadata_sha256": "8f56e5808b6a14aed47b414e1b98a4134f9ff7350fc2dab055aaecee289e2fdd"
+    },
+    {
+      "id": "4553",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "1ec192aa69d0d24bd89afd363056ac9895ce8f32cd590ac1b7aefbb057ec788b",
+      "metadata_sha256": "e65c09838a72f9c931aeff97b25ed69bd3aed0019d138e885beb4761110df9c3"
+    },
+    {
+      "id": "4594",
+      "expected": "option_2",
+      "subject": "natural science",
+      "image_sha256": "92e299e072af4be5db42d8ac7f2db4480889b01ec1c8e85021e638c09a1548cc",
+      "metadata_sha256": "78e3743f0989b3c87902dc5bd1fdef654b6b4ea5c76b49c8b180bdf445b7b14e"
+    },
+    {
+      "id": "4708",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "2abfdca6bcb25cd0aa91f3f530aa961940acdeb2c6cf76fcef25acfbfc7bbb7f",
+      "metadata_sha256": "3be50c9cca2ec0b08bfda07df1a54deed7e2edc46ecc1022e0bee9a64434ad60"
+    },
+    {
+      "id": "4817",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "dbfdf122471177eed3ffacf424f18e1bf51e2a1d803f5713f418502f152dc87d",
+      "metadata_sha256": "76818782b23ad18bb07e661c0be651939a9e33730c9a257ce8fb92323ba9ea91"
+    },
+    {
+      "id": "5090",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "64d6160af685cc6060fb1364a630f7842d1185c40bbdc2c33000d8c6c88b240e",
+      "metadata_sha256": "0ee1dd375b8a9d244c7a50fdb8997af6f1a5de627ecddb685ddd2dd1234c26d3"
+    },
+    {
+      "id": "5573",
+      "expected": "option_0",
+      "subject": "social science",
+      "image_sha256": "328beed88505018ab2623efa1293d98a4fc0f76272bb787c89f2c8356ee37d6c",
+      "metadata_sha256": "a83cd4e786a809c0e13333275aa00febf681fdabb97dcbe32932de7333b6e27a"
+    },
+    {
+      "id": "5625",
+      "expected": "option_0",
+      "subject": "language science",
+      "image_sha256": "f1a78ad40a44c753b65ba9e3548e952500d740f10cff8484ea21f571ef132b0b",
+      "metadata_sha256": "f410df61381bd7e950b26413d16b4778dfa022fea9a36de6cb0871c7b020c2c1"
+    },
+    {
+      "id": "5795",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "c31226b39780da3cb85d1bc518d476797130426c88c72998690aef238e980225",
+      "metadata_sha256": "dcfba2848367be417e0f641a3d9f4470702ffbd7ed220d01513dc91bed899ec7"
+    },
+    {
+      "id": "5828",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "97983b4999983ecc2fdff875e1f52fab4bdd2ffabdf4c691bc4321427f7ccd63",
+      "metadata_sha256": "d838db3740c385c2b71e2f48689915521162fcb19ef2f20dcc8418d56390b255"
+    },
+    {
+      "id": "6028",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "b85d91fa0234854e3beb372219df76d82aa31a622f1f1b3334f4cca3b9f8f27c",
+      "metadata_sha256": "c6cd05b14e66a966afef809db0a77125f539fa6e1daac8a0f9e5363f424c8f3c"
+    },
+    {
+      "id": "6123",
+      "expected": "option_2",
+      "subject": "natural science",
+      "image_sha256": "e910a4660cf0a59c2854d1120fa281401e69f942719e94bda19eef8266d7210e",
+      "metadata_sha256": "d77a7b38276dc63a31005e5c6e6dacc7e722e588a99980fb006974dffc2acc49"
+    },
+    {
+      "id": "7014",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "fdf2e97501a246c4ceccc845be93f30bb90c9a7fad74a54f4808fe48ac00a0fd",
+      "metadata_sha256": "da3a25096cd7f3d8dab523f02435c5cdc54f448cc62dc9b8927d996cc788b739"
+    },
+    {
+      "id": "7057",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "4fcf7f2d34232fdbb81039910cab3d7299e65cc4fca48093050c0fc0a6f6c6ac",
+      "metadata_sha256": "7b26694b6c90ef4e9fdfafabce7a3f083c8a58f8d1f49636913bfffb6877e7d3"
+    },
+    {
+      "id": "7134",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "c49a52db95f1f0a496faab5af89e693cd9057875e682403961a68cb4624a9071",
+      "metadata_sha256": "5e1ccb3a7f41186a863753dbadbf692f1751a67c9daf95f90dbc4ddd4eda4cfa"
+    },
+    {
+      "id": "7457",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "d7fcc312f4ece9ba6fff16aaaccc90be740160062cdd1a43ff045482e9806561",
+      "metadata_sha256": "664138332e5d0bdfad7abff24679b2d256df9240a6d6ed3a99bf77de69cea2f2"
+    },
+    {
+      "id": "7497",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "c8b59ae9dc9cfdc6b3d38d4578f3662f4711c1e649d9fcb4b3c78ac11c0477dd",
+      "metadata_sha256": "e8d663f721787dc001ed949783cf3b0294fc43443d5be7a40ec634912b48a04a"
+    },
+    {
+      "id": "7546",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "eee14a63e4e65001ed3fb842eb2caa895e777baefe24708a69f3f69ab0be05ef",
+      "metadata_sha256": "b85bb92757522102b1a3beb1775087f817abc97c5664c5b60df4fe1a1bc5ca91"
+    },
+    {
+      "id": "7653",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "66f72adc2fbb5b7e28050585129ae9a7d585bad7d683e49faaac4fe215c922b8",
+      "metadata_sha256": "d6a1562b127a6d5b1f37813092ac11b9fd467a4c3f03d7d6727b1ee5b07b9953"
+    },
+    {
+      "id": "7768",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "eb3d4b517a1307e17905b13e05ad6c9fdecb691661abaaf6e70c75854a30f881",
+      "metadata_sha256": "0f617a1c44b3eee6ddf14b0ff21df192479ceb5b37a7f4c75a53ab55d1f8da7b"
+    },
+    {
+      "id": "7936",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "9852cfea6b4c5d3e7b1d5cf9a6be47ca73b85c010159951b9f0b5d14df75058b",
+      "metadata_sha256": "96d9c93b66bf618c55de98073ab1f2b3cb2668c8fac178649bf4cd8b45b828f5"
+    },
+    {
+      "id": "8014",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "b6d038dcddeb54e63e097f4291912f5ddbdbcd6d264ff85181f84d04c1414e89",
+      "metadata_sha256": "ccf02231b7a185a19a039c8b2a8bbefced65a59246478dbfaa82df5e5a5e9c99"
+    },
+    {
+      "id": "8972",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "f148da395d50ffe6d3dd82515cc9156e9433eb02f4f2ff2551c299eb324adcb4",
+      "metadata_sha256": "19b54d2f116ab9e30b1d8abc458c7db2de4d86fa15b83d44749de541e3db656c"
+    },
+    {
+      "id": "9058",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "f26a26fd6c5c42fbef5eb98e6204779cf37b7b540fd3107054b380740311e49e",
+      "metadata_sha256": "1332407f0dc1bcea812a2eeaeda77ac16448ea40772b6b5f12123d1d2cd2d768"
+    },
+    {
+      "id": "9067",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "de34137f14f349896ba17d818fddfa3d6ebb2829cf7ab3042d29d692819cfbc7",
+      "metadata_sha256": "b7e59bc8b1721b9c144aa907739cb3f19d1199dcde6848d77856d7957e5a474e"
+    },
+    {
+      "id": "9670",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "e971cf1f16c92a152c068c33795f565afe7a43e451ee17b16be58787283a59e2",
+      "metadata_sha256": "8c179e8b810b3efa6e6379c421a379dd3261bd4488374d44bfae84a013ad654f"
+    },
+    {
+      "id": "9814",
+      "expected": "option_2",
+      "subject": "natural science",
+      "image_sha256": "fc95c41f53ea4f1a253d3206dbfe8f139e5bad744fc8e7cd0f8b21a050c5e2b1",
+      "metadata_sha256": "05890fcdb899fe9d1ccb4aa7dfcbdb9e6cc991c2f585d39916b1dec45e1a4410"
+    },
+    {
+      "id": "9946",
+      "expected": "option_2",
+      "subject": "natural science",
+      "image_sha256": "82cc93dad6b21a98c5ec5d38f2b3eec52cab6e217628a5ab0f68528231f1a5d7",
+      "metadata_sha256": "048a3e92a33f32a3179b2fd08bb2be3f86e39f8715e2bcf57114082cfd954d62"
+    },
+    {
+      "id": "10793",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "45f1b4922a9ad9e42782869faa406c018a75fb34263ce8b660d417e10f0c9a9f",
+      "metadata_sha256": "cec2134d6d2b793adef024aaacd628760a3a3f0cac012bdf81409c30ec0d9d2d"
+    },
+    {
+      "id": "11468",
+      "expected": "option_0",
+      "subject": "social science",
+      "image_sha256": "bea672a8a5ef111097990f2431b5e4ea6c02accc0c0ba8c77f556f8b505efd5b",
+      "metadata_sha256": "770b4c083d3c40e938245f5c2b96674352d5f2523d26c58f0e1c96257558199f"
+    },
+    {
+      "id": "11608",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "d2cce85398598f5cb809b9e187b2b0d8d6e714c9199436ea6b7b084a8ce02dbe",
+      "metadata_sha256": "ec7b6d4800025ebf2b2bc392f940b2192b4c58aa9813285f8011e0c1c3c0d584"
+    },
+    {
+      "id": "11758",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "33abeacbc36d67bfb091531829cd0868be8558e2b252e1a8ca91f20fd84c951b",
+      "metadata_sha256": "3da32f08e03946a04ba2124c898dac3572c2f2b1d57426e0939797575704d4c1"
+    },
+    {
+      "id": "11936",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "797bd67dc337d9aa5461666a925e9780e11b5a6cf0bf6092a9ba7b4f8c565a2a",
+      "metadata_sha256": "1016c05ca50a65522920399afb14a2a53558156a8b6b8ce0ae5091d70a9ee15d"
+    },
+    {
+      "id": "12287",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "4df7b07dba1cd76a006d3b8f6ec92d9792138ecf9ca21825151659cd65bffa47",
+      "metadata_sha256": "1c8bcc224bc3234cf43226cd406853619edac2d32f54a123ce6af364059e4ad2"
+    },
+    {
+      "id": "12577",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "e14309485bf21db0d7414f3342e1e7f195cda973d2240cd161807ea68b4b8bd9",
+      "metadata_sha256": "42f08e236cca9f24aaa70deededd9786489881f7bb4d9d70c590e87fe410b2f4"
+    },
+    {
+      "id": "12611",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "0843ba0fd3463f283740270e9d708df7bc0bac79e0306f6bb7c4111151c31b74",
+      "metadata_sha256": "ca5cb02ea206355f5ffac819dff5bea93f028aa8138640d3831cf2870f5dd03a"
+    },
+    {
+      "id": "12905",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "092beb7a0c8f505f913805e62e80c8fbaee993b328b01d9aac60d3070bb85606",
+      "metadata_sha256": "ecec6ddcf4eaa75f4c884a1ffceb7ee38b5a5d309dc1c956b21d2f598ce39a7e"
+    },
+    {
+      "id": "12938",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "e086e5c86bf6b926cce3e7475b326cb7536090e36380a02ae3d087d848265eba",
+      "metadata_sha256": "052600db06db06b7b1521b4b8009740d3d1017c06fd7c99e88459997e40d2e3f"
+    },
+    {
+      "id": "13247",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "3d2c38e66e724ae8535401c245af8f8336a76205362c4e6e32997b5d4a399568",
+      "metadata_sha256": "9d966aeefe4edec5c803c90f6051b385a096aa032bbbcec26a09d15e15e9bbdf"
+    },
+    {
+      "id": "13480",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "81d1042b52474379ef9f8ca0fef2da3cd05daa7a8896097c0cc55299567a6862",
+      "metadata_sha256": "6a85e75e11fad56f35afef76fd1af8964d867e781f37d63d9ff4b8995f377b7a"
+    },
+    {
+      "id": "13603",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "65a11b42a8cef9363a5f1675ca888f97def30458992f85931798efa7f33ed82f",
+      "metadata_sha256": "20b9fa6b450e4b04c1de37e149184b0de155952a618ebee970ebedd4dc886834"
+    },
+    {
+      "id": "13695",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "3e8d255baf371ca02effcd743fe4c568a2552796d652642ffb26a2355dc69eed",
+      "metadata_sha256": "7defed328ed99d953e333072ebe5378862a58107aeec7750d5446b60e4f4a27c"
+    },
+    {
+      "id": "13907",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "9c65c217b2334d45db1e1ce497fe6d7965c79c206c95f447bd5ebadb03a8150d",
+      "metadata_sha256": "7249a7e72352b59166bb79f09b5f34c75fac14f2313ab2ff51e7c65244401caf"
+    },
+    {
+      "id": "14136",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "7899b79f78df74c7b90b261e295c95ff1b763793f53c174974843d20d7d0f70f",
+      "metadata_sha256": "d7123714ceb3b650f5635df687666a999ef6b44c7b653c04db80c809c0f3bfeb"
+    },
+    {
+      "id": "14318",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "2d384d052d03c53125439cc39ebceee6fa2f206fbbc900bc74b175d91dbbceb8",
+      "metadata_sha256": "a943065b284099bf883b95b3fb90b9cd437ae8e78841ef7305202ef2c5bbcb7b"
+    },
+    {
+      "id": "14442",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "59f0c0683405204ff37aa1c552c856aeb427d19298f1172a16d243b62631d856",
+      "metadata_sha256": "9a8e48053aedc9c23d0f1d663d32c431083b850b45e331ca7a33dd5228ebe7e9"
+    },
+    {
+      "id": "14861",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "37fcd17d6f5144b9350ca081bea461c377602ddbdffe19e588ca77c68caea4b9",
+      "metadata_sha256": "636dfc33e2ca5c516de9e1d3a3a80866a0ab71e854b2ccd4dadba3d84c550b69"
+    },
+    {
+      "id": "14927",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "56b67031df44b7880d6ea6ad028abfff588f564b9981a5697e6a2014bd48c935",
+      "metadata_sha256": "0f077800dcce6011ba8afd1154608b256579975f3548f14dceecfeb8d542403a"
+    },
+    {
+      "id": "14937",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "dc35279160310a837fded3aaf0be49d9941f230c21bb1b558e15af7d166e89cf",
+      "metadata_sha256": "70aa3c7f634ef699ee3a19b12ecd42a3b810e3db13c51abfe8cc16468edbdefb"
+    },
+    {
+      "id": "15027",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "412cb1573a9da6e124a033288117dbe0bb58c4124237e3f7a48c2d6e2350680e",
+      "metadata_sha256": "538dd58d30e4f707dffe1378ee6982e29b392cf9a1a67649324d54bf27908483"
+    },
+    {
+      "id": "15273",
+      "expected": "option_0",
+      "subject": "social science",
+      "image_sha256": "ef707de210d176f974bfaea8d58c21d05b04d7c0f072d9498647c2e0c5fdb6ad",
+      "metadata_sha256": "6b6ea2678517ba86ead08d5decaee2bc5afd7b338d7328231b2fafae73c2144d"
+    },
+    {
+      "id": "15576",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "054d19f1abaabe6d620176895ca9ff408985ba4568cc65475f2bdfc74df19a34",
+      "metadata_sha256": "8ca9487945d571a09f7a19e8cbde8460a4bb8e73db3f42820d0a34f7d351fe70"
+    },
+    {
+      "id": "15696",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "c850af22c90d54b058e78e96e8449f35b4039dc90de52d7e680381bd7239cf71",
+      "metadata_sha256": "98f338f58e90f9f8447f34fd3930eb0dfbd68ef6ab8606cda6d565d31725295d"
+    },
+    {
+      "id": "15772",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "656702326724e357a2356aea4d2528af13dc64839527310e785d2a19c55a813c",
+      "metadata_sha256": "8691784149a0e0537ca6322bc9f1b8034959aca5c155ea22cbe3fa8d6f408a53"
+    },
+    {
+      "id": "15791",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "3ee19246aaa34d7698aacc0cb277323a025c2bb20c75f33375025e9a4c54b664",
+      "metadata_sha256": "e100d8ada4e5fa649ee5db23b3a8b125e18a4bfd944fe88d25e13732de82602d"
+    },
+    {
+      "id": "16145",
+      "expected": "option_0",
+      "subject": "social science",
+      "image_sha256": "3eca8c22bc5d55bcfc67fc5f51a5e2d6bbb5b7e48eebd2fd069d91a862854689",
+      "metadata_sha256": "0dffaad42a427e14ec77c4a2aba917e69e0c3192b6cced71df973ea79165e25a"
+    },
+    {
+      "id": "16223",
+      "expected": "option_2",
+      "subject": "natural science",
+      "image_sha256": "bb220aab49dad95f7f883f7106b621ead76abe2ba143a1aa592789d70618cd15",
+      "metadata_sha256": "27256c26a03a0f07545898f38109f6d6380d2a8566c1fb3a82209adc51fd7c08"
+    },
+    {
+      "id": "16456",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "9d8c62d01c85c35e0d3087e0cf6c4321d36e05d45d6d5ca8f73c4611301d5409",
+      "metadata_sha256": "7e0072a8e30f101b4205d5e66c5965ff6760ff2408bc55affde94951052850f0"
+    },
+    {
+      "id": "17366",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "004d5762dd0e11206b88a23fe47ef6b3217e057cb652bd9b151b8dcbf898d3d0",
+      "metadata_sha256": "4a3168b8a4bfe7775b29aa852ce76d84340b0c9f7537868d5a1ac0a8a2d3b8e3"
+    },
+    {
+      "id": "17387",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "8ebd38a3cbe9b37a712bed614973ca0bb4c82f01604fea41fbc514776d497056",
+      "metadata_sha256": "0b780247af29b327a3f259fc6d64f4720bc0d3e8d8ef5b84198a9cecc2afbca7"
+    },
+    {
+      "id": "17431",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "97a927ccd455101236ca5f4959736923a535d8a2665d8906e9582cc88efeb459",
+      "metadata_sha256": "997f45a2aac252ed1d24017e995c8dd6bce2cc1ec980df4738722da9afd51f8e"
+    },
+    {
+      "id": "17846",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "b9aac67f75388c74f9746913c051401554a17e5ee92cea374e0f59ab68436922",
+      "metadata_sha256": "bf7da94540b2d2e010a05318a31cafcf4fb47b70563e900678da44396557a936"
+    },
+    {
+      "id": "17970",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "851b60519fd841f2296048cd25f8c11f4fe49049c9f2513ed8396063b26c4204",
+      "metadata_sha256": "fa1b4cc7e28a4f5f32691c023c210b2b36d10abac8b86dda3a20d50b83462646"
+    },
+    {
+      "id": "18184",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "4b7fed926ee2cad8fbbdd83943821d2e6269e51ca882d005cb18f47b7d50fcd2",
+      "metadata_sha256": "04aef32e1fbeddac8f900a50643664f895b0cf775dd6feee85f37d8ee0bb066f"
+    },
+    {
+      "id": "18387",
+      "expected": "option_1",
+      "subject": "language science",
+      "image_sha256": "76ace3ddec53687a866796ade7187e0c19eb1c258c2168f1fcf2d8e3c484c562",
+      "metadata_sha256": "de2ee26b1b01886ec47080d473ffaf2178d1affdac12afa477374dd770a37e34"
+    },
+    {
+      "id": "18560",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "afb333cb5eccd4fbf82716482be37c1a636255a191d4318452feb6e3e5cf1fae",
+      "metadata_sha256": "872825cd841d560d77c0af350a694a09f5dab9910273583e705691d36960410f"
+    },
+    {
+      "id": "18662",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "a52403e85c3a78c20c1e66bb7efaeb9e466922e72aeb3e1533e0989fa1ba3d33",
+      "metadata_sha256": "dd71420b784034da96d68926b8953fbbee6f5b0340863b857c16ed967597949d"
+    },
+    {
+      "id": "18752",
+      "expected": "option_3",
+      "subject": "social science",
+      "image_sha256": "ce26e731013101b37f634020b1ea124ae2df8607de440b035caefedf20710354",
+      "metadata_sha256": "f13f549df0f63dd03dc857fbceca74e4de73a69f374da3400eea81826a2591ca"
+    },
+    {
+      "id": "19133",
+      "expected": "option_1",
+      "subject": "social science",
+      "image_sha256": "7893952d981c32ecf4c156ca8161038ff00b758f61ce19a082fe09e14ee4053d",
+      "metadata_sha256": "089bdfa7c4a828141d91631e112b4aa29bbbd59734648665bf025756f8def8ec"
+    },
+    {
+      "id": "19232",
+      "expected": "option_0",
+      "subject": "natural science",
+      "image_sha256": "666a8050868d50c65dbaaddc3ee9bc0eadc8fe815e56f143613d03528ee05aae",
+      "metadata_sha256": "e5c53c3585fd0270adf3d6fae7e8278b079e12cd9ee7e4d40aec94b20de88bb6"
+    },
+    {
+      "id": "19882",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "21254e4f6ae36285a5b80bd41911afecb6f04ca69ba86012ac49621c0613f13a",
+      "metadata_sha256": "80482a0953adb0e99462c421cadcff4b5d6cf44e7eea52db7e4ee0256c5fe38e"
+    },
+    {
+      "id": "20219",
+      "expected": "option_2",
+      "subject": "social science",
+      "image_sha256": "34e23755649566654ecc3816695078b0020e973bbd20e405faa8ce38f6956f8a",
+      "metadata_sha256": "af4c10943940dfb8729f8469cbfbb7c7c3dc4267e9daa25fb3def0ab8d1563e8"
+    },
+    {
+      "id": "20677",
+      "expected": "option_1",
+      "subject": "natural science",
+      "image_sha256": "ceb553a9df9406a95051a73212e2d25cab3b3abc401dbd741e9c212a05cea855",
+      "metadata_sha256": "daf48f84aced6650401831342ae98099414c4f6891ca03158213c54086e01703"
+    },
+    {
+      "id": "21006",
+      "expected": "option_0",
+      "subject": "language science",
+      "image_sha256": "02d8a9fba9df4d343fd493b8aca4f4b86a979dfd06d247c01c5d935f1af3ec09",
+      "metadata_sha256": "8b14fee8ab90dc93fde45d5ce3ac4ac937ffeb8621dd460730a63efd9319b74b"
+    }
+  ]
+}

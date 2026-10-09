@@ -110,7 +110,8 @@ def main():
                   suite_id=suite['suite_id'],suite_sha256=hashlib.sha256(suite_bytes).hexdigest(),
                   baseline='official_generate_first_step_raw_logits',
                   controlled_variables=['checkpoint','prepared_input','prompt','precision','attention_backend','candidate_set'],
-                  scope='fixed_text_and_synthetic_visual_probes_with_bounded_preprocessing',
+                  scope=suite.get('scope','fixed_text_and_synthetic_visual_probes_with_bounded_preprocessing'),
+                  dataset=suite.get('dataset'),
                   full_base_capability_retention_proven=False,training_applied=False,
                   real_world_generalization_proven=False,summary=summary,results=results,
                   torch_version=torch.__version__,transformers_version=__import__('transformers').__version__)

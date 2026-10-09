@@ -18,6 +18,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest==8.4.2"]
 adapter = ["peft==0.17.1"]
+benchmark = ["pyarrow==19.0.1"]
 [tool.setuptools.packages.find]
 where = ["src"]
 [tool.pytest.ini_options]

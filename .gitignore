@@ -14,3 +14,5 @@ models/
 *.pem
 *.key
 .DS_Store
+
+data/
