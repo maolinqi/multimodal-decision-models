@@ -22,15 +22,11 @@ Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and Int
 
 ## Overview
 
-A red target appears on the left of an image. The system asks: “Which side is the target on?”
+**System One is an open-source multimodal decision-model project that turns vision-language understanding into structured decisions callable from software.** Given task text, images or video frames, and a question, it returns a candidate choice, binary judgment, or ordinal score with a corresponding probability distribution.
 
-The answer needs to enter the next step of a program: a stable option ID, a distribution over alternatives, and an inspectable record of the observation and inference.
+We implemented five decision adapters on **Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**.
 
-**System One connects multimodal understanding to this decision interface.**
-
-Building on our Qwen3-VL decision-console work, we implemented a shared observation and decision protocol for Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B. Text, images, and timestamped video frames pass through each backbone’s native multimodal pipeline and become choices, binary judgments, or ordinal scores.
-
-> **v0.1 supports:** text, RGB images, timestamped video frames, and five native model adapters.
+The project provides a shared observation protocol, decision API, and web console, giving all five models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
 
 ## Direct decision readout
 
