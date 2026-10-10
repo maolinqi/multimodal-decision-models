@@ -3,7 +3,8 @@ import argparse,hashlib,json,random,statistics,time,types,os,sys
 from pathlib import Path
 import torch
 from multimodal_decision.registry import create_model
-p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--suite',required=True);p.add_argument('--out',required=True);p.add_argument('--limit',type=int,default=100);p.add_argument('--repeats',type=int,default=3);p.add_argument('--minimum-gib',type=int,required=True);p.add_argument('--prompt-style',choices=['neutral','analyze'],default='neutral');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--suite',required=True);p.add_argument('--out',required=True);p.add_argument('--limit',type=int,default=100);p.add_argument('--repeats',type=int,default=3);p.add_argument('--minimum-gib',type=int,required=True);p.add_argument('--prompt-style',choices=['neutral','analyze','sentence'],default='neutral');p.add_argument('--max-new-tokens',type=int,default=2048,help='0 disables the output-length limit; generation stops at EOS');a=p.parse_args()
+if a.max_new_tokens<0:p.error('--max-new-tokens must be non-negative')
 torch.set_num_threads(8)
 free,total=torch.cuda.mem_get_info()
 if free < a.minimum_gib*1024**3: raise RuntimeError('PAUSED_MEMORY: insufficient GPU memory')
@@ -25,7 +26,7 @@ actor=create_model(a.model);assert actor.adapter is None
 actor.model.requires_grad_(False)
 original=actor.context
 # Both inference paths receive the same task wording and prepared-input format.
-shared_instruction=('结合实际图像与测量状态回答问题。请先分析图像和问题，比较各候选选项并说明理由，再给出最终选择。' if a.prompt_style=='analyze' else '结合实际图像与测量状态回答问题，选择最合适的选项。')
+shared_instruction={'neutral':'结合实际图像与测量状态回答问题，选择最合适的选项。','analyze':'结合实际图像与测量状态回答问题。请先分析图像和问题，比较各候选选项并说明理由，再给出最终选择。','sentence':'结合实际图像与测量状态回答问题。请用一句话回答：先给出最合适选项的大写字母，再给出简短理由；不要展开分步分析。'}[a.prompt_style]
 def context(self,request):
  content,images,provenance,keys=original(request)
  for item in content:
@@ -40,7 +41,7 @@ if raw_path.exists():
   r=json.loads(line); key=(r['id'],r['mode'],r.get('repeat'))
   if key in saved: raise RuntimeError('Duplicate measurement')
   saved[key]=r
-save('protocol.json',dict(model=a.model,suite_sha256=hashlib.sha256(suite_bytes).hexdigest(),ids=[r['id'] for r in rows],selection='all fixed 100 ScienceQA image-test questions, seed 42',repeats=a.repeats,script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),shared_prompt=shared_instruction,prompt_style=a.prompt_style,no_minimum_output_length=True,max_new_tokens=2048,training=False,torch=torch.__version__,transformers=__import__('transformers').__version__,gpu_uuid=__import__('os').environ['CUDA_VISIBLE_DEVICES'],scope='loaded-model response includes preparation and synchronized compute; excludes model loading, network and queue; other services may share GPU/host',minimum_free_gib=a.minimum_gib,output_id_format='MiniCPM/InternVL inputs_embeds generate new IDs only; Qwen/Gemma sequences include input prefix'))
+save('protocol.json',dict(model=a.model,suite_sha256=hashlib.sha256(suite_bytes).hexdigest(),ids=[r['id'] for r in rows],selection='all fixed 100 ScienceQA image-test questions, seed 42',repeats=a.repeats,script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),shared_prompt=shared_instruction,prompt_style=a.prompt_style,no_minimum_output_length=True,max_new_tokens=a.max_new_tokens or None,generation_stop="EOS only (no output-length cap)" if a.max_new_tokens==0 else "EOS or token cap",training=False,torch=torch.__version__,transformers=__import__('transformers').__version__,gpu_uuid=__import__('os').environ['CUDA_VISIBLE_DEVICES'],scope='loaded-model response includes preparation and synchronized compute; excludes model loading, network and queue; other services may share GPU/host',minimum_free_gib=a.minimum_gib,output_id_format='MiniCPM/InternVL inputs_embeds generate new IDs only; Qwen/Gemma sequences include input prefix'))
 rng=random.Random(42);results=[]
 with torch.inference_mode():
  # Warm up vision and decision without demanding a long generated answer.
@@ -57,7 +58,8 @@ with torch.inference_mode():
     if mode=='decision':
      logits=actor.logits(inputs);prediction=keys[int(logits[actor.label_ids[:len(keys)]].argmax())];tokens=0;text=None
     else:
-     kw=dict(max_new_tokens=2048,do_sample=False,return_dict_in_generate=True)
+     kw=dict(max_new_tokens=a.max_new_tokens or None,do_sample=False,return_dict_in_generate=True)
+     if a.max_new_tokens==0:kw.update(max_length=float("inf"),cache_implementation="dynamic")
      if getattr(actor,'family',None)!='internvl':kw['use_cache']=True
      if getattr(actor,'family',None)=='minicpm':kw.update(tokenizer=actor.tokenizer,decode_text=False)
      output=actor.model.generate(**inputs,**kw)
@@ -67,7 +69,7 @@ with torch.inference_mode():
      tok=getattr(actor,'tokenizer',None) or actor.processor.tokenizer
      text=tok.decode(ids,skip_special_tokens=True);tokens=int(ids.numel());prediction=None
     torch.cuda.synchronize();ms=(time.perf_counter()-start)*1000
-    pair[mode]=dict(id=row['id'],repeat=repeat,mode=mode,input_sha256=input_sha,response_ms=ms,generated_tokens=tokens,text=text,prediction=prediction,expected=row['expected'],hit_token_cap=tokens>=2048)
+    pair[mode]=dict(id=row['id'],repeat=repeat,mode=mode,input_sha256=input_sha,response_ms=ms,generated_tokens=tokens,text=text,prediction=prediction,expected=row['expected'],hit_token_cap=bool(a.max_new_tokens and tokens>=a.max_new_tokens))
     with (out/'measurements.jsonl').open('a') as f:
      f.write(json.dumps(pair[mode],ensure_ascii=False)+'\n');f.flush();os.fsync(f.fileno())
     saved[(row['id'],mode,repeat)]=pair[mode]

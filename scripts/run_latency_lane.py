@@ -51,7 +51,8 @@ def main():
         command = [item['python'], '-u', str(Path(__file__).with_name('benchmark_latency_extension.py')),
                    '--model', item['id'], '--suite', plan['suite'], '--out', str(out),
                    '--repeats', '3', '--minimum-gib', str(required),
-                   '--prompt-style', plan.get('prompt_style', 'neutral')]
+                   '--prompt-style', plan.get('prompt_style', 'neutral'),
+                   '--max-new-tokens', str(plan.get('max_new_tokens', 2048))]
         with log.open('a') as handle:
             child = subprocess.Popen(command, env=env, stdout=handle, stderr=subprocess.STDOUT)
             save(status, dict(state='running', model=item['id'], gpu_uuid=lane['gpu_uuid'],
