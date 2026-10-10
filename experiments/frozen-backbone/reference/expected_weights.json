@@ -1,0 +1,24 @@
+{
+  "Qwen/Qwen3.5-2B-Base": {
+    "revision": "b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+    "files": {
+      "model.safetensors-00001-of-00001.safetensors": {
+        "size": 4548221488,
+        "sha256": "928acbf11878c32185bbd863514d191769285065ab9ea14fbfe431303f5fdf2d"
+      }
+    }
+  },
+  "google/gemma-4-26B-A4B-it": {
+    "revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+    "files": {
+      "model-00001-of-00002.safetensors": {
+        "size": 49907246508,
+        "sha256": "1127684971bbca40465435a5cad69d67ad603bf5e61c6dfd5561fae4a3bcfdb3"
+      },
+      "model-00002-of-00002.safetensors": {
+        "size": 1704763408,
+        "sha256": "aab47033e1e8a492ef8e581efae1cf36478d0433567e7729b3c1728bc8970db7"
+      }
+    }
+  }
+}

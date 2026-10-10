@@ -1,0 +1,32 @@
+{
+  "source_protocol": {
+    "model_repo": "Qwen/Qwen3.5-2B-Base",
+    "model_revision": "b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+    "dataset_sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b",
+    "script_sha256": "e7691b050410958de3cd680302117a586e8688f4f03c300661907ab079f62d53",
+    "n": 600,
+    "repeats": 3,
+    "warmup_pairs": 5,
+    "limit": 0,
+    "explanation_n": 100,
+    "seed": 20261010,
+    "gpu_uuid": "GPU-ff4adf3c-6afa-af0b-506a-ebe3919b2ac2",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "gemma_image_tokens": 280,
+    "training": false,
+    "adapter": null,
+    "cache_reuse_between_calls": false,
+    "decision_use_cache": false,
+    "generation_use_cache": true,
+    "answer_only_max_new_tokens": 32,
+    "explanation_max_new_tokens": 128,
+    "scope": "loaded-model single-request response, including image/text preparation, synchronized model compute and readout; excluding model load, HTTP/network and queue time",
+    "torch_version": "2.8.0+cu128",
+    "transformers_version": "5.19.0"
+  },
+  "inherited_records": 3507,
+  "inherited_measurements_sha256": "009191ce6723721b9f17b6793fe350c9d065551a90a13ac67309ea451391961c",
+  "excluded_nonidentical_records": 0,
+  "reason": "User requires identical initial information and prompt; retained only previously completed identical-input paths. Restarted after warmup; timing sessions are recorded."
+}

@@ -1,0 +1,33 @@
+{
+  "n": 136,
+  "changed_gui_inputs": 48,
+  "v1_correct": 76,
+  "v3_correct": 92,
+  "wrong_to_right": 20,
+  "right_to_wrong": 4,
+  "marker_audit": {
+    "letter_recognition": {
+      "n": 240,
+      "correct": 190,
+      "accuracy": 0.7916666666666666,
+      "errors": 0,
+      "all_images_all_five_pass": 19
+    },
+    "pointer_association": {
+      "n": 240,
+      "correct": 188,
+      "accuracy": 0.7833333333333333,
+      "errors": 0,
+      "all_images_all_five_pass": 17
+    },
+    "isolated_same_resolution": {
+      "n": 240,
+      "correct": 237,
+      "accuracy": 0.9875,
+      "errors": 0,
+      "all_images_all_five_pass": 45
+    }
+  },
+  "external_factors_excluded": false,
+  "interpretation": "Input and explanatory legend ablation; cannot attribute change solely to marker size. Author inputs unverified."
+}

@@ -1,0 +1,133 @@
+{
+  "protocol": {
+    "model_repo": "Qwen/Qwen3.5-2B-Base",
+    "model_revision": "b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+    "dataset_sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b",
+    "script_sha256": "e4bb56e9a700f7b2d66276d42bbf65e15e7a1d319d379d473c6b6be96bdb1b8e",
+    "n": 600,
+    "repeats": 3,
+    "warmup_pairs": 5,
+    "limit": 0,
+    "seed": 20261010,
+    "gpu_uuid": "GPU-ff4adf3c-6afa-af0b-506a-ebe3919b2ac2",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "gemma_image_tokens": 280,
+    "training": false,
+    "adapter": null,
+    "cache_reuse_between_calls": false,
+    "decision_use_cache": false,
+    "generation_use_cache": true,
+    "answer_only_max_new_tokens": 32,
+    "scope": "loaded-model single-request response, including image/text preparation, synchronized model compute and readout; excluding model load, HTTP/network and queue time",
+    "torch_version": "2.8.0+cu128",
+    "transformers_version": "5.19.0",
+    "inherited_same_input_measurements": {
+      "source_protocol": {
+        "model_repo": "Qwen/Qwen3.5-2B-Base",
+        "model_revision": "b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+        "dataset_sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b",
+        "script_sha256": "e7691b050410958de3cd680302117a586e8688f4f03c300661907ab079f62d53",
+        "n": 600,
+        "repeats": 3,
+        "warmup_pairs": 5,
+        "limit": 0,
+        "explanation_n": 100,
+        "seed": 20261010,
+        "gpu_uuid": "GPU-ff4adf3c-6afa-af0b-506a-ebe3919b2ac2",
+        "dtype": "bfloat16",
+        "attention": "sdpa",
+        "gemma_image_tokens": 280,
+        "training": false,
+        "adapter": null,
+        "cache_reuse_between_calls": false,
+        "decision_use_cache": false,
+        "generation_use_cache": true,
+        "answer_only_max_new_tokens": 32,
+        "explanation_max_new_tokens": 128,
+        "scope": "loaded-model single-request response, including image/text preparation, synchronized model compute and readout; excluding model load, HTTP/network and queue time",
+        "torch_version": "2.8.0+cu128",
+        "transformers_version": "5.19.0"
+      },
+      "inherited_records": 3507,
+      "inherited_measurements_sha256": "009191ce6723721b9f17b6793fe350c9d065551a90a13ac67309ea451391961c",
+      "excluded_nonidentical_records": 0,
+      "reason": "User requires identical initial information and prompt; retained only previously completed identical-input paths. Restarted after warmup; timing sessions are recorded."
+    }
+  },
+  "modes": {
+    "answer_only": {
+      "n": 1800,
+      "errors": 0,
+      "correct": 1347,
+      "invalid_answers": 0,
+      "response_median_ms": 118.09660401195288,
+      "response_p95_ms": 123.58290236443281,
+      "compute_median_ms": 109.47570973075926,
+      "prepare_median_ms": 8.795045083388686,
+      "generated_tokens_median": 2.0,
+      "hit_token_cap": 0
+    },
+    "decision": {
+      "n": 1800,
+      "errors": 0,
+      "correct": 1347,
+      "invalid_answers": 0,
+      "response_median_ms": 83.9506140910089,
+      "response_p95_ms": 87.5905598513782,
+      "compute_median_ms": 74.14679625071585,
+      "prepare_median_ms": 8.852991508319974,
+      "generated_tokens_median": 0.0,
+      "hit_token_cap": 0
+    },
+    "first_step_control": {
+      "n": 600,
+      "errors": 0,
+      "correct": 449,
+      "invalid_answers": 0,
+      "response_median_ms": 92.96022960916162,
+      "response_p95_ms": 99.0792321972549,
+      "compute_median_ms": 84.12198047153652,
+      "prepare_median_ms": 9.56717343069613,
+      "generated_tokens_median": 1.0,
+      "hit_token_cap": 0
+    }
+  },
+  "paired": {
+    "answer_only": {
+      "n_questions": 600,
+      "native_median_ms": 118.2842799462378,
+      "decision_median_ms": 84.14108562283218,
+      "difference_ms": 34.14319432340562,
+      "speedup_ratio": 1.4057850462787547,
+      "reduction_percent": 28.865369378690286,
+      "median_per_question_ratio": 1.4325092219055038,
+      "speedup_ratio_ci95": [
+        1.4041820910913791,
+        1.4846485303761467
+      ],
+      "median_latency_difference_ci95_ms": [
+        33.57332362793386,
+        35.175811033695936
+      ],
+      "resampling_unit": "question; all repetitions first collapsed to per-question medians",
+      "bootstrap_resamples": 2000
+    }
+  },
+  "retention": {
+    "n": 600,
+    "candidate_agreements": 600,
+    "max_candidate_abs_diff": 0.0,
+    "max_full_vocab_abs_diff": 0.0,
+    "all_finite_patterns_match": true,
+    "parameter_versions_unchanged": true
+  },
+  "complete": true,
+  "limitations": [
+    "Task metrics are diagnostic public/reconstructed sets, not author-pixel replication or blind non-inferiority",
+    "Every path receives the same initial information, prompt, image, state, question and options",
+    "First-step control checks candidate retention, not native free-text answer equivalence",
+    "Server contains unrelated GPU1 training; benchmark uses GPU0, host CPU/load remains shared",
+    "Generation failures/invalid/truncated answers are retained; do not claim accuracy superiority from speed alone"
+  ]
+}

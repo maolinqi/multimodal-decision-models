@@ -1,0 +1,59 @@
+{
+  "tasks": {
+    "qwen:raven": {
+      "n": 300,
+      "correct": 178,
+      "errors": 122
+    },
+    "qwen:visual7w": {
+      "n": 300,
+      "correct": 271,
+      "errors": 29
+    },
+    "gemma:CLEVR-HOPE": {
+      "n": 20,
+      "correct": 14,
+      "errors": 6
+    },
+    "gemma:Geometry3K": {
+      "n": 20,
+      "correct": 14,
+      "errors": 6
+    },
+    "gemma:ArxivQA": {
+      "n": 20,
+      "correct": 14,
+      "errors": 6
+    },
+    "gemma:FinQA": {
+      "n": 20,
+      "correct": 5,
+      "errors": 15
+    },
+    "gemma:ScreenSpot": {
+      "n": 36,
+      "correct": 31,
+      "errors": 5
+    },
+    "gemma:Multimodal-Mind2Web": {
+      "n": 12,
+      "correct": 5,
+      "errors": 7
+    },
+    "gemma:public_example_cards": {
+      "n": 8,
+      "correct": 7,
+      "errors": 1
+    }
+  },
+  "wrong_questions": 197,
+  "gemma_wrong_gui_with_gold_label_diagnostic_failure": 10,
+  "gemma_wrong_gui_despite_three_gold_label_checks_pass": 2,
+  "empty_gold_option_errors": 1,
+  "limitations": [
+    "A gold-label probe pass does not prove task understanding, all other labels or coordinate precision",
+    "A probe failure can involve localization/association rather than glyph clarity; it is not a proven cause of the task error",
+    "Author final pixels and exact samples are not independently replicated",
+    "No failing sample is removed, and diagnostic sets must not be described as sealed tests"
+  ]
+}

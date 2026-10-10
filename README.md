@@ -126,6 +126,21 @@ Measurements use the same fixed ScienceQA subset, 100 image questions per model,
 
 All five backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
 
+
+### Frozen-backbone accuracy experiment
+
+Official weights only, no additional training; trained authors' scores are reported references, not reruns. These Qwen/Gemma experimental runners are separate from the five console adapters.
+
+| Backbone | Evaluation | Our correct / questions | Our accuracy | Author trained-model report |
+|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | RAVEN | 178/300 | 59.33% | Decider 80% |
+| Qwen3.5-2B-Base | Visual7W | 271/300 | 90.33% | Decider 89% |
+| Gemma-4-26B-A4B-it | 128 public preview + 8 cards | 90/136 | 66.18% | Rune v3 75.7%, 280 image tokens |
+
+Zero inference exceptions. Exact author samples/rendering are not independently matched; these figures do not establish non-inferiority. All adaptation failures, marker diagnostics and 197 wrong cases are retained. [Detailed results and limitations](docs/frozen-backbone-accuracy.md) · [Raw accuracy evidence](evidence/frozen-backbone/accuracy/)
+
+**Completed one-letter control:** identical initial information and a shared one-letter instruction on 600 Qwen questions, three repetitions each: native generation 118.3 ms versus decision scoring 84.1 ms, reducing latency by 28.9%. Native generation actually emitted two tokens, with no cap hits; both paths agree on all 600 answers. [Protocol and raw timings](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control). Full natural-output timing and Gemma's short-answer control remain pending.
+
 ## Unified decision console
 
 Upload an image or video clip, enter a question and candidate options, switch models, and inspect or export the decision distribution. Video input is sampled into up to eight timestamped RGB frames.

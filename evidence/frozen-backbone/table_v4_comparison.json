@@ -1,0 +1,13 @@
+{
+  "n": 136,
+  "changed_tables": 20,
+  "v3_correct": 92,
+  "v4_correct": 90,
+  "finqa_v3_correct": 7,
+  "finqa_v4_correct": 5,
+  "wrong_to_right": 0,
+  "right_to_wrong": 2,
+  "unchanged_input_prediction_differences": 0,
+  "errors": 0,
+  "interpretation": "Table renderer-only ablation, all source text retained; no tuning on task answers, no training; not author-pixel replication or blind test."
+}

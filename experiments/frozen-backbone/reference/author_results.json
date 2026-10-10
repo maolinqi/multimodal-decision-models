@@ -1,0 +1,18 @@
+{
+  "decider": {
+    "model": "Mapika/decider-2b-vision",
+    "source": "https://github.com/Mapika/decider/blob/e50e549b47e2da69223734fee4efa1ddd4528e93/MODEL_CARD_VISION.md",
+    "tasks": {"raven": {"n": 300, "accuracy": 0.80}, "visual7w": {"n": 300, "accuracy": 0.89}},
+    "status": "author reported; no independent rerun; rounded scores and original sample IDs unavailable"
+  },
+  "rune": {
+    "model": "surogate/rune-26b-a4b-GGUF v3",
+    "source": "https://huggingface.co/surogate/rune-26b-a4b-GGUF",
+    "revision": "c6b360d47895bb77bdf3805a13ee5a5557ab1921",
+    "public": {"n": 136, "accuracy": 0.757, "image_tokens": 280, "author_frozen_base_accuracy": 0.735},
+    "expanded": {"n": 1196, "accuracy": 0.771, "image_tokens": 280, "author_frozen_base_accuracy": 0.718},
+    "status": "author own reconstruction/expansion, not official sealed leaderboard; no independent rerun"
+  },
+  "comparison_margin_pp": 3,
+  "margin_status": "descriptive target from initial protocol, not a noninferiority claim"
+}

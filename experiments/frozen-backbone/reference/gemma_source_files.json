@@ -1,0 +1,88 @@
+{
+  "CLEVR-HOPE": {
+    "repo": "user9000/CLEVR-HOPE",
+    "revision": "2d0c19f23dc5de19f83f4e9928a793c95632327a",
+    "files": [
+      "HOP00/test_complex_ood-00000-of-00004.parquet",
+      "HOP00/test_complex_ood-00001-of-00004.parquet",
+      "HOP00/test_complex_ood-00002-of-00004.parquet",
+      "HOP00/test_complex_ood-00003-of-00004.parquet"
+    ]
+  },
+  "Geometry3K": {
+    "repo": "hiyouga/geometry3k",
+    "revision": "fd21e533e1e50d0662a2bf7b223e60511bd5f8b7",
+    "files": [
+      "data/test-00000-of-00001.parquet"
+    ]
+  },
+  "ArxivQA": {
+    "repo": "mm-eval/ArxivQA",
+    "revision": "e13bb29ff5b2c2ae5f05cc0b1ecc2b24a6833c81",
+    "files": [
+      "data/train-00000-of-00036.parquet",
+      "data/train-00001-of-00036.parquet",
+      "data/train-00002-of-00036.parquet",
+      "data/train-00003-of-00036.parquet",
+      "data/train-00004-of-00036.parquet",
+      "data/train-00005-of-00036.parquet",
+      "data/train-00006-of-00036.parquet",
+      "data/train-00007-of-00036.parquet",
+      "data/train-00008-of-00036.parquet",
+      "data/train-00009-of-00036.parquet",
+      "data/train-00010-of-00036.parquet",
+      "data/train-00011-of-00036.parquet",
+      "data/train-00012-of-00036.parquet",
+      "data/train-00013-of-00036.parquet",
+      "data/train-00014-of-00036.parquet",
+      "data/train-00015-of-00036.parquet",
+      "data/train-00016-of-00036.parquet",
+      "data/train-00017-of-00036.parquet",
+      "data/train-00018-of-00036.parquet",
+      "data/train-00019-of-00036.parquet",
+      "data/train-00020-of-00036.parquet",
+      "data/train-00021-of-00036.parquet",
+      "data/train-00022-of-00036.parquet",
+      "data/train-00023-of-00036.parquet",
+      "data/train-00024-of-00036.parquet",
+      "data/train-00025-of-00036.parquet",
+      "data/train-00026-of-00036.parquet",
+      "data/train-00027-of-00036.parquet",
+      "data/train-00028-of-00036.parquet",
+      "data/train-00029-of-00036.parquet",
+      "data/train-00030-of-00036.parquet",
+      "data/train-00031-of-00036.parquet",
+      "data/train-00032-of-00036.parquet",
+      "data/train-00033-of-00036.parquet",
+      "data/train-00034-of-00036.parquet",
+      "data/train-00035-of-00036.parquet"
+    ]
+  },
+  "FinQA": {
+    "repo": "bevaya/FinQA",
+    "revision": "3d6a736bc67e06bc15fbf3618d88204a57c5b25e",
+    "files": [
+      "data/test-00000-of-00001.parquet"
+    ]
+  },
+  "ScreenSpot": {
+    "repo": "bevaya/ScreenSpot",
+    "revision": "0be08781e2e188582f6131625ae1598d443b4d5d",
+    "files": [
+      "data/test-00000-of-00003.parquet",
+      "data/test-00001-of-00003.parquet",
+      "data/test-00002-of-00003.parquet"
+    ]
+  },
+  "Multimodal-Mind2Web": {
+    "repo": "osunlp/Multimodal-Mind2Web",
+    "revision": "1b4c6a8cf9f77b7a5e0d641959935c80c4a05889",
+    "files": [
+      "data/test_task-00000-of-00005-431389419142b606.parquet",
+      "data/test_task-00001-of-00005-bdd2cef984845c42.parquet",
+      "data/test_task-00002-of-00005-e2696e51f1c78db8.parquet",
+      "data/test_task-00003-of-00005-944419f61d7cf1fb.parquet",
+      "data/test_task-00004-of-00005-a3a487e53da307b4.parquet"
+    ]
+  }
+}

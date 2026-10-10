@@ -1,0 +1,44 @@
+{
+  "protocol": {
+    "model": "google/gemma-4-26B-A4B-it",
+    "model_revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+    "frozen": true,
+    "training": false,
+    "adapter": null,
+    "max_soft_tokens": 280,
+    "scope": "48 complete benchmark screenshots, five labels each, two diagnostic question types; no task correctness tuning",
+    "records_sha256": "a3c0bbd1931116abbeeba19065ae85ae2d6fb20ebf4bb43bbb1b77f38583b5ed",
+    "runner_sha256": "961ae1fd039ccf1735d84d1d0684de4130caa363fd96607348422c9ef15b0751",
+    "evaluator_sha256": "dca50fec85cd953ba86db754a1bc520f76dd90de434910462a2d2a247d3a02dc",
+    "gpu_uuid": "GPU-ff4adf3c-6afa-af0b-506a-ebe3919b2ac2"
+  },
+  "tasks": {
+    "letter_recognition": {
+      "n": 240,
+      "correct": 190,
+      "accuracy": 0.7916666666666666,
+      "errors": 0,
+      "all_images_all_five_pass": 19
+    },
+    "pointer_association": {
+      "n": 240,
+      "correct": 188,
+      "accuracy": 0.7833333333333333,
+      "errors": 0,
+      "all_images_all_five_pass": 17
+    },
+    "isolated_same_resolution": {
+      "n": 240,
+      "correct": 237,
+      "accuracy": 0.9875,
+      "errors": 0,
+      "all_images_all_five_pass": 45
+    }
+  },
+  "target_pixels_unchanged_images": 48,
+  "limitations": [
+    "Coordinate-conditioned diagnostic includes spatial localization and answer selection, not pure OCR",
+    "Passing these probes does not prove downstream GUI task correctness",
+    "No tuning or deletion of failed cases; author candidate placements remain unverified"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "rows": 600,
+  "results": {
+    "'\\nAnswer:'": {
+      "labels_checked": 3600,
+      "mapping_failures": 3300,
+      "failure_examples": [
+        {
+          "id": "raven:3891",
+          "label": "A"
+        },
+        {
+          "id": "raven:3891",
+          "label": "B"
+        },
+        {
+          "id": "raven:3891",
+          "label": "C"
+        },
+        {
+          "id": "raven:3891",
+          "label": "D"
+        },
+        {
+          "id": "raven:3891",
+          "label": "E"
+        },
+        {
+          "id": "raven:3891",
+          "label": "F"
+        },
+        {
+          "id": "raven:3891",
+          "label": "H"
+        },
+        {
+          "id": "raven:6087",
+          "label": "A"
+        },
+        {
+          "id": "raven:6087",
+          "label": "B"
+        },
+        {
+          "id": "raven:6087",
+          "label": "C"
+        }
+      ]
+    },
+    "'\\nAnswer:\\n'": {
+      "labels_checked": 3600,
+      "mapping_failures": 0,
+      "failure_examples": []
+    }
+  },
+  "source_records_sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b",
+  "meaning": "v1 tail permits colon+letter BPE merges; newline tail keeps the fixed prefix stable for every candidate. No weight/training change."
+}

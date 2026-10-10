@@ -200,3 +200,18 @@ setup.sh / start_all.sh / stop_all.sh
 自有接口代码采用 **Apache-2.0**。官方模型权重与运行时加载的自定义代码遵循各自上游条款，详见 [模型许可说明](docs/model-licenses.md)。模型权重通过上游渠道下载。
 
 欢迎使用固定输入报告问题，或提交模型适配与验证改进，见 [贡献说明](CONTRIBUTING.md)。
+
+
+### 冻结基座准确率对照
+
+仅用官方基座权重，无额外训练。作者训练后的分数作为报告参考，不重跑作者模型。这组 Qwen/Gemma 实验独立于上面的五个控制台适配器。
+
+|基座|测试内容|本次正确/题数|本次准确率|作者训练模型报告|
+|---|---|---:|---:|---:|
+|Qwen3.5-2B-Base|RAVEN|178/300|59.33%|Decider 80%|
+|Qwen3.5-2B-Base|Visual7W|271/300|90.33%|Decider 89%|
+|Gemma-4-26B-A4B-it|128 道公开预览 + 8 张示例卡|90/136|66.18%|Rune v3 75.7%，280 图像令牌|
+
+736 题均完成，无推理异常。作者逐题样本及最终渲染未完全核验，因此不能据此证明非劣效。Visual7W 的数值接近；RAVEN 和 Gemma 仍有较大差距。公开全部适配失败、标记诊断及 197 道错题。[完整结果及限制](docs/frozen-backbone-accuracy.md) · [逐题准确率证据](evidence/frozen-backbone/accuracy/)
+
+**已完成的单字母对照：**两边输入完全相同，并共同要求只回答一个字母。Qwen 600 题、每题每条路径三次，原模型生成中位耗时 118.3 ms，决策评分 84.1 ms，减少 28.9%。原模型实际只生成字母和结束符两个 token，没有触及上限；两边 600 道题的答案全部一致。[协议和原始耗时](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)。自然生成的完整对照及 Gemma 单字母对照仍在运行/排队，完成后补充。
