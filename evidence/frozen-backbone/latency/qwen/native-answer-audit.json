@@ -1,0 +1,8 @@
+{
+  "n": 1800,
+  "correct": 1329,
+  "unresolved": 0,
+  "parser_sha256": "e5434e4eaae8e39a99471c7ac290e76bce166fad6f7a57bd872c5adaf79e4f4e",
+  "measurements_sha256": "dedb006044c5b1a5faf0a667fb73af0727ff2c471f65c20ece01262654d6ce53",
+  "scope": "Deterministic post-hoc formatting parser; gold-blind extraction, no timing or inference changes; not human-adjudicated semantic correctness"
+}
