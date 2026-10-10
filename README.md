@@ -94,64 +94,53 @@ These decision adapters use the official backbone weights and native language he
 
 ## Measured accuracy with no additional training
 
-This table covers all seven adapters on the same fixed 100 questions per model.
+| Backbone | Benchmark (questions) | Trained model | [Reported accuracy](docs/frozen-backbone-accuracy.md) | Ours (0 training) | Delta (pp) |
+|---|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
+| Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
+| Gemma-4-26B-A4B-it | Rune public reconstruction (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
 
-**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%; Qwen3.5-2B-Base achieves 82%; Gemma 4 26B A4B achieves 89%.
+### ScienceQA (fixed 100 questions)
 
-The evaluation uses **100 image-bearing questions from the official ScienceQA test split, seed 42**, with identical IDs for every model in the table. Inputs contain the question, available hint, image, and options. Native and decision paths share checkpoint, prepared input, prompt, candidate set, precision, and attention implementation. The baseline reads candidate logits from the official generation first step and uses the same candidate softmax and argmax for scoring.
-
-| Model | Additional training | Native candidate accuracy | Decision accuracy | Agreement |
+| Backbone | Extra training | Native candidate accuracy | Ours | Agreement |
 |---|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 0 steps | 89% | 89% | 100% |
-| Qwen3.5-2B-Base | 0 steps | 82% | 82% | 100% |
-| Gemma-3n-E2B-it | 0 steps | 80% | 80% | 100% |
-| Gemma-3n-E4B-it | 0 steps | 84% | 84% | 100% |
-| MiniCPM-V-4.5 | 0 steps | 98% | 98% | 100% |
-| InternVL3.5-8B | 0 steps | 93% | 93% | 100% |
-| InternVL3.5-14B | 0 steps | 92% | 92% | 100% |
+| Gemma-4-26B-A4B-it | 0 | 89% | 89% | 100/100 |
+| Qwen3.5-2B-Base | 0 | 82% | 82% | 100/100 |
+| Gemma-3n-E2B-it | 0 | 80% | 80% | 100/100 |
+| Gemma-3n-E4B-it | 0 | 84% | 84% | 100/100 |
+| MiniCPM-V-4.5 | 0 | 98% | 98% | 100/100 |
+| InternVL3.5-8B | 0 | 93% | 93% | 100/100 |
+| InternVL3.5-14B | 0 | 92% | 92% | 100/100 |
 
-**All 700 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
-
-[Dataset and protocol](docs/scienceqa.md) · [Fixed manifest](benchmarks/scienceqa-test-100-manifest.json) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
+[Accuracy evidence](docs/frozen-backbone-accuracy.md) · [ScienceQA protocol and results](docs/scienceqa.md)
 
 ## Measured decision latency
 
-A choice, judgment, or score reads candidate logits from one forward pass and generates 0 new text tokens. Multimodal encoding and fusion feed directly into a structured distribution, reducing token-by-token decoding and free-text parsing stages.
+| Backbone | Generation setting | Questions | Native generation (median ms) | Ours (median ms) | Speedup |
+|---|---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | No brevity instruction | 136 | Running | Running | — |
+| Gemma-4-26B-A4B-it | Single-letter answer | 136 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+| Qwen3.5-2B-Base | No brevity instruction | 600 | 121.4 | **84.4** | **1.44×** |
+| Qwen3.5-2B-Base | Single-letter answer | 600 | 118.3 | **84.1** | **1.41×** |
 
-Measurements use the same fixed ScienceQA subset, 100 image questions per model, with one image and one choice question per input. **Models are loaded before timing; the timer covers visual encoding, fusion, and the language-model forward from prepared tensors to returned logits.** Hardware: NVIDIA A800-SXM4-80GB, BF16, synchronized timing, shared GPU. Median and nearest-rank P95 use all 100 questions.
+[Per-question timings and outputs](docs/qwen-natural-latency.md) · [Protocol and † truncations](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
 
-| Model | Median forward | P95 forward |
+<details>
+<summary>ScienceQA decision-forward timings</summary>
+
+| Backbone | Median forward (ms) | P95 forward (ms) |
 |---|---:|---:|
-| Gemma-4-26B-A4B-it | 264.3 ms | 333.0 ms |
-| Qwen3.5-2B-Base | 90.4 ms | 121.4 ms |
-| Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
-| Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
-| MiniCPM-V-4.5 | 148.9 ms | 256.1 ms |
-| InternVL3.5-8B | 291.1 ms | 384.7 ms |
-| InternVL3.5-14B | 263.8 ms | 440.3 ms |
+| Gemma-4-26B-A4B-it | 264.3 | 333.0 |
+| Qwen3.5-2B-Base | 90.4 | 121.4 |
+| Gemma-3n-E2B-it | 213.5 | 253.1 |
+| Gemma-3n-E4B-it | 222.8 | 275.4 |
+| MiniCPM-V-4.5 | 148.9 | 256.1 |
+| InternVL3.5-8B | 291.1 | 384.7 |
+| InternVL3.5-14B | 263.8 | 440.3 |
 
-Original five adapters use Transformers 4.57.1; Qwen3.5 and Gemma 4 use isolated 5.19.0 runtimes. Cross-model forward times are descriptive, not a paired speedup comparison.
+[Full results](docs/scienceqa-latency.md)
 
-[Timing details](docs/scienceqa-latency.md) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
-
-All seven backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
-
-
-### Frozen-backbone accuracy experiment
-
-Official weights only, no additional training; trained authors' scores are reported references, not reruns. The Qwen/Gemma author-reference experiments use separately recorded input protocols; Qwen3.5 is now also registered in the console, and Gemma 4 is registered after real API and typed-interface verification.
-
-| Backbone | Evaluation | Our correct / questions | Our accuracy | Author trained-model report |
-|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | RAVEN | 178/300 | 59.33% | Decider 80% |
-| Qwen3.5-2B-Base | Visual7W | 271/300 | 90.33% | Decider 89% |
-| Gemma-4-26B-A4B-it | 128 public preview + 8 cards | 93/136 | 68.38% | Rune v3 75.7%, 280 image tokens |
-
-The latest Gemma result uses shared candidate-position mappings and 455 original structured table-cell strings, alongside the images. Both paths see the same observations. This reduces input-reading ambiguity; it changes presentation relative to the author and does not establish paired non-inferiority. Historical failures and the older error ledger remain available.
-
-Zero inference exceptions. Exact author samples/rendering are not independently matched; these figures do not establish non-inferiority. All adaptation failures, marker diagnostics and the historical 197-case error ledger are retained. [Detailed results and limitations](docs/frozen-backbone-accuracy.md) · [Raw accuracy evidence](evidence/frozen-backbone/accuracy/)
-
-**Completed one-letter control:** identical initial information and a shared one-letter instruction on 600 Qwen questions, three repetitions each: native generation 118.3 ms versus decision scoring 84.1 ms, reducing latency by 28.9%. Native generation actually emitted two tokens, with no cap hits; both paths agree on all 600 answers. [Protocol and raw timings](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control). Qwen's multiple-choice generation experiment without an added output-length instruction is also complete: **121.4→84.4 ms (30.4% reduction)** over the same 600 questions, without a one-letter instruction; native output has a two-token median and zero cap hits. This is Base-model completion of a multiple-choice `Answer:` slot, not representative ordinary chat; 346/600 calls emit two tokens and 254 emit 4-10 tokens. Gemma's single-letter control completes at **308.1→244.6 ms (20.6%)**, including 36/408 capped native calls; its natural-output group is running. [Qwen multiple-choice generation protocol and evidence](docs/qwen-natural-latency.md).
+</details>
 
 ## Unified decision console
 

@@ -96,47 +96,53 @@ Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原�
 
 ## 免额外训练的实测准确率
 
-七个适配器均完成了同一份固定 100 题评测。
+| 基座 | 评测集（题数） | 训练模型 | [训练后报告](docs/frozen-backbone-accuracy.md) | 本方法（0 训练） | 差值（百分点） |
+|---|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
+| Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
+| Gemma-4-26B-A4B-it | Rune 公开重建集 (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
 
-**MiniCPM-V-4.5 在 ScienceQA 固定图像测试子集上的候选选择正确率为 98%，额外训练 0 步。** Gemma E2B / E4B 与 InternVL 8B 分别达到 80%、84% 和 93%；InternVL 14B 为 92%；Qwen3.5-2B-Base 为 82%；Gemma 4 26B A4B 为 89%。
+### ScienceQA（固定 100 题）
 
-测试采用 **ScienceQA 官方 test 划分中的 100 道带图像题目，seed 42**，所有表中模型使用同一份固定清单。模型输入包含题目、已有提示、图像与选项；原生对照和决策适配使用相同权重、已预处理输入、提示、候选集、精度及注意力实现。原生对照读取官方生成第一步的候选 logits，采用相同候选 softmax 与 argmax 评分。
-
-| 模型 | 额外训练 | 原生候选正确率 | 决策适配正确率 | 决策一致率 |
+| 基座 | 额外训练 | 原生候选准确率 | 本方法准确率 | 选择一致 |
 |---|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 0 步 | 89% | 89% | 100% |
-| Qwen3.5-2B-Base | 0 步 | 82% | 82% | 100% |
-| Gemma-3n-E2B-it | 0 步 | 80% | 80% | 100% |
-| Gemma-3n-E4B-it | 0 步 | 84% | 84% | 100% |
-| MiniCPM-V-4.5 | 0 步 | 98% | 98% | 100% |
-| InternVL3.5-8B | 0 步 | 93% | 93% | 100% |
-| InternVL3.5-14B | 0 步 | 92% | 92% | 100% |
+| Gemma-4-26B-A4B-it | 0 | 89% | 89% | 100/100 |
+| Qwen3.5-2B-Base | 0 | 82% | 82% | 100/100 |
+| Gemma-3n-E2B-it | 0 | 80% | 80% | 100/100 |
+| Gemma-3n-E4B-it | 0 | 84% | 84% | 100/100 |
+| MiniCPM-V-4.5 | 0 | 98% | 98% | 100/100 |
+| InternVL3.5-8B | 0 | 93% | 93% | 100/100 |
+| InternVL3.5-14B | 0 | 92% | 92% | 100/100 |
 
-**700 组配对全部一致，完整词表 logits 和候选概率最大差均为 0。** 这验证了已测输入与配置下，免额外训练的决策适配保持了基座的原生候选决策行为。
-
-[测试集与方法](docs/scienceqa_zh.md) · [固定样本清单](benchmarks/scienceqa-test-100-manifest.json) · [完整结果](docs/scienceqa-results_zh.md) · [逐题记录](evidence/scienceqa/)
+[准确率记录](docs/frozen-backbone-accuracy.md) · [ScienceQA 协议与结果](docs/scienceqa_zh.md)
 
 ## 低延迟决策：具体用了多久？
 
-单个选择、判断或评分直接读出一次前向的候选 logits，生成 0 个新文本 token。输入经过多模态编码与融合后即可返回结构化分布，减少逐 token 解码与自由文本解析环节。
+| 基座 | 生成设置 | 题数 | 原生生成（中位 ms） | 本方法（中位 ms） | 加速比 |
+|---|---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 不要求简短 | 136 | 测试中 | 测试中 | — |
+| Gemma-4-26B-A4B-it | 仅回答字母 | 136 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+| Qwen3.5-2B-Base | 不要求简短 | 600 | 121.4 | **84.4** | **1.44×** |
+| Qwen3.5-2B-Base | 仅回答字母 | 600 | 118.3 | **84.1** | **1.41×** |
 
-以下为同一 ScienceQA 固定 100 题图像子集的实测，每次输入一张图像与一个选择问题。**模型已加载，计时范围为预处理完成后的视觉编码、融合与语言模型前向，直到 logits 返回。** 使用 NVIDIA A800-SXM4-80GB、BF16、GPU 同步计时，共享 GPU；统计全部 100 题的中位数与 P95。
+[逐题耗时与输出](docs/qwen-natural-latency.md) · [实验设置与 † 截断记录](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
 
-| 模型 | 前向中位数 | 前向 P95 |
+<details>
+<summary>ScienceQA 决策前向耗时</summary>
+
+| 基座 | 前向中位数（ms） | 前向 P95（ms） |
 |---|---:|---:|
-| Gemma-4-26B-A4B-it | 264.3 ms | 333.0 ms |
-| Qwen3.5-2B-Base | 90.4 ms | 121.4 ms |
-| Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
-| Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
-| MiniCPM-V-4.5 | 148.9 ms | 256.1 ms |
-| InternVL3.5-8B | 291.1 ms | 384.7 ms |
-| InternVL3.5-14B | 263.8 ms | 440.3 ms |
+| Gemma-4-26B-A4B-it | 264.3 | 333.0 |
+| Qwen3.5-2B-Base | 90.4 | 121.4 |
+| Gemma-3n-E2B-it | 213.5 | 253.1 |
+| Gemma-3n-E4B-it | 222.8 | 275.4 |
+| MiniCPM-V-4.5 | 148.9 | 256.1 |
+| InternVL3.5-8B | 291.1 | 384.7 |
+| InternVL3.5-14B | 263.8 | 440.3 |
 
-原五个适配器使用 Transformers 4.57.1，Qwen3.5 与 Gemma 4 使用各自独立的 5.19.0 环境；跨模型前向时间仅作描述，不属于改造前后的配对加速比较。
+[完整结果](docs/scienceqa-latency_zh.md)
 
-[延迟统计与口径](docs/scienceqa-latency_zh.md) · [完整结果汇总](evidence/scienceqa/summary.json)
-
-此外，七个基座完成了颜色、计数、OCR、空间关系、双图和时序等固定探针的配对验证，见 [原生通路验证](docs/base-retention-results.md)。
+</details>
 
 ## 统一决策台
 
@@ -199,9 +205,9 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py minicp
 .venv/bin/python scripts/summarize_retention.py
 ```
 
-CPU 协议测试 **11 项通过**。最后一条命令核查并汇总仓库中的六份完整配对记录。单模型接口验证另见 `scripts/validate_model.py`；已有 Gemma 及新增三个模型的结果见 [验证记录](docs/validation.md)。
+CPU 协议测试 **11 项通过**。最后一条命令核查并汇总仓库中的七份完整配对记录。单模型接口验证另见 `scripts/validate_model.py`；已有 Gemma 及新增三个模型的结果见 [验证记录](docs/validation.md)。
 
-ScienceQA 固定图像测试子集的复现命令与数据来源见 [公开测试集评测方法](docs/scienceqa_zh.md)；六份逐题报告可用 `.venv/bin/python scripts/summarize_scienceqa.py` 重新核查并生成准确率与延迟表。
+ScienceQA 固定图像测试子集的复现命令与数据来源见 [公开测试集评测方法](docs/scienceqa_zh.md)；七份逐题报告可用 `.venv/bin/python scripts/summarize_scienceqa.py` 重新核查并生成准确率与延迟表。
 
 ## 开源范围与许可
 
@@ -221,22 +227,3 @@ setup.sh / start_all.sh / stop_all.sh
 自有接口代码采用 **Apache-2.0**。官方模型权重与运行时加载的自定义代码遵循各自上游条款，详见 [模型许可说明](docs/model-licenses.md)。模型权重通过上游渠道下载。
 
 欢迎使用固定输入报告问题，或提交模型适配与验证改进，见 [贡献说明](CONTRIBUTING.md)。
-
-
-### 冻结基座准确率对照
-
-仅用官方基座权重，无额外训练。作者训练后的分数作为报告参考，不重跑作者模型。Qwen/Gemma 作者分数对照采用单独记录的输入协议；Qwen3.5 已接入控制台，Gemma 4 已通过真实 API 与类型接口验证并加入模型序列。
-
-|基座|测试内容|本次正确/题数|本次准确率|作者训练模型报告|
-|---|---|---:|---:|---:|
-|Qwen3.5-2B-Base|RAVEN|178/300|59.33%|Decider 80%|
-|Qwen3.5-2B-Base|Visual7W|271/300|90.33%|Decider 89%|
-|Gemma-4-26B-A4B-it|128 道公开预览 + 8 张示例卡|93/136|68.38%|Rune v3 75.7%，280 图像令牌|
-
-Gemma 最新输入同时保留图像，并提供共同的候选位置对应与 455 个原始表格单元格文本；改造前后得到相同信息。这减少输入读取歧义，但呈现方式与作者不同，尚不能证明配对非劣效。
-
-736 题均完成，无推理异常。作者逐题样本及最终渲染未完全核验，因此不能据此证明非劣效。Visual7W 的数值接近；RAVEN 仍相差 20.67 个百分点，Gemma 最新差距为 7.32 个百分点。历史适配失败、标记诊断及旧版 197 道错题继续保留。[完整结果及限制](docs/frozen-backbone-accuracy.md) · [逐题准确率证据](evidence/frozen-backbone/accuracy/)
-
-**已完成的单字母对照：**两边输入完全相同，并共同要求只回答一个字母。Qwen 600 题、每题每条路径三次，原模型生成中位耗时 118.3 ms，决策评分 84.1 ms，减少 28.9%。原模型实际只生成字母和结束符两个 token，没有触及上限；两边 600 道题的答案全部一致。[协议和原始耗时](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)。Gemma 单字母组和 Qwen 自然生成组也已完成，见下方；Gemma 自然生成组仍在运行。
-
-**Qwen 未额外限制长度的选择题生成组已完成：**共同提示不要求单字母输出，600 题耗时中位数 **121.4→84.4 ms，减少 30.4%**。原生输出中位数为 2 token，无截断。这是 Base 模型在选择题与 `Answer:` 答案槽格式下的续写，不能代表普通聊天；346/600 次输出 2 token，其余 254 次为 4-10 token。Gemma 单字母组为 **308.1→244.6 ms，减少 20.6%**，保留并披露 36/408 次生成触及上限；其自然生成组仍在运行。[Qwen 选择题生成协议与逐题记录](docs/qwen-natural-latency.md)。
