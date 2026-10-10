@@ -1,0 +1,84 @@
+{
+  "run_id": "latency-neutral-restored-five-models-20261010",
+  "prompt_style": "neutral",
+  "shared_instruction": "结合实际图像与测量状态回答问题，选择最合适的选项。",
+  "project_root": "/14545/mlq/projects/tianze-mjev-latency-neutral-restored-20261010",
+  "output_root": "/14545/mlq/projects/tianze-mjev-latency-neutral-restored-20261010/results",
+  "suite": "/14545/mlq/projects/multimodal-decision-models/data/scienceqa/suite.json",
+  "suite_sha256": "769fb5bc1a563199fd100b622e1343d25d22f4b53cfcdc005fd42e65cec88ccd",
+  "source_sha256": {
+    "scripts/benchmark_latency_extension.py": "942a4b23d4411002b66f62a626ff9a30f59017621f7deb42cb6eaf6a2be06b19",
+    "scripts/run_latency_lane.py": "b02795a7c8e280e79e529fe57d08b5a120c7d00665253bab387203a59ba1257f",
+    "src/multimodal_decision/__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "src/multimodal_decision/contracts.py": "ac563fc4af2f1d388a7dd26ba0845fbaedfcfbadc7605a8ff29ec1a86c847fdf",
+    "src/multimodal_decision/gateway.py": "bab7e2cfa356162c476bbe198a5dde8e8b2cf6401a9658bf6d0f78f0dee11269",
+    "src/multimodal_decision/gemma4.py": "5af251609999531970ee9098f6a43504f9fb5b349b68ccfe97d6a8346d15732f",
+    "src/multimodal_decision/gemma4_service.py": "ab9bd209bde9ad5a2447094b1824521b9de9f03709241e75a7ab850b9eb04b58",
+    "src/multimodal_decision/model.py": "aa98ff9a278fc1b260531b9ff9115fef9fbffb0ead93c8f31126b8d2e60620f0",
+    "src/multimodal_decision/native.py": "a22000ab48566300b69a821d8964ec1cfba57dcdbc5982674ba89f1997473c58",
+    "src/multimodal_decision/observation.py": "586a0e133a369446c0c06e815649048650f9405c351ad6105926ee291129886a",
+    "src/multimodal_decision/qwen35.py": "b8d4f0d7d8fa322d2db9fc18bb02f90c5cc0f15e64d9fb6b9dc2be3cfaf3dfd4",
+    "src/multimodal_decision/qwen35_service.py": "93c8ab3647f8c946dfc8ef783de8bfea7200cdce6c71e75e6e2f31782888457b",
+    "src/multimodal_decision/registry.py": "e8faf2cb5d54829d9b90bbfc7e8b17a551fe4b68d0217b2a3263313ed90b099b",
+    "src/multimodal_decision/safety.py": "7be7ba02736d1347a0c861c46b4b80a28c613abe79f594d88e801e12b496e4b6",
+    "src/multimodal_decision/service.py": "ed4deb9a576a170520af2ffd0afc6caad7e1067196e21b62d15520e44ecc79c5"
+  },
+  "model_root": "/14545/mlq/models",
+  "lanes": {
+    "a800-2": {
+      "ssh_port": 30566,
+      "gpu_uuid": "GPU-1f910354-0621-80f1-f3f1-aa06ee842d83",
+      "models": [
+        {
+          "id": "qwen35-2b",
+          "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv-qwen35/bin/python",
+          "minimum_gib": 8
+        },
+        {
+          "id": "internvl35-8b",
+          "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+          "minimum_gib": 22
+        },
+        {
+          "id": "internvl35-14b",
+          "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+          "minimum_gib": 34
+        }
+      ]
+    },
+    "a800-4": {
+      "ssh_port": 30209,
+      "gpu_uuid": "GPU-1f451bee-04f3-68d4-7854-2a9683685794",
+      "models": [
+        {
+          "id": "gemma-e2b",
+          "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+          "minimum_gib": 16
+        },
+        {
+          "id": "minicpm-v45",
+          "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+          "minimum_gib": 22
+        }
+      ]
+    }
+  },
+  "excluded_existing": [
+    "gemma4-a4b",
+    "gemma-e4b"
+  ],
+  "questions": 100,
+  "repeats": 3,
+  "max_new_tokens": 2048,
+  "no_minimum_output_length": true,
+  "modes": [
+    "native",
+    "decision"
+  ],
+  "extra_control_per_question": 1,
+  "pause_on_insufficient_memory": true,
+  "supersedes": "/14545/mlq/projects/tianze-mjev-latency-sentence-uncapped-20261010",
+  "old_results_not_used_for_selection": true,
+  "no_output_length_limit": false,
+  "reference_protocol": "Original Gemma3n E4B ScienceQA natural-generation protocol: neutral prompt, greedy EOS, 2048 emergency cap, 3 repetitions"
+}

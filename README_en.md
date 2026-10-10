@@ -123,7 +123,7 @@ TianZe-MJev currently supports seven official multimodal backbones across the Qw
 
 Speedup = before latency ÷ after latency (using the medians shown in the table).
 
-The remaining five backbones are rerun on two GPUs with the same instruction: answer in one sentence with an option letter and a short reason. Natural generation has no output-length cap and stops at EOS; direct decisions read first-position candidate logits. This group is reported separately from the neutral-prompt results above and does not establish equivalent answer quality. Previous extension runs are superseded; new results are pending. [New protocol and pause policy](docs/latency-sentence-uncapped-20261010.md).
+The remaining five backbones are rerun on two GPUs using the original neutral-prompt method: no single-letter, single-sentence or added explanation requirement, greedy EOS decoding, and the original 2048-token emergency cap. Both paths share inputs and prompts; speed does not establish equivalent answer quality. Results are pending. [Protocol and pause policy](docs/latency-neutral-restored-20261010.md).
 
 **Interpretation:** avoiding sequential decoding reduces waiting, but quality must be assessed separately. Under this neutral prompt, Gemma 4 scores **30/136** for direct decisions versus **95/136** for conservatively parsed generation in the first repetition. Gemma 3n scores **228/300** versus **162/300** across three repetitions, with **117/300** generated answers unparsed; this is not evidence that generation has lower intrinsic accuracy. These are different prompts from experiment 1.
 
