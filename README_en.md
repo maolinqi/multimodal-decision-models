@@ -100,8 +100,6 @@ TianZe-MJev currently supports seven official multimodal backbones across the Qw
 
 **Interpretation:** Visual7W is numerically close to the reference, while the Rune reconstruction shows a gap. Training benefits depend on the task. These references establish neither overall superiority nor paired non-inferiority. [Protocol, raw results and error ledger](docs/frozen-backbone-accuracy.md).
 
-A full seven-backbone accuracy rerun is scheduled serially from smallest to largest. New results are pending; the table retains existing measurements. [Schedule and pause policy](docs/accuracy-matrix-20261010.md).
-
 **Reference models and their training:**
 
 [**Decider-2B-Vision**](https://github.com/Mapika/decider/blob/e50e549b47e2da69223734fee4efa1ddd4528e93/MODEL_CARD_VISION.md) transplants v5 text weights into Qwen3.5-2B's vision-language model and reads option probabilities at an answer slot. One epoch uses 80k examples (50k with images): scripted game policies, DAgger frames, Cauldron multiple-choice tasks and text replay. Pixel-based PPO on Breakout/Pong follows.
@@ -124,6 +122,8 @@ A full seven-backbone accuracy rerun is scheduled serially from smallest to larg
 | Gemma-3n-E4B-it | ScienceQA (100) | 62.5 | 4880.7 | **152.3** | **32.0×** |
 
 Speedup = before latency ÷ after latency (using the medians shown in the table).
+
+The remaining five backbones are scheduled for a two-GPU latency extension; the two completed models above are excluded. New results are pending. [Schedule and pause policy](docs/latency-extension-20261010.md).
 
 **Interpretation:** avoiding sequential decoding reduces waiting, but quality must be assessed separately. Under this neutral prompt, Gemma 4 scores **30/136** for direct decisions versus **95/136** for conservatively parsed generation in the first repetition. Gemma 3n scores **228/300** versus **162/300** across three repetitions, with **117/300** generated answers unparsed; this is not evidence that generation has lower intrinsic accuracy. These are different prompts from experiment 1.
 
