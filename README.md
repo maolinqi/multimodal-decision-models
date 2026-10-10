@@ -7,8 +7,6 @@
 
 Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n/4, MiniCPM-V, and InternVL
 
-**With no additional training: MiniCPM-V-4.5 achieves 98% candidate accuracy and 148.9 ms median decision-forward latency on 100 fixed ScienceQA image-test questions.**
-
 **English** · [简体中文](README_zh.md)
 
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
@@ -25,11 +23,55 @@ Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n/4, MiniCPM
 
 ## Overview
 
-**System One is an open-source model project for multimodal understanding and low-latency decisions, turning vision-language understanding into structured decisions callable from software.** Given task text, images or video frames, and a question, it returns a candidate choice, binary judgment, or ordinal score with a corresponding probability distribution. Text defines the task and candidates, images provide objects and spatial relationships, and timestamped video frames provide changes over time. These inputs are combined through the backbone’s native multimodal pipeline.
+**System One turns multimodal backbones into structured decision interfaces, with no additional training or fine-tuning.** Given text, images or video frames, and candidate options, it returns a choice, binary judgment, or ordinal score with candidate probabilities. Seven backbones share one API and web console, with evaluation records included.
 
-We implemented seven decision adapters on **Qwen3.5-2B-Base, Gemma-4-26B-A4B-it, Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**, **using their existing pretrained weights directly, with no additional training or fine-tuning**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**, returning the decision distribution directly and reducing the wait associated with token-by-token decoding.
+## Measured accuracy with no additional training
 
-The project provides a shared observation protocol, decision API, and web console, giving all seven models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
+| Backbone | Benchmark (questions) | Trained model | [Reported accuracy](docs/frozen-backbone-accuracy.md) | Ours (0 training) | Delta (pp) |
+|---|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
+| Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
+| Gemma-4-26B-A4B-it | Rune public reconstruction (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
+
+### ScienceQA (fixed 100 questions)
+
+| Backbone | Extra training | Native candidate accuracy | Ours | Agreement |
+|---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 0 | 89% | 89% | 100/100 |
+| Qwen3.5-2B-Base | 0 | 82% | 82% | 100/100 |
+| Gemma-3n-E2B-it | 0 | 80% | 80% | 100/100 |
+| Gemma-3n-E4B-it | 0 | 84% | 84% | 100/100 |
+| MiniCPM-V-4.5 | 0 | 98% | 98% | 100/100 |
+| InternVL3.5-8B | 0 | 93% | 93% | 100/100 |
+| InternVL3.5-14B | 0 | 92% | 92% | 100/100 |
+
+[Accuracy evidence](docs/frozen-backbone-accuracy.md) · [ScienceQA protocol and results](docs/scienceqa.md)
+
+## Measured decision latency
+
+| Backbone | Answer mode | Questions | Median output tokens | Native median (ms) | Ours median (ms) | Speedup |
+|---|---|---:|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | Natural generation | 136 | — | Running | Running | — |
+| Gemma-4-26B-A4B-it | Single-letter answer | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+
+[Per-question results](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
+
+<details>
+<summary>ScienceQA decision-forward timings</summary>
+
+| Backbone | Median forward (ms) | P95 forward (ms) |
+|---|---:|---:|
+| Gemma-4-26B-A4B-it | 264.3 | 333.0 |
+| Qwen3.5-2B-Base | 90.4 | 121.4 |
+| Gemma-3n-E2B-it | 213.5 | 253.1 |
+| Gemma-3n-E4B-it | 222.8 | 275.4 |
+| MiniCPM-V-4.5 | 148.9 | 256.1 |
+| InternVL3.5-8B | 291.1 | 384.7 |
+| InternVL3.5-14B | 263.8 | 440.3 |
+
+[Full results](docs/scienceqa-latency.md)
+
+</details>
 
 ## Training-free decision adaptation
 
@@ -49,8 +91,6 @@ The candidate distribution is computed from the backbone’s label logits for th
 $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 Here, $z_{t_i}$ is the logit for candidate $i$’s label token and $K$ is the number of candidates.
-
-This turns image and video understanding into choices, judgments, and scores callable from software. All seven models connect to one console through the same protocol.
 
 ## Multimodal inputs, structured outputs
 
@@ -90,55 +130,6 @@ Qwen, Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We
 | `internvl35-8b` | [OpenGVLab/InternVL3_5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B) |
 | `internvl35-14b` | [OpenGVLab/InternVL3_5-14B](https://huggingface.co/OpenGVLab/InternVL3_5-14B) |
 
-These decision adapters use the official backbone weights and native language heads. Gemma 4 has a [separate verified runtime and API](docs/gemma4-runtime.md). Qwen3.5 uses a [separate project-local runtime](docs/qwen35-runtime.md), preserving the existing five adapters’ environment. An existing Qwen3-VL-4B service can also be connected through `QWEN_DECISION_URL`.
-
-## Measured accuracy with no additional training
-
-| Backbone | Benchmark (questions) | Trained model | [Reported accuracy](docs/frozen-backbone-accuracy.md) | Ours (0 training) | Delta (pp) |
-|---|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
-| Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
-| Gemma-4-26B-A4B-it | Rune public reconstruction (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
-
-### ScienceQA (fixed 100 questions)
-
-| Backbone | Extra training | Native candidate accuracy | Ours | Agreement |
-|---|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 0 | 89% | 89% | 100/100 |
-| Qwen3.5-2B-Base | 0 | 82% | 82% | 100/100 |
-| Gemma-3n-E2B-it | 0 | 80% | 80% | 100/100 |
-| Gemma-3n-E4B-it | 0 | 84% | 84% | 100/100 |
-| MiniCPM-V-4.5 | 0 | 98% | 98% | 100/100 |
-| InternVL3.5-8B | 0 | 93% | 93% | 100/100 |
-| InternVL3.5-14B | 0 | 92% | 92% | 100/100 |
-
-[Accuracy evidence](docs/frozen-backbone-accuracy.md) · [ScienceQA protocol and results](docs/scienceqa.md)
-
-## Measured decision latency
-
-| Backbone | Generation setting | Questions | Native output tokens (median) | Native generation (median ms) | Ours (median ms) | Speedup |
-|---|---|---:|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | No brevity instruction | 136 | — | Running | Running | — |
-| Gemma-4-26B-A4B-it | Single-letter answer | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
-
-[Protocol and † truncations](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
-
-<details>
-<summary>ScienceQA decision-forward timings</summary>
-
-| Backbone | Median forward (ms) | P95 forward (ms) |
-|---|---:|---:|
-| Gemma-4-26B-A4B-it | 264.3 | 333.0 |
-| Qwen3.5-2B-Base | 90.4 | 121.4 |
-| Gemma-3n-E2B-it | 213.5 | 253.1 |
-| Gemma-3n-E4B-it | 222.8 | 275.4 |
-| MiniCPM-V-4.5 | 148.9 | 256.1 |
-| InternVL3.5-8B | 291.1 | 384.7 |
-| InternVL3.5-14B | 263.8 | 440.3 |
-
-[Full results](docs/scienceqa-latency.md)
-
-</details>
 
 ## Unified decision console
 

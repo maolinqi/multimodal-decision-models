@@ -7,8 +7,6 @@
 
 基于 Qwen3.5、Gemma 3n/4、MiniCPM-V 与 InternVL 的开源多模态决策实现
 
-**免额外训练实测：ScienceQA 固定 100 道图像题，MiniCPM-V-4.5 候选正确率 98%，决策前向中位数 148.9 ms。**
-
 [English](README.md) · **简体中文**
 
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
@@ -25,11 +23,55 @@
 
 ## 项目介绍
 
-**System One 是一个面向多模态理解与低延迟决策的开源模型项目，将视觉语言模型的理解能力转化为可直接调用的结构化决策。** 输入任务文字、图像或视频帧，以及待判断的问题，模型返回候选选择、真假判断或等级评分，并给出对应的概率分布。文字描述任务和候选，图像提供对象、位置与空间关系，按时间排列的视频帧提供前后变化；这些信息共同进入模型的原生多模态通路。
+**System One 将多模态基座改造成结构化决策接口，无需额外训练或微调。** 输入文字、图像或视频帧及候选选项，直接返回选择、真假判断或等级评分与候选概率。项目支持七个基座，提供统一 API、网页决策台和评测记录。
 
-我们基于 **Qwen3.5-2B-Base、Gemma-4-26B-A4B-it、Gemma-3n-E4B / E2B、MiniCPM-V-4.5 和 InternVL3.5-8B / 14B** 完成七个模型的决策适配，**直接使用已有预训练权重，无需额外训练或微调即可运行**。改造保留基座的原生多模态编码、视觉融合和语言头，从候选标签 logits 直接读出决策。一次选择、判断或评分使用一次语言模型前向，生成 **0 个新文本 token**，直接返回决策分布，减少逐 token 解码环节带来的等待。
+## 免额外训练的实测准确率
 
-项目提供统一的观测协议、决策 API 和网页决策台，让七个模型使用相同的输入输出接口。运行代码、模型适配、评测脚本和配对验证记录一并开源，支持在统一页面切换模型、查看候选分布并复现基座对照结果。
+| 基座 | 评测集（n） | 训练模型 | [训练后报告](docs/frozen-backbone-accuracy.md) | 本方法（免训练） | 差值（pp） |
+|---|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
+| Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
+| Gemma-4-26B-A4B-it | Rune 公开重建集 (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
+
+### ScienceQA（固定 100 题）
+
+| 基座 | 额外训练 | 原生候选准确率 | 本方法准确率 | 选择一致 |
+|---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 0 | 89% | 89% | 100/100 |
+| Qwen3.5-2B-Base | 0 | 82% | 82% | 100/100 |
+| Gemma-3n-E2B-it | 0 | 80% | 80% | 100/100 |
+| Gemma-3n-E4B-it | 0 | 84% | 84% | 100/100 |
+| MiniCPM-V-4.5 | 0 | 98% | 98% | 100/100 |
+| InternVL3.5-8B | 0 | 93% | 93% | 100/100 |
+| InternVL3.5-14B | 0 | 92% | 92% | 100/100 |
+
+[准确率记录](docs/frozen-backbone-accuracy.md) · [ScienceQA 协议与结果](docs/scienceqa_zh.md)
+
+## 低延迟决策：具体用了多久？
+
+| 基座 | 回答方式 | 题数 | 原生 token 中位 | 原生中位（ms） | 决策中位（ms） | 加速比 |
+|---|---|---:|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 自然生成 | 136 | — | 测试中 | 测试中 | — |
+| Gemma-4-26B-A4B-it | 仅回答字母 | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+
+[逐题结果](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
+
+<details>
+<summary>ScienceQA 决策前向耗时</summary>
+
+| 基座 | 前向中位数（ms） | 前向 P95（ms） |
+|---|---:|---:|
+| Gemma-4-26B-A4B-it | 264.3 | 333.0 |
+| Qwen3.5-2B-Base | 90.4 | 121.4 |
+| Gemma-3n-E2B-it | 213.5 | 253.1 |
+| Gemma-3n-E4B-it | 222.8 | 275.4 |
+| MiniCPM-V-4.5 | 148.9 | 256.1 |
+| InternVL3.5-8B | 291.1 | 384.7 |
+| InternVL3.5-14B | 263.8 | 440.3 |
+
+[完整结果](docs/scienceqa-latency_zh.md)
+
+</details>
 
 ## 免额外训练的决策改造
 
@@ -49,8 +91,6 @@
 $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 其中 $z_{t_i}$ 为第 $i$ 个候选标签的 logit，$K$ 为候选数量。
-
-这种方式将图像和视频理解转化为程序可调用的选择、判断与评分；七个模型通过同一套协议接入同一个决策台。
 
 ## 多模态输入，结构化输出
 
@@ -89,58 +129,6 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 | `minicpm-v45` | [openbmb/MiniCPM-V-4_5](https://huggingface.co/openbmb/MiniCPM-V-4_5) |
 | `internvl35-8b` | [OpenGVLab/InternVL3_5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B) |
 | `internvl35-14b` | [OpenGVLab/InternVL3_5-14B](https://huggingface.co/OpenGVLab/InternVL3_5-14B) |
-
-Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原五个适配器的环境。`QWEN_DECISION_URL` 仍可接入已有的 Qwen3-VL-4B 服务。
-
-本版本的决策适配直接使用官方基座权重与原生语言头。Gemma 4 的[独立环境与接口](docs/gemma4-runtime.md)已通过真实图像请求和类型验证。
-
-## 免额外训练的实测准确率
-
-| 基座 | 评测集（题数） | 训练模型 | [训练后报告](docs/frozen-backbone-accuracy.md) | 本方法（0 训练） | 差值（百分点） |
-|---|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
-| Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
-| Gemma-4-26B-A4B-it | Rune 公开重建集 (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
-
-### ScienceQA（固定 100 题）
-
-| 基座 | 额外训练 | 原生候选准确率 | 本方法准确率 | 选择一致 |
-|---|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 0 | 89% | 89% | 100/100 |
-| Qwen3.5-2B-Base | 0 | 82% | 82% | 100/100 |
-| Gemma-3n-E2B-it | 0 | 80% | 80% | 100/100 |
-| Gemma-3n-E4B-it | 0 | 84% | 84% | 100/100 |
-| MiniCPM-V-4.5 | 0 | 98% | 98% | 100/100 |
-| InternVL3.5-8B | 0 | 93% | 93% | 100/100 |
-| InternVL3.5-14B | 0 | 92% | 92% | 100/100 |
-
-[准确率记录](docs/frozen-backbone-accuracy.md) · [ScienceQA 协议与结果](docs/scienceqa_zh.md)
-
-## 低延迟决策：具体用了多久？
-
-| 基座 | 生成设置 | 题数 | 原生输出 token（中位） | 原生生成（中位 ms） | 本方法（中位 ms） | 加速比 |
-|---|---|---:|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 不要求简短 | 136 | — | 测试中 | 测试中 | — |
-| Gemma-4-26B-A4B-it | 仅回答字母 | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
-
-[实验设置与 † 截断记录](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
-
-<details>
-<summary>ScienceQA 决策前向耗时</summary>
-
-| 基座 | 前向中位数（ms） | 前向 P95（ms） |
-|---|---:|---:|
-| Gemma-4-26B-A4B-it | 264.3 | 333.0 |
-| Qwen3.5-2B-Base | 90.4 | 121.4 |
-| Gemma-3n-E2B-it | 213.5 | 253.1 |
-| Gemma-3n-E4B-it | 222.8 | 275.4 |
-| MiniCPM-V-4.5 | 148.9 | 256.1 |
-| InternVL3.5-8B | 291.1 | 384.7 |
-| InternVL3.5-14B | 263.8 | 440.3 |
-
-[完整结果](docs/scienceqa-latency_zh.md)
-
-</details>
 
 ## 统一决策台
 
