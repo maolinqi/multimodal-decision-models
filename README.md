@@ -116,12 +116,12 @@ These decision adapters use the official backbone weights and native language he
 
 ## Measured decision latency
 
-| Backbone | Generation setting | Questions | Native generation (median ms) | Ours (median ms) | Speedup |
-|---|---|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | No brevity instruction | 136 | Running | Running | — |
-| Gemma-4-26B-A4B-it | Single-letter answer | 136 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
-| Qwen3.5-2B-Base | No brevity instruction | 600 | 121.4 | **84.4** | **1.44×** |
-| Qwen3.5-2B-Base | Single-letter answer | 600 | 118.3 | **84.1** | **1.41×** |
+| Backbone | Generation setting | Questions | Native output tokens (median) | Native generation (median ms) | Ours (median ms) | Speedup |
+|---|---|---:|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | No brevity instruction | 136 | — | Running | Running | — |
+| Gemma-4-26B-A4B-it | Single-letter answer | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+| Qwen3.5-2B-Base | No brevity instruction | 600 | 2 | 121.4 | **84.4** | **1.44×** |
+| Qwen3.5-2B-Base | Single-letter answer | 600 | 2 | 118.3 | **84.1** | **1.41×** |
 
 [Per-question timings and outputs](docs/qwen-natural-latency.md) · [Protocol and † truncations](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
 

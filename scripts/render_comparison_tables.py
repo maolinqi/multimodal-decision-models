@@ -35,9 +35,9 @@ def main():
      s=read(q);a=s['paired']['answer_only'];assert a['n_questions']==n
      cap_link='docs/identical-input-latency.md#what-was-timed' if kind=='latency' else 'docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control'
      marker=f'[†]({cap_link})' if s['modes']['answer_only']['hit_token_cap'] else ''
-     latrows.append([name,label,n,f"{a['native_median_ms']:.1f}{marker}",f"**{a['decision_median_ms']:.1f}**",f"**{a['speedup_ratio']:.2f}\u00d7**"])
-    else:latrows.append([name,label,n,'测试中' if zh else 'Running','测试中' if zh else 'Running','—'])
-  lath=['基座','生成设置','题数','原生生成（中位 ms）','本方法（中位 ms）','加速比'] if zh else ['Backbone','Generation setting','Questions','Native generation (median ms)','Ours (median ms)','Speedup']
+     latrows.append([name,label,n,f"{s['modes']['answer_only']['generated_tokens_median']:g}",f"{a['native_median_ms']:.1f}{marker}",f"**{a['decision_median_ms']:.1f}**",f"**{a['speedup_ratio']:.2f}\u00d7**"])
+    else:latrows.append([name,label,n,'—','测试中' if zh else 'Running','测试中' if zh else 'Running','—'])
+  lath=['基座','生成设置','题数','原生输出 token（中位）','原生生成（中位 ms）','本方法（中位 ms）','加速比'] if zh else ['Backbone','Generation setting','Questions','Native output tokens (median)','Native generation (median ms)','Ours (median ms)','Speedup']
   frows=[[r['name'],f"{r['forward_p50_ms']:.1f}",f"{r['forward_p95_ms']:.1f}"] for r in science]
   fh=['基座','前向中位数（ms）','前向 P95（ms）'] if zh else ['Backbone','Median forward (ms)','P95 forward (ms)']
   latency=lathead+'\n\n'+table(lath,latrows,2)+'\n'+('[逐题耗时与输出](docs/qwen-natural-latency.md) · [实验设置与 † 截断记录](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)' if zh else '[Per-question timings and outputs](docs/qwen-natural-latency.md) · [Protocol and † truncations](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)')+'\n\n<details>\n<summary>ScienceQA '+('决策前向耗时' if zh else 'decision-forward timings')+'</summary>\n\n'+table(fh,frows)+'\n'+('[完整结果](docs/scienceqa-latency_zh.md)' if zh else '[Full results](docs/scienceqa-latency.md)')+'\n\n</details>\n'

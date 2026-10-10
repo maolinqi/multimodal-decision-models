@@ -118,12 +118,12 @@ Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原�
 
 ## 低延迟决策：具体用了多久？
 
-| 基座 | 生成设置 | 题数 | 原生生成（中位 ms） | 本方法（中位 ms） | 加速比 |
-|---|---|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 不要求简短 | 136 | 测试中 | 测试中 | — |
-| Gemma-4-26B-A4B-it | 仅回答字母 | 136 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
-| Qwen3.5-2B-Base | 不要求简短 | 600 | 121.4 | **84.4** | **1.44×** |
-| Qwen3.5-2B-Base | 仅回答字母 | 600 | 118.3 | **84.1** | **1.41×** |
+| 基座 | 生成设置 | 题数 | 原生输出 token（中位） | 原生生成（中位 ms） | 本方法（中位 ms） | 加速比 |
+|---|---|---:|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 不要求简短 | 136 | — | 测试中 | 测试中 | — |
+| Gemma-4-26B-A4B-it | 仅回答字母 | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+| Qwen3.5-2B-Base | 不要求简短 | 600 | 2 | 121.4 | **84.4** | **1.44×** |
+| Qwen3.5-2B-Base | 仅回答字母 | 600 | 2 | 118.3 | **84.1** | **1.41×** |
 
 [逐题耗时与输出](docs/qwen-natural-latency.md) · [实验设置与 † 截断记录](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
 
