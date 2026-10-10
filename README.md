@@ -8,7 +8,7 @@
 **English** · [简体中文](README_zh.md)
 
 [![License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
-[![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
+[![Tests](https://github.com/jiangfeibo/TianZe-MJev/actions/workflows/tests.yml/badge.svg)](https://github.com/jiangfeibo/TianZe-MJev/actions/workflows/tests.yml)
 [![Backbones](https://img.shields.io/badge/Backbones-7-2563eb)](#installation-and-use)
 
 [Introduction](#introduction) · [Advantages](#advantages) · [Experiments](#experiments) · [Web-console-gallery](#web-console-gallery) · [Installation](#installation-and-use) · [Authors](#authors) · [License](#license)
@@ -236,8 +236,8 @@ Use Linux x86_64, an NVIDIA GPU and driver supporting the PyTorch CUDA 12.8 buil
 These are free-memory admission thresholds, not peak-memory guarantees. The five original backbones use Transformers 4.57.1; Qwen3.5/Gemma 4 each use 5.19.0 in separate environments.
 
 ```bash
-git clone https://github.com/maolinqi/multimodal-decision-models.git
-cd multimodal-decision-models
+git clone https://github.com/jiangfeibo/TianZe-MJev.git
+cd TianZe-MJev
 ./scripts/setup_all.sh
 .venv/bin/hf auth login
 export MODEL_ROOT="$PWD/models"
@@ -299,7 +299,7 @@ After downloading all seven models and starting the services, run `.venv/bin/pyt
 
 **Advisor:** Feibo Jiang (江沸菠), [jiangfb@hunnu.edu.cn](mailto:jiangfb@hunnu.edu.cn), Hunan Normal University, College of Information Science and Engineering, Associate Professor.
 
-Maintained by [maolinqi](https://github.com/maolinqi). Share reproducible inputs and issues through [GitHub Issues](https://github.com/maolinqi/multimodal-decision-models/issues); see [Contributing](CONTRIBUTING.md). Backbones are published by Qwen, Google, OpenBMB and OpenGVLab. Decider/Rune reference results belong to their authors.
+Maintained by [maolinqi](https://github.com/maolinqi). Share reproducible inputs and issues through [GitHub Issues](https://github.com/jiangfeibo/TianZe-MJev/issues); see [Contributing](CONTRIBUTING.md). Backbones are published by Qwen, Google, OpenBMB and OpenGVLab. Decider/Rune reference results belong to their authors.
 
 ## License
 

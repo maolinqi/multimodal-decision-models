@@ -8,7 +8,7 @@
 [English](README.md) · **简体中文**
 
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
-[![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
+[![Tests](https://github.com/jiangfeibo/TianZe-MJev/actions/workflows/tests.yml/badge.svg)](https://github.com/jiangfeibo/TianZe-MJev/actions/workflows/tests.yml)
 [![Backbones](https://img.shields.io/badge/Backbones-7-2563eb)](#安装使用)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#优势)
 
@@ -249,8 +249,8 @@ Gemma 4 的 408 次生成调用中有 3 次触及上限，表中保留其观测�
 ### 完整七模型部署
 
 ```bash
-git clone https://github.com/maolinqi/multimodal-decision-models.git
-cd multimodal-decision-models
+git clone https://github.com/jiangfeibo/TianZe-MJev.git
+cd TianZe-MJev
 ./scripts/setup_all.sh
 .venv/bin/hf auth login
 export MODEL_ROOT="$PWD/models"
@@ -316,7 +316,7 @@ CUDA_VISIBLE_DEVICES=0 ./start_all.sh
 
 **指导老师：** 江沸菠，[jiangfb@hunnu.edu.cn](mailto:jiangfb@hunnu.edu.cn)，湖南师范大学，信息科学与工程学院，副教授。
 
-项目由 [maolinqi](https://github.com/maolinqi) 维护。问题反馈、示例输入和复现记录可提交到 [GitHub Issues](https://github.com/maolinqi/multimodal-decision-models/issues)；贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。基座模型由 Qwen、Google、OpenBMB 与 OpenGVLab 发布；Decider 和 Rune 的结果归各自作者。
+项目由 [maolinqi](https://github.com/maolinqi) 维护。问题反馈、示例输入和复现记录可提交到 [GitHub Issues](https://github.com/jiangfeibo/TianZe-MJev/issues)；贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。基座模型由 Qwen、Google、OpenBMB 与 OpenGVLab 发布；Decider 和 Rune 的结果归各自作者。
 
 ## 开源许可
 
