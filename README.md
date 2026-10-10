@@ -17,15 +17,127 @@
 
 ## Introduction
 
-A red ball rolls toward your paddle. You need to choose left or right before it arrives. A paragraph explaining the game would arrive too late to help.
+### Background: why must a decision start with generating text?
 
-Software often waits for the same kind of answer: which button matches the user's goal, where an object went across successive frames, or whether an observation meets a condition.
+Imagine a drone flying at high speed when an obstacle suddenly appears ahead. The system must immediately decide: turn left, turn right, or hover?
 
-System 1 and System 2 describe fast autonomous responses and deliberate reasoning that uses attention and working memory. Reliable intuition depends on learnable regularities and useful feedback; unfamiliar, ambiguous, multi-step problems still benefit from deliberation. These ideas inspire a fast decision path rather than a literal mapping of human cognition onto model inference. [Evans & Stanovich, 2013](https://journals.sagepub.com/doi/10.1177/1745691612460685), [Kahneman & Klein, 2009](https://bear.warrington.ufl.edu/brenner/mar7588/Papers/kahneman-klein-2009.pdf).
+For this task, what we need is not a paragraph analyzing the obstacle's position, flight direction and avoidance strategy, but **a fast choice of the most suitable action based on the current multimodal observations**.
 
-Autoregressive models predict successive tokens. When an application only keeps a category from a supplied set, generating a whole explanation adds decoding time. Explanations remain useful when the task needs them. **TianZe-MJev connects existing multimodal understanding directly to structured decisions**, with effectiveness measured on the task at hand.
+Today's large language models mainly use autoregressive generation, predicting subsequent content one token at a time. When a model makes decisions by generating text, analytical steps or a chain of thought, this processing path can be understood as a form of deliberate reasoning inspired by System 2.
 
-Text defines the question, state and options; RGB images supply visual observations. Multiple images or up to **eight timestamped sampled video frames** retain camera IDs and order. `choice` selects among **2–26 options**, `noul` returns a binary judgment and probabilities, and `score` returns an ordinal distribution and expected score. Probabilities express relative preference within the supplied options.
+This approach suits complex reasoning, open-ended questions and tasks requiring explanations. For real-time control, game decisions, GUI operations and other finite-candidate decision tasks, however, the conventional generative path is not always the best choice.
+
+System 1 and System 2 originally describe modes of processing in cognitive psychology; they are not strictly equivalent to autoregressive and non-autoregressive models. Here, we mainly compare **making decisions through continuous text generation** with **directly reading candidate decision distributions**.
+
+### 1. Four main limitations of existing autoregressive decision methods
+
+**1. Serial token generation increases decision latency**
+
+Conventional autoregressive generation predicts the next token step by step, with subsequent generation depending on the content already generated.
+
+Even when the final task only requires an action label, a model may generate considerable intermediate text, adding decoding overhead.
+
+For drone obstacle avoidance, robot control and real-time interaction, this waiting time can limit the system's responsiveness.
+
+**2. Natural-language output does not match structured decision requirements**
+
+Conventional generative models typically produce natural language, while decision systems need explicit action IDs, category labels or control commands.
+
+Converting generated text into executable actions may require additional format constraints, text parsing or exception handling.
+
+Natural-language answers may also contain explanations, invalid formats or content outside the candidate set, increasing the complexity of the decision interface.
+
+**3. Complete candidate decision distributions are difficult to obtain directly**
+
+Ordinary text-generation interfaces typically return a generated result rather than a complete probability distribution over all candidate actions.
+
+For example, when a drone chooses between turning left, turning right and hovering, the system may want both the final action and the relative preference among the candidates.
+
+The final generated text alone does not make this information readily available. Obtaining a candidate distribution usually requires an additional mechanism for reading logits or scoring candidates.
+
+**4. General-purpose generation can be inefficient for repetitive decision tasks**
+
+Many repetitive finite-choice tasks require a continuous series of simple, explicit decisions, without generating a complete answer each time.
+
+Building a dedicated decision model may also introduce additional costs for supervised fine-tuning, reinforcement learning, data collection and model maintenance.
+
+This motivates a key research question: **Can we turn the understanding capabilities of existing multimodal backbones directly into structured decisions with low latency, without retraining the models?**
+
+### 2. TianZe-MJev: a System 1-style direct decision framework for multimodal tasks
+
+To address these questions, we propose **TianZe-MJev (天择多模态决策大模型框架)**.
+
+Inspired by System 1's fast decision mechanism, the framework retains the perception and understanding capabilities of existing multimodal models while replacing continuous text generation with direct candidate decisions.
+
+The model receives a task description, environment state, candidate options and images or video frames. It understands the observations through the backbone's native multimodal encoding and fusion mechanisms, then directly computes the decision distribution from the logits corresponding to candidate labels.
+
+The framework returns option IDs, probability distributions and associated structured results without generating a complete natural-language answer.
+
+### 3. Four core advantages of our approach
+
+**1. Direct decisions: substantially reducing autoregressive decoding latency**
+
+To address serial decoding, we read candidate-label logits from a single language-model forward pass, without generating the final answer token by token.
+
+- A single choice, judgment or score requires one language-model forward pass.
+- The decision path generates zero new text tokens.
+- Necessary input encoding and multimodal feature computation remain, while subsequent continuous text decoding is omitted.
+
+In the existing natural-generation comparison, Gemma 4's response latency decreased from **12,512.1 ms to 248.2 ms**, corresponding to approximately **50.4× speedup and a 98.0% latency reduction**.
+
+**2. Structured output: connecting model decisions directly to applications**
+
+To address the difficulty of executing natural-language results directly, we provide a unified structured decision interface.
+
+Three decision tasks are currently supported:
+
+- `choice`: select directly from 2–26 candidate options.
+- `noul`: make a binary true/false judgment about a statement.
+- `score`: return an ordinal distribution and expected score.
+
+The system directly returns option IDs and their distributions, reducing dependence on free-text parsing and facilitating integration with robots, game agents and other automated systems.
+
+**3. No additional training: reusing existing multimodal model capabilities directly**
+
+To avoid the training costs of building a dedicated decision model, we adapt frozen backbones for decision tasks.
+
+- Additional decision-training steps: **0**
+- Added model parameters: **0**
+- Backbone weight updates: **0**
+
+The framework currently supports seven official backbones across the Qwen3.5, Gemma 3n/4, MiniCPM-V and InternVL families.
+
+Existing models can therefore use the unified decision framework without additional decision fine-tuning, lowering the barrier to experimentation and deployment.
+
+**4. Multimodal fusion and candidate distributions: understanding the environment and observing decisions**
+
+The framework retains the backbone's native visual encoding and multimodal fusion capabilities. It supports joint judgments using task text, state information, RGB images and video frames sampled in temporal order.
+
+Unlike calls that return only a single text answer, TianZe-MJev returns relative probability distributions over all candidate options. The web console supports viewing, comparing and exporting decision results.
+
+This provides a unified interface for further research into decision confidence, temporal state understanding and agent control.
+
+The current candidate probabilities express relative preference among the supplied options. They should not be directly equated with calibrated decision accuracy or safety confidence.
+
+### 4. Experimental validation: how much improvement do we observe?
+
+We compared the latency of natural text generation and direct decisions on an NVIDIA A800-SXM4-80GB GPU. Both methods used the same official backbones and task inputs, comparing normal autoregressive answer generation with directly reading candidate decision distributions.
+
+**The experiments show that skipping continuous text generation can substantially reduce decision response time on the tested finite-candidate tasks.**
+
+For accuracy, frozen Qwen3.5-2B-Base achieved **90.33%** on 300 Visual7W questions, close to the Decider-2B-Vision authors' reported 89.00% and numerically higher by 1.33 percentage points. Results on RAVEN and the reconstructed Rune set remain below the corresponding trained-model reports, however. The effectiveness of adaptation without training varies by task, so these results do not establish overall superiority over dedicated trained decision models.
+
+Large latency gains may also accompany differences in answer quality. For example, in the Gemma 4 comparison using neutral prompts, the first direct-decision run answered 30/136 questions correctly, while natural-generation answers scored 95/136 under conservative parsing. In the control experiment requiring a single-letter answer from both methods, latency decreased by 20.6%.
+
+Our core contribution is therefore not to prove that direct decisions are more accurate than autoregressive generation on every task, but to provide:
+
+**A reproducible and comparable path to structured decisions with low latency for existing multimodal models, without additional training or backbone weight changes, together with an explicit analysis of the tradeoff between speed and decision quality.**
+
+### Vision
+
+We want multimodal models to do more than understand images, describe scenes and answer questions: they should also make fast, executable choices for specific tasks.
+
+**From “understand the environment and generate an answer” to “understand the environment and decide directly.”**
 
 ## Advantages
 
