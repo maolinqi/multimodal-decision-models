@@ -33,7 +33,8 @@ def main():
     label=('不要求简短' if zh else 'No brevity instruction') if kind=='latency' else ('仅回答字母' if zh else 'Single-letter answer')
     if q.exists() and read(q).get('complete'):
      s=read(q);a=s['paired']['answer_only'];assert a['n_questions']==n
-     marker='[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)' if s['modes']['answer_only']['hit_token_cap'] else ''
+     cap_link='docs/identical-input-latency.md#what-was-timed' if kind=='latency' else 'docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control'
+     marker=f'[†]({cap_link})' if s['modes']['answer_only']['hit_token_cap'] else ''
      latrows.append([name,label,n,f"{a['native_median_ms']:.1f}{marker}",f"**{a['decision_median_ms']:.1f}**",f"**{a['speedup_ratio']:.2f}\u00d7**"])
     else:latrows.append([name,label,n,'测试中' if zh else 'Running','测试中' if zh else 'Running','—'])
   lath=['基座','生成设置','题数','原生生成（中位 ms）','本方法（中位 ms）','加速比'] if zh else ['Backbone','Generation setting','Questions','Native generation (median ms)','Ours (median ms)','Speedup']
