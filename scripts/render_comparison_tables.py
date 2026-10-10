@@ -28,7 +28,7 @@ def main():
   lathead='## 低延迟决策：具体用了多久？' if zh else '## Measured decision latency'
   latrows=[]
   for model,name,n in [('gemma','Gemma-4-26B-A4B-it',136)]:
-   for kind in ['latency','latency-short-answer']:
+   for kind in ['latency']:
     q=frozen/kind/model/'summary.json'
     label=('自然生成' if zh else 'Natural generation') if kind=='latency' else ('仅回答字母' if zh else 'Single-letter answer')
     if q.exists() and read(q).get('complete'):
