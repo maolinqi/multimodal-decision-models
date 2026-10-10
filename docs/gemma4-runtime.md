@@ -36,6 +36,6 @@ export PYTHONPATH="$PWD/src"
 .venv-gemma4/bin/python scripts/compare_base_retention.py gemma4-a4b --suite data/scienceqa/suite.json --out evidence/scienceqa/gemma4-a4b.json
 ```
 
-The expanded [20-probe](../evidence/retention/gemma4-a4b.json) and [fixed ScienceQA](../evidence/scienceqa/gemma4-a4b.json) reports are complete and verified. GPU1 validation shares a GPU with other jobs; its forward times are descriptive and are not the paired response-speedup experiment, which runs both paths on GPU0.
+The expanded [20-probe](../evidence/retention/gemma4-a4b.json) and [fixed ScienceQA](../evidence/scienceqa/gemma4-a4b.json) reports are complete and verified.
 
 To release only this Gemma 4 backend before loading another large model, send `POST http://127.0.0.1:8461/unload` with an empty JSON object. Unload refuses while the backend is busy; it does not stop other project jobs.

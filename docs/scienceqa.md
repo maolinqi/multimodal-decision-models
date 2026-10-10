@@ -29,7 +29,7 @@ Lu et al. (2022), *Learn to Explain: Multimodal Reasoning via Thought Chains for
 
 ## Timing
 
-Each record includes synchronized `decision_forward_ms`, covering visual encoding, fusion, and the language-model forward from prepared tensors to returned logits. Models are loaded before measurement. Median and nearest-rank P95 are calculated from all 100 questions per model. Hardware: NVIDIA A800-SXM4-80GB, BF16, shared GPU.
+Each record includes synchronized `decision_forward_ms`, covering visual encoding, fusion, and the language-model forward from prepared tensors to returned logits. Models are loaded before measurement. Median and nearest-rank P95 are calculated from all 100 questions per model. Hardware: NVIDIA A800-SXM4-80GB, BF16.
 
 Qwen3.5 uses the separate Transformers 5.19.0 runtime: `PYTHONPATH=src .venv-qwen35/bin/python scripts/compare_base_retention.py qwen35-2b --suite data/scienceqa/suite.json --out evidence/scienceqa/qwen35-2b.json`. Existing adapters keep their Transformers 4.57.1 environment.
 
