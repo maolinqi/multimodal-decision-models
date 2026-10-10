@@ -1,0 +1,24 @@
+{
+  "selection": "Correct requests selected for interface presentation; not an accuracy estimate",
+  "public_examples": [
+    {
+      "image": "docs/images/civil-internvl-2023-73.png",
+      "record": "civil-internvl-2023-73.json",
+      "model": "internvl35-14b",
+      "answer": "A"
+    },
+    {
+      "image": "docs/images/civil-internvl-2022-74.png",
+      "record": "civil-internvl-2022-74.json",
+      "model": "internvl35-14b",
+      "answer": "A"
+    },
+    {
+      "image": "docs/images/civil-2019-73.png",
+      "record": "civil-2019-73.json",
+      "model": "minicpm-v45",
+      "answer": "D"
+    }
+  ],
+  "complete_test_ledger": "summary.json"
+}

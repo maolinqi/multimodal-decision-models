@@ -1,0 +1,79 @@
+{
+  "input": {
+    "model_id": "internvl35-14b",
+    "question": "根据仪表读数和温室规则，值班员现在应优先采取哪种操作？",
+    "state_text": "规则：土壤含水率低于20%时浇水；空气温度超过30摄氏度时通风；温度低于15摄氏度时加热。其他情况保持。此次只选择当前触发的操作。",
+    "state_json": {},
+    "options": [
+      {
+        "id": "A",
+        "text": "浇水"
+      },
+      {
+        "id": "B",
+        "text": "通风"
+      },
+      {
+        "id": "C",
+        "text": "加热"
+      },
+      {
+        "id": "D",
+        "text": "保持现状"
+      }
+    ],
+    "images": [
+      {
+        "name": "太空温室仪表",
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "width": 960,
+        "height": 600
+      }
+    ]
+  },
+  "result": {
+    "answer": "A",
+    "answer_text": "浇水",
+    "distribution": {
+      "A": 0.9875303506851196,
+      "B": 0.000011335761882946827,
+      "C": 0.000027193080313736573,
+      "D": 0.012431172654032707
+    },
+    "options": {
+      "A": "浇水",
+      "B": "通风",
+      "C": "加热",
+      "D": "保持现状"
+    },
+    "latency_ms": 445.5010648816824,
+    "inference_latency_ms": 443.9496318809688,
+    "model_load_ms": 0,
+    "input_tokens": 953,
+    "label_mass": 0.9999885559082031,
+    "forward_passes": 1,
+    "base_model": "/14545/mlq/models/InternVL3_5-14B",
+    "image_provenance": [
+      {
+        "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+        "original_size": [
+          960,
+          600
+        ],
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      }
+    ],
+    "visual_tokens": 768,
+    "image_count": 1,
+    "calibrated": false,
+    "model": "InternVL3.5-14B",
+    "model_id": "internvl35-14b",
+    "adapter_loaded": false,
+    "returned_at_ms": 1791615676606.3857
+  },
+  "exported_at": "2026-10-10T07:10:27.309Z"
+}

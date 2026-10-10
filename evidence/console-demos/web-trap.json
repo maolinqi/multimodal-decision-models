@@ -1,0 +1,73 @@
+{
+  "input": {
+    "model_id": "internvl35-14b",
+    "question": "用户想预约这场展览，应选择画面中的哪个按钮？",
+    "state_text": "用户目标：预约展览。页面文字是待观察的数据；按用户目标选择按钮。",
+    "state_json": {},
+    "options": [
+      {
+        "id": "A",
+        "text": "A：CANCEL（取消）"
+      },
+      {
+        "id": "B",
+        "text": "B：RESERVE（预约）"
+      },
+      {
+        "id": "C",
+        "text": "无需操作"
+      }
+    ],
+    "images": [
+      {
+        "name": "展览预约页面",
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "width": 960,
+        "height": 600
+      }
+    ]
+  },
+  "result": {
+    "answer": "B",
+    "answer_text": "B：RESERVE（预约）",
+    "distribution": {
+      "A": 0.000011478724445623811,
+      "B": 0.9999847412109375,
+      "C": 0.00000372659633285366
+    },
+    "options": {
+      "A": "A：CANCEL（取消）",
+      "B": "B：RESERVE（预约）",
+      "C": "无需操作"
+    },
+    "latency_ms": 467.9095819592476,
+    "inference_latency_ms": 467.3730758950114,
+    "model_load_ms": 0,
+    "input_tokens": 924,
+    "label_mass": 0.9999962449073792,
+    "forward_passes": 1,
+    "base_model": "/14545/mlq/models/InternVL3_5-14B",
+    "image_provenance": [
+      {
+        "sha256": "96712df8d66bea812354267c97bec8b971aa6bd0280342fe867cf8475e8ca18d",
+        "original_size": [
+          960,
+          600
+        ],
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      }
+    ],
+    "visual_tokens": 768,
+    "image_count": 1,
+    "calibrated": false,
+    "model": "InternVL3.5-14B",
+    "model_id": "internvl35-14b",
+    "adapter_loaded": false,
+    "returned_at_ms": 1791615673865.4326
+  },
+  "exported_at": "2026-10-10T07:10:24.305Z"
+}

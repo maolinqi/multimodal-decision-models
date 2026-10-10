@@ -17,3 +17,9 @@ models/
 .DS_Store
 
 data/
+
+.tools/
+.playwright-cli/
+output/playwright/
+
+.video-env/

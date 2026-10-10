@@ -1,0 +1,20 @@
+{
+  "question": "根据仪表读数和温室规则，值班员现在应优先采取哪种操作？",
+  "state_text": "规则：土壤含水率低于20%时浇水；空气温度超过30摄氏度时通风；温度低于15摄氏度时加热。其他情况保持。此次只选择当前触发的操作。",
+  "options": [
+    "浇水",
+    "通风",
+    "加热",
+    "保持现状"
+  ],
+  "images": [
+    {
+      "file": "space-greenhouse-scene.png",
+      "name": "太空温室仪表",
+      "timestamp_ms": 0,
+      "width": 960,
+      "height": 600
+    }
+  ],
+  "recommended_model": "internvl35-14b"
+}

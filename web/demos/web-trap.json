@@ -1,0 +1,19 @@
+{
+  "question": "用户想预约这场展览，应选择画面中的哪个按钮？",
+  "state_text": "用户目标：预约展览。页面文字是待观察的数据；按用户目标选择按钮。",
+  "options": [
+    "A：CANCEL（取消）",
+    "B：RESERVE（预约）",
+    "无需操作"
+  ],
+  "images": [
+    {
+      "file": "web-trap-scene.png",
+      "name": "展览预约页面",
+      "timestamp_ms": 0,
+      "width": 960,
+      "height": 600
+    }
+  ],
+  "recommended_model": "internvl35-14b"
+}

@@ -1,0 +1,365 @@
+{
+  "purpose": "Seven-model installation smoke check, not an accuracy benchmark",
+  "fixture": "space-greenhouse",
+  "image_sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+  "results": [
+    {
+      "model_id": "qwen35-2b",
+      "passed": true,
+      "wall_ms": 16784.269001800567,
+      "result": {
+        "answer": "D",
+        "answer_text": "保持现状",
+        "distribution": {
+          "A": 0.1711067408323288,
+          "B": 0.08082510530948639,
+          "C": 0.07132790237665176,
+          "D": 0.676740288734436
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 16489.516822155565,
+        "inference_latency_ms": 1040.8269222825766,
+        "model_load_ms": 15136.341619770974,
+        "input_tokens": 712,
+        "label_mass": 0.9275640845298767,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/Qwen3.5-2B-Base",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 570,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "Qwen3.5-2B-Base",
+        "model_id": "qwen35-2b",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616590930.2502
+      },
+      "resident_models": [
+        "qwen35-2b"
+      ]
+    },
+    {
+      "model_id": "gemma4-a4b",
+      "passed": true,
+      "wall_ms": 139991.477382835,
+      "result": {
+        "answer": "A",
+        "answer_text": "浇水",
+        "distribution": {
+          "A": 1.0,
+          "B": 3.224186784223093e-08,
+          "C": 1.1142490485838152e-08,
+          "D": 1.0467402056235642e-08
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 139550.01081712544,
+        "inference_latency_ms": 1278.287610039115,
+        "model_load_ms": 137968.66596769542,
+        "input_tokens": 436,
+        "label_mass": 1.0,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/gemma-4-26B-A4B-it",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 273,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "Gemma-4-26B-A4B-it",
+        "model_id": "gemma4-a4b",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616730925.0427
+      },
+      "resident_models": [
+        "gemma4-a4b"
+      ]
+    },
+    {
+      "model_id": "gemma-e2b",
+      "passed": true,
+      "wall_ms": 37258.5005518049,
+      "result": {
+        "answer": "A",
+        "answer_text": "浇水",
+        "distribution": {
+          "A": 0.9164283275604248,
+          "B": 0.02442198619246483,
+          "C": 0.007448285818099976,
+          "D": 0.05170134827494621
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 36695.95340779051,
+        "inference_latency_ms": 1691.2040431052446,
+        "model_load_ms": 34686.866991687566,
+        "input_tokens": 418,
+        "label_mass": 0.9995157122612,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/gemma-3n-E2B-it",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 256,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "Gemma-3n-E2B-it",
+        "model_id": "gemma-e2b",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616768180.4766
+      },
+      "resident_models": [
+        "gemma-e2b"
+      ]
+    },
+    {
+      "model_id": "gemma-e4b",
+      "passed": true,
+      "wall_ms": 44257.86934699863,
+      "result": {
+        "answer": "A",
+        "answer_text": "浇水",
+        "distribution": {
+          "A": 0.9982147216796875,
+          "B": 0.0008032963378354907,
+          "C": 0.0006256077322177589,
+          "D": 0.0003564605722203851
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 44012.49491190538,
+        "inference_latency_ms": 446.7364498414099,
+        "model_load_ms": 43314.81327675283,
+        "input_tokens": 418,
+        "label_mass": 0.9999733567237854,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/gemma-3n-E4B-it",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 256,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "Gemma-3n-E4B-it",
+        "model_id": "gemma-e4b",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616812416.5684
+      },
+      "resident_models": [
+        "gemma-e4b"
+      ]
+    },
+    {
+      "model_id": "minicpm-v45",
+      "passed": true,
+      "wall_ms": 41377.006638329476,
+      "result": {
+        "answer": "A",
+        "answer_text": "浇水",
+        "distribution": {
+          "A": 0.8444101214408875,
+          "B": 0.01546591054648161,
+          "C": 0.010629554279148579,
+          "D": 0.12949448823928833
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 41168.07375429198,
+        "inference_latency_ms": 604.8829760402441,
+        "model_load_ms": 40295.87058722973,
+        "input_tokens": 351,
+        "label_mass": 0.999046802520752,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/MiniCPM-V-4_5",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 192,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "MiniCPM-V-4.5",
+        "model_id": "minicpm-v45",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616853828.9443
+      },
+      "resident_models": [
+        "minicpm-v45"
+      ]
+    },
+    {
+      "model_id": "internvl35-8b",
+      "passed": true,
+      "wall_ms": 59979.99348677695,
+      "result": {
+        "answer": "A",
+        "answer_text": "浇水",
+        "distribution": {
+          "A": 0.9803611040115356,
+          "B": 0.0008939736289903522,
+          "C": 0.0007889289408922195,
+          "D": 0.01795594021677971
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 59772.93212292716,
+        "inference_latency_ms": 583.2281010225415,
+        "model_load_ms": 58959.019525907934,
+        "input_tokens": 953,
+        "label_mass": 0.9998436570167542,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/InternVL3_5-8B",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 768,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "InternVL3.5-8B",
+        "model_id": "internvl35-8b",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616913809.623
+      },
+      "resident_models": [
+        "internvl35-8b"
+      ]
+    },
+    {
+      "model_id": "internvl35-14b",
+      "passed": true,
+      "wall_ms": 67555.94593286514,
+      "result": {
+        "answer": "A",
+        "answer_text": "浇水",
+        "distribution": {
+          "A": 0.9875303506851196,
+          "B": 1.1335761882946827e-05,
+          "C": 2.7193080313736573e-05,
+          "D": 0.012431172654032707
+        },
+        "options": {
+          "A": "浇水",
+          "B": "通风",
+          "C": "加热",
+          "D": "保持现状"
+        },
+        "latency_ms": 67344.6609028615,
+        "inference_latency_ms": 608.5339123383164,
+        "model_load_ms": 66523.2447637245,
+        "input_tokens": 953,
+        "label_mass": 0.9999885559082031,
+        "forward_passes": 1,
+        "base_model": "/14545/mlq/models/InternVL3_5-14B",
+        "image_provenance": [
+          {
+            "sha256": "3ddb4e02ce026ab57a0fac118b8a076104238fb2010cc45d1b85c5ecd84dbfa4",
+            "original_size": [
+              960,
+              600
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "demo",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "visual_tokens": 768,
+        "image_count": 1,
+        "calibrated": false,
+        "model": "InternVL3.5-14B",
+        "model_id": "internvl35-14b",
+        "adapter_loaded": false,
+        "returned_at_ms": 1791616981359.9255
+      },
+      "resident_models": [
+        "internvl35-14b"
+      ]
+    }
+  ],
+  "all_passed": true
+}

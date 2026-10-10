@@ -1,0 +1,46 @@
+{
+  "model_results": {
+    "minicpm-v45": {
+      "correct": 1,
+      "total": 4
+    },
+    "internvl35-14b": {
+      "correct": 2,
+      "total": 4
+    }
+  },
+  "items": [
+    {
+      "id": "civil-2023-73",
+      "reference_answer": "A",
+      "source_url": "https://gs.huatu.com/2024/0808/1771187.html",
+      "sha256": "5aa1e39e52831050a88756fabcac784361c915a46ed282247424b964c811267a",
+      "minicpm": "D",
+      "internvl": "A"
+    },
+    {
+      "id": "civil-2022-74",
+      "reference_answer": "A",
+      "source_url": "https://gs.huatu.com/2024/0808/1771187.html",
+      "sha256": "85466c02750ef63220ea16bd8e09bb2e71e4eb844be4c130809cdbdc6a8d6cb2",
+      "minicpm": "B",
+      "internvl": "A"
+    },
+    {
+      "id": "civil-2023-74",
+      "reference_answer": "A",
+      "source_url": "https://gs.huatu.com/2024/0808/1771187.html",
+      "sha256": "d2ae041e8f4d3f742eb36c8036e222fd54f796bb7dba5df4bf405246e7003612",
+      "minicpm": "D",
+      "internvl": "B"
+    },
+    {
+      "id": "civil-2019-73",
+      "reference_answer": "D",
+      "source_url": "https://gs.huatu.com/2024/0808/1771187.html",
+      "sha256": "b0c745d43c7490817475c351bf1d3bbf76fa24601f499bbdb9c9588d0e989a8b",
+      "minicpm": "D",
+      "internvl": "B"
+    }
+  ]
+}

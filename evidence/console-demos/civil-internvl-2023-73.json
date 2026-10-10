@@ -1,0 +1,79 @@
+{
+  "input": {
+    "model_id": "internvl35-14b",
+    "question": "从图中A、B、C、D四个选项中，选择最合适的一个填入问号处，使之呈现一定的规律性。",
+    "state_text": "题干与四个选项都在图片中，请综合观察图形规律。",
+    "state_json": {},
+    "options": [
+      {
+        "id": "A",
+        "text": "图中选项A"
+      },
+      {
+        "id": "B",
+        "text": "图中选项B"
+      },
+      {
+        "id": "C",
+        "text": "图中选项C"
+      },
+      {
+        "id": "D",
+        "text": "图中选项D"
+      }
+    ],
+    "images": [
+      {
+        "name": "2023国考市地级第73题（网友回忆）",
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "width": 469,
+        "height": 219
+      }
+    ]
+  },
+  "result": {
+    "answer": "A",
+    "answer_text": "图中选项A",
+    "distribution": {
+      "A": 0.502873420715332,
+      "B": 0.07711814343929291,
+      "C": 0.39163824915885925,
+      "D": 0.02837018109858036
+    },
+    "options": {
+      "A": "图中选项A",
+      "B": "图中选项B",
+      "C": "图中选项C",
+      "D": "图中选项D"
+    },
+    "latency_ms": 106549.67717407271,
+    "inference_latency_ms": 544.054283760488,
+    "model_load_ms": 105740.43255811557,
+    "input_tokens": 940,
+    "label_mass": 0.9999141693115234,
+    "forward_passes": 1,
+    "base_model": "/14545/mlq/models/InternVL3_5-14B",
+    "image_provenance": [
+      {
+        "sha256": "5aa1e39e52831050a88756fabcac784361c915a46ed282247424b964c811267a",
+        "original_size": [
+          469,
+          219
+        ],
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      }
+    ],
+    "visual_tokens": 768,
+    "image_count": 1,
+    "calibrated": false,
+    "model": "InternVL3.5-14B",
+    "model_id": "internvl35-14b",
+    "adapter_loaded": false,
+    "returned_at_ms": 1791615637119.1506
+  },
+  "exported_at": "2026-10-10T07:09:47.722Z"
+}

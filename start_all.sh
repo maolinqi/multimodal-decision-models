@@ -23,4 +23,6 @@ if [[ -x .venv-gemma4/bin/python ]]; then
  start gemma4 multimodal_decision.gemma4_service 8461 .venv-gemma4/bin/python
 fi
 start gateway multimodal_decision.gateway 8456
+# Startup succeeds only after each started service answers its health endpoint.
+.venv/bin/python scripts/check_services.py
 printf '%s\n' 'UI: http://127.0.0.1:8456; GPU model loads on first request.'

@@ -1,0 +1,41 @@
+{
+  "question": "最后一帧中，红球在哪一侧的杯子下面？",
+  "state_text": "按时间顺序观察四帧。球进入杯子后留在杯子内；两个杯子随后交换位置。请根据画面追踪球的位置。",
+  "options": [
+    "左侧杯子下面",
+    "右侧杯子下面",
+    "两个杯子之间",
+    "画面信息不足"
+  ],
+  "images": [
+    {
+      "file": "red-ball-1.png",
+      "name": "第1帧 · 0s",
+      "timestamp_ms": 0,
+      "width": 960,
+      "height": 600
+    },
+    {
+      "file": "red-ball-2.png",
+      "name": "第2帧 · 1s",
+      "timestamp_ms": 1000,
+      "width": 960,
+      "height": 600
+    },
+    {
+      "file": "red-ball-3.png",
+      "name": "第3帧 · 2s",
+      "timestamp_ms": 2000,
+      "width": 960,
+      "height": 600
+    },
+    {
+      "file": "red-ball-4.png",
+      "name": "第4帧 · 3s",
+      "timestamp_ms": 3000,
+      "width": 960,
+      "height": 600
+    }
+  ],
+  "recommended_model": "internvl35-14b"
+}

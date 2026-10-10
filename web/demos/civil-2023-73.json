@@ -1,0 +1,24 @@
+{
+  "question": "从图中A、B、C、D四个选项中，选择最合适的一个填入问号处，使之呈现一定的规律性。",
+  "state_text": "题干与四个选项都在图片中，请综合观察图形规律。",
+  "options": [
+    "图中选项A",
+    "图中选项B",
+    "图中选项C",
+    "图中选项D"
+  ],
+  "images": [
+    {
+      "file": "civil-2023-73.png",
+      "name": "2023国考市地级第73题（网友回忆）",
+      "timestamp_ms": 0,
+      "width": 469,
+      "height": 219
+    }
+  ],
+  "source_url": "https://gs.huatu.com/2024/0808/1771187.html",
+  "source_image_url": "https://u3.huatu.com/uploads/allimg/230530/%E5%9B%BE%E7%89%87_3.png",
+  "source_title": "2023国考市地级第73题（网友回忆）",
+  "sha256": "5aa1e39e52831050a88756fabcac784361c915a46ed282247424b964c811267a",
+  "recommended_model": "internvl35-14b"
+}

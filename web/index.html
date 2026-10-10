@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/static/favicon.svg"><title>多模态决策台</title><link rel="stylesheet" href="/static/style.css"></head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/static/favicon.svg"><title>天择多模态决策台 · TianZe-MJev</title><link rel="stylesheet" href="/static/style.css"></head>
 <body>
-<header><a class="brand" href="/" aria-label="多模态决策台首页"><span class="brand-mark">M</span><span>多模态决策台<small>Gemma / MiniCPM / InternVL</small></span></a><div class="connection" id="connection" role="status"><i></i><span>连接检查中</span></div></header>
+<header><a class="brand" href="/" aria-label="天择多模态决策台首页"><span class="brand-mark">择</span><span>天择多模态决策台<small>TianZe-MJev · Qwen / Gemma / MiniCPM / InternVL</small></span></a><div class="connection" id="connection" role="status"><i></i><span>连接检查中</span></div></header>
 <main>
 <div class="workspace-heading"><div><p class="eyebrow">DECISION WORKSPACE</p><h1>给出状态，比较选项。</h1><p>输入问题与观察，让模型在你的候选中作出选择。</p></div><button class="text-button" id="example" type="button">填入文字示例 ↗</button></div>
+<nav class="demo-strip" aria-label="趣味挑战"><span>试一个视觉挑战</span><button type="button" data-demo="civil-2023-73">国考·旋转</button><button type="button" data-demo="civil-2022-74">国考·多元素</button><button type="button" data-demo="civil-2019-73">国考·复合规律</button><button type="button" data-demo="red-ball">红球去哪了？</button><button type="button" data-demo="web-trap">网页里的文字陷阱</button><button type="button" data-demo="space-greenhouse">太空温室值班员</button></nav>
 <div class="workspace">
 <form id="decision-form" class="inputs">
 <section class="model-selection"><label class="field-label" for="model-select">决策模型</label><select id="model-select"><option value="qwen35-2b">Qwen3.5-2B-Base</option><option value="gemma4-a4b">Gemma-4-26B-A4B-it</option><option value="gemma-e4b">Gemma-3n-E4B-it</option><option value="gemma-e2b">Gemma-3n-E2B-it</option><option value="minicpm-v45">MiniCPM-V-4.5</option><option value="internvl35-8b">InternVL3.5-8B</option><option value="internvl35-14b">InternVL3.5-14B</option></select><p class="hint" id="model-hint">选择模型后提交相同的文字、图片与候选选项。模型首次加载和切换需要一些时间。</p></section>
@@ -27,4 +28,4 @@
 </div>
 <details class="advanced" id="download-panel"><summary>模型下载进度</summary><div id="download-status" role="status">展开后读取服务器进度。</div></details>
 <footer><span>文字 · RGB图片 · 视频抽帧</span><span>最多8帧、26个选项 · 上传最长边1024 · 各模型使用自身视觉处理器</span></footer>
-</main><script src="/static/app.js" defer></script></body></html>
+</main><dialog id="image-viewer" class="image-viewer" aria-label="图片大图"><div class="viewer-heading"><span id="viewer-caption"></span><button type="button" id="close-viewer" aria-label="关闭大图">关闭 ×</button></div><img id="viewer-image" alt=""></dialog><script src="/static/app.js" defer></script></body></html>

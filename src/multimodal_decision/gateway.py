@@ -49,7 +49,7 @@ async def headers_and_limits(request,call_next):
 async def health(model_id:str='gemma-e4b'):
     if model_id not in MODEL_URLS:raise HTTPException(422,'未知模型')
     try:
-        async with httpx.AsyncClient(timeout=3) as c:
+        async with httpx.AsyncClient(trust_env=False,timeout=3) as c:
             r=await c.get(MODEL_URLS[model_id]+'/health');r.raise_for_status();data=r.json()
         ready=bool(data.get('ready')) if model_id=='qwen4b' else data.get('models',{}).get(model_id,{}).get('download_complete',False)
         return dict(ui_ready=True,model_ready=ready,busy=busy.locked() or data.get('busy',False),model=MODEL_NAMES[model_id],model_id=model_id,loaded=data.get('active_model')==model_id if model_id!='qwen4b' else ready)
@@ -63,7 +63,7 @@ async def models():
 @app.get('/api/downloads')
 async def downloads():
     try:
-        async with httpx.AsyncClient(timeout=10) as client:
+        async with httpx.AsyncClient(trust_env=False,timeout=10) as client:
             r=await client.get(MODEL_URL+'/downloads');r.raise_for_status();return r.json()
     except httpx.HTTPError:raise HTTPException(503,'暂时无法读取下载状态')
 
@@ -179,7 +179,26 @@ async def decide(request:Request):
     history.append(now)
     async with busy:
         try:
-            async with httpx.AsyncClient(timeout=240) as client:r=await client.post(MODEL_URLS[model_id]+'/decide',json=payload)
+            async with httpx.AsyncClient(trust_env=False,timeout=240) as client:
+                # A single GPU can serve all seven backbones sequentially.
+                # Unload only this console's other managed backends, never external Qwen.
+                target=MODEL_URLS[model_id]
+                managed={url for key,url in MODEL_URLS.items() if key!='qwen4b'}
+                if model_id!='qwen4b':
+                    for url in sorted(managed-{target}):
+                        try:
+                            check=await client.get(url+'/health',timeout=3)
+                        except httpx.ConnectError:
+                            continue
+                        except httpx.TimeoutException:
+                            raise HTTPException(503,'其他模型服务响应超时，暂时无法安全切换。')
+                        if check.status_code!=200:
+                            raise HTTPException(503,'其他模型服务状态异常，暂时无法切换。')
+                        if check.json().get('active_model'):
+                            released=await client.post(url+'/unload')
+                            if released.status_code!=200:
+                                raise HTTPException(409,'其他模型正在使用中，请稍后切换。')
+                r=await client.post(target+'/decide',json=payload)
         except httpx.ConnectError:raise HTTPException(503,'模型服务尚未连接，请通过桌面启动文件启动。')
         except httpx.TimeoutException:raise HTTPException(504,'本次推理超时，请减少图片或缩短文字。')
         if r.status_code!=200:

@@ -1,0 +1,133 @@
+{
+  "input": {
+    "model_id": "internvl35-14b",
+    "question": "最后一帧中，红球在哪一侧的杯子下面？",
+    "state_text": "按时间顺序观察四帧。球进入杯子后留在杯子内；两个杯子随后交换位置。请根据画面追踪球的位置。",
+    "state_json": {},
+    "options": [
+      {
+        "id": "A",
+        "text": "左侧杯子下面"
+      },
+      {
+        "id": "B",
+        "text": "右侧杯子下面"
+      },
+      {
+        "id": "C",
+        "text": "两个杯子之间"
+      },
+      {
+        "id": "D",
+        "text": "画面信息不足"
+      }
+    ],
+    "images": [
+      {
+        "name": "第1帧 · 0s",
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "name": "第2帧 · 1s",
+        "timestamp_ms": 1000,
+        "camera_id": "demo",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "name": "第3帧 · 2s",
+        "timestamp_ms": 2000,
+        "camera_id": "demo",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "name": "第4帧 · 3s",
+        "timestamp_ms": 3000,
+        "camera_id": "demo",
+        "width": 960,
+        "height": 600
+      }
+    ]
+  },
+  "result": {
+    "answer": "B",
+    "answer_text": "右侧杯子下面",
+    "distribution": {
+      "A": 0.2939290404319763,
+      "B": 0.7050991058349609,
+      "C": 0.00003627372643677518,
+      "D": 0.0009355117217637599
+    },
+    "options": {
+      "A": "左侧杯子下面",
+      "B": "右侧杯子下面",
+      "C": "两个杯子之间",
+      "D": "画面信息不足"
+    },
+    "latency_ms": 2042.624352965504,
+    "inference_latency_ms": 2042.021142784506,
+    "model_load_ms": 0,
+    "input_tokens": 3303,
+    "label_mass": 1,
+    "forward_passes": 1,
+    "base_model": "/14545/mlq/models/InternVL3_5-14B",
+    "image_provenance": [
+      {
+        "sha256": "96c9a3f66eeb48406c15f583636f672fac7ffa40bd26d54adf1f187c96f2ab75",
+        "original_size": [
+          960,
+          600
+        ],
+        "timestamp_ms": 0,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      },
+      {
+        "sha256": "1b8067e39bde4f91f194067c7f3a288f26c690398aa3f600dc21e29709eaddb1",
+        "original_size": [
+          960,
+          600
+        ],
+        "timestamp_ms": 1000,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      },
+      {
+        "sha256": "1424150351cdfaa5c23e70b47869df3b83d1d7e9224260be606191608d73ef50",
+        "original_size": [
+          960,
+          600
+        ],
+        "timestamp_ms": 2000,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      },
+      {
+        "sha256": "88b1bf8a51952ff6ccfc2c1d4273a0f8fb6af0691f035572d19f525ddb6c5952",
+        "original_size": [
+          960,
+          600
+        ],
+        "timestamp_ms": 3000,
+        "camera_id": "demo",
+        "modality": "rgb",
+        "calibration": {}
+      }
+    ],
+    "visual_tokens": 3072,
+    "image_count": 4,
+    "calibrated": false,
+    "model": "InternVL3.5-14B",
+    "model_id": "internvl35-14b",
+    "adapter_loaded": false,
+    "returned_at_ms": 1791615672498.2585
+  },
+  "exported_at": "2026-10-10T07:10:23.317Z"
+}
