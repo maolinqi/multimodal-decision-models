@@ -15,7 +15,7 @@ Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n/4, MiniCPM
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#training-free-decision-adaptation)
 [![Adapters](https://img.shields.io/badge/Native_Adapters-7-2563eb)](#supported-backbones)
-[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-600%2F600_agree-2563eb)](docs/scienceqa-results.md)
+[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-700%2F700_agree-2563eb)](docs/scienceqa-results.md)
 
 [Overview](#overview) · [Training-free method](#training-free-decision-adaptation) · [Inputs and outputs](#multimodal-inputs-structured-outputs) · [Models](#supported-backbones) · [Training-free accuracy](#measured-accuracy-with-no-additional-training) · [Latency](#measured-decision-latency) · [Quick start](#quick-start) · [Open source](#open-source-and-licenses)
 
@@ -94,14 +94,15 @@ These decision adapters use the official backbone weights and native language he
 
 ## Measured accuracy with no additional training
 
-This ScienceQA table covers six completed models; Gemma 4 API validation and its separate Rune-reference result are published, while its fixed ScienceQA evaluation is running.
+This table covers all seven adapters on the same fixed 100 questions per model.
 
-**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%; Qwen3.5-2B-Base achieves 82%.
+**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%; Qwen3.5-2B-Base achieves 82%; Gemma 4 26B A4B achieves 89%.
 
 The evaluation uses **100 image-bearing questions from the official ScienceQA test split, seed 42**, with identical IDs for every model in the table. Inputs contain the question, available hint, image, and options. Native and decision paths share checkpoint, prepared input, prompt, candidate set, precision, and attention implementation. The baseline reads candidate logits from the official generation first step and uses the same candidate softmax and argmax for scoring.
 
 | Model | Additional training | Native candidate accuracy | Decision accuracy | Agreement |
 |---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 0 steps | 89% | 89% | 100% |
 | Qwen3.5-2B-Base | 0 steps | 82% | 82% | 100% |
 | Gemma-3n-E2B-it | 0 steps | 80% | 80% | 100% |
 | Gemma-3n-E4B-it | 0 steps | 84% | 84% | 100% |
@@ -109,7 +110,7 @@ The evaluation uses **100 image-bearing questions from the official ScienceQA te
 | InternVL3.5-8B | 0 steps | 93% | 93% | 100% |
 | InternVL3.5-14B | 0 steps | 92% | 92% | 100% |
 
-**All 600 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
+**All 700 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
 
 [Dataset and protocol](docs/scienceqa.md) · [Fixed manifest](benchmarks/scienceqa-test-100-manifest.json) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
 
@@ -121,6 +122,7 @@ Measurements use the same fixed ScienceQA subset, 100 image questions per model,
 
 | Model | Median forward | P95 forward |
 |---|---:|---:|
+| Gemma-4-26B-A4B-it | 264.3 ms | 333.0 ms |
 | Qwen3.5-2B-Base | 90.4 ms | 121.4 ms |
 | Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
 | Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
@@ -128,11 +130,11 @@ Measurements use the same fixed ScienceQA subset, 100 image questions per model,
 | InternVL3.5-8B | 291.1 ms | 384.7 ms |
 | InternVL3.5-14B | 263.8 ms | 440.3 ms |
 
-Original five adapters use Transformers 4.57.1; Qwen3.5 uses the isolated 5.19.0 runtime. Cross-model forward times are descriptive, not a paired speedup comparison.
+Original five adapters use Transformers 4.57.1; Qwen3.5 and Gemma 4 use isolated 5.19.0 runtimes. Cross-model forward times are descriptive, not a paired speedup comparison.
 
 [Timing details](docs/scienceqa-latency.md) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
 
-All six backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
+All seven backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
 
 
 ### Frozen-backbone accuracy experiment
@@ -201,9 +203,9 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py minicp
 .venv/bin/python scripts/summarize_retention.py
 ```
 
-**11 CPU protocol tests passed.** The final command checks and aggregates the six completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
+**11 CPU protocol tests passed.** The final command checks and aggregates the seven completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
 
-Reproduction commands and dataset provenance for the fixed ScienceQA image-test subset are in [Evaluation protocol](docs/scienceqa.md). Recheck the six per-question reports and regenerate accuracy and latency tables with `.venv/bin/python scripts/summarize_scienceqa.py`.
+Reproduction commands and dataset provenance for the fixed ScienceQA image-test subset are in [Evaluation protocol](docs/scienceqa.md). Recheck the seven per-question reports and regenerate accuracy and latency tables with `.venv/bin/python scripts/summarize_scienceqa.py`.
 
 ## Open source and licenses
 

@@ -32,3 +32,5 @@ Lu 等（2022），*Learn to Explain: Multimodal Reasoning via Thought Chains fo
 每条记录保存 GPU 同步后的 `decision_forward_ms`，范围为已预处理张量输入到 logits 返回，包含视觉编码、融合和语言模型前向。模型加载后计时，按每模型全部 100 题统计中位数与最近秩 P95。硬件为 NVIDIA A800-SXM4-80GB、BF16，共享 GPU 实测。
 
 Qwen3.5 uses the separate Transformers 5.19.0 runtime: `PYTHONPATH=src .venv-qwen35/bin/python scripts/compare_base_retention.py qwen35-2b --suite data/scienceqa/suite.json --out evidence/scienceqa/qwen35-2b.json`. Existing adapters keep their Transformers 4.57.1 environment.
+
+Gemma 4 使用独立 `.venv-gemma4` 与 Transformers 5.19.0；图像预算 280 soft tokens，复现命令见 [Gemma 4 环境说明](gemma4-runtime.md)。

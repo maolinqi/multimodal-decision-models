@@ -16,6 +16,21 @@
   "suite_sha256": "769fb5bc1a563199fd100b622e1343d25d22f4b53cfcdc005fd42e65cec88ccd",
   "models": [
     {
+      "forward_p50_ms": 264.28155694156885,
+      "forward_p95_ms": 333.018256817013,
+      "forward_mean_ms": 277.8656426956877,
+      "model_id": "gemma4-a4b",
+      "name": "Gemma-4-26B-A4B-it",
+      "transformers_version": "5.19.0",
+      "torch_version": "2.8.0+cu128",
+      "count": 100,
+      "native_correct": 89,
+      "decision_correct": 89,
+      "agreements": 100,
+      "max_full_vocab_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
+    {
       "forward_p50_ms": 90.41738044470549,
       "forward_p95_ms": 121.39826128259301,
       "forward_mean_ms": 98.01207429263741,

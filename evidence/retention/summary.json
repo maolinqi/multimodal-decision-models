@@ -1,9 +1,20 @@
 {
   "suite_id": "base_retention_v1",
   "suite_sha256": "866e6817f810056ffa11aad25c1c4fc1a955d912a84fce4f516cd01cb88c3da5",
-  "total_paired_samples": 120,
-  "total_agreements": 120,
+  "total_paired_samples": 140,
+  "total_agreements": 140,
   "models": [
+    {
+      "model_id": "gemma4-a4b",
+      "name": "Gemma-4-26B-A4B-it",
+      "count": 20,
+      "native_correct": 20,
+      "decision_correct": 20,
+      "agreements": 20,
+      "max_full_vocab_abs_diff": 0.0,
+      "max_probability_abs_diff": 0.0,
+      "changed_parameter_version_count": 0
+    },
     {
       "model_id": "qwen35-2b",
       "name": "Qwen3.5-2B-Base",

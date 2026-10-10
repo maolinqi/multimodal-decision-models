@@ -4,6 +4,8 @@
 
 ## Verified scope
 
+- Fixed ScienceQA image-test subset: **89/100** on both paths, **100/100** agreement, zero full-vocabulary/candidate/probability differences, unchanged parameter versions.
+- Fixed 20-probe suite: **20/20** correct on both paths, including multi-image and temporal probes, **20/20** agreement and zero full-vocabulary differences.
 - Real isolated API: two synthetic left/right images correct; default model selection, normalized distribution, visual tokens and unload verified.
 - Typed interface: choice, binary judgment, score and proposal-only four-axis outputs passed; two image probes match native first-step candidate logits exactly.
 - Separate normalized Rune-reference benchmark: **93/136 (68.38%)**, versus reported Rune v3 **75.7%**, a **7.32-point gap**. No trained Rune weights were run. All 136 same-input native first-step controls match the benchmark scorer's full-vocabulary/candidate logits exactly.
@@ -34,4 +36,4 @@ export PYTHONPATH="$PWD/src"
 .venv-gemma4/bin/python scripts/compare_base_retention.py gemma4-a4b --suite data/scienceqa/suite.json --out evidence/scienceqa/gemma4-a4b.json
 ```
 
-The expanded 20-probe and fixed ScienceQA reports are published only after their complete output artifacts are verified. GPU1 validation shares a GPU with other jobs; its forward times are descriptive and are not the paired response-speedup experiment, which runs both paths on GPU0.
+The expanded [20-probe](../evidence/retention/gemma4-a4b.json) and [fixed ScienceQA](../evidence/scienceqa/gemma4-a4b.json) reports are complete and verified. GPU1 validation shares a GPU with other jobs; its forward times are descriptive and are not the paired response-speedup experiment, which runs both paths on GPU0.

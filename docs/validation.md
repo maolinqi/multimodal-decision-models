@@ -18,6 +18,6 @@ Interface verification covers positive visual-token counts, normalized candidate
 
 ## 扩展基座行为对照
 
-六个模型各 20 项固定文字与合成图像探针的原生第一步配对结果已公开，见 [基座行为保持对比](base-retention-results.md)。它验证相同已预处理输入下的候选决策与完整词表 logits 一致性。
+七个模型各 20 项固定文字与合成图像探针的原生第一步配对结果已公开，见 [基座行为保持对比](base-retention-results.md)。它验证相同已预处理输入下的候选决策与完整词表 logits 一致性。
 
 Qwen3.5 的独立 API 完成健康检查、默认模型选择、两次图像请求与卸载；新旧运行环境的 11 项 CPU 协议测试均通过。运行与复现方法见 [Qwen3.5 独立环境](qwen35-runtime.md)。

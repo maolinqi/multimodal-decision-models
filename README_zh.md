@@ -15,7 +15,7 @@
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#免额外训练的决策改造)
 [![Adapters](https://img.shields.io/badge/Native_Adapters-7-2563eb)](#模型基座)
-[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-600%2F600_agree-2563eb)](docs/scienceqa-results_zh.md)
+[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-700%2F700_agree-2563eb)](docs/scienceqa-results_zh.md)
 
 [项目介绍](#项目介绍) · [免训练改造](#免额外训练的决策改造) · [输入输出](#多模态输入结构化输出) · [模型基座](#模型基座) · [免训练准确率](#免额外训练的实测准确率) · [实测延迟](#低延迟决策具体用了多久) · [快速开始](#快速开始) · [开源范围](#开源范围与许可)
 
@@ -96,14 +96,15 @@ Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原�
 
 ## 免额外训练的实测准确率
 
-当前 ScienceQA 表包含六个已完成评测的模型。Gemma 4 的接口验证及独立 Rune 分数参考实验已公开，其固定 ScienceQA 评测正在运行。
+七个适配器均完成了同一份固定 100 题评测。
 
-**MiniCPM-V-4.5 在 ScienceQA 固定图像测试子集上的候选选择正确率为 98%，额外训练 0 步。** Gemma E2B / E4B 与 InternVL 8B 分别达到 80%、84% 和 93%；InternVL 14B 为 92%；Qwen3.5-2B-Base 为 82%。
+**MiniCPM-V-4.5 在 ScienceQA 固定图像测试子集上的候选选择正确率为 98%，额外训练 0 步。** Gemma E2B / E4B 与 InternVL 8B 分别达到 80%、84% 和 93%；InternVL 14B 为 92%；Qwen3.5-2B-Base 为 82%；Gemma 4 26B A4B 为 89%。
 
 测试采用 **ScienceQA 官方 test 划分中的 100 道带图像题目，seed 42**，所有表中模型使用同一份固定清单。模型输入包含题目、已有提示、图像与选项；原生对照和决策适配使用相同权重、已预处理输入、提示、候选集、精度及注意力实现。原生对照读取官方生成第一步的候选 logits，采用相同候选 softmax 与 argmax 评分。
 
 | 模型 | 额外训练 | 原生候选正确率 | 决策适配正确率 | 决策一致率 |
 |---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 0 步 | 89% | 89% | 100% |
 | Qwen3.5-2B-Base | 0 步 | 82% | 82% | 100% |
 | Gemma-3n-E2B-it | 0 步 | 80% | 80% | 100% |
 | Gemma-3n-E4B-it | 0 步 | 84% | 84% | 100% |
@@ -111,7 +112,7 @@ Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原�
 | InternVL3.5-8B | 0 步 | 93% | 93% | 100% |
 | InternVL3.5-14B | 0 步 | 92% | 92% | 100% |
 
-**600 组配对全部一致，完整词表 logits 和候选概率最大差均为 0。** 这验证了已测输入与配置下，免额外训练的决策适配保持了基座的原生候选决策行为。
+**700 组配对全部一致，完整词表 logits 和候选概率最大差均为 0。** 这验证了已测输入与配置下，免额外训练的决策适配保持了基座的原生候选决策行为。
 
 [测试集与方法](docs/scienceqa_zh.md) · [固定样本清单](benchmarks/scienceqa-test-100-manifest.json) · [完整结果](docs/scienceqa-results_zh.md) · [逐题记录](evidence/scienceqa/)
 
@@ -123,6 +124,7 @@ Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原�
 
 | 模型 | 前向中位数 | 前向 P95 |
 |---|---:|---:|
+| Gemma-4-26B-A4B-it | 264.3 ms | 333.0 ms |
 | Qwen3.5-2B-Base | 90.4 ms | 121.4 ms |
 | Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
 | Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
@@ -130,11 +132,11 @@ Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原�
 | InternVL3.5-8B | 291.1 ms | 384.7 ms |
 | InternVL3.5-14B | 263.8 ms | 440.3 ms |
 
-原五个适配器使用 Transformers 4.57.1，Qwen3.5 使用独立的 5.19.0 环境；跨模型前向时间仅作描述，不属于改造前后的配对加速比较。
+原五个适配器使用 Transformers 4.57.1，Qwen3.5 与 Gemma 4 使用各自独立的 5.19.0 环境；跨模型前向时间仅作描述，不属于改造前后的配对加速比较。
 
 [延迟统计与口径](docs/scienceqa-latency_zh.md) · [完整结果汇总](evidence/scienceqa/summary.json)
 
-此外，六个基座完成了颜色、计数、OCR、空间关系、双图和时序等固定探针的配对验证，见 [原生通路验证](docs/base-retention-results.md)。
+此外，七个基座完成了颜色、计数、OCR、空间关系、双图和时序等固定探针的配对验证，见 [原生通路验证](docs/base-retention-results.md)。
 
 ## 统一决策台
 
@@ -224,6 +226,6 @@ Gemma 最新输入同时保留图像，并提供共同的候选位置对应与 4
 
 736 题均完成，无推理异常。作者逐题样本及最终渲染未完全核验，因此不能据此证明非劣效。Visual7W 的数值接近；RAVEN 仍相差 20.67 个百分点，Gemma 最新差距为 7.32 个百分点。历史适配失败、标记诊断及旧版 197 道错题继续保留。[完整结果及限制](docs/frozen-backbone-accuracy.md) · [逐题准确率证据](evidence/frozen-backbone/accuracy/)
 
-**已完成的单字母对照：**两边输入完全相同，并共同要求只回答一个字母。Qwen 600 题、每题每条路径三次，原模型生成中位耗时 118.3 ms，决策评分 84.1 ms，减少 28.9%。原模型实际只生成字母和结束符两个 token，没有触及上限；两边 600 道题的答案全部一致。[协议和原始耗时](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)。自然生成的完整对照及 Gemma 单字母对照仍在运行/排队，完成后补充。
+**已完成的单字母对照：**两边输入完全相同，并共同要求只回答一个字母。Qwen 600 题、每题每条路径三次，原模型生成中位耗时 118.3 ms，决策评分 84.1 ms，减少 28.9%。原模型实际只生成字母和结束符两个 token，没有触及上限；两边 600 道题的答案全部一致。[协议和原始耗时](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)。Gemma 单字母组和 Qwen 自然生成组也已完成，见下方；Gemma 自然生成组仍在运行。
 
 **Qwen 自然生成组已完成：**共同提示不要求单字母输出，600 题耗时中位数 **121.4→84.4 ms，减少 30.4%**。原生输出自然为中位 2 token，无截断。Gemma 单字母组为 **308.1→244.6 ms，减少 20.6%**，保留并披露 36/408 次生成触及上限；其自然生成组仍在运行。[Qwen 自然生成协议与逐题记录](docs/qwen-natural-latency.md)。

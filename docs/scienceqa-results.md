@@ -4,6 +4,7 @@
 
 | Model | Native candidate accuracy | Decision accuracy | Difference (pp) | Agreement | Max logit difference |
 |---|---:|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | 89.0% | 89.0% | +0.0 | 100.0% | 0 |
 | Qwen3.5-2B-Base | 82.0% | 82.0% | +0.0 | 100.0% | 0 |
 | Gemma-3n-E2B-it | 80.0% | 80.0% | +0.0 | 100.0% | 0 |
 | Gemma-3n-E4B-it | 84.0% | 84.0% | +0.0 | 100.0% | 0 |
