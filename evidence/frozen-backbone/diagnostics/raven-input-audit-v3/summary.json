@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "parameter_versions_unchanged": true,
+  "variants": {
+    "original_zh": {
+      "n": 300,
+      "correct": 178,
+      "accuracy": 0.5933333333333334
+    },
+    "author_slot": {
+      "n": 300,
+      "correct": 176,
+      "accuracy": 0.5866666666666667
+    },
+    "english_enlarged": {
+      "n": 300,
+      "correct": 175,
+      "accuracy": 0.5833333333333334
+    },
+    "english_newline": {
+      "n": 300,
+      "correct": 167,
+      "accuracy": 0.5566666666666666
+    }
+  }
+}

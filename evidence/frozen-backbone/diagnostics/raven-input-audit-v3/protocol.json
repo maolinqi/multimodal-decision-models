@@ -1,0 +1,12 @@
+{
+  "n": 300,
+  "records_sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b",
+  "variants": [
+    "original_zh",
+    "english_newline",
+    "author_slot",
+    "english_enlarged"
+  ],
+  "training": false,
+  "scope": "same fixed questions/options/golds; image enlargement adds no source detail; diagnostic input ablations, not sealed test selection"
+}

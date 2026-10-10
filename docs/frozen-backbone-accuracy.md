@@ -56,3 +56,14 @@ Gemma's normalized-v6 same-prompt control is also complete: **136 questions × t
 [Accuracy records](../evidence/frozen-backbone/accuracy/) · [Error ledger](../evidence/frozen-backbone/accuracy-error-ledger.jsonl) · [Diagnostic records](../evidence/frozen-backbone/diagnostics/) · [Reproduction](../experiments/frozen-backbone/)
 
 Author references: [Decider model card](https://github.com/Mapika/decider/blob/e50e549b47e2da69223734fee4efa1ddd4528e93/MODEL_CARD_VISION.md), [Rune v3 card](https://huggingface.co/surogate/rune-26b-a4b-GGUF).
+
+## RAVEN input audit (fixed 300 questions)
+
+| Input | Correct | Accuracy |
+|---|---:|---:|
+| Original prompt, repeat | 178/300 | 59.33% |
+| English prompt | 167/300 | 55.67% |
+| Author answer-slot format | 176/300 | 58.67% |
+| English prompt, doubled image size | 175/300 | 58.33% |
+
+[Source verification: 300/300 questions, options and gold labels match](../evidence/frozen-backbone/diagnostics/raven-source-verification.json) · [All four input runs](../evidence/frozen-backbone/diagnostics/raven-input-audit-v3/)

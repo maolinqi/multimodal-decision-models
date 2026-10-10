@@ -1,0 +1,1808 @@
+{
+  "complete": true,
+  "verified": 300,
+  "question_option_gold_mismatches": 0,
+  "records_sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b",
+  "rows": [
+    {
+      "id": "raven:45",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:5",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:83",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:53",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:167",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:157",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:231",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:280",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:282",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:259",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:328",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:339",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:342",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:335",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:365",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:391",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:413",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:420",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:448",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:531",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:590",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:512",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:602",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:799",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:738",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:894",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:812",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:910",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:1075",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:1077",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:1127",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:1192",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:1160",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:1161",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:1238",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:1224",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:1442",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:1494",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:1416",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:1507",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:1578",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:1671",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:1632",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:1673",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:1769",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:1759",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:1826",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:1909",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:2077",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:2083",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:2043",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:2182",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:2175",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:2225",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:2227",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:2214",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:2273",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:2319",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:2324",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:2339",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:2364",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:2496",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:2450",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:2509",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:2534",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:2583",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:2587",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:2637",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:2643",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:2717",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:2782",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:2869",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:2812",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:2851",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:2936",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:2973",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:2964",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:2987",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:3037",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:3055",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:3100",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:3272",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:3294",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:3401",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:3465",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:3461",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:3436",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:3552",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:3536",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:3501",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:3756",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:3891",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:3856",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:3837",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:3838",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:3833",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:3869",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:3899",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:3915",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:3981",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:3943",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:4097",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:4003",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:4055",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:4137",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:4188",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:4155",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:4273",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:4239",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:4394",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:4368",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:4312",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:4340",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:4320",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:4496",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:4411",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:4426",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:4460",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:4516",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:4595",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:4533",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:4523",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:4628",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:4763",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:4845",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:4811",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:4816",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:4898",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:4863",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:4919",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:5016",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:5052",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:5132",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:5153",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:5184",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:5211",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:5293",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:5378",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:5334",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:5503",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:5567",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:5645",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:5601",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:5724",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:5790",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:5888",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:5830",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:5835",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:5949",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:5965",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:5932",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:5987",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:5971",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:6087",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:6007",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:6033",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:6020",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:6067",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:6179",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:6165",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:6207",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:6398",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:6342",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:6300",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:6352",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:6418",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:6448",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:6408",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:6419",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:6661",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:6655",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:6738",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:6749",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:6854",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:6911",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:6991",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:7063",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:7067",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:7055",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:7138",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:7137",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:7117",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:7154",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:7296",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:7249",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:7366",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:7441",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:7588",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:7782",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:7715",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:7823",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:7869",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:7803",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:7883",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:7894",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:7977",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:7959",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:8088",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:8012",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:8231",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:8218",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:8208",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:8212",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:8385",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:8432",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:8486",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:8465",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:8551",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:8584",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:8586",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:8687",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:8623",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:8739",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:8758",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:8705",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:8890",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:8849",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:8961",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:8929",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:8964",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:9075",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:9037",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:9044",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:9170",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:9145",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:9143",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:9192",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:9133",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:9256",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:9266",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:9212",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:9371",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:9342",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:9320",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:9385",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:9465",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:9407",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:9467",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:9573",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:9538",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:9544",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:9612",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:9679",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:9625",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:9728",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:9733",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:9784",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:9739",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:9875",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:9813",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:9929",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:9973",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:10055",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:10188",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:10145",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "E",
+      "gold": 4
+    },
+    {
+      "id": "raven:10270",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:10203",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:10305",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:10359",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:10461",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:10404",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:10509",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:10630",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:10654",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:10632",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:10731",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:10779",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:10854",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:10831",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:10830",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:10870",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:10911",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:10906",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:10951",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:11074",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:11026",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:11109",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:11155",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:11175",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:11218",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:11213",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:11342",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11376",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:11360",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:11323",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "C",
+      "gold": 2
+    },
+    {
+      "id": "raven:11337",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "F",
+      "gold": 5
+    },
+    {
+      "id": "raven:11418",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11469",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11567",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "B",
+      "gold": 1
+    },
+    {
+      "id": "raven:11568",
+      "source_question": "Choose the figure that would logically complete the sequence.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:11647",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:11662",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:11625",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "D",
+      "gold": 3
+    },
+    {
+      "id": "raven:11750",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11831",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11835",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11863",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "G",
+      "gold": 6
+    },
+    {
+      "id": "raven:11957",
+      "source_question": "Which figure should complete the logical sequence?",
+      "source_answer": "A",
+      "gold": 0
+    },
+    {
+      "id": "raven:11926",
+      "source_question": "Solve that puzzle by choosing the appropriate letter.",
+      "source_answer": "H",
+      "gold": 7
+    },
+    {
+      "id": "raven:11978",
+      "source_question": "Which figure would finalize the logical sequence and replace the question mark?",
+      "source_answer": "E",
+      "gold": 4
+    }
+  ]
+}
