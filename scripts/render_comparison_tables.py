@@ -35,8 +35,8 @@ def main():
      s=read(q);a=s['paired']['answer_only'];assert a['n_questions']==n
      cap_link='docs/identical-input-latency.md#what-was-timed' if kind=='latency' else 'docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control'
      marker=f'[†]({cap_link})' if s['modes']['answer_only']['hit_token_cap'] else ''
-     latrows.append([name,label,n,f"{s['modes']['answer_only']['generated_tokens_median']:g}",f"{a['native_median_ms']:.1f}{marker}",f"**{a['decision_median_ms']:.1f}**",f"**{a['speedup_ratio']:.2f}\u00d7**"])
-    else:latrows.append([name,label,n,'—','测试中' if zh else 'Running','测试中' if zh else 'Running','—'])
+     latrows.append([name,label,n,f"{s['modes']['answer_only']['generated_tokens_median']:g}",f"{a['native_median_ms']:.1f}{marker}",f"**{a['decision_median_ms']:.1f}**",f"{a['native_median_ms']-a['decision_median_ms']:.1f}",f"**{a['speedup_ratio']:.2f}\u00d7**"])
+    else:latrows.append([name,label,n,'—','测试中' if zh else 'Running','测试中' if zh else 'Running','—','—'])
   extra=[]
   for model,name in [('gemma-e4b','Gemma-3n-E4B-it'),('internvl35-8b','InternVL3.5-8B')]:
    path=ROOT/'evidence/instruction-latency'/model/'audited-summary.json'
@@ -45,11 +45,11 @@ def main():
    assert s['complete'] and s['n']==100 and s['repeats']==3 and s['records']==700
    assert s['first_step_controls']==100 and s['max_full_vocab_abs_diff']==0 and s['parameter_versions_unchanged']
    marker='[†](docs/instruction-latency.md)' if s['cap_hits'] else ''
-   extra.append([name,'自然生成' if zh else 'Natural generation','ScienceQA (100)',f"{s['native_tokens_median']:g}",f"{s['native_median_ms']:.1f}{marker}",f"**{s['decision_median_ms']:.1f}**",f"**{s['speedup']:.2f}×**"])
+   extra.append([name,'自然生成' if zh else 'Natural generation','ScienceQA (100)',f"{s['native_tokens_median']:g}",f"{s['native_median_ms']:.1f}{marker}",f"**{s['decision_median_ms']:.1f}**",f"{s['native_median_ms']-s['decision_median_ms']:.1f}",f"**{s['speedup']:.2f}×**"])
   if extra:
    for row in latrows:row[2]=f'Rune ({row[2]})'
    latrows.extend(extra)
-  lath=['基座','回答方式','评测集（n）' if extra else '题数','原生 token 中位','原生中位（ms）','本方法决策延迟（ms，中位数）','加速比'] if zh else ['Backbone','Answer mode','Benchmark (n)' if extra else 'Questions','Median output tokens','Native median (ms)','Our decision latency (ms, median)','Speedup']
+  lath=['基座模型','原模型回答方式','测试集（题数）' if extra else '测试题数','原模型输出长度（token，中位数）','改造前延迟（ms，中位数）','改造后延迟（ms，中位数）','减少的延迟（ms）','加速倍数'] if zh else ['Base model','Original response mode','Test set (questions)' if extra else 'Test questions','Original output length (tokens, median)','Before conversion (ms, median)','After conversion (ms, median)','Latency saved (ms)','Speedup']
   frows=[[r['name'],f"{r['forward_p50_ms']:.1f}",f"{r['forward_p95_ms']:.1f}"] for r in science]
   fh=['基座','前向中位数（ms）','前向 P95（ms）'] if zh else ['Backbone','Median forward (ms)','P95 forward (ms)']
   result_doc='docs/identical-input-latency.md' if (ROOT/'docs/identical-input-latency.md').exists() else 'docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control'
