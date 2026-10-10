@@ -144,7 +144,7 @@ Official weights only, no additional training; trained authors' scores are repor
 
 The latest Gemma result uses shared candidate-position mappings and 455 original structured table-cell strings, alongside the images. Both paths see the same observations. This reduces input-reading ambiguity; it changes presentation relative to the author and does not establish paired non-inferiority. Historical failures and the older error ledger remain available.
 
-Zero inference exceptions. Exact author samples/rendering are not independently matched; these figures do not establish non-inferiority. All adaptation failures, marker diagnostics and 197 wrong cases are retained. [Detailed results and limitations](docs/frozen-backbone-accuracy.md) · [Raw accuracy evidence](evidence/frozen-backbone/accuracy/)
+Zero inference exceptions. Exact author samples/rendering are not independently matched; these figures do not establish non-inferiority. All adaptation failures, marker diagnostics and the historical 197-case error ledger are retained. [Detailed results and limitations](docs/frozen-backbone-accuracy.md) · [Raw accuracy evidence](evidence/frozen-backbone/accuracy/)
 
 **Completed one-letter control:** identical initial information and a shared one-letter instruction on 600 Qwen questions, three repetitions each: native generation 118.3 ms versus decision scoring 84.1 ms, reducing latency by 28.9%. Native generation actually emitted two tokens, with no cap hits; both paths agree on all 600 answers. [Protocol and raw timings](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control). Full natural-output timing and Gemma's short-answer control remain pending.
 

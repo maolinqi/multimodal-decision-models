@@ -215,8 +215,10 @@ setup.sh / start_all.sh / stop_all.sh
 |---|---|---:|---:|---:|
 |Qwen3.5-2B-Base|RAVEN|178/300|59.33%|Decider 80%|
 |Qwen3.5-2B-Base|Visual7W|271/300|90.33%|Decider 89%|
-|Gemma-4-26B-A4B-it|128 道公开预览 + 8 张示例卡|90/136|66.18%|Rune v3 75.7%，280 图像令牌|
+|Gemma-4-26B-A4B-it|128 道公开预览 + 8 张示例卡|93/136|68.38%|Rune v3 75.7%，280 图像令牌|
 
-736 题均完成，无推理异常。作者逐题样本及最终渲染未完全核验，因此不能据此证明非劣效。Visual7W 的数值接近；RAVEN 和 Gemma 仍有较大差距。公开全部适配失败、标记诊断及 197 道错题。[完整结果及限制](docs/frozen-backbone-accuracy.md) · [逐题准确率证据](evidence/frozen-backbone/accuracy/)
+Gemma 最新输入同时保留图像，并提供共同的候选位置对应与 455 个原始表格单元格文本；改造前后得到相同信息。这减少输入读取歧义，但呈现方式与作者不同，尚不能证明配对非劣效。
+
+736 题均完成，无推理异常。作者逐题样本及最终渲染未完全核验，因此不能据此证明非劣效。Visual7W 的数值接近；RAVEN 仍相差 20.67 个百分点，Gemma 最新差距为 7.32 个百分点。历史适配失败、标记诊断及旧版 197 道错题继续保留。[完整结果及限制](docs/frozen-backbone-accuracy.md) · [逐题准确率证据](evidence/frozen-backbone/accuracy/)
 
 **已完成的单字母对照：**两边输入完全相同，并共同要求只回答一个字母。Qwen 600 题、每题每条路径三次，原模型生成中位耗时 118.3 ms，决策评分 84.1 ms，减少 28.9%。原模型实际只生成字母和结束符两个 token，没有触及上限；两边 600 道题的答案全部一致。[协议和原始耗时](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)。自然生成的完整对照及 Gemma 单字母对照仍在运行/排队，完成后补充。
