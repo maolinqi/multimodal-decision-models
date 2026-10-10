@@ -1,0 +1,101 @@
+{
+  "protocol": {
+    "model_repo": "google/gemma-4-26B-A4B-it",
+    "model_revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+    "dataset_sha256": "4fe9ca526284c926d63175534b4617125f7286c7cce8d9914bcafb39eccb2325",
+    "script_sha256": "e4bb56e9a700f7b2d66276d42bbf65e15e7a1d319d379d473c6b6be96bdb1b8e",
+    "n": 136,
+    "repeats": 3,
+    "warmup_pairs": 5,
+    "limit": 0,
+    "seed": 20261010,
+    "gpu_uuid": "GPU-ff4adf3c-6afa-af0b-506a-ebe3919b2ac2",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "gemma_image_tokens": 280,
+    "training": false,
+    "adapter": null,
+    "cache_reuse_between_calls": false,
+    "decision_use_cache": false,
+    "generation_use_cache": true,
+    "answer_only_max_new_tokens": 32,
+    "scope": "loaded-model single-request response, including image/text preparation, synchronized model compute and readout; excluding model load, HTTP/network and queue time",
+    "torch_version": "2.8.0+cu128",
+    "transformers_version": "5.19.0"
+  },
+  "modes": {
+    "answer_only": {
+      "n": 408,
+      "errors": 0,
+      "correct": 264,
+      "invalid_answers": 36,
+      "response_median_ms": 307.9201665241271,
+      "response_p95_ms": 1811.0822960734367,
+      "compute_median_ms": 287.6530406065285,
+      "prepare_median_ms": 17.83101144246757,
+      "generated_tokens_median": 2.0,
+      "hit_token_cap": 36
+    },
+    "decision": {
+      "n": 408,
+      "errors": 0,
+      "correct": 279,
+      "invalid_answers": 0,
+      "response_median_ms": 246.4774923864752,
+      "response_p95_ms": 289.32669572532177,
+      "compute_median_ms": 227.6719049550593,
+      "prepare_median_ms": 17.850662115961313,
+      "generated_tokens_median": 0.0,
+      "hit_token_cap": 0
+    },
+    "first_step_control": {
+      "n": 136,
+      "errors": 0,
+      "correct": 93,
+      "invalid_answers": 0,
+      "response_median_ms": 250.73241372592747,
+      "response_p95_ms": 296.48658307269216,
+      "compute_median_ms": 234.55270659178495,
+      "prepare_median_ms": 17.775040352717042,
+      "generated_tokens_median": 1.0,
+      "hit_token_cap": 0
+    }
+  },
+  "paired": {
+    "answer_only": {
+      "n_questions": 136,
+      "native_median_ms": 308.08939691632986,
+      "decision_median_ms": 244.64428494684398,
+      "difference_ms": 63.44511196948588,
+      "speedup_ratio": 1.2593361704045984,
+      "reduction_percent": 20.593085190372896,
+      "median_per_question_ratio": 1.2417223388335445,
+      "speedup_ratio_ci95": [
+        1.2397787086548384,
+        1.2888101463084463
+      ],
+      "median_latency_difference_ci95_ms": [
+        59.639000333845615,
+        69.05369716696441
+      ],
+      "resampling_unit": "question; all repetitions first collapsed to per-question medians",
+      "bootstrap_resamples": 2000
+    }
+  },
+  "retention": {
+    "n": 136,
+    "candidate_agreements": 136,
+    "max_candidate_abs_diff": 0.0,
+    "max_full_vocab_abs_diff": 0.0,
+    "all_finite_patterns_match": true,
+    "parameter_versions_unchanged": true
+  },
+  "complete": true,
+  "limitations": [
+    "Task metrics are diagnostic public/reconstructed sets, not author-pixel replication or blind non-inferiority",
+    "Every path receives the same initial information, prompt, image, state, question and options",
+    "First-step control checks candidate retention, not native free-text answer equivalence",
+    "Server contains unrelated GPU1 training; benchmark uses GPU0, host CPU/load remains shared",
+    "Generation failures/invalid/truncated answers are retained; do not claim accuracy superiority from speed alone"
+  ]
+}
