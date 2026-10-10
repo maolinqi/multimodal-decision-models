@@ -27,7 +27,7 @@ def main():
   text=section(text,acchead,acc)
   lathead='## 低延迟决策：具体用了多久？' if zh else '## Measured decision latency'
   latrows=[]
-  for model,name,n in [('gemma','Gemma-4-26B-A4B-it',136),('qwen','Qwen3.5-2B-Base',600)]:
+  for model,name,n in [('gemma','Gemma-4-26B-A4B-it',136)]:
    for kind in ['latency','latency-short-answer']:
     q=frozen/kind/model/'summary.json'
     label=('不要求简短' if zh else 'No brevity instruction') if kind=='latency' else ('仅回答字母' if zh else 'Single-letter answer')
@@ -40,7 +40,7 @@ def main():
   lath=['基座','生成设置','题数','原生输出 token（中位）','原生生成（中位 ms）','本方法（中位 ms）','加速比'] if zh else ['Backbone','Generation setting','Questions','Native output tokens (median)','Native generation (median ms)','Ours (median ms)','Speedup']
   frows=[[r['name'],f"{r['forward_p50_ms']:.1f}",f"{r['forward_p95_ms']:.1f}"] for r in science]
   fh=['基座','前向中位数（ms）','前向 P95（ms）'] if zh else ['Backbone','Median forward (ms)','P95 forward (ms)']
-  latency=lathead+'\n\n'+table(lath,latrows,2)+'\n'+('[逐题耗时与输出](docs/qwen-natural-latency.md) · [实验设置与 † 截断记录](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)' if zh else '[Per-question timings and outputs](docs/qwen-natural-latency.md) · [Protocol and † truncations](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)')+'\n\n<details>\n<summary>ScienceQA '+('决策前向耗时' if zh else 'decision-forward timings')+'</summary>\n\n'+table(fh,frows)+'\n'+('[完整结果](docs/scienceqa-latency_zh.md)' if zh else '[Full results](docs/scienceqa-latency.md)')+'\n\n</details>\n'
+  latency=lathead+'\n\n'+table(lath,latrows,2)+'\n'+('[实验设置与 † 截断记录](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)' if zh else '[Protocol and † truncations](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)')+'\n\n<details>\n<summary>ScienceQA '+('决策前向耗时' if zh else 'decision-forward timings')+'</summary>\n\n'+table(fh,frows)+'\n'+('[完整结果](docs/scienceqa-latency_zh.md)' if zh else '[Full results](docs/scienceqa-latency.md)')+'\n\n</details>\n'
   text=section(text,lathead,latency)
   text=text.replace('六份完整配对记录','七份完整配对记录').replace('六份逐题报告','七份逐题报告')
   p.write_text(text.rstrip()+'\n')
