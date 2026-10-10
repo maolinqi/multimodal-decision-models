@@ -1,0 +1,11 @@
+{
+  "complete": true,
+  "n": 100,
+  "repeats": 3,
+  "native_median_ms": 4880.740618566051,
+  "decision_median_ms": 152.25570485927165,
+  "native_tokens_median": 62.5,
+  "cap_hits": 0,
+  "parameter_versions_unchanged": true,
+  "speedup": 32.056208488721445
+}

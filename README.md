@@ -49,12 +49,13 @@ Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n/4, MiniCPM
 
 ## Measured decision latency
 
-| Backbone | Answer mode | Questions | Median output tokens | Native median (ms) | Ours median (ms) | Speedup |
+| Backbone | Answer mode | Benchmark (n) | Median output tokens | Native median (ms) | Ours median (ms) | Speedup |
 |---|---|---:|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | Natural generation | 136 | — | Running | Running | — |
-| Gemma-4-26B-A4B-it | Single-letter answer | 136 | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+| Gemma-4-26B-A4B-it | Natural generation | Rune (136) | — | Running | Running | — |
+| Gemma-4-26B-A4B-it | Single-letter answer | Rune (136) | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
+| Gemma-3n-E4B-it | Natural generation | ScienceQA (100) | 62.5 | 4880.7 | **152.3** | **32.06×** |
 
-[Per-question results](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control)
+[Per-question results](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) · [ScienceQA response comparison](docs/instruction-latency.md)
 
 <details>
 <summary>ScienceQA decision-forward timings</summary>

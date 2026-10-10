@@ -1,0 +1,24 @@
+{
+  "complete": true,
+  "model": "gemma-e4b",
+  "n": 100,
+  "repeats": 3,
+  "records": 700,
+  "measurements_sha256": "2a96843ebb1186291d43671ccb38b76b927fa4f74afbd0bc0fb565f5a35b4ae8",
+  "native_median_ms": 4880.740618566051,
+  "decision_median_ms": 152.25570485927165,
+  "speedup": 32.056208488721445,
+  "reduction_percent": 96.88047948542686,
+  "speedup_ci95": [
+    21.475585353459365,
+    41.43286518019262
+  ],
+  "native_tokens_median": 62.5,
+  "cap_hits": 0,
+  "decision_correct": 228,
+  "native_parsed_correct": 162,
+  "native_unresolved": 117,
+  "first_step_controls": 100,
+  "max_full_vocab_abs_diff": 0,
+  "parameter_versions_unchanged": true
+}
