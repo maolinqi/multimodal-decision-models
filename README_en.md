@@ -93,11 +93,11 @@ TianZe-MJev currently supports seven official multimodal backbones across the Qw
 
 **Results:**
 
-| Backbone | Benchmark (n) | Reference model | Author report | Ours, measured | Difference (pp) |
-|---|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | Visual7W (300) | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 89.00% | **90.33% (271/300)** | +1.33 |
-| Qwen3.5-2B-Base | RAVEN (300) | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 80.00% | **59.33% (178/300)** | −20.67 |
-| Gemma-4-26B-A4B-it | Rune public reconstruction (136) | [Rune v3](https://huggingface.co/surogate/rune-26b-a4b-GGUF) | 75.70% | **68.38% (93/136)** | −7.32 |
+| Backbone | Reference model | Author report | Ours, measured | Difference (pp) |
+|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 89.00% | **90.33% (271/300)** | +1.33 |
+| Qwen3.5-2B-Base | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 80.00% | **59.33% (178/300)** | −20.67 |
+| Gemma-4-26B-A4B-it | [Rune v3](https://huggingface.co/surogate/rune-26b-a4b-GGUF) | 75.70% | **68.38% (93/136)** | −7.32 |
 
 **Interpretation:** Visual7W is numerically close to the reference, while RAVEN and the Rune reconstruction show substantial gaps. Training benefits depend on the task. These references establish neither overall superiority nor paired non-inferiority. [Protocol, raw results and error ledger](docs/frozen-backbone-accuracy.md).
 
@@ -117,10 +117,12 @@ TianZe-MJev currently supports seven official multimodal backbones across the Qw
 
 **Results:**
 
-| Backbone | Test set (n) | Native output tokens, median | Before (ms, median) | After (ms, median) |
-|---|---|---:|---:|---:|
-| Gemma-4-26B-A4B-it | Rune (136) | 240 | 12512.1 | **248.2** |
-| Gemma-3n-E4B-it | ScienceQA (100) | 62.5 | 4880.7 | **152.3** |
+| Backbone | Test set (n) | Native output tokens, median | Before (ms, median) | After (ms, median) | Speedup |
+|---|---|---:|---:|---:|---:|
+| Gemma-4-26B-A4B-it | Rune (136) | 240 | 12512.1 | **248.2** | **50.4×** |
+| Gemma-3n-E4B-it | ScienceQA (100) | 62.5 | 4880.7 | **152.3** | **32.0×** |
+
+Speedup = before latency ÷ after latency (using the medians shown in the table).
 
 **Interpretation:** avoiding sequential decoding reduces waiting, but quality must be assessed separately. Under this neutral prompt, Gemma 4 scores **30/136** for direct decisions versus **95/136** for conservatively parsed generation in the first repetition. Gemma 3n scores **228/300** versus **162/300** across three repetitions, with **117/300** generated answers unparsed; this is not evidence that generation has lower intrinsic accuracy. These are different prompts from experiment 1.
 
