@@ -1,7 +1,7 @@
 const $=id=>document.getElementById(id);
 let frames=[],options=['',''],lastResult=null,lastInput=null,uploading=false,running=false,videoURL=null,revision=0;
 const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const initialModel=new URLSearchParams(location.search).get('model');if(['qwen35-2b','qwen4b','gemma-e4b','gemma-e2b','minicpm-v45','internvl35-8b','internvl35-14b'].includes(initialModel))$('model-select').value=initialModel;
+const initialModel=new URLSearchParams(location.search).get('model');if(['gemma4-a4b','qwen35-2b','qwen4b','gemma-e4b','gemma-e2b','minicpm-v45','internvl35-8b','internvl35-14b'].includes(initialModel))$('model-select').value=initialModel;
 function error(message){$('error').textContent=message;$('error').hidden=!message;}
 function changed(){revision++;if(lastResult)$('stale-result').hidden=false;}
 function lockSubmit(){$('submit').disabled=running||uploading;}

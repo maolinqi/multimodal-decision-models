@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-for name in gateway qwen35 backend; do
+for name in gateway gemma4 qwen35 backend; do
  file="run/$name.pid"
  [[ -f "$file" ]] || continue
  pid="$(cat "$file")"

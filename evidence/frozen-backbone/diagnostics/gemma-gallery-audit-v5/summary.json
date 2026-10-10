@@ -1,0 +1,34 @@
+{
+  "protocol": {
+    "model": "google/gemma-4-26B-A4B-it",
+    "model_revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+    "frozen": true,
+    "training": false,
+    "max_soft_tokens": 280,
+    "records_sha256": "48b40948638d84368c22a02698768f0b86cb88230dfadb5a37309a84e3fd0338",
+    "runner_sha256": "b945ff27e3a06212bea591236952daac3b41a9ed61feef7c9666cbc8f708f335",
+    "gpu_uuid": "GPU-1f451bee-04f3-68d4-7854-2a9683685794",
+    "purpose": "Recognition gate; no task accuracy or gold-based sample selection",
+    "strict_required_correct": 720,
+    "scope": "GPU1 may share compute with existing jobs; no latency comparison made"
+  },
+  "tasks": {
+    "letter_recognition": {
+      "n": 240,
+      "correct": 146,
+      "errors": 0
+    },
+    "pointer_association": {
+      "n": 240,
+      "correct": 135,
+      "errors": 0
+    },
+    "isolated_same_resolution": {
+      "n": 240,
+      "correct": 240,
+      "errors": 0
+    }
+  },
+  "strict_gate_passed": false,
+  "all_rows_scored": true
+}

@@ -27,9 +27,11 @@ The current result is **93/136 (68.38%)**, with no inference errors. All questio
 - GUI images contain the unmarked source screenshot and five equally formatted candidate-centered crops. A–E appear below crops, outside target pixels. Shared state explicitly maps options to the first through fifth crop and its click point, avoiding dependence on leader tracking or letter OCR.
 - FinQA keeps complete table images and includes all **455 original dataset table-cell strings** as shared structured observations. This is a transcription from existing structured dataset cells, not a demonstrated automatic screenshot-OCR capability.
 
-No answer or rationale is added to these observations. Compared with v4, FinQA rises from 5 to 8/20 and Mind2Web from 5 to 7/12; ScreenSpot decreases from 31 to 29/36. The net gain is three correct answers. Presentation changes limit comparison with the reported trained-model score. The latest Gemma predictions retain all 43 errors; the earlier 46-error ledger remains historical.
+No answer or rationale is added to these observations. Compared with v4, FinQA rises from 5 to 8/20 and Mind2Web from 5 to 7/12; ScreenSpot decreases from 31 to 29/36. The net gain is three correct answers. Presentation changes limit comparison with the reported trained-model score. The latest Gemma predictions retain all 43 errors; the earlier 46-error ledger remains historical. Nine answers change from wrong to right and six from right to wrong. [Current 194-case ledger](../evidence/frozen-backbone/accuracy-error-ledger-v6.jsonl) retains Qwen’s 151 and Gemma’s 43 errors without causal attribution.
 
 [Latest results](../evidence/frozen-backbone/accuracy/gemma-normalized-v6/) · [Shared-input audit](../evidence/frozen-backbone/diagnostics/normalized-v6/)
+
+The gallery-v5 diagnostic also remains public: coordinate-conditioned identification scores 146/240 and click-center association 135/240, despite 240/240 isolated letters. With diagnostic-only shuffled labels and ordinal questions, full-gallery reading is 234/240 and association 236/240; the strict all-label gate still fails. These failures motivated explicit shared position metadata in v6 rather than assuming OCR/association were solved. [Gallery audits](../evidence/frozen-backbone/diagnostics/gemma-gallery-ordinal-audit-v5/).
 
 ## Historical marker meaning and recognition
 

@@ -1,0 +1,34 @@
+{
+  "protocol": {
+    "model": "google/gemma-4-26B-A4B-it",
+    "model_revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+    "frozen": true,
+    "training": false,
+    "max_soft_tokens": 280,
+    "records_sha256": "7e03611c153e2c85428b68f97d3455e1aced9d6754f9a42e42b56125f6ac3255",
+    "runner_sha256": "e019b66419c5367ef0c305487f1f4496863f62e963b6ba68a80813e0f0163dd1",
+    "gpu_uuid": "GPU-1f451bee-04f3-68d4-7854-2a9683685794",
+    "purpose": "Shuffled-letter full-image OCR and ordinal candidate association; no task accuracy or gold-based sample selection",
+    "strict_required_correct": 720,
+    "scope": "GPU1 may share compute with existing jobs; no latency comparison made"
+  },
+  "tasks": {
+    "letter_recognition": {
+      "n": 240,
+      "correct": 234,
+      "errors": 0
+    },
+    "pointer_association": {
+      "n": 240,
+      "correct": 236,
+      "errors": 0
+    },
+    "isolated_same_resolution": {
+      "n": 240,
+      "correct": 240,
+      "errors": 0
+    }
+  },
+  "strict_gate_passed": false,
+  "all_rows_scored": true
+}

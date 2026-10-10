@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "multimodal-decision-models"
 version = "0.1.0"
-description = "Candidate-logit multimodal decision interfaces for Gemma 3n, MiniCPM-V and InternVL"
+description = "Candidate-logit multimodal decision interfaces for Qwen3.5, Gemma 3n/4, MiniCPM-V and InternVL"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
 license = {text = "Apache-2.0"}

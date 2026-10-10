@@ -4,6 +4,7 @@
 
 | Model | Evidence | Position probes | Official first-step candidate logits |
 |---|---|---|---|
+| Gemma 4 26B A4B | isolated 5.19.0 runtime, real GPU/API | 2/2 | max absolute difference 0 |
 | Qwen3.5-2B-Base | isolated 5.19.0 runtime, real GPU/API | 2/2 | max absolute difference 0 |
 | Gemma 3n E2B | earlier deployed adapter | 1/2 | max absolute difference 0 |
 | Gemma 3n E4B | earlier deployed adapter | 2/2 (left probe tied at 0.5/0.5) | max absolute difference 0 |

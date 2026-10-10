@@ -5,7 +5,7 @@
 
 **Turn multimodal backbones into decision interfaces, with no additional training.**
 
-Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n, MiniCPM-V, and InternVL
+Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n/4, MiniCPM-V, and InternVL
 
 **With no additional training: MiniCPM-V-4.5 achieves 98% candidate accuracy and 148.9 ms median decision-forward latency on 100 fixed ScienceQA image-test questions.**
 
@@ -14,7 +14,7 @@ Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n, MiniCPM-V
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#training-free-decision-adaptation)
-[![Adapters](https://img.shields.io/badge/Native_Adapters-6-2563eb)](#supported-backbones)
+[![Adapters](https://img.shields.io/badge/Native_Adapters-7-2563eb)](#supported-backbones)
 [![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-600%2F600_agree-2563eb)](docs/scienceqa-results.md)
 
 [Overview](#overview) · [Training-free method](#training-free-decision-adaptation) · [Inputs and outputs](#multimodal-inputs-structured-outputs) · [Models](#supported-backbones) · [Training-free accuracy](#measured-accuracy-with-no-additional-training) · [Latency](#measured-decision-latency) · [Quick start](#quick-start) · [Open source](#open-source-and-licenses)
@@ -27,9 +27,9 @@ Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n, MiniCPM-V
 
 **System One is an open-source model project for multimodal understanding and low-latency decisions, turning vision-language understanding into structured decisions callable from software.** Given task text, images or video frames, and a question, it returns a candidate choice, binary judgment, or ordinal score with a corresponding probability distribution. Text defines the task and candidates, images provide objects and spatial relationships, and timestamped video frames provide changes over time. These inputs are combined through the backbone’s native multimodal pipeline.
 
-We implemented six decision adapters on **Qwen3.5-2B-Base, Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**, **using their existing pretrained weights directly, with no additional training or fine-tuning**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**, returning the decision distribution directly and reducing the wait associated with token-by-token decoding.
+We implemented seven decision adapters on **Qwen3.5-2B-Base, Gemma-4-26B-A4B-it, Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**, **using their existing pretrained weights directly, with no additional training or fine-tuning**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**, returning the decision distribution directly and reducing the wait associated with token-by-token decoding.
 
-The project provides a shared observation protocol, decision API, and web console, giving all six models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
+The project provides a shared observation protocol, decision API, and web console, giving all seven models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
 
 ## Training-free decision adaptation
 
@@ -50,7 +50,7 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 Here, $z_{t_i}$ is the logit for candidate $i$’s label token and $K$ is the number of candidates.
 
-This turns image and video understanding into choices, judgments, and scores callable from software. All six models connect to one console through the same protocol.
+This turns image and video understanding into choices, judgments, and scores callable from software. All seven models connect to one console through the same protocol.
 
 ## Multimodal inputs, structured outputs
 
@@ -75,7 +75,7 @@ Qwen, Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We
 | **Native model adapters** | Qwen native image tokens and stable Base answer boundary; Gemma processor / forward; MiniCPM image slicing, visual resampling, and embedding fusion; InternVL dynamic tiling and visual-token fusion |
 | **Shared observation protocol** | RGB frames organized by camera and timestamp, with field and numeric validation |
 | **Shared decision readout** | Single-token candidate labels read through the backbone’s existing language head |
-| **Unified console and API** | Switch among six models on one page; connect a compatible Qwen service; load models on demand with one resident model per backend |
+| **Unified console and API** | Switch among seven models on one page; connect a compatible Qwen service; load models on demand with one resident model per backend |
 | **Reproducible validation** | Fixed inputs, native-path comparisons, protocol tests, GPU records, and incorrect predictions published together |
 
 ## Supported backbones
@@ -83,15 +83,18 @@ Qwen, Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We
 | model_id | Official backbone |
 |---|---|
 | `qwen35-2b` | [Qwen/Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base) |
+| `gemma4-a4b` | [google/gemma-4-26B-A4B-it](https://huggingface.co/google/gemma-4-26B-A4B-it) |
 | `gemma-e4b` | [google/gemma-3n-E4B-it](https://huggingface.co/google/gemma-3n-E4B-it) |
 | `gemma-e2b` | [google/gemma-3n-E2B-it](https://huggingface.co/google/gemma-3n-E2B-it) |
 | `minicpm-v45` | [openbmb/MiniCPM-V-4_5](https://huggingface.co/openbmb/MiniCPM-V-4_5) |
 | `internvl35-8b` | [OpenGVLab/InternVL3_5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B) |
 | `internvl35-14b` | [OpenGVLab/InternVL3_5-14B](https://huggingface.co/OpenGVLab/InternVL3_5-14B) |
 
-These decision adapters use the official backbone weights and native language heads. Qwen3.5 uses a [separate project-local runtime](docs/qwen35-runtime.md), preserving the existing five adapters’ environment. An existing Qwen3-VL-4B service can also be connected through `QWEN_DECISION_URL`.
+These decision adapters use the official backbone weights and native language heads. Gemma 4 has a [separate verified runtime and API](docs/gemma4-runtime.md). Qwen3.5 uses a [separate project-local runtime](docs/qwen35-runtime.md), preserving the existing five adapters’ environment. An existing Qwen3-VL-4B service can also be connected through `QWEN_DECISION_URL`.
 
 ## Measured accuracy with no additional training
+
+This ScienceQA table covers six completed models; Gemma 4 API validation and its separate Rune-reference result are published, while its fixed ScienceQA evaluation is running.
 
 **MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%; Qwen3.5-2B-Base achieves 82%.
 
@@ -134,7 +137,7 @@ All six backbones also completed paired fixed probes covering color, counting, O
 
 ### Frozen-backbone accuracy experiment
 
-Official weights only, no additional training; trained authors' scores are reported references, not reruns. The Qwen/Gemma author-reference experiments use separately recorded input protocols; Qwen3.5 is now also registered in the console, while Gemma 4 input adaptation remains in progress.
+Official weights only, no additional training; trained authors' scores are reported references, not reruns. The Qwen/Gemma author-reference experiments use separately recorded input protocols; Qwen3.5 is now also registered in the console, and Gemma 4 is registered after real API and typed-interface verification.
 
 | Backbone | Evaluation | Our correct / questions | Our accuracy | Author trained-model report |
 |---|---|---:|---:|---:|

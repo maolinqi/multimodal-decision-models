@@ -1,0 +1,91 @@
+{
+  "status": "isolated_api_round_trip_passed",
+  "model_id": "gemma4-a4b",
+  "synthetic_position_correct": 2,
+  "synthetic_position_count": 2,
+  "results": [
+    {
+      "expected": "left",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "left",
+        "distribution": {
+          "left": 1.0,
+          "right": 3.3435414437121835e-09
+        },
+        "label_mass": 1.0,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 906.1618279665709,
+        "latency_ms": 1090.0656380690634,
+        "images": [
+          {
+            "sha256": "515d1a188c1361dec7bedcab37f78cdf3c75d12708da7efad888aa9a1d39ca1e",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 353,
+        "visual_tokens": 260,
+        "base_model": "google/gemma-4-26B-A4B-it",
+        "adapter": null,
+        "model_id": "gemma4-a4b",
+        "returned_at_ms": 1791593928182.7446,
+        "training_applied": false,
+        "model_load_ms": 58932.13066831231,
+        "request_latency_ms": 60287.71621733904,
+        "fresh_per_forward_cache": true,
+        "decoding": "restricted_next_token_logits"
+      }
+    },
+    {
+      "expected": "right",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 5.241254999455158e-11,
+          "right": 1.0
+        },
+        "label_mass": 1.0,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 257.29985581710935,
+        "latency_ms": 269.8443001136184,
+        "images": [
+          {
+            "sha256": "e7cfee6e0ec7278f276e25b7cf336e9673768f856fe9ea576548119cc7d3d5de",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 353,
+        "visual_tokens": 260,
+        "base_model": "google/gemma-4-26B-A4B-it",
+        "adapter": null,
+        "model_id": "gemma4-a4b",
+        "returned_at_ms": 1791593928458.6538,
+        "training_applied": false,
+        "model_load_ms": 0.0,
+        "request_latency_ms": 270.3607459552586,
+        "fresh_per_forward_cache": true,
+        "decoding": "restricted_next_token_logits"
+      }
+    }
+  ],
+  "scope": "Two synthetic image requests, default model routing, native visual path, distribution and unload; no general capability or flight claim"
+}

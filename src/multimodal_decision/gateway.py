@@ -21,9 +21,10 @@ from fastapi.staticfiles import StaticFiles
 ROOT=Path(__file__).resolve().parents[2]
 MODEL_URL=os.environ.get('DECISION_URL','http://127.0.0.1:8457')
 MODEL_URLS={key:MODEL_URL for key in ['gemma-e4b','gemma-e2b','minicpm-v45','internvl35-8b','internvl35-14b']}
+MODEL_URLS['gemma4-a4b']=os.environ.get('GEMMA4_DECISION_URL','http://127.0.0.1:8461')
 MODEL_URLS['qwen35-2b']=os.environ.get('QWEN35_DECISION_URL','http://127.0.0.1:8460')
 if os.environ.get('QWEN_DECISION_URL'):MODEL_URLS['qwen4b']=os.environ['QWEN_DECISION_URL']
-MODEL_NAMES={'qwen35-2b':'Qwen3.5-2B-Base','qwen4b':'Qwen3-VL-4B-Instruct','gemma-e4b':'Gemma-3n-E4B-it','gemma-e2b':'Gemma-3n-E2B-it','minicpm-v45':'MiniCPM-V-4.5','internvl35-8b':'InternVL3.5-8B','internvl35-14b':'InternVL3.5-14B'}
+MODEL_NAMES={'gemma4-a4b':'Gemma-4-26B-A4B-it','qwen35-2b':'Qwen3.5-2B-Base','qwen4b':'Qwen3-VL-4B-Instruct','gemma-e4b':'Gemma-3n-E4B-it','gemma-e2b':'Gemma-3n-E2B-it','minicpm-v45':'MiniCPM-V-4.5','internvl35-8b':'InternVL3.5-8B','internvl35-14b':'InternVL3.5-14B'}
 STATE_KEYS={'goal_error_vehicle_m','velocity_vehicle_mps','height_m','attitude_quaternion_xyzw',
     'angular_velocity_body_radps','battery_fraction','localization_valid','localization_covariance',
     'sensor_coverage','depth_sectors_m','mission','previous_velocity4_command','measured_history',

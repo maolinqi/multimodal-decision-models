@@ -13,3 +13,5 @@ MiniCPM 与 InternVL 使用官方视觉 embedding 融合，随后调用原生语
 `safety.guard` 是独立检查函数，需要同一动作的传感器联合路径、最新定位与刹车距离；API 只输出建议，不自动执行该函数或连接飞控。它没有经过真实飞行验证。
 
 Qwen3.5-2B-Base 使用独立 Transformers 5.19.0 服务，通过网关的 `qwen35-2b` 模型标识路由。保留 Base 的原生图像 token 与纯文本输入格式，末尾使用 `Answer:\n`，并逐请求检查候选字母与上下文的 token 边界。决策前向不生成文本；配对验证以官方生成第一步的原始完整词表 logits 为参照。原有五个适配器继续使用其 4.57.1 服务。
+
+Gemma 4 26B A4B 使用独立 Transformers 5.19.0 服务，模型标识 `gemma4-a4b`，网关默认转发至 8461。原生 instruction 模板关闭 thinking，图像预算 280 soft tokens；候选 token 边界逐请求验证。决策前向与原生生成第一步使用相同已预处理输入，并对比原始 logits。

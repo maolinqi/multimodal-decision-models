@@ -5,7 +5,7 @@
 
 **无需额外训练，让多模态基座直接做决策。**
 
-基于 Gemma 3n、MiniCPM-V 与 InternVL 的开源多模态决策实现
+基于 Qwen3.5、Gemma 3n/4、MiniCPM-V 与 InternVL 的开源多模态决策实现
 
 **免额外训练实测：ScienceQA 固定 100 道图像题，MiniCPM-V-4.5 候选正确率 98%，决策前向中位数 148.9 ms。**
 
@@ -14,7 +14,7 @@
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#免额外训练的决策改造)
-[![Adapters](https://img.shields.io/badge/Native_Adapters-6-2563eb)](#模型基座)
+[![Adapters](https://img.shields.io/badge/Native_Adapters-7-2563eb)](#模型基座)
 [![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-600%2F600_agree-2563eb)](docs/scienceqa-results_zh.md)
 
 [项目介绍](#项目介绍) · [免训练改造](#免额外训练的决策改造) · [输入输出](#多模态输入结构化输出) · [模型基座](#模型基座) · [免训练准确率](#免额外训练的实测准确率) · [实测延迟](#低延迟决策具体用了多久) · [快速开始](#快速开始) · [开源范围](#开源范围与许可)
@@ -27,9 +27,9 @@
 
 **System One 是一个面向多模态理解与低延迟决策的开源模型项目，将视觉语言模型的理解能力转化为可直接调用的结构化决策。** 输入任务文字、图像或视频帧，以及待判断的问题，模型返回候选选择、真假判断或等级评分，并给出对应的概率分布。文字描述任务和候选，图像提供对象、位置与空间关系，按时间排列的视频帧提供前后变化；这些信息共同进入模型的原生多模态通路。
 
-我们基于 **Qwen3.5-2B-Base、Gemma-3n-E4B / E2B、MiniCPM-V-4.5 和 InternVL3.5-8B / 14B** 完成六个模型的决策适配，**直接使用已有预训练权重，无需额外训练或微调即可运行**。改造保留基座的原生多模态编码、视觉融合和语言头，从候选标签 logits 直接读出决策。一次选择、判断或评分使用一次语言模型前向，生成 **0 个新文本 token**，直接返回决策分布，减少逐 token 解码环节带来的等待。
+我们基于 **Qwen3.5-2B-Base、Gemma-4-26B-A4B-it、Gemma-3n-E4B / E2B、MiniCPM-V-4.5 和 InternVL3.5-8B / 14B** 完成七个模型的决策适配，**直接使用已有预训练权重，无需额外训练或微调即可运行**。改造保留基座的原生多模态编码、视觉融合和语言头，从候选标签 logits 直接读出决策。一次选择、判断或评分使用一次语言模型前向，生成 **0 个新文本 token**，直接返回决策分布，减少逐 token 解码环节带来的等待。
 
-项目提供统一的观测协议、决策 API 和网页决策台，让六个模型使用相同的输入输出接口。运行代码、模型适配、评测脚本和配对验证记录一并开源，支持在统一页面切换模型、查看候选分布并复现基座对照结果。
+项目提供统一的观测协议、决策 API 和网页决策台，让七个模型使用相同的输入输出接口。运行代码、模型适配、评测脚本和配对验证记录一并开源，支持在统一页面切换模型、查看候选分布并复现基座对照结果。
 
 ## 免额外训练的决策改造
 
@@ -50,7 +50,7 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 其中 $z_{t_i}$ 为第 $i$ 个候选标签的 logit，$K$ 为候选数量。
 
-这种方式将图像和视频理解转化为程序可调用的选择、判断与评分；六个模型通过同一套协议接入同一个决策台。
+这种方式将图像和视频理解转化为程序可调用的选择、判断与评分；七个模型通过同一套协议接入同一个决策台。
 
 ## 多模态输入，结构化输出
 
@@ -66,16 +66,16 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 候选概率表示当前选项之间的相对偏好。
 
-## 从同一套协议，走向六个基座
+## 从同一套协议，走向七个基座
 
-模型之间的差异，首先出现在视觉信息如何进入语言模型。Gemma、MiniCPM 与 InternVL 各有自己的预处理、视觉编码和融合实现。我们的工作是为它们逐个建立原生适配，保留这些通路，再用同一套协议连接到决策读出和网页。
+模型之间的差异，首先出现在视觉信息如何进入语言模型。Qwen、Gemma、MiniCPM 与 InternVL 各有自己的预处理、视觉编码和融合实现。我们的工作是为它们逐个建立原生适配，保留这些通路，再用同一套协议连接到决策读出和网页。
 
 | 我们实现的部分 | 具体内容 |
 |---|---|
-| **原生模型适配** | Gemma processor / forward；MiniCPM 图像切片、视觉重采样和 embedding 融合；InternVL 动态切片与视觉 token 融合 |
+| **原生模型适配** | Qwen 原生图像 token 与稳定 Base 答案边界；Gemma processor / forward；MiniCPM 图像切片、视觉重采样和 embedding 融合；InternVL 动态切片与视觉 token 融合 |
 | **统一观测协议** | 按相机和时间戳组织 RGB 帧，验证输入字段与数值 |
 | **统一决策读出** | 候选标签使用单 token，直接读取基座已有语言头的 logits |
-| **统一决策台与 API** | 同一页面切换六个模型，可接入已有 Qwen 服务，按需加载并管理单模型驻留 |
+| **统一决策台与 API** | 同一页面切换七个模型，可接入已有 Qwen 服务，按需加载并管理单模型驻留 |
 | **可复现验证** | 固定输入、原生对照、协议测试、实际 GPU 记录和失败样本一并公开 |
 
 ## 模型基座
@@ -83,6 +83,7 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 | model_id | 官方基座 |
 |---|---|
 | `qwen35-2b` | [Qwen/Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base) |
+| `gemma4-a4b` | [google/gemma-4-26B-A4B-it](https://huggingface.co/google/gemma-4-26B-A4B-it) |
 | `gemma-e4b` | [google/gemma-3n-E4B-it](https://huggingface.co/google/gemma-3n-E4B-it) |
 | `gemma-e2b` | [google/gemma-3n-E2B-it](https://huggingface.co/google/gemma-3n-E2B-it) |
 | `minicpm-v45` | [openbmb/MiniCPM-V-4_5](https://huggingface.co/openbmb/MiniCPM-V-4_5) |
@@ -91,9 +92,11 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 Qwen3.5 使用[项目内独立运行环境](docs/qwen35-runtime.md)，保留原五个适配器的环境。`QWEN_DECISION_URL` 仍可接入已有的 Qwen3-VL-4B 服务。
 
-本版本的决策适配直接使用官方基座权重与原生语言头。
+本版本的决策适配直接使用官方基座权重与原生语言头。Gemma 4 的[独立环境与接口](docs/gemma4-runtime.md)已通过真实图像请求和类型验证。
 
 ## 免额外训练的实测准确率
+
+当前 ScienceQA 表包含六个已完成评测的模型。Gemma 4 的接口验证及独立 Rune 分数参考实验已公开，其固定 ScienceQA 评测正在运行。
 
 **MiniCPM-V-4.5 在 ScienceQA 固定图像测试子集上的候选选择正确率为 98%，额外训练 0 步。** Gemma E2B / E4B 与 InternVL 8B 分别达到 80%、84% 和 93%；InternVL 14B 为 92%；Qwen3.5-2B-Base 为 82%。
 
@@ -209,7 +212,7 @@ setup.sh / start_all.sh / stop_all.sh
 
 ### 冻结基座准确率对照
 
-仅用官方基座权重，无额外训练。作者训练后的分数作为报告参考，不重跑作者模型。Qwen/Gemma 作者分数对照采用单独记录的输入协议；Qwen3.5 已接入控制台，Gemma 4 的输入适配仍在推进。
+仅用官方基座权重，无额外训练。作者训练后的分数作为报告参考，不重跑作者模型。Qwen/Gemma 作者分数对照采用单独记录的输入协议；Qwen3.5 已接入控制台，Gemma 4 已通过真实 API 与类型接口验证并加入模型序列。
 
 |基座|测试内容|本次正确/题数|本次准确率|作者训练模型报告|
 |---|---|---:|---:|---:|

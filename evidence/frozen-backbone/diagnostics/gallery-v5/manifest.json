@@ -1,0 +1,16 @@
+{
+  "count": 136,
+  "changed_gui_images": 48,
+  "records_sha256": "4250901d2b4e62e6b61f6a805a4e8075b6bdf1b64b01b63b5ceea72995b3fbce",
+  "base_records_sha256": "720396391a00eb32209fd99a0022afab364750d424b6ec5713e7b3d64ed4abca",
+  "builder_sha256": "f9650ea3f33b477e8b23590d82fe9d12cbd4b9d19b8ce81097dece8a064c0d82",
+  "target_crops_unobscured": true,
+  "labels_and_selection_unchanged": true,
+  "max_soft_tokens": 280,
+  "minimum_processed_font_px": 65.36170212765958,
+  "limitations": [
+    "Gallery adaptation is not author-pixel replication",
+    "Source GUI distractor points and crop remain reconstructed",
+    "Glyph and association recognition must be measured separately; geometric checks are insufficient"
+  ]
+}

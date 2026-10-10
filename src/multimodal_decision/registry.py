@@ -1,5 +1,6 @@
 from .model import MODEL_ROOT
 MODELS = {
+    "gemma4-a4b": ("gemma-4-26B-A4B-it", "google/gemma-4-26B-A4B-it", "gemma4", 62),
     'qwen35-2b': ('Qwen3.5-2B-Base', 'Qwen/Qwen3.5-2B-Base', 'qwen35', 8),
     'gemma-e2b': ('gemma-3n-E2B-it', 'google/gemma-3n-E2B-it', 'gemma', 16),
     'gemma-e4b': ('gemma-3n-E4B-it', 'google/gemma-3n-E4B-it', 'gemma', 20),
@@ -19,6 +20,9 @@ def downloaded(key):
 
 def create_model(key):
     directory, _, family, _ = MODELS[key]
+    if family == 'gemma4':
+        from .gemma4 import Gemma4DecisionModel
+        return Gemma4DecisionModel(MODEL_ROOT/directory)
     if family == 'qwen35':
         from .qwen35 import Qwen35DecisionModel
         return Qwen35DecisionModel(MODEL_ROOT/directory)

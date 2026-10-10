@@ -4,8 +4,8 @@ from pathlib import Path
 import torch
 from fastapi import FastAPI,HTTPException,Request
 from .registry import MODELS as REGISTERED_MODELS, downloaded, create_model
-# Qwen3.5 is served by qwen35_service in its separate runtime.
-MODELS={k:v for k,v in REGISTERED_MODELS.items() if v[2]!='qwen35'}
+# Modern backbones have separate project-local runtimes and services.
+MODELS={k:v for k,v in REGISTERED_MODELS.items() if v[2] not in {'qwen35','gemma4'}}
 ROOT=Path(__file__).resolve().parent
 
 app=FastAPI(); lock=asyncio.Lock(); actor=None; active=None
