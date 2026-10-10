@@ -16,3 +16,5 @@ A800-SXM4-80GB, BF16, SDPA, Transformers 5.19.0, eight CPU threads. Models are l
 The completed experiment contains **4,200 rows**: 1,800 native generation calls, 1,800 decision calls and 600 first-step controls. Gemma's natural-output experiment is still running and will be reported with termination, accuracy and output lengths before a combined comparison is claimed.
 
 [Raw measurements, prompts hashes, outputs and audit](../evidence/frozen-backbone/latency/qwen/) · [Single-letter control](../evidence/frozen-backbone/latency-short-answer/qwen/) · [Reproduction](../experiments/frozen-backbone/)
+
+[Raw aggregate audit](../evidence/frozen-backbone/published-latency-audit.json) can be regenerated with `python scripts/audit_paired_latency.py`; this checks all currently completed published groups without new inference.

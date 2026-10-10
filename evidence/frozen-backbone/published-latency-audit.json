@@ -1,0 +1,42 @@
+{
+  "status": "published_raw_latency_audit_passed",
+  "groups": [
+    {
+      "group": "evidence/frozen-backbone/latency/qwen",
+      "questions": 600,
+      "repetitions": 3,
+      "raw_calls": 4200,
+      "native_median_ms": 121.36176857165992,
+      "decision_median_ms": 84.4338028691709,
+      "reduction_percent": 30.428005571362725,
+      "native_cap_calls": 0,
+      "same_prompt_per_question": true,
+      "raw_first_step_exact_agreements": 600
+    },
+    {
+      "group": "evidence/frozen-backbone/latency-short-answer/gemma",
+      "questions": 136,
+      "repetitions": 3,
+      "raw_calls": 952,
+      "native_median_ms": 308.08939691632986,
+      "decision_median_ms": 244.64428494684398,
+      "reduction_percent": 20.593085190372896,
+      "native_cap_calls": 36,
+      "same_prompt_per_question": true,
+      "raw_first_step_exact_agreements": 136
+    },
+    {
+      "group": "evidence/frozen-backbone/latency-short-answer/qwen",
+      "questions": 600,
+      "repetitions": 3,
+      "raw_calls": 4200,
+      "native_median_ms": 118.2842799462378,
+      "decision_median_ms": 84.14108562283218,
+      "reduction_percent": 28.865369378690286,
+      "native_cap_calls": 0,
+      "same_prompt_per_question": true,
+      "raw_first_step_exact_agreements": 600
+    }
+  ],
+  "scope": "Raw record and published aggregate consistency; protocol hashes and first-step agreement do not establish universal capability retention"
+}
