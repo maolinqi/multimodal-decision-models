@@ -5,7 +5,7 @@
 
 **看见现场，读懂任务，直接作出选择。**
 
-[English](README.md) · **简体中文**
+[English](README_en.md) · **简体中文**
 
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
 [![Tests](https://github.com/jiangfeibo/TianZe-MJev/actions/workflows/tests.yml/badge.svg)](https://github.com/jiangfeibo/TianZe-MJev/actions/workflows/tests.yml)
