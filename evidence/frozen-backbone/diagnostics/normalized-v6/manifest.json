@@ -1,0 +1,18 @@
+{
+  "count": 136,
+  "changed_gui_states": 48,
+  "transcribed_tables": 20,
+  "source_cells": 455,
+  "records_sha256": "4fe9ca526284c926d63175534b4617125f7286c7cce8d9914bcafb39eccb2325",
+  "base_records_sha256": "4250901d2b4e62e6b61f6a805a4e8075b6bdf1b64b01b63b5ceea72995b3fbce",
+  "builder_sha256": "6e756385911e3e624db4c51f87aa7a710ac095516a18ffd398db851ccd2f1af9",
+  "images_questions_options_labels_unchanged": true,
+  "all_table_cells_exact": true,
+  "max_soft_tokens": 280,
+  "scope": "Training-free input normalization, shared by both before/after inference paths",
+  "limitations": [
+    "Author trained scores remain reported references under their original presentation",
+    "Table transcriptions and GUI layout metadata are normalized observations; no claim of identical author input",
+    "Glyph diagnostics do not prove semantic object understanding"
+  ]
+}

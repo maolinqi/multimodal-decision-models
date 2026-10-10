@@ -1,0 +1,478 @@
+[
+  {
+    "id": "preview:mm-061",
+    "kind": "table_transcript",
+    "cells": 18,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-062",
+    "kind": "table_transcript",
+    "cells": 16,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-063",
+    "kind": "table_transcript",
+    "cells": 21,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-064",
+    "kind": "table_transcript",
+    "cells": 6,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-065",
+    "kind": "table_transcript",
+    "cells": 30,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-066",
+    "kind": "table_transcript",
+    "cells": 14,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-067",
+    "kind": "table_transcript",
+    "cells": 16,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-068",
+    "kind": "table_transcript",
+    "cells": 16,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-069",
+    "kind": "table_transcript",
+    "cells": 28,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-070",
+    "kind": "table_transcript",
+    "cells": 36,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-071",
+    "kind": "table_transcript",
+    "cells": 15,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-072",
+    "kind": "table_transcript",
+    "cells": 48,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-073",
+    "kind": "table_transcript",
+    "cells": 30,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-074",
+    "kind": "table_transcript",
+    "cells": 35,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-075",
+    "kind": "table_transcript",
+    "cells": 14,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-076",
+    "kind": "table_transcript",
+    "cells": 56,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-077",
+    "kind": "table_transcript",
+    "cells": 14,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-078",
+    "kind": "table_transcript",
+    "cells": 12,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-079",
+    "kind": "table_transcript",
+    "cells": 14,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-080",
+    "kind": "table_transcript",
+    "cells": 16,
+    "original_cell_text_exact": true,
+    "answers_or_explanations_included": false
+  },
+  {
+    "id": "preview:mm-081",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-082",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-083",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-084",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-085",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-086",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-111",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-112",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-113",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-087",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-088",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-089",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-090",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-091",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-092",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-114",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-115",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-116",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-093",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-094",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-095",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-096",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-097",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-098",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-117",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-118",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-119",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-099",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-100",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-101",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-102",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-103",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-104",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-120",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-121",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-122",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-105",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-106",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-107",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-108",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-109",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-110",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-123",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-124",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-125",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-126",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-127",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  },
+  {
+    "id": "preview:mm-128",
+    "kind": "gui_layout",
+    "candidate_order_verified": true,
+    "candidate_count": 5,
+    "source_crop_unobscured": true
+  }
+]

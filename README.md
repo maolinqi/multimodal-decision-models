@@ -140,7 +140,9 @@ Official weights only, no additional training; trained authors' scores are repor
 |---|---|---:|---:|---:|
 | Qwen3.5-2B-Base | RAVEN | 178/300 | 59.33% | Decider 80% |
 | Qwen3.5-2B-Base | Visual7W | 271/300 | 90.33% | Decider 89% |
-| Gemma-4-26B-A4B-it | 128 public preview + 8 cards | 90/136 | 66.18% | Rune v3 75.7%, 280 image tokens |
+| Gemma-4-26B-A4B-it | 128 public preview + 8 cards | 93/136 | 68.38% | Rune v3 75.7%, 280 image tokens |
+
+The latest Gemma result uses shared candidate-position mappings and 455 original structured table-cell strings, alongside the images. Both paths see the same observations. This reduces input-reading ambiguity; it changes presentation relative to the author and does not establish paired non-inferiority. Historical failures and the older error ledger remain available.
 
 Zero inference exceptions. Exact author samples/rendering are not independently matched; these figures do not establish non-inferiority. All adaptation failures, marker diagnostics and 197 wrong cases are retained. [Detailed results and limitations](docs/frozen-backbone-accuracy.md) · [Raw accuracy evidence](evidence/frozen-backbone/accuracy/)
 
