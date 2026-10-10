@@ -13,7 +13,7 @@ def main():
  frozen=ROOT/'evidence/frozen-backbone'
  q=read(frozen/'accuracy/qwen/summary.json')['tasks'];g=read(frozen/'accuracy/gemma-normalized-v6/summary.json')['tasks']
  assert all(r['errors']==0 for r in list(q.values())+list(g.values()))
- cases=[('Qwen3.5-2B-Base',f"RAVEN ({q['raven']['n']})",'Decider-2B-Vision',80.,q['raven']['correct']/q['raven']['n']*100),('Qwen3.5-2B-Base',f"Visual7W ({q['visual7w']['n']})",'Decider-2B-Vision',89.,q['visual7w']['correct']/q['visual7w']['n']*100),('Gemma-4-26B-A4B-it',None,'Rune v3',75.7,sum(r['correct'] for r in g.values())/sum(r['n'] for r in g.values())*100)]
+ cases=[('Qwen3.5-2B-Base',f"Visual7W ({q['visual7w']['n']})",'Decider-2B-Vision',89.,q['visual7w']['correct']/q['visual7w']['n']*100),('Gemma-4-26B-A4B-it',None,'Rune v3',75.7,sum(r['correct'] for r in g.values())/sum(r['n'] for r in g.values())*100)]
  for lang,filename in [('en','README.md'),('zh','README_zh.md')]:
   zh=lang=='zh';p=ROOT/filename;text=p.read_text()
   # Remove the old appended Chinese experimental narrative.

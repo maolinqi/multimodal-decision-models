@@ -29,7 +29,6 @@
 
 | 基座 | 评测集（n） | 训练模型 | [训练后报告](docs/frozen-backbone-accuracy.md) | 本方法（免训练） | 差值（pp） |
 |---|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
 | Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
 | Gemma-4-26B-A4B-it | Rune 公开重建集 (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
 

@@ -29,7 +29,6 @@ Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n/4, MiniCPM
 
 | Backbone | Benchmark (questions) | Trained model | [Reported accuracy](docs/frozen-backbone-accuracy.md) | Ours (0 training) | Delta (pp) |
 |---|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | RAVEN (300) | Decider-2B-Vision | 80.00% | **59.33%** | -20.67 |
 | Qwen3.5-2B-Base | Visual7W (300) | Decider-2B-Vision | 89.00% | **90.33%** | +1.33 |
 | Gemma-4-26B-A4B-it | Rune public reconstruction (136) | Rune v3 | 75.70% | **68.38%** | -7.32 |
 
