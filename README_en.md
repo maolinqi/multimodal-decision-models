@@ -1,7 +1,7 @@
 <div align="center">
 
-# TianZe-MJev: A Multimodal Jev-style Decision Model Framework
-### 天择多模态决策大模型框架
+# TianZe-MJev: A Multimodal Jev-style Decision Model
+### 天择-MJev: 一种基于Jev范式的多模态决策模型框架
 
 **See the scene. Understand the task. Make a choice.**
 
@@ -61,7 +61,7 @@ This design does not imply that System 1 can replace System 2. Deliberate analys
 
 ### 4. TianZe-MJev: a multimodal direct decision framework inspired by System 1
 
-Building on this research background, we propose **TianZe-MJev (天择多模态决策大模型框架)**, a multimodal direct decision framework inspired by System 1's fast judgment mechanism and designed for finite-candidate tasks.
+Building on this research background, we propose **TianZe-MJev (天择-MJev: 一种基于Jev范式的多模态决策模型框架)**, a multimodal direct decision framework inspired by System 1's fast judgment mechanism and designed for finite-candidate tasks.
 
 The core idea of TianZe-MJev is to **retain the perception and understanding capabilities of existing multimodal models while transforming the conventional “understanding → text generation → result extraction” path into “understanding → candidate scoring → direct selection.”**
 
