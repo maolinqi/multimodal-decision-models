@@ -48,13 +48,13 @@
 
 ## 低延迟决策：具体用了多久？
 
-| 基座 | 回答方式 | 评测集（n） | 原生 token 中位 | 原生中位（ms） | 决策中位（ms） | 加速比 |
+| 基座 | 回答方式 | 评测集（n） | 原生 token 中位 | 原生中位（ms） | 本方法决策延迟（ms，中位数） | 加速比 |
 |---|---|---:|---:|---:|---:|---:|
-| Gemma-4-26B-A4B-it | 自然生成 | Rune (136) | — | 测试中 | 测试中 | — |
+| Gemma-4-26B-A4B-it | 自然生成 | Rune (136) | 240 | 12512.1[†](docs/identical-input-latency.md#what-was-timed) | **248.2** | **50.40×** |
 | Gemma-4-26B-A4B-it | 仅回答字母 | Rune (136) | 2 | 308.1[†](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) | **244.6** | **1.26×** |
 | Gemma-3n-E4B-it | 自然生成 | ScienceQA (100) | 62.5 | 4880.7 | **152.3** | **32.06×** |
 
-[逐题结果](docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control) · [ScienceQA 延迟对照](docs/instruction-latency.md)
+[逐题结果](docs/identical-input-latency.md) · [ScienceQA 延迟对照](docs/instruction-latency.md)
 
 <details>
 <summary>ScienceQA 决策前向耗时</summary>

@@ -2,7 +2,7 @@
   "protocol": {
     "model_repo": "google/gemma-4-26B-A4B-it",
     "model_revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
-    "data_sha256": "4fe9ca526284c926d63175534b4617125f7286c7cce8d9914bcafb39eccb2325",
+    "data_sha256": "720396391a00eb32209fd99a0022afab364750d424b6ec5713e7b3d64ed4abca",
     "code_sha256": "dca50fec85cd953ba86db754a1bc520f76dd90de434910462a2d2a247d3a02dc",
     "limit": 0,
     "training": false,
@@ -28,8 +28,8 @@
     },
     "FinQA": {
       "n": 20,
-      "correct": 8,
-      "accuracy": 0.4,
+      "correct": 5,
+      "accuracy": 0.25,
       "errors": 0
     },
     "Geometry3K": {
@@ -40,14 +40,14 @@
     },
     "Multimodal-Mind2Web": {
       "n": 12,
-      "correct": 7,
-      "accuracy": 0.5833333333333334,
+      "correct": 5,
+      "accuracy": 0.4166666666666667,
       "errors": 0
     },
     "ScreenSpot": {
       "n": 36,
-      "correct": 29,
-      "accuracy": 0.8055555555555556,
+      "correct": 31,
+      "accuracy": 0.8611111111111112,
       "errors": 0
     },
     "public_example_cards": {

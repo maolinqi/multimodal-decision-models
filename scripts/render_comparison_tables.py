@@ -49,7 +49,7 @@ def main():
   if extra:
    for row in latrows:row[2]=f'Rune ({row[2]})'
    latrows.extend(extra)
-  lath=['基座','回答方式','评测集（n）' if extra else '题数','原生 token 中位','原生中位（ms）','决策中位（ms）','加速比'] if zh else ['Backbone','Answer mode','Benchmark (n)' if extra else 'Questions','Median output tokens','Native median (ms)','Ours median (ms)','Speedup']
+  lath=['基座','回答方式','评测集（n）' if extra else '题数','原生 token 中位','原生中位（ms）','本方法决策延迟（ms，中位数）','加速比'] if zh else ['Backbone','Answer mode','Benchmark (n)' if extra else 'Questions','Median output tokens','Native median (ms)','Our decision latency (ms, median)','Speedup']
   frows=[[r['name'],f"{r['forward_p50_ms']:.1f}",f"{r['forward_p95_ms']:.1f}"] for r in science]
   fh=['基座','前向中位数（ms）','前向 P95（ms）'] if zh else ['Backbone','Median forward (ms)','P95 forward (ms)']
   result_doc='docs/identical-input-latency.md' if (ROOT/'docs/identical-input-latency.md').exists() else 'docs/frozen-backbone-accuracy.md#completed-minimal-answer-latency-control'

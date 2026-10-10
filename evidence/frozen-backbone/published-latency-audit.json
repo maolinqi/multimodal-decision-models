@@ -2,6 +2,18 @@
   "status": "published_raw_latency_audit_passed",
   "groups": [
     {
+      "group": "evidence/frozen-backbone/latency/gemma",
+      "questions": 136,
+      "repetitions": 3,
+      "raw_calls": 952,
+      "native_median_ms": 12512.125364271924,
+      "decision_median_ms": 248.24772798456252,
+      "reduction_percent": 98.01594276945603,
+      "native_cap_calls": 3,
+      "same_prompt_per_question": true,
+      "raw_first_step_exact_agreements": 136
+    },
+    {
       "group": "evidence/frozen-backbone/latency/qwen",
       "questions": 600,
       "repetitions": 3,
