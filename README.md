@@ -90,17 +90,18 @@ TianZe-MJev的核心思想是：**保留现有多模态大模型的感知与理�
 
 **比较的方法。** 本方法加载官方权重、不加决策训练；参考方法为 Decider-2B-Vision 和 Rune v3 的作者报告。本轮未运行这两个训练模型，样本版本与最终图像呈现未完全配对，因此差值只作数值参考。
 
-**测试的基准。** Visual7W 和 RAVEN 各 300 题；Rune 的公开重建集为 128 道预览题加 8 张示例卡，共 136 题，使用 280 图像 token。重建集含 GUI、科学图表、几何、金融表格等任务；本方法的 FinQA 输入还包含原始结构化表格单元格文字。
+**测试的基准。** Visual7W 300 题；Rune 的公开重建集为 128 道预览题加 8 张示例卡，共 136 题，使用 280 图像 token。重建集含 GUI、科学图表、几何、金融表格等任务；本方法的 FinQA 输入还包含原始结构化表格单元格文字。
 
 **实验结果。**
 
-| 基座 | 对比模型 | 作者报告准确率 | 本方法实测准确率 | 差值（百分点） |
-|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 89.00% | **90.33% (271/300)** | +1.33 |
-| Qwen3.5-2B-Base | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 80.00% | **59.33% (178/300)** | −20.67 |
-| Gemma-4-26B-A4B-it | [Rune v3](https://huggingface.co/surogate/rune-26b-a4b-GGUF) | 75.70% | **68.38% (93/136)** | −7.32 |
+| 基座 | 测试基准（题数） | 对比模型 | 作者报告准确率 | 本方法实测准确率 | 差值（百分点） |
+|---|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | Visual7W (300) | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 89.00% | **90.33% (271/300)** | +1.33 |
+| Gemma-4-26B-A4B-it | Rune 公开重建集 (136) | [Rune v3](https://huggingface.co/surogate/rune-26b-a4b-GGUF) | 75.70% | **68.38% (93/136)** | −7.32 |
 
-**实验结果解析。** Visual7W 的免训练结果接近作者参考值，而 RAVEN 的差距较大；Gemma 4 的重建集结果也低于 Rune 报告值。免训练适配在部分任务上已经可用，训练的收益与任务类型有关。这些不同输入条件下的参考结果不能证明整体优于训练模型，也不能证明严格非劣效。[评测协议、逐题记录与错误账本](docs/frozen-backbone-accuracy.md)
+**实验结果解析。** Visual7W 的免训练结果接近作者参考值；Gemma 4 的重建集结果也低于 Rune 报告值。免训练适配在部分任务上已经可用，训练的收益与任务类型有关。这些不同输入条件下的参考结果不能证明整体优于训练模型，也不能证明严格非劣效。[评测协议、逐题记录与错误账本](docs/frozen-backbone-accuracy.md)
+
+七个基座的完整准确率复测已安排为从小到大的串行任务；新结果尚未完成，上表保留已有实测值。[实验安排与暂停规则](docs/accuracy-matrix-20261010.md)
 
 **对比模型做了什么？**
 

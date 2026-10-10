@@ -89,17 +89,18 @@ TianZe-MJev currently supports seven official multimodal backbones across the Qw
 
 **Methods compared:** our official frozen backbones versus authors' reported Decider-2B-Vision and Rune v3 results. Trained reference weights were not run here; sample revisions and final image presentations are not fully paired.
 
-**Benchmarks:** Visual7W and RAVEN, 300 questions each; Rune's 128 public preview items plus eight cards, 136 total, with a 280-image-token budget. Our reconstructed GUI presentation and structured FinQA table-cell text differ from the author inputs.
+**Benchmarks:** Visual7W, 300 questions; Rune's 128 public preview items plus eight cards, 136 total, with a 280-image-token budget. Our reconstructed GUI presentation and structured FinQA table-cell text differ from the author inputs.
 
 **Results:**
 
-| Backbone | Reference model | Author report | Ours, measured | Difference (pp) |
-|---|---|---:|---:|---:|
-| Qwen3.5-2B-Base | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 89.00% | **90.33% (271/300)** | +1.33 |
-| Qwen3.5-2B-Base | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 80.00% | **59.33% (178/300)** | −20.67 |
-| Gemma-4-26B-A4B-it | [Rune v3](https://huggingface.co/surogate/rune-26b-a4b-GGUF) | 75.70% | **68.38% (93/136)** | −7.32 |
+| Backbone | Benchmark (n) | Reference model | Author report | Ours, measured | Difference (pp) |
+|---|---|---|---:|---:|---:|
+| Qwen3.5-2B-Base | Visual7W (300) | [Decider-2B-Vision](https://huggingface.co/Mapika/decider-2b-vision) | 89.00% | **90.33% (271/300)** | +1.33 |
+| Gemma-4-26B-A4B-it | Rune public reconstruction (136) | [Rune v3](https://huggingface.co/surogate/rune-26b-a4b-GGUF) | 75.70% | **68.38% (93/136)** | −7.32 |
 
-**Interpretation:** Visual7W is numerically close to the reference, while RAVEN and the Rune reconstruction show substantial gaps. Training benefits depend on the task. These references establish neither overall superiority nor paired non-inferiority. [Protocol, raw results and error ledger](docs/frozen-backbone-accuracy.md).
+**Interpretation:** Visual7W is numerically close to the reference, while the Rune reconstruction shows a gap. Training benefits depend on the task. These references establish neither overall superiority nor paired non-inferiority. [Protocol, raw results and error ledger](docs/frozen-backbone-accuracy.md).
+
+A full seven-backbone accuracy rerun is scheduled serially from smallest to largest. New results are pending; the table retains existing measurements. [Schedule and pause policy](docs/accuracy-matrix-20261010.md).
 
 **Reference models and their training:**
 

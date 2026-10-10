@@ -1,0 +1,102 @@
+{
+  "run_id": "seven-model-accuracy-20261010",
+  "model_root": "/14545/mlq/models",
+  "source_root": "/14545/mlq/projects/tianze-mjev-accuracy-20261010/src",
+  "data_root": "/14545/mlq/projects/training-free-decision-benchmark",
+  "output_root": "/14545/mlq/projects/tianze-mjev-accuracy-20261010/results",
+  "gpu_uuid": "GPU-1f910354-0621-80f1-f3f1-aa06ee842d83",
+  "ssh_endpoint": "172.29.44.1:30566",
+  "headroom_gib": 4,
+  "models": [
+    {
+      "id": "qwen35-2b",
+      "name": "Qwen3.5-2B-Base",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv-qwen35/bin/python",
+      "minimum_gib": 8,
+      "parameter_elements": 2274069824,
+      "config_sha256": "ed1c1723241f23f7f4e23430759cbd7dcfb4103cbdfe052bfe7626b57c2615b4"
+    },
+    {
+      "id": "gemma-e2b",
+      "name": "gemma-3n-E2B-it",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+      "minimum_gib": 16,
+      "parameter_elements": 5439438272,
+      "config_sha256": "11c9aa9516fdfc9d16bf0d5f8a0ff4c53d3789aad479760d489714b0c48db3cb"
+    },
+    {
+      "id": "gemma-e4b",
+      "name": "gemma-3n-E4B-it",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+      "minimum_gib": 20,
+      "parameter_elements": 7849978192,
+      "config_sha256": "6d544e9d635378bd04b4824f284e32ecf3603e422e4689c5af565c3a8df5ad6b"
+    },
+    {
+      "id": "internvl35-8b",
+      "name": "InternVL3_5-8B",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+      "minimum_gib": 22,
+      "parameter_elements": 8528318464,
+      "config_sha256": "e849152d81a9eb158475d493d6c5ba1fc935d35ed01429bbd0182582416bb963"
+    },
+    {
+      "id": "minicpm-v45",
+      "name": "MiniCPM-V-4_5",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+      "minimum_gib": 22,
+      "parameter_elements": 8695895280,
+      "config_sha256": "1d6f6eb441da34dcb43db72cf3960254c7045cc2c595a3c836ae71136655ccc8"
+    },
+    {
+      "id": "internvl35-14b",
+      "name": "InternVL3_5-14B",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv/bin/python",
+      "minimum_gib": 34,
+      "parameter_elements": 15119523840,
+      "config_sha256": "48ef521cc52788b8d1f15bd66c0ed11c26ee489524bbb8d19dbace3a0ec18d0b"
+    },
+    {
+      "id": "gemma4-a4b",
+      "name": "gemma-4-26B-A4B-it",
+      "python": "/14545/mlq/projects/tianze-mjev-install-check-20261010/.venv-gemma4/bin/python",
+      "minimum_gib": 62,
+      "parameter_elements": 25805936206,
+      "config_sha256": "ed0c1eb3633de771906e9ba004a44cc5635bcc06ee2062077c3d2e88a50707d3"
+    }
+  ],
+  "datasets": [
+    {
+      "name": "Visual7W",
+      "records": "data/qwen/records.jsonl",
+      "task_filter": "visual7w",
+      "questions": 300,
+      "sha256": "af84d1f47267c5b25f8c0654d29e254d732182beca2c058c2e91b86ad481ad9b"
+    },
+    {
+      "name": "Rune-public-v6",
+      "records": "data/gemma-normalized-v6/records.jsonl",
+      "task_filter": null,
+      "questions": 136,
+      "sha256": "4fe9ca526284c926d63175534b4617125f7286c7cce8d9914bcafb39eccb2325"
+    }
+  ],
+  "adapter_source_sha256": {
+    "multimodal_decision/__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "multimodal_decision/contracts.py": "ac563fc4af2f1d388a7dd26ba0845fbaedfcfbadc7605a8ff29ec1a86c847fdf",
+    "multimodal_decision/gateway.py": "bab7e2cfa356162c476bbe198a5dde8e8b2cf6401a9658bf6d0f78f0dee11269",
+    "multimodal_decision/gemma4.py": "5af251609999531970ee9098f6a43504f9fb5b349b68ccfe97d6a8346d15732f",
+    "multimodal_decision/gemma4_service.py": "ab9bd209bde9ad5a2447094b1824521b9de9f03709241e75a7ab850b9eb04b58",
+    "multimodal_decision/model.py": "aa98ff9a278fc1b260531b9ff9115fef9fbffb0ead93c8f31126b8d2e60620f0",
+    "multimodal_decision/native.py": "a22000ab48566300b69a821d8964ec1cfba57dcdbc5982674ba89f1997473c58",
+    "multimodal_decision/observation.py": "586a0e133a369446c0c06e815649048650f9405c351ad6105926ee291129886a",
+    "multimodal_decision/qwen35.py": "b8d4f0d7d8fa322d2db9fc18bb02f90c5cc0f15e64d9fb6b9dc2be3cfaf3dfd4",
+    "multimodal_decision/qwen35_service.py": "93c8ab3647f8c946dfc8ef783de8bfea7200cdce6c71e75e6e2f31782888457b",
+    "multimodal_decision/registry.py": "e8faf2cb5d54829d9b90bbfc7e8b17a551fe4b68d0217b2a3263313ed90b099b",
+    "multimodal_decision/safety.py": "7be7ba02736d1347a0c861c46b4b80a28c613abe79f594d88e801e12b496e4b6",
+    "multimodal_decision/service.py": "ed4deb9a576a170520af2ffd0afc6caad7e1067196e21b62d15520e44ecc79c5"
+  },
+  "insufficient_memory": "pause immediately; do not skip or automatically retry",
+  "parameter_order": "total stored parameter elements, not active MoE parameters",
+  "training": false
+}
