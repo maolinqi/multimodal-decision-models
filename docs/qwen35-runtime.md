@@ -38,3 +38,5 @@ export PYTHONPATH="$PWD/src"
 ```
 
 The Qwen runtime uses PyTorch fallback implementations for optional causal-convolution/gated-delta-rule kernels in the recorded deployment. Performance is specific to this runtime and shared A800 hardware. The paired response-latency experiment separately records full preprocessing and actual generation lengths; ScienceQA forward timing alone is not a generation-speedup comparison.
+
+To release only this Qwen3.5 backend before loading another large model, send `POST http://127.0.0.1:8460/unload` with an empty JSON object. Unload refuses while the backend is busy; it does not stop other project jobs.

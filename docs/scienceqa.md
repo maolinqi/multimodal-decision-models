@@ -2,7 +2,7 @@
 
 [中文](scienceqa_zh.md)
 
-The evaluation uses **100 image-bearing questions from the official ScienceQA test split**, sampled once with seed 42 from numerically sorted problem IDs. All six backbones use these same IDs. Accuracy is the percentage of correct candidate choices on this fixed subset.
+The evaluation uses **100 image-bearing questions from the official ScienceQA test split**, sampled once with seed 42 from numerically sorted problem IDs. All seven backbones use these same IDs. Accuracy is the percentage of correct candidate choices on this fixed subset.
 
 The baseline runs the official generation implementation for one step and reads its raw candidate-label logits. The decision adapter directly reads the final-position logits. Each pair shares the checkpoint, prepared input, prompt, options, precision, and attention implementation. Candidate softmax and argmax are identical in both paths. This measures native candidate-decision retention under the project's preprocessing settings.
 

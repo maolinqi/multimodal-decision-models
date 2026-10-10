@@ -37,3 +37,5 @@ export PYTHONPATH="$PWD/src"
 ```
 
 The expanded [20-probe](../evidence/retention/gemma4-a4b.json) and [fixed ScienceQA](../evidence/scienceqa/gemma4-a4b.json) reports are complete and verified. GPU1 validation shares a GPU with other jobs; its forward times are descriptive and are not the paired response-speedup experiment, which runs both paths on GPU0.
+
+To release only this Gemma 4 backend before loading another large model, send `POST http://127.0.0.1:8461/unload` with an empty JSON object. Unload refuses while the backend is busy; it does not stop other project jobs.

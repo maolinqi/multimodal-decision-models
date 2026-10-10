@@ -2,11 +2,11 @@
 
 [English](scienceqa.md)
 
-评测采用 **ScienceQA 官方 test 划分中的 100 道带图像题目**。先对题目 ID 按数值排序，再用固定 seed 42 抽样；六个基座使用完全相同的题目。准确率为这组固定子集上的候选选择正确率。
+评测采用 **ScienceQA 官方 test 划分中的 100 道带图像题目**。先对题目 ID 按数值排序，再用固定 seed 42 抽样；七个基座使用完全相同的题目。准确率为这组固定子集上的候选选择正确率。
 
 原生对照调用官方生成实现的第一步，读取原始候选标签 logits；决策适配直接读取最后位置的 logits。每组配对共享权重、已预处理输入、提示、选项、精度和注意力实现，使用相同候选 softmax 与 argmax。该口径验证项目预处理配置下的原生候选决策保持情况。
 
-模型输入包含题目、已有提示、图像与选项。答案、lecture 和 solution 用于核验与评分。公开清单保存题目 ID、标签、来源版本及输入哈希；原始题目与图像保存在本地 `data/` 目录。
+模型输入包含题目、已有提示、图像与选项。答案用于评分；lecture 和 solution 仅用于数据来源一致性核验，不送入模型。公开清单保存题目 ID、标签、来源版本及输入哈希；原始题目与图像保存在本地 `data/` 目录。
 
 ## 复现
 
@@ -17,7 +17,7 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py gemma-
   --suite data/scienceqa/suite.json --out evidence/scienceqa/gemma-e2b.json
 ```
 
-分别对五个 model_id 运行对照。`scripts/summarize_scienceqa.py` 按固定清单核查完整报告，从逐题预测重算正确率并生成表格。报告保存错误预测、决策一致性、完整词表 logits 差异与参数版本检查。
+分别对七个 model_id 运行对照。`scripts/summarize_scienceqa.py` 按固定清单核查完整报告，从逐题预测重算正确率并生成表格。报告保存错误预测、决策一致性、完整词表 logits 差异与参数版本检查。
 
 ## 数据来源与许可
 

@@ -188,11 +188,22 @@ For Gemma, accept the upstream terms on Hugging Face and log in:
 .venv/bin/python scripts/download_models.py gemma-e2b gemma-e4b internvl35-8b internvl35-14b
 ```
 
-Set `MODEL_ROOT=/path/to/models` to reuse downloaded weights. Downloads and startup use the same variable. One backend loads on demand and keeps one model resident at a time. Free-memory admission thresholds are 16 GiB for E2B, 20 GiB for E4B, 22 GiB for MiniCPM / InternVL 8B, and 34 GiB for InternVL 14B. Longer inputs can require more memory.
+Set `MODEL_ROOT=/path/to/models` to reuse downloaded weights. Downloads and startup use the same variable. Each backend loads on demand and keeps one model resident at a time. Free-memory admission thresholds are 16 GiB for E2B, 20 GiB for E4B, 22 GiB for MiniCPM / InternVL 8B, and 34 GiB for InternVL 14B. Longer inputs can require more memory.
 
 The input budget is 8,192 tokens with bounded image tiling. The console uses the checkout’s `web/` directory; retain the checkout and editable installation. Services bind to localhost by default.
 
 </details>
+
+For the two newly validated backbones, initialize their separate runtimes and download the pinned official weights:
+
+```bash
+./scripts/setup_qwen35.sh
+./scripts/setup_gemma4.sh
+.venv/bin/python scripts/download_models.py qwen35-2b gemma4-a4b
+CUDA_VISIBLE_DEVICES=GPU-YOUR_AVAILABLE_GPU_UUID ./start_all.sh
+```
+
+The Qwen3.5 and Gemma 4 services use ports 8460 and 8461; free-memory admission is 8 GiB and 62 GiB respectively. Each backend manages its own resident model. See [Qwen3.5](docs/qwen35-runtime.md) and [Gemma 4](docs/gemma4-runtime.md) for API routing, unload and verification commands.
 
 ## Reproduce validation
 

@@ -179,6 +179,17 @@ Gemma 模型需要在 Hugging Face 接受上游条款并登录：
 
 </details>
 
+两个新增基座使用各自的项目内环境，官方权重下载固定到已验证版本：
+
+```bash
+./scripts/setup_qwen35.sh
+./scripts/setup_gemma4.sh
+.venv/bin/python scripts/download_models.py qwen35-2b gemma4-a4b
+CUDA_VISIBLE_DEVICES=GPU-YOUR_AVAILABLE_GPU_UUID ./start_all.sh
+```
+
+Qwen3.5 与 Gemma 4 服务分别使用 8460、8461 端口，加载前要求至少 8、62 GiB 空闲显存；各后端独立管理驻留模型。[Qwen3.5 环境说明](docs/qwen35-runtime.md)与 [Gemma 4 环境说明](docs/gemma4-runtime.md)提供完整的路由、卸载与验证命令。
+
 ## 复现验证
 
 ```bash
