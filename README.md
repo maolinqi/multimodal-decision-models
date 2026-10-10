@@ -5,7 +5,7 @@
 
 **Turn multimodal backbones into decision interfaces, with no additional training.**
 
-Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and InternVL
+Open-source multimodal decision interfaces built on Qwen3.5, Gemma 3n, MiniCPM-V, and InternVL
 
 **With no additional training: MiniCPM-V-4.5 achieves 98% candidate accuracy and 148.9 ms median decision-forward latency on 100 fixed ScienceQA image-test questions.**
 
@@ -14,8 +14,8 @@ Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and Int
 [![Code License](https://img.shields.io/badge/Code-Apache--2.0-blue.svg)](LICENSE)
 [![Tests](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml/badge.svg)](https://github.com/maolinqi/multimodal-decision-models/actions/workflows/tests.yml)
 [![Training](https://img.shields.io/badge/Additional_Training-0_steps-2563eb)](#training-free-decision-adaptation)
-[![Adapters](https://img.shields.io/badge/Native_Adapters-5-2563eb)](#supported-backbones)
-[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-500%2F500_agree-2563eb)](docs/scienceqa-results.md)
+[![Adapters](https://img.shields.io/badge/Native_Adapters-6-2563eb)](#supported-backbones)
+[![Paired Decisions](https://img.shields.io/badge/ScienceQA_Pairs-600%2F600_agree-2563eb)](docs/scienceqa-results.md)
 
 [Overview](#overview) · [Training-free method](#training-free-decision-adaptation) · [Inputs and outputs](#multimodal-inputs-structured-outputs) · [Models](#supported-backbones) · [Training-free accuracy](#measured-accuracy-with-no-additional-training) · [Latency](#measured-decision-latency) · [Quick start](#quick-start) · [Open source](#open-source-and-licenses)
 
@@ -27,9 +27,9 @@ Open-source multimodal decision interfaces built on Gemma 3n, MiniCPM-V, and Int
 
 **System One is an open-source model project for multimodal understanding and low-latency decisions, turning vision-language understanding into structured decisions callable from software.** Given task text, images or video frames, and a question, it returns a candidate choice, binary judgment, or ordinal score with a corresponding probability distribution. Text defines the task and candidates, images provide objects and spatial relationships, and timestamped video frames provide changes over time. These inputs are combined through the backbone’s native multimodal pipeline.
 
-We implemented five decision adapters on **Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**, **using their existing pretrained weights directly, with no additional training or fine-tuning**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**, returning the decision distribution directly and reducing the wait associated with token-by-token decoding.
+We implemented six decision adapters on **Qwen3.5-2B-Base, Gemma-3n-E4B / E2B, MiniCPM-V-4.5, and InternVL3.5-8B / 14B**, **using their existing pretrained weights directly, with no additional training or fine-tuning**. Each adapter preserves the backbone's native multimodal encoding, visual fusion, and language head, and reads decisions directly from candidate-label logits. A choice, judgment, or score uses one language-model forward pass and generates **0 new text tokens**, returning the decision distribution directly and reducing the wait associated with token-by-token decoding.
 
-The project provides a shared observation protocol, decision API, and web console, giving all five models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
+The project provides a shared observation protocol, decision API, and web console, giving all six models the same input and output interface. Runnable code, native adapters, evaluation scripts, and paired validation records are open source. Switch models on one page, inspect candidate distributions, and reproduce comparisons against the native backbone paths.
 
 ## Training-free decision adaptation
 
@@ -50,7 +50,7 @@ $$p_i = \frac{\exp(z_{t_i})}{\sum_{j=1}^{K}\exp(z_{t_j})}$$
 
 Here, $z_{t_i}$ is the logit for candidate $i$’s label token and $K$ is the number of candidates.
 
-This turns image and video understanding into choices, judgments, and scores callable from software. All five models connect to one console through the same protocol.
+This turns image and video understanding into choices, judgments, and scores callable from software. All six models connect to one console through the same protocol.
 
 ## Multimodal inputs, structured outputs
 
@@ -68,43 +68,45 @@ Candidate probabilities express relative preference within the supplied options.
 
 ## What we implemented
 
-Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We built a native adapter for each family, preserved its input pipeline, and connected it to the same decision protocol and console.
+Qwen, Gemma, MiniCPM, and InternVL encode and fuse visual inputs differently. We built a native adapter for each family, preserved its input pipeline, and connected it to the same decision protocol and console.
 
 | Component | Implementation |
 |---|---|
-| **Native model adapters** | Gemma processor / forward; MiniCPM image slicing, visual resampling, and embedding fusion; InternVL dynamic tiling and visual-token fusion |
+| **Native model adapters** | Qwen native image tokens and stable Base answer boundary; Gemma processor / forward; MiniCPM image slicing, visual resampling, and embedding fusion; InternVL dynamic tiling and visual-token fusion |
 | **Shared observation protocol** | RGB frames organized by camera and timestamp, with field and numeric validation |
 | **Shared decision readout** | Single-token candidate labels read through the backbone’s existing language head |
-| **Unified console and API** | Switch among five models on one page; connect a compatible Qwen service; load models on demand with one resident model per backend |
+| **Unified console and API** | Switch among six models on one page; connect a compatible Qwen service; load models on demand with one resident model per backend |
 | **Reproducible validation** | Fixed inputs, native-path comparisons, protocol tests, GPU records, and incorrect predictions published together |
 
 ## Supported backbones
 
 | model_id | Official backbone |
 |---|---|
+| `qwen35-2b` | [Qwen/Qwen3.5-2B-Base](https://huggingface.co/Qwen/Qwen3.5-2B-Base) |
 | `gemma-e4b` | [google/gemma-3n-E4B-it](https://huggingface.co/google/gemma-3n-E4B-it) |
 | `gemma-e2b` | [google/gemma-3n-E2B-it](https://huggingface.co/google/gemma-3n-E2B-it) |
 | `minicpm-v45` | [openbmb/MiniCPM-V-4_5](https://huggingface.co/openbmb/MiniCPM-V-4_5) |
 | `internvl35-8b` | [OpenGVLab/InternVL3_5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B) |
 | `internvl35-14b` | [OpenGVLab/InternVL3_5-14B](https://huggingface.co/OpenGVLab/InternVL3_5-14B) |
 
-These decision adapters use the official backbone weights and native language heads. An existing compatible Qwen service can be connected through `QWEN_DECISION_URL`.
+These decision adapters use the official backbone weights and native language heads. Qwen3.5 uses a [separate project-local runtime](docs/qwen35-runtime.md), preserving the existing five adapters’ environment. An existing Qwen3-VL-4B service can also be connected through `QWEN_DECISION_URL`.
 
 ## Measured accuracy with no additional training
 
-**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%.
+**MiniCPM-V-4.5 achieves 98% candidate-choice accuracy on the fixed ScienceQA image-test subset, with 0 additional training steps.** Gemma E2B / E4B and InternVL 8B achieve 80%, 84%, and 93%, respectively; InternVL 14B achieves 92%; Qwen3.5-2B-Base achieves 82%.
 
 The evaluation uses **100 image-bearing questions from the official ScienceQA test split, seed 42**, with identical IDs for every model in the table. Inputs contain the question, available hint, image, and options. Native and decision paths share checkpoint, prepared input, prompt, candidate set, precision, and attention implementation. The baseline reads candidate logits from the official generation first step and uses the same candidate softmax and argmax for scoring.
 
 | Model | Additional training | Native candidate accuracy | Decision accuracy | Agreement |
 |---|---:|---:|---:|---:|
+| Qwen3.5-2B-Base | 0 steps | 82% | 82% | 100% |
 | Gemma-3n-E2B-it | 0 steps | 80% | 80% | 100% |
 | Gemma-3n-E4B-it | 0 steps | 84% | 84% | 100% |
 | MiniCPM-V-4.5 | 0 steps | 98% | 98% | 100% |
 | InternVL3.5-8B | 0 steps | 93% | 93% | 100% |
 | InternVL3.5-14B | 0 steps | 92% | 92% | 100% |
 
-**All 500 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
+**All 600 paired decisions agree; maximum full-vocabulary logit and candidate-probability differences are 0.** On these tested inputs and settings, training-free adaptation preserves the backbone's native candidate decisions.
 
 [Dataset and protocol](docs/scienceqa.md) · [Fixed manifest](benchmarks/scienceqa-test-100-manifest.json) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
 
@@ -116,20 +118,23 @@ Measurements use the same fixed ScienceQA subset, 100 image questions per model,
 
 | Model | Median forward | P95 forward |
 |---|---:|---:|
+| Qwen3.5-2B-Base | 90.4 ms | 121.4 ms |
 | Gemma-3n-E2B-it | 213.5 ms | 253.1 ms |
 | Gemma-3n-E4B-it | 222.8 ms | 275.4 ms |
 | MiniCPM-V-4.5 | 148.9 ms | 256.1 ms |
 | InternVL3.5-8B | 291.1 ms | 384.7 ms |
 | InternVL3.5-14B | 263.8 ms | 440.3 ms |
 
+Original five adapters use Transformers 4.57.1; Qwen3.5 uses the isolated 5.19.0 runtime. Cross-model forward times are descriptive, not a paired speedup comparison.
+
 [Timing details](docs/scienceqa-latency.md) · [Full results](docs/scienceqa-results.md) · [Per-question records](evidence/scienceqa/)
 
-All five backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
+All six backbones also completed paired fixed probes covering color, counting, OCR, spatial relationships, two-image judgments, and temporal changes. See [Native-path validation](docs/base-retention-results.md).
 
 
 ### Frozen-backbone accuracy experiment
 
-Official weights only, no additional training; trained authors' scores are reported references, not reruns. These Qwen/Gemma experimental runners are separate from the five console adapters.
+Official weights only, no additional training; trained authors' scores are reported references, not reruns. The Qwen/Gemma author-reference experiments use separately recorded input protocols; Qwen3.5 is now also registered in the console, while Gemma 4 input adaptation remains in progress.
 
 | Backbone | Evaluation | Our correct / questions | Our accuracy | Author trained-model report |
 |---|---|---:|---:|---:|
@@ -191,9 +196,9 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python scripts/compare_base_retention.py minicp
 .venv/bin/python scripts/summarize_retention.py
 ```
 
-**11 CPU protocol tests passed.** The final command checks and aggregates the five completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
+**11 CPU protocol tests passed.** The final command checks and aggregates the six completed paired reports. Per-model interface checks are implemented in `scripts/validate_model.py`; recorded results are in [Validation](docs/validation.md).
 
-Reproduction commands and dataset provenance for the fixed ScienceQA image-test subset are in [Evaluation protocol](docs/scienceqa.md). Recheck the five per-question reports and regenerate accuracy and latency tables with `.venv/bin/python scripts/summarize_scienceqa.py`.
+Reproduction commands and dataset provenance for the fixed ScienceQA image-test subset are in [Evaluation protocol](docs/scienceqa.md). Recheck the six per-question reports and regenerate accuracy and latency tables with `.venv/bin/python scripts/summarize_scienceqa.py`.
 
 ## Open source and licenses
 

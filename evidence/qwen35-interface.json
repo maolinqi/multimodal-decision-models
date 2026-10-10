@@ -1,0 +1,377 @@
+{
+  "model_id": "qwen35-2b",
+  "status": "real_gpu_interface_validation_passed",
+  "results": [
+    {
+      "expected": "left",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "left",
+        "distribution": {
+          "left": 0.9324532747268677,
+          "right": 0.06754669547080994
+        },
+        "label_mass": 0.9482773542404175,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 726.7770445905626,
+        "latency_ms": 760.6846457347274,
+        "images": [
+          {
+            "sha256": "515d1a188c1361dec7bedcab37f78cdf3c75d12708da7efad888aa9a1d39ca1e",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 175,
+        "visual_tokens": 96,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null
+      },
+      "native_candidate_max_abs_diff": 0.0
+    },
+    {
+      "expected": "right",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.3208213150501251,
+          "right": 0.6791787147521973
+        },
+        "label_mass": 0.9669141173362732,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 81.50368696078658,
+        "latency_ms": 88.69771379977465,
+        "images": [
+          {
+            "sha256": "e7cfee6e0ec7278f276e25b7cf336e9673768f856fe9ea576548119cc7d3d5de",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 175,
+        "visual_tokens": 96,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null
+      },
+      "native_candidate_max_abs_diff": 0.0
+    },
+    {
+      "probe": "choice",
+      "result": {
+        "type": "choice",
+        "answer": "four",
+        "distribution": {
+          "four": 0.41360628604888916,
+          "five": 0.3650062680244446,
+          "six": 0.22138750553131104
+        },
+        "label_mass": 0.6145434975624084,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 47.65602480620146,
+        "latency_ms": 52.17671021819115,
+        "images": [],
+        "input_tokens": 64,
+        "visual_tokens": 0,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null
+      }
+    },
+    {
+      "probe": "noul",
+      "result": {
+        "type": "noul",
+        "answer": "true",
+        "distribution": {
+          "true": 0.5926666259765625,
+          "false": 0.4073334336280823
+        },
+        "label_mass": 0.6594712138175964,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 35.149551928043365,
+        "latency_ms": 39.690876845270395,
+        "images": [],
+        "input_tokens": 60,
+        "visual_tokens": 0,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null,
+        "p_true": 0.5926666259765625,
+        "p_false": 0.4073334336280823
+      }
+    },
+    {
+      "probe": "score",
+      "result": {
+        "type": "score",
+        "answer": "3",
+        "distribution": {
+          "1": 0.23130816221237183,
+          "2": 0.33655136823654175,
+          "3": 0.4321405291557312
+        },
+        "label_mass": 0.6766002774238586,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 35.267505794763565,
+        "latency_ms": 39.65681232511997,
+        "images": [],
+        "input_tokens": 64,
+        "visual_tokens": 0,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null,
+        "score": 2.200832486152649
+      }
+    },
+    {
+      "probe": "velocity4",
+      "result": {
+        "type": "velocity4",
+        "action_contract": {
+          "schema": "qwen3vl_independent_velocity4_v1",
+          "axes": [
+            "vx",
+            "vy",
+            "vz",
+            "yaw_rate"
+          ],
+          "physical_values": [
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -1.8,
+              -0.9,
+              -0.45,
+              0.0,
+              0.45,
+              0.9,
+              1.8
+            ],
+            [
+              -0.9,
+              -0.45,
+              -0.15,
+              0.0,
+              0.15,
+              0.45,
+              0.9
+            ]
+          ],
+          "normalization": [
+            2.0,
+            2.0,
+            2.0,
+            1.0471975511965976
+          ],
+          "independent_components": true,
+          "simultaneous_xyz_yaw": true,
+          "cartesian_action_count": 2401,
+          "discretized": true,
+          "continuous": false,
+          "frame": "body_FLU_yaw_aligned",
+          "duration_frames": 3,
+          "dt_seconds": 0.1,
+          "legacy_26_options": false,
+          "direct_motor_control": false,
+          "input_schema": "qwen3vl_observation_v1"
+        },
+        "proposed_physical": [
+          -1.8,
+          -1.8,
+          -1.8,
+          -0.9
+        ],
+        "proposed_normalized": [
+          -0.9,
+          -0.9,
+          -0.9,
+          -0.8594366926962349
+        ],
+        "indices": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "distributions": {
+          "vx": {
+            "0": 0.1915726512670517,
+            "1": 0.10254146158695221,
+            "2": 0.1690622717142105,
+            "3": 0.1915726512670517,
+            "4": 0.14919693768024445,
+            "5": 0.07985936105251312,
+            "6": 0.11619468778371811
+          },
+          "vy": {
+            "0": 0.24652819335460663,
+            "1": 0.149526908993721,
+            "2": 0.16943618655204773,
+            "3": 0.149526908993721,
+            "4": 0.1319570392370224,
+            "5": 0.062332089990377426,
+            "6": 0.0906926617026329
+          },
+          "vz": {
+            "0": 0.21919970214366913,
+            "1": 0.13295134902000427,
+            "2": 0.15065361559391022,
+            "3": 0.15065361559391022,
+            "4": 0.13295134902000427,
+            "5": 0.0806390717625618,
+            "6": 0.13295134902000427
+          },
+          "yaw_rate": {
+            "0": 0.29050201177597046,
+            "1": 0.15549452602863312,
+            "2": 0.17619837820529938,
+            "3": 0.13722343742847443,
+            "4": 0.10686972737312317,
+            "5": 0.05048167705535889,
+            "6": 0.08323021978139877
+          }
+        },
+        "components": [
+          {
+            "type": "choice",
+            "answer": "0",
+            "distribution": {
+              "0": 0.1915726512670517,
+              "1": 0.10254146158695221,
+              "2": 0.1690622717142105,
+              "3": 0.1915726512670517,
+              "4": 0.14919693768024445,
+              "5": 0.07985936105251312,
+              "6": 0.11619468778371811
+            },
+            "label_mass": 0.5924690961837769,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 43.29394502565265,
+            "latency_ms": 49.63018698617816,
+            "images": [],
+            "input_tokens": 198,
+            "visual_tokens": 0,
+            "base_model": "Qwen/Qwen3.5-2B-Base",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "0",
+            "distribution": {
+              "0": 0.24652819335460663,
+              "1": 0.149526908993721,
+              "2": 0.16943618655204773,
+              "3": 0.149526908993721,
+              "4": 0.1319570392370224,
+              "5": 0.062332089990377426,
+              "6": 0.0906926617026329
+            },
+            "label_mass": 0.5931305289268494,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 43.142597656697035,
+            "latency_ms": 49.067158717662096,
+            "images": [],
+            "input_tokens": 197,
+            "visual_tokens": 0,
+            "base_model": "Qwen/Qwen3.5-2B-Base",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "0",
+            "distribution": {
+              "0": 0.21919970214366913,
+              "1": 0.13295134902000427,
+              "2": 0.15065361559391022,
+              "3": 0.15065361559391022,
+              "4": 0.13295134902000427,
+              "5": 0.0806390717625618,
+              "6": 0.13295134902000427
+            },
+            "label_mass": 0.5801846981048584,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 42.4494300968945,
+            "latency_ms": 47.92423918843269,
+            "images": [],
+            "input_tokens": 197,
+            "visual_tokens": 0,
+            "base_model": "Qwen/Qwen3.5-2B-Base",
+            "adapter": null
+          },
+          {
+            "type": "choice",
+            "answer": "0",
+            "distribution": {
+              "0": 0.29050201177597046,
+              "1": 0.15549452602863312,
+              "2": 0.17619837820529938,
+              "3": 0.13722343742847443,
+              "4": 0.10686972737312317,
+              "5": 0.05048167705535889,
+              "6": 0.08323021978139877
+            },
+            "label_mass": 0.593123733997345,
+            "calibrated": false,
+            "forward_passes": 1,
+            "forward_ms": 42.91788721457124,
+            "latency_ms": 48.77513600513339,
+            "images": [],
+            "input_tokens": 200,
+            "visual_tokens": 0,
+            "base_model": "Qwen/Qwen3.5-2B-Base",
+            "adapter": null
+          }
+        ],
+        "latency_ms": 197.55073077976704,
+        "forward_passes": 4,
+        "calibrated": false,
+        "executable": false,
+        "reason": "Proposal requires current telemetry, joint swept-path check and freshness gate",
+        "base_model": "Qwen/Qwen3.5-2B-Base"
+      }
+    }
+  ],
+  "synthetic_position_correct": 2,
+  "synthetic_position_count": 2,
+  "training_applied": false,
+  "navigation_improvement_demonstrated": false,
+  "real_flight_verified": false,
+  "torch_version": "2.8.0+cu128",
+  "transformers_version": "5.19.0"
+}

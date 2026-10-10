@@ -1,0 +1,91 @@
+{
+  "status": "isolated_api_round_trip_passed",
+  "model_id": "qwen35-2b",
+  "synthetic_position_correct": 2,
+  "synthetic_position_count": 2,
+  "results": [
+    {
+      "expected": "left",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "left",
+        "distribution": {
+          "left": 0.9324532747268677,
+          "right": 0.06754669547080994
+        },
+        "label_mass": 0.9482773542404175,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 903.0579500831664,
+        "latency_ms": 962.8318599425256,
+        "images": [
+          {
+            "sha256": "515d1a188c1361dec7bedcab37f78cdf3c75d12708da7efad888aa9a1d39ca1e",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 175,
+        "visual_tokens": 96,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null,
+        "model_id": "qwen35-2b",
+        "returned_at_ms": 1791593095246.534,
+        "training_applied": false,
+        "model_load_ms": 6573.836878407747,
+        "request_latency_ms": 7798.750608693808,
+        "fresh_per_forward_cache": true,
+        "decoding": "restricted_next_token_logits"
+      }
+    },
+    {
+      "expected": "right",
+      "correct": true,
+      "result": {
+        "type": "choice",
+        "answer": "right",
+        "distribution": {
+          "left": 0.3208213150501251,
+          "right": 0.6791787147521973
+        },
+        "label_mass": 0.9669141173362732,
+        "calibrated": false,
+        "forward_passes": 1,
+        "forward_ms": 68.50034976378083,
+        "latency_ms": 78.94555339589715,
+        "images": [
+          {
+            "sha256": "e7cfee6e0ec7278f276e25b7cf336e9673768f856fe9ea576548119cc7d3d5de",
+            "original_size": [
+              384,
+              256
+            ],
+            "timestamp_ms": 0.0,
+            "camera_id": "front",
+            "modality": "rgb",
+            "calibration": {}
+          }
+        ],
+        "input_tokens": 175,
+        "visual_tokens": 96,
+        "base_model": "Qwen/Qwen3.5-2B-Base",
+        "adapter": null,
+        "model_id": "qwen35-2b",
+        "returned_at_ms": 1791593095330.7083,
+        "training_applied": false,
+        "model_load_ms": 0.0,
+        "request_latency_ms": 79.45148088037968,
+        "fresh_per_forward_cache": true,
+        "decoding": "restricted_next_token_logits"
+      }
+    }
+  ],
+  "scope": "Two synthetic image requests, default model routing, native visual path, distribution and unload; no general capability or flight claim"
+}

@@ -3,7 +3,9 @@ import asyncio,gc,json,time
 from pathlib import Path
 import torch
 from fastapi import FastAPI,HTTPException,Request
-from .registry import MODELS, downloaded, create_model
+from .registry import MODELS as REGISTERED_MODELS, downloaded, create_model
+# Qwen3.5 is served by qwen35_service in its separate runtime.
+MODELS={k:v for k,v in REGISTERED_MODELS.items() if v[2]!='qwen35'}
 ROOT=Path(__file__).resolve().parent
 
 app=FastAPI(); lock=asyncio.Lock(); actor=None; active=None
@@ -38,7 +40,7 @@ async def decide(request:Request):
  try:
   payload=json.loads(body)
   if not isinstance(payload,dict):raise ValueError('Request must be an object')
-  key=payload.get('model_id','gemma-e2b')
+  key=payload.get('model_id',next(iter(MODELS)))
   if key not in MODELS:raise ValueError('Unknown model')
   if payload.get('type') not in {'choice','score','noul','velocity4'}:raise ValueError('Unknown decision type')
  except (ValueError,TypeError) as exc:raise HTTPException(422,str(exc))

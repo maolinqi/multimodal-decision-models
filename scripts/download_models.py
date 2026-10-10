@@ -3,6 +3,7 @@ import argparse, os, json
 from pathlib import Path
 from huggingface_hub import snapshot_download
 MODELS = {
+ 'qwen35-2b': ('Qwen/Qwen3.5-2B-Base','Qwen3.5-2B-Base'),
  'gemma-e2b': ('google/gemma-3n-E2B-it','gemma-3n-E2B-it'),
  'gemma-e4b': ('google/gemma-3n-E4B-it','gemma-3n-E4B-it'),
  'minicpm-v45': ('openbmb/MiniCPM-V-4_5','MiniCPM-V-4_5'),
@@ -14,7 +15,7 @@ p.add_argument('--root',default=os.environ.get('MODEL_ROOT','models'));p.add_arg
 a=p.parse_args()
 for key in a.models:
  repo,directory=MODELS[key];path=Path(a.root)/directory
- snapshot_download(repo,revision=a.revision,local_dir=path,
+ snapshot_download(repo,revision=('b1485b2fa6dfa1287294f269f5fb618e03d52d7c' if key=='qwen35-2b' and a.revision=='main' else a.revision),local_dir=path,
   ignore_patterns=['*.bin','*.pt','*.pth','*.onnx','*.gguf','*.msgpack','*.h5'])
  index=path/'model.safetensors.index.json'
  weights=set(json.loads(index.read_text())['weight_map'].values()) if index.exists() else {'model.safetensors'}

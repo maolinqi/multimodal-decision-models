@@ -2,7 +2,7 @@
 
 [English](scienceqa.md)
 
-评测采用 **ScienceQA 官方 test 划分中的 100 道带图像题目**。先对题目 ID 按数值排序，再用固定 seed 42 抽样；五个基座使用完全相同的题目。准确率为这组固定子集上的候选选择正确率。
+评测采用 **ScienceQA 官方 test 划分中的 100 道带图像题目**。先对题目 ID 按数值排序，再用固定 seed 42 抽样；六个基座使用完全相同的题目。准确率为这组固定子集上的候选选择正确率。
 
 原生对照调用官方生成实现的第一步，读取原始候选标签 logits；决策适配直接读取最后位置的 logits。每组配对共享权重、已预处理输入、提示、选项、精度和注意力实现，使用相同候选 softmax 与 argmax。该口径验证项目预处理配置下的原生候选决策保持情况。
 
@@ -30,3 +30,5 @@ Lu 等（2022），*Learn to Explain: Multimodal Reasoning via Thought Chains fo
 ## 延迟计时
 
 每条记录保存 GPU 同步后的 `decision_forward_ms`，范围为已预处理张量输入到 logits 返回，包含视觉编码、融合和语言模型前向。模型加载后计时，按每模型全部 100 题统计中位数与最近秩 P95。硬件为 NVIDIA A800-SXM4-80GB、BF16，共享 GPU 实测。
+
+Qwen3.5 uses the separate Transformers 5.19.0 runtime: `PYTHONPATH=src .venv-qwen35/bin/python scripts/compare_base_retention.py qwen35-2b --suite data/scienceqa/suite.json --out evidence/scienceqa/qwen35-2b.json`. Existing adapters keep their Transformers 4.57.1 environment.
