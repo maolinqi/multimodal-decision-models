@@ -1,6 +1,6 @@
 <div align="center">
 
-# TianZe-MJev: A Multimodal Jev-style Decision Model
+# TianZe-MJev: A Multimodal Jev-style Decision Model Framework
 ### 天择多模态决策大模型框架
 
 **See the scene. Understand the task. Make a choice.**
